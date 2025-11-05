@@ -1,0 +1,577 @@
+.coupons {
+    padding: 0px;
+    border: 1px solid #74b700;
+    background: #edf7dd;
+}
+
+.cp {
+    padding: 0px;
+}
+
+span.ck {
+    float: right;
+    background: #6a69bd;
+    padding: 3px 8px;
+    color: white;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.app {
+    padding: 0px !important;
+}
+
+.coupn {
+    padding: 0px !important;
+}
+
+.cp {
+    padding: 0px !important;
+}
+
+.coupn h4 {
+    background: #4c8000;
+    padding: 4px;
+    color: white;
+    font-size: 15px;
+}
+
+.dtt3 {
+    background: #edf7dd;
+    border: 1px solid #82c50d;
+    padding: 12px 13px 24px 13px;
+}
+
+@media only screen and (max-width:991px) {
+    #navigation_example .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+        padding: 20px 10px;
+    }
+
+    #navigation_example .navbar-default .navbar-nav > li > a {
+        padding: 20px 10px;
+    }
+
+    #navigation_example .navbar-default {
+        background-color: white;
+        border-color: white;
+        padding: 0 10px;
+        border: none;
+    }
+}
+
+@media only screen and (max-width:767px){
+    #navigation_example .navbar-brand {
+        padding: 0px;
+        margin: 0;
+        width: 100%;
+        float: left;
+        text-align: center;
+    }
+
+    #navigation_example .navbar-default {
+        background-color: white !important;
+        padding: 0 !important;
+        border-bottom: 3px solid #82c50c !important;
+    }
+
+    #navigation_example .navbar-brand > img {
+        float: none;
+    }
+
+    #navigation_example .navbar-default .MrgnNav {
+        width: 100% !important;
+        float: left !important;
+    }
+
+    #navigation_example .navbar-default .navbar-right {
+        float: left;
+        width: 100%;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
+
+        #navigation_example .navbar-default .navbar-right li {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            float: left;
+        }
+
+            #navigation_example .navbar-default .navbar-right li a {
+                padding: 10px 0 !important;
+                font-size: 18px;
+                float: left;
+                width: 100%;
+                display: inline-block;
+                line-height: 1;
+                font-weight: bold;
+                color: #3c3c3c;
+            }
+
+}
+
+
+
+#navigation_example .navbar-default .MrgnNav {
+    width: auto;
+    float: right;
+}
+
+#navigation_example .navbar-brand {
+    padding: 0px;
+    margin: 0;
+    float: left;
+    height: auto;
+}
+
+#navigation_example .navbar-default .navbar-right {
+    float: right;
+    margin-right: 0;
+}
+
+#navigation_example .navbar-default .navbar-nav > li > a {
+    text-align: center;
+    cursor: pointer;
+}
+#navigation_example {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+#navigation_example .navbar-default {
+    background-color: white;
+    border-color: white;
+    padding: 0 50px;
+    border: none;
+}
+#navigation_example .navbar {
+    position: relative;
+    height: auto;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+}
+#navigation_example .navbar-brand {
+    padding: 0px;
+}
+#navigation_example .navbar-brand>img {
+    padding: 0;
+}
+#navigation_example .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: white;
+    background-color: #82c50d;
+    padding: 20px;
+}
+#navigation_example .navbar-default .navbar-nav > li > a {
+    color: black;
+    font-size: 18px;
+    padding: 20px;
+}
+#navigation_example .navbar-brand>img {
+    height: auto;
+    padding: 4px !important;
+    width: auto;
+    float: left;
+}
+section{
+	width:100%;
+	height:auto;
+	float:left;
+}
+section #car_info{
+	width:100%;
+	height:auto;
+	float:left; 
+	background-color:#efe4e4;
+}
+section #car_info .strip{
+	width:100%;
+	height:auto;
+	float:left;
+	background-color:#ffffff;
+	border: 1px solid #82c50e;
+	padding: 5px 5px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+section #car_info .strip1{
+	width:100%;
+	height:auto;
+	float:left;
+	background-color:#ffffff;
+	border: 1px solid #d7d7d7;
+	padding: 15px 5px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+section #car_info .strip1:hover{
+	width:100%;
+	height:auto;
+	float:left;
+	background-color:#ffffff;
+	border: 1px solid #82c50e;
+	padding: 15px 5px;
+    margin: 10px 0;
+    border-radius: 5px;
+	cursor: pointer;
+}
+section #car_info .strip1 .pdec{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0px;
+	padding:5px;
+}
+section #car_info .strip1 .button_dec{
+    width: auto;
+    height: auto;
+    float: left;
+    text-align: center;
+    padding: 10px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: #82c50e;
+}
+section #car_info .strip .pdec{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0px;
+	padding:5px;
+}
+section #car_info .vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+
+section #booking_detail{
+	width:100%;
+	height:auto;
+	float:left; 
+    padding:0;
+	background-color: #efe4e4;
+}
+section #booking_detail .strip{
+	width:100%;
+	height:auto;
+	float:left;
+	background-color:#ffffff;
+	border: 1px solid #d7d7d7;
+	padding:0px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+section #booking_detail .strip .button_dec{
+    width: auto;
+    height: auto;
+    float: left;
+    text-align: center;
+    padding: 10px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: #82c50e;
+}
+section #booking_detail .strip .hdec{
+font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px;
+    border: 1px solid #82c50e;
+    margin: 10px 0 20px 0; 
+    color: #82c50e;
+}
+section #booking_detail .strip .form-control {
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+section #booking_detail .strip .h5_dec{
+    font-weight: bold;
+    font-size: 15px;
+	padding-bottom: 10px;
+    border-bottom: 1px dotted grey;
+}
+    section #booking_detail .strip .changes{
+        font-weight: bold;
+        font-size: 15px;
+        padding-bottom: 10px; 
+    }
+.footer {
+    float: left;
+    width: 100%;
+    padding: 40px 0;
+    background: #333333;
+}
+.Footer_List {
+   width:16.6%;
+   float:left;
+}
+.Footer_List ul {
+   width:100%;
+   float:left;
+   padding-left:0;
+}
+ .Footer_Box {
+	 width:100%;
+     height:auto;
+     float:left;
+}
+.bottom-footer {
+    float: left;
+    width: 100%;
+    margin-top: 40px;
+}
+.lrg {
+    width: 40%;
+}
+.right-sec {
+    float: right;
+    width: 320px;
+    text-align: right;
+}
+.bottom-footer .social {
+    float: right;
+    padding: 14px 0 0;
+    margin-bottom: 10px;
+}
+
+.top-footer {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #3b3b3b;
+    padding-bottom: 50px;
+}
+.left-sec {
+    float: left;
+    width: 400px;
+}
+.subscibe {
+    float: left;
+    width: 100%;
+}
+.right-sec {
+    float: right;
+    width: 320px;
+    text-align: right;
+}
+.bottom-footer ul li a {
+    float: left;
+    width: 100%;
+    color: #717171;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 0;
+}
+.c-info {
+    color: #717171;
+    float: left;
+    font-size: 14px;
+    text-align: right;
+    width: 100%;
+}
+.f-logo {
+    margin-bottom: 15px;
+	    float: right;
+}
+.lrg-wid {
+    width: 60%;
+	float:left;
+}
+.top-footer h5 {
+    float: left;
+    width: 100%;
+    color: #717171;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 0 20px;
+}
+.top-footer h3 {
+    float: left;
+    width: 100%;
+    font-size: 22px;
+    color: #FFF;
+    font-weight: 300;
+}
+.bottom-footer ul li {
+    float: left;
+    width: 100%;
+}
+.copyright {
+    font-size: 13px;
+    color: #717171;
+    float: left;
+    width: 100%;
+    text-align: right;
+}
+.bottom-footer .social ul {
+    float: left;
+    width: 100%;
+}
+.bottom-footer .social {
+    float: right;
+    padding: 14px 0 0;
+    margin-bottom: 10px;
+}
+.bottom-footer .social ul li {
+    float: left;
+    list-style: outside none none;
+    margin: 0 0 0 10px;
+    width: auto;
+    margin: 0 0 0 5px;
+}
+.bottom-footer .social a {
+    display: block;
+}
+.bottom-footer ul li a {
+    float: left;
+    width: 100%;
+    color: #717171;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 0;
+}
+.subscibe input[type="text"] {
+    float: left;
+    width: 100%;
+    background: #2d2d2d;
+    border: 1px solid #3b3b3b;
+    width: 70%;
+    color: #545353;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px;
+}
+.subscibe input[type="submit"]:hover {
+    background: #82c50d;
+    color: #FFF;
+}
+.subscibe input[type="submit"] {
+    float: left;
+    width: 30%;
+    padding: 9px;
+    border: 1px solid #82c50d;
+    background: none;
+    color: #82c50d;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+@media only screen and (max-width:991px){
+section #car_info .vertical-align {
+    display: block;
+    align-items: center;
+}
+section #car_info .strip1 .button_dec{
+    width: 100%;
+    height: auto;
+    float: left;
+    text-align: center;
+    padding: 10px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: green;
+}
+.Footer_List {
+     width: 50% !important;
+     float: left;
+ }
+}
+@media only screen and (max-width:767px) {
+    .Footer_List {
+     	width: 50% !important;
+        float: left;
+    }
+	.left-sec, .right-sec {
+    width: 100%;
+}
+	#navigation_example .navbar-default {
+    background-color: white;
+    border-color: white;
+    padding: 0 0;
+    border: none;
+}
+	.top-footer, .right-sec, .c-info, .copyright {
+    text-align: center;
+}
+	.bottom-footer ul {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+		padding-left:0;
+}
+	.bottom-footer .social {
+    display: inline-block;
+    float: none;
+}
+	.f-logo {
+    margin: 0;
+    float: none;
+    text-align: center;
+}
+	.f-logo img{
+		margin:15px 0;
+	}
+ }
+
+
+
+.PriceBox{
+        width:100%;
+        float:left;
+        height:auto;
+        padding:10px;
+        background-color:rgba(130, 197, 13, 0.14);
+        border:1px solid #82c50d;
+        margin-bottom: 10px;
+      }
+      .PriceBox .HdngDec{
+    width: 100%;
+    float: left;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed black;
+      }
+      .PriceBox p{
+        width:100%;
+        float:left;
+        margin:0;
+        font-size:15px;
+        color:#000;
+      }
+    .PriceBox span.LeftFlt {
+        width: 70%;
+        float: left;
+    }
+        .PriceBox span.RightFlt {
+            text-align: right;
+            font-weight: bold;
+            width: 30%;
+            float: left;
+        }
+      .PriceBox p.TxtBold{
+            font-weight: bold;
+            color: #F44336;
+            font-size: 16px;
+            padding-top: 15px;
+      }

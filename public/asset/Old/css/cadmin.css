@@ -1,0 +1,4536 @@
+﻿@charset "utf-8";
+/* CSS Document */
+p {
+    font-size: 14px;
+    line-height: 1.7em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.outerWrapper {
+    width: 100%;
+    min-height: 100%;
+    float: left;
+    position: relative;
+}
+
+.triggerIcon {
+    width: 25px;
+    height: 17px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -316px -20px;
+    margin: 25px 0px 0px 20px;
+}
+
+.triggerIconDiv {
+    width: 60px;
+    height: 75px;
+    float: left;
+    border-right: 1px solid #eaeaea;
+}
+
+    .triggerIconDiv:hover {
+        background: #eaeaea;
+    }
+
+.colorThemeDiv {
+    width: 60px;
+    height: 75px;
+    float: left;
+    cursor: pointer;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -366px 7px;
+    border-right: 1px solid #eaeaea;
+}
+
+    .colorThemeDiv:hover {
+        background: #eaeaea url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -366px 7px;
+    }
+
+.paddingLeft {
+    padding-left: 0px;
+    position: relative;
+    min-height: 1px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.universalSearchDiv {
+    width: 400px;
+    height: auto;
+    float: left;
+    margin: 20px 0px;
+}
+
+.notificationDiv {
+    width: 60px;
+    height: 75px;
+    float: right;
+    cursor: pointer;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -434px 6px;
+    border-left: 1px solid #eaeaea;
+}
+
+    .notificationDiv:hover {
+        background: #eaeaea url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -434px 6px;
+    }
+
+.productSupportBox {
+    width: auto;
+    height: 45px;
+    float: right;
+    cursor: pointer;
+    border: 2px solid #eaeaea;
+    text-align: right;
+    padding: 10px 13px;
+    margin-top: 15px;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.searchIcon {
+    width: 100%;
+    height: 34px;
+    background: #fff url(../images/search-icon.png) no-repeat;
+    background-position: 98% 50%;
+    float: right;
+}
+
+#ProfilePhotoDiv {
+    width: auto;
+    height: 75px;
+    float: right;
+    padding-left: 10px;
+    cursor: pointer;
+    border-left: 1px solid #eaeaea;
+}
+
+.userProfileDiv {
+    width: auto;
+    height: 75px;
+    line-height: 75px;
+    float: right;
+    padding: 0px 12px;
+    cursor: pointer;
+}
+
+.OverviewIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -27px -62px;
+    display: block;
+    float: left;
+}
+
+    .OverviewIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -27px -62px;
+    }
+
+.HomeIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -27px -15px;
+    display: block;
+    float: left;
+}
+
+    .HomeIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -27px -62px;
+    }
+
+.ThemeIcon {
+    width: 20px;
+    height: 15px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -455px -738px;
+    display: block;
+    float: left;
+}
+
+    .ThemeIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -496px -738px;
+    }
+
+.ContactIcon {
+    width: 21px;
+    height: 21px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -629px -580px;
+    display: block;
+    float: left;
+}
+
+    .ContactIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -629px -629px;
+    }
+
+.TermConditionsIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -629px -681px;
+    display: block;
+    float: left;
+}
+
+    .TermConditionsIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -629px -730px;
+    }
+
+.PrivacyPolicyIcon {
+    width: 14px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -455px -646px;
+    display: block;
+    float: left;
+}
+
+    .PrivacyPolicyIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -498px -646px;
+    }
+
+.SocialIcon {
+    width: 19px;
+    height: 17px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -455px -691px;
+    display: block;
+    float: left;
+}
+
+    .SocialIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -496px -691px;
+    }
+
+.BookingIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -27px -111px;
+    display: block;
+    float: left;
+}
+
+    .BookingIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -27px -158px;
+    }
+
+.FleetpartnerIcon {
+    width: 24px;
+    height: 17px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -320px -115px;
+    display: block;
+    float: left;
+}
+
+    .FleetpartnerIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -368px -115px;
+    }
+
+.TariffIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -27px -209px;
+    display: block;
+    4px;
+    float: left;
+}
+
+    .TariffIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -27px -258px;
+    }
+
+.ProfileIcon {
+    width: 20px;
+    height: 22px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -323px -472px;
+    display: block;
+    4px;
+    float: left;
+}
+
+    .ProfileIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -323px -523px;
+    }
+
+.WebsiteIcon {
+    width: 17px;
+    height: 17px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -325px -571px;
+    display: block;
+    4px;
+    float: left;
+}
+
+    .WebsiteIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -325px -612px;
+    }
+
+.VehicleIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -27px -310px;
+    display: block;
+    float: left;
+}
+
+    .VehicleIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -27px -357px;
+    }
+
+.UserIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -25px -401px;
+    display: block;
+    float: left;
+}
+
+    .UserIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -25px -451px;
+    }
+
+.FinanceIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -26px -502px;
+    display: block;
+    float: left;
+}
+
+    .FinanceIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -26px -550px;
+    }
+
+.SetiingIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -27px -599px;
+    display: block;
+    float: left;
+}
+
+    .SetiingIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -27px -650px;
+    }
+
+.GpsIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -323px -656px;
+    display: block;
+    float: left;
+}
+
+    .GpsIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -323px -703px;
+    }
+
+.AnalyticsIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -186px -370px;
+    display: block;
+    float: left;
+}
+
+    .AnalyticsIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -186px -416px;
+    }
+
+.BillingIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -186px -462px;
+    display: block;
+    float: left;
+}
+
+    .BillingIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -186px -508px;
+    }
+
+.DispatchIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -115px -113px;
+    display: block;
+    float: left;
+}
+
+    .DispatchIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -115px -161px;
+    }
+
+.MyProfileIcon {
+    width: 25px;
+    height: 25px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -320px -151px;
+    margin-top: 4px;
+}
+
+    .MyProfileIcon:hover {
+        width: 25px;
+        height: 25px;
+        background: url(../images/inner-page-sprite.png);
+        background-position: -369px -151px;
+        margin-top: 4px;
+    }
+
+.ProfileSetiingIcon {
+    width: 25px;
+    height: 25px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -320px -200px;
+    margin-top: 4px;
+}
+
+    .ProfileSetiingIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -369px -200px;
+        margin-top: 4px;
+    }
+
+.LogoutIcon {
+    width: 25px;
+    height: 25px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -319px -249px;
+    margin-top: 4px;
+}
+
+    .LogoutIcon:hover {
+        width: 25px;
+        height: 25px;
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -368px -249px;
+        margin-top: 4px;
+    }
+
+.innerPageTitleDiv {
+    height: auto;
+    float: left;
+    color: #242633 !important;
+}
+
+.innerPageSubTitle {
+    font-size: 16px;
+    color: #747474;
+}
+
+.btnAddUser {
+    min-width: 130px;
+    float: right;
+    background: #0e9fce url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -440px -145px;
+    border: 1px solid #0090bf;
+    color: #fff;
+    text-indent: 20px;
+}
+
+    .btnAddUser:hover {
+        background: #0e9bc9 url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -440px -145px;
+    }
+
+.listingTableDiv {
+    width: 100%;
+    min-height: 100px;
+    float: left;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    margin: 5px 0px;
+    padding-bottom: 10px;
+}
+
+.listingTableHeader {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    background: #f6f6f6;
+    border-bottom: 1px solid #eaeaea;
+    padding: 0% 1%;
+}
+
+.UsersTab {
+    float: left;
+    padding: 10px 0;
+}
+
+.listingFilterColumns {
+    width: auto;
+    float: right;
+    margin: 10px 0px;
+}
+
+.CalendarColumns {
+    width: auto;
+    float: right;
+    margin-right: 0px;
+}
+
+.listingSearchDiv {
+    width: 25%;
+    float: right;
+    margin: 10px 5px;
+}
+
+.listingTableFooter {
+    width: 100%;
+    min-height: 40px;
+    float: left;
+    padding: 0% 1%;
+}
+
+.listingPaginationDiv {
+    height: auto;
+    float: right;
+}
+
+.listingPageCountDiv {
+    height: auto;
+    float: left;
+    margin-top: 15px;
+}
+
+.listingTableContainer {
+    width: 98%;
+    min-height: 100px;
+    float: left;
+    overflow-x: auto;
+    margin: 1%;
+}
+
+.listingTableTitleRow {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    float: left;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.listingTableValueRow {
+    border-bottom: 1px solid #eaeaea;
+}
+
+    .listingTableValueRow:hover {
+        background: #f6f6f6;
+    }
+
+.listingTitleCell {
+    min-width: 20px;
+    padding: 0px 20px;
+    float: left;
+    font-weight: bold;
+}
+
+.listingValueCell {
+    min-width: 20px;
+    padding: 0px 20px;
+    float: left;
+}
+
+.innerFooter {
+    width: 100%;
+    height: auto;
+    line-height: 30px;
+    float: left;
+    font-size: 14px;
+    color: #767676;
+    text-align: center;
+}
+
+/*=======***ICON CLASS***=======*/
+.ViewIcon {
+    width: 20px;
+    height: 14px;
+    display: block;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -454px -232px;
+    float: left;
+    margin-top: 3px;
+}
+
+    .ViewIcon:hover {
+        background: url(../images/inner-page-sprite.png);
+        background-position: -454px -189px;
+        cursor: pointer;
+    }
+
+.EditIcon {
+    width: 20px;
+    height: 19px;
+    display: block;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -500px -230px;
+    float: left;
+    margin-left: 20px;
+}
+
+    .EditIcon:hover {
+        background: url(../images/inner-page-sprite.png);
+        background-position: -500px -185px;
+        cursor: pointer;
+    }
+
+.EditSmallIcon {
+    width: 15px;
+    height: 14px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -630px -380px;
+    margin-left: 10px;
+}
+
+.NotesIcon {
+    width: 16px;
+    height: 20px;
+    display: block;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -457px -274px;
+    float: left;
+}
+
+    .NotesIcon:hover {
+        background: url(../images/inner-page-sprite.png);
+        background-position: -500px -274px;
+        cursor: pointer;
+    }
+
+.StarIcon {
+    width: 84px;
+    height: 15px;
+    display: block;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -321px -323px;
+    float: left;
+}
+
+.ErrorMsgIcon {
+    width: 16px;
+    height: 13px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -187px -241px;
+}
+
+.error {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 5px;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+.AddBookingIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -186px -554px;
+}
+
+.AttachVehicleIcon {
+    width: 20px;
+    height: 16px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -27px -357px;
+}
+
+.PlayIcon {
+    width: 17px;
+    height: 17px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -776px -613px;
+}
+
+.PauseIcon {
+    width: 17px;
+    height: 17px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -776px -665px;
+}
+
+.StopIcon {
+    width: 17px;
+    height: 17px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -775px -720px;
+}
+
+.CarStopIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -775px -509px;
+}
+
+.AddTariffBtnIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -27px -258px;
+}
+
+.UserEditIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -500px -230px;
+    display: block;
+    float: left;
+}
+
+    .UserEditIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -500px -185px;
+        cursor: pointer;
+    }
+
+.DeleteIcon {
+    width: 18px;
+    height: 19px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -456px -322px;
+    display: block;
+    float: left;
+}
+
+    .DeleteIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -499px -322px;
+        cursor: pointer;
+    }
+
+.PlusIcon {
+    width: 20px;
+    height: 20px;
+    margin: 7px 2px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -455px -367px;
+    float: left;
+    display: block;
+}
+
+    .PlusIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -455px -408px;
+        cursor: pointer;
+    }
+
+.MinusIcon {
+    width: 20px;
+    height: 20px;
+    margin: 7px 3px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -498px -367px;
+    float: left;
+    display: block;
+}
+
+    .MinusIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -498px -408px;
+        cursor: pointer;
+    }
+
+.AddPolicyIcon {
+    width: 18px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -454px -456px;
+}
+
+.AddVehicleIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -498px -455px;
+}
+
+.MaintenanceRenewalsIcon {
+    width: 18px;
+    height: 18px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -455px -504px;
+    display: block;
+    float: left;
+}
+
+    .MaintenanceRenewalsIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -499px -504px;
+    }
+
+.AccessoriesIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -455px -553px;
+    display: block;
+    float: left;
+}
+
+    .AccessoriesIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -498px -553px;
+    }
+
+.PurchaseIcon {
+    width: 20px;
+    height: 14px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -455px -605px;
+    display: block;
+    float: left;
+}
+
+    .PurchaseIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -498px -605px;
+    }
+
+.PdfIcon {
+    width: 23px;
+    height: 30px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat no-repeat scroll -923px -17px transparent;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.ExcelFileIcon {
+    width: 23px;
+    height: 30px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat no-repeat scroll -923px -79px transparent;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.WordFileIcon {
+    width: 23px;
+    height: 30px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat no-repeat scroll -923px -141px transparent;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.UserOverviewIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -115px -209px;
+    display: block;
+    float: left;
+}
+
+    .UserOverviewIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -115px -257px;
+    }
+
+.UserBookingIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -115px -305px;
+    display: block;
+    float: left;
+}
+
+    .UserBookingIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -115px -351px;
+    }
+
+.UserPaymentIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -115px -397px;
+    display: block;
+    float: left;
+}
+
+    .UserPaymentIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -115px -440px;
+    }
+
+.UserBasicDetailsIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -115px -483px;
+    display: block;
+    float: left;
+}
+
+    .UserBasicDetailsIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -115px -529px;
+    }
+
+.UserAddressIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -115px -575px;
+    display: block;
+    float: left;
+}
+
+    .UserAddressIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -115px -623px;
+    }
+
+.UserVerificationIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -115px -671px;
+    display: block;
+    float: left;
+}
+
+    .UserVerificationIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -115px -719px;
+    }
+
+.UserBankAccountIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -186px -61px;
+    display: block;
+    float: left;
+}
+
+    .UserBankAccountIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -186px -105px;
+    }
+
+.UserCompanyIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -186px -148px;
+    display: block;
+    float: left;
+}
+
+    .UserCompanyIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -186px -195px;
+    }
+
+.UserBtnAddUser {
+    min-width: 130px;
+    float: right;
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+    text-indent: 10px;
+}
+
+.UserAddCashBtn {
+    min-width: 130px;
+    float: right;
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+    text-indent: 15px;
+}
+
+.BrowseBtnIcon {
+    min-width: 110px;
+    float: left;
+    margin: 0 0 0 10px;
+    background: #ecedf0;
+    background-position: -176px -12px;
+    border: 1px solid #ccc;
+    color: #747474;
+    text-indent: 10px;
+}
+
+    .BrowseBtnIcon:hover {
+        color: #747474;
+    }
+
+.ErrorIconDiv {
+    width: 16px;
+    height: 13px;
+    float: left;
+    margin: 2px 5px 0 0;
+    font-size: 13px;
+    text-align: left;
+    color: #e85c41;
+    text-indent: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -186px -241px;
+}
+
+.UserBankAccBtnIcon {
+    min-width: 130px;
+    float: right;
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+    text-indent: 10px;
+}
+
+.InvoiceIcon {
+    width: 20px;
+    height: 18px;
+    display: block;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -186px -280px;
+    float: left;
+    margin-top: 3px;
+}
+
+    .InvoiceIcon:hover {
+        background-position: -186px -326px;
+        cursor: pointer;
+    }
+
+.BrowseBtnIcon2 {
+    min-width: 110px;
+    float: left;
+    margin: 0;
+    background: #ecedf0;
+    border: 1px solid #ccc;
+    color: #747474;
+    text-indent: 10px;
+}
+
+    .BrowseBtnIcon2:hover {
+        color: #747474;
+    }
+
+.CustomizeIcon {
+    width: 20px;
+    height: 19px;
+    float: left;
+    display: block;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -630px -438px;
+}
+
+.ActivateIcon {
+    width: 15px;
+    height: 15px;
+    float: left;
+    display: block;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -631px -491px;
+    margin-top: 3px;
+}
+
+.PreviewIcon {
+    width: 20px;
+    height: 16px;
+    float: left;
+    display: block;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -629px -538px;
+    margin-top: 3px;
+}
+
+.AddCashBtn {
+    width: 20px;
+    height: 15px;
+    float: left;
+    margin: 2px 0 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -115px -440px transparent;
+}
+
+.FleetAddBookingBtn {
+    min-width: 130px;
+    float: right;
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+    text-indent: 0;
+}
+
+.AddressBtnIcon {
+    width: 14px;
+    height: 20px;
+    float: left;
+    margin: 2px 0 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -118px -623px transparent;
+}
+
+.BankAccountBtnIcon {
+    width: 19px;
+    height: 17px;
+    float: left;
+    margin: 2px 0 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -186px -105px transparent;
+}
+
+.BrowsBtnIcon {
+    width: 19px;
+    height: 18px;
+    float: left;
+    float: left;
+    margin: 2px 0 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -186px -17px transparent;
+}
+
+.PaymentMenuIcon {
+    width: 20px;
+    height: 14px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -629px -17px;
+    display: block;
+    float: left;
+}
+
+    .PaymentMenuIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -629px -57px;
+    }
+
+.TariffMenuIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -27px -209px;
+    display: block;
+    float: left;
+}
+
+    .TariffMenuIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -27px -258px;
+    }
+
+.ReviewMenuIcon {
+    width: 20px;
+    height: 17px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -629px -97px;
+    display: block;
+    float: left;
+}
+
+    .ReviewMenuIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -629px -140px;
+    }
+
+.AcceptIcon {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 0 5px 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -257px -17px transparent;
+    cursor: pointer;
+}
+
+.AcceptBtn {
+    float: left;
+    cursor: pointer;
+    margin: 0;
+    color: #767676;
+}
+
+    .AcceptBtn:hover {
+        color: #38aa00;
+    }
+
+    .AcceptBtn a {
+        text-decoration: none;
+        color: #38aa00;
+    }
+
+.CloseIcon {
+    width: 7px;
+    height: 8px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -780px -348px;
+    margin-top: 6px;
+}
+
+.RejectIcon {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 0 5px 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -257px -58px transparent;
+    cursor: pointer;
+}
+
+.RejectBtn {
+    float: left;
+    cursor: pointer;
+    margin: 0;
+    color: #767676;
+}
+
+    .RejectBtn:hover {
+        color: #ff3f3f;
+    }
+
+    .RejectBtn a {
+        text-decoration: none;
+        color: #ff3f3f;
+    }
+
+.LiveCarIcon {
+    width: 21px;
+    height: 15px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -1031px -270px;
+}
+
+.StopCarIcon {
+    width: 21px;
+    height: 15px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -1092px -270px;
+}
+
+.HistoryCarIcon {
+    width: 18px;
+    height: 15px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -1031px -309px;
+}
+
+.StatusLiveCarIcon {
+    width: 16px;
+    height: 12px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -1094px -310px;
+}
+
+/*=======COLOR CLASS=======*/
+.WhiteColor {
+    color: #FFF;
+}
+
+.BlueColor {
+    color: #0e9fce;
+}
+
+.BlackColor {
+    color: #242633;
+}
+
+.RedColor {
+    color: #F00;
+}
+
+.GreyColor {
+    color: #767676;
+}
+/*=====END COLOR CLASS=====*/
+
+/*=========CLASS=========*/
+.HundredPercentClass {
+    width: 100%;
+    padding: 5px 0;
+    float: left;
+}
+
+.BorderColor {
+    border-right: solid 1px #CCC;
+}
+
+.BorderColorLeft {
+    border-left: solid 1px #CCC;
+}
+
+.GreyBorderBottom {
+    border-bottom: solid 1px #CCC;
+    padding: 7px 0;
+    margin: 10px 0;
+}
+
+.MarginTopBox {
+    margin-top: 10px;
+}
+
+.CalenderOuter {
+    width: auto;
+    height: auto;
+    float: right;
+    padding-left: 20px;
+}
+/*=======END CLASS=======*/
+
+/*=========BUTTON=========*/
+.AddCommentBtn {
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+    margin-top: 80px;
+}
+
+.SubmitCommentBtn {
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+}
+
+.AddBooking {
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+    float: right;
+}
+
+.AddTariff {
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+    float: right;
+}
+
+.AddVehicle {
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+    float: right;
+}
+
+.UserEditButton {
+    float: right;
+    margin: 15px 0 0 0;
+}
+
+.ButtonCommon {
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+}
+/*=======END BUTTON=======*/
+
+/*========BOOKING PANEL=========*/
+/*=========VIEW BOOKING=========*/
+.LiveViewBookingsBtnLine {
+    border-bottom: solid 2px #41bc05;
+}
+
+.PendingViewBookingsBtnLine {
+    border-bottom: solid 2px #ff9000;
+}
+
+.CurrentViewBookingsBtnLine {
+    border-bottom: solid 2px #fc5ad4;
+}
+
+.FutureViewBookingsBtnLine {
+    border-bottom: solid 2px #41bc05;
+}
+
+.CancelledViewBookingsBtnLine {
+    border-bottom: solid 2px #ff0000;
+}
+
+.DoSettlementViewBookingsBtnLine {
+    border-bottom: solid 2px #00b3a4;
+}
+
+.CompleteViewBookingsBtnLine {
+    border-bottom: solid 2px #a68854;
+}
+
+.LiveViewBookingsColor {
+    color: #41bc05;
+}
+
+    .LiveViewBookingsColor a {
+        color: #41bc05;
+        text-decoration: underline;
+    }
+
+.PendingViewBookingsColor {
+    color: #ff9000;
+}
+
+    .PendingViewBookingsColor a {
+        color: #ff9000;
+        text-decoration: underline;
+    }
+
+.CurrentViewBookingsColor {
+    color: #fc5ad4;
+}
+
+    .CurrentViewBookingsColor a {
+        color: #fc5ad4;
+        text-decoration: underline;
+    }
+
+.FutureViewBookingsColor {
+    color: #41bc05;
+}
+
+    .FutureViewBookingsColor a {
+        color: #41bc05;
+        text-decoration: underline;
+    }
+
+.CancelledViewBookingsColor {
+    color: #ff0000;
+}
+
+    .CancelledViewBookingsColor a {
+        color: #ff0000;
+        text-decoration: underline;
+    }
+
+.DoSettlementViewBookingsColor {
+    color: #00b3a4;
+}
+
+    .DoSettlementViewBookingsColor a {
+        color: #00b3a4;
+        text-decoration: underline;
+    }
+
+.CompleteViewBookingsColor {
+    color: #a68854;
+}
+
+    .CompleteViewBookingsColor a {
+        color: #a68854;
+        text-decoration: underline;
+    }
+/*=======END VIEW BOOKING=======*/
+
+/*=======BOOKING DETAILS=======*/
+.BookingDetailsRow {
+    width: 100%;
+    float: left;
+    padding: 5px 0;
+}
+
+.BookingTitleBox {
+    float: left;
+    padding: 10px 0;
+    background-color: #EAEAEA;
+    width: 98%;
+    padding-left: 2%;
+    color: #1F1F1F;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.BookingDetailsCol-1 {
+    width: 30%;
+    float: left;
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.BookingDetailsCol-2 {
+    width: 69%;
+    float: left;
+    padding: 5px 0;
+    font-size: 14px;
+    color: #767676;
+    padding-left: 1%;
+}
+/*=====END BOOKING DETAILS=====*/
+
+/*=======CLOSE DUTY=======*/
+.CloseDutyBtnLine {
+    border-bottom: solid 2px #ff9000;
+}
+
+.CompleteCloseDutyBtnLine {
+    border-bottom: solid 2px #a68854;
+}
+
+.CloseDutyColor {
+    color: #ff9000;
+}
+
+    .CloseDutyColor a {
+        color: #ff9000;
+        text-decoration: underline;
+    }
+
+.CompleteCloseDutyColor {
+    color: #a68854;
+}
+
+    .CompleteCloseDutyColor a {
+        color: #a68854;
+        text-decoration: underline;
+    }
+/*=====END CLOSE DUTY=====*/
+
+/*=========USER LIST=========*/
+.CustomerUserListBtnLine {
+    border-bottom: solid 2px #41bc05;
+}
+
+.DriverUserListBtnLine {
+    border-bottom: solid 2px #ff9000;
+}
+
+.FleetPartnerUserListBtnLine {
+    border-bottom: solid 2px #fc5ad4;
+}
+
+.B2bUserListBtnLine {
+    border-bottom: solid 2px #0ba0cb;
+}
+
+.EmployeeUserListBtnLine {
+    border-bottom: solid 2px #a78bd1;
+}
+
+.TravelGuideUserListBtnLine {
+    border-bottom: solid 2px #c7922c;
+}
+
+.ApiUserListBtnLine {
+    border-bottom: solid 2px #cb7d3f;
+}
+
+.CorporateUserListBtnLine {
+    border-bottom: solid 2px #012186;
+}
+
+.CustomerUserListColor {
+    color: #41bc05;
+}
+
+    .CustomerUserListColor a {
+        color: #41bc05;
+        text-decoration: underline;
+    }
+
+.DriverUserListColor {
+    color: #ff9000;
+}
+
+    .DriverUserListColor a {
+        color: #ff9000;
+        text-decoration: underline;
+    }
+
+.FleetPartnerUserListColor {
+    color: #fc5ad4;
+}
+
+    .FleetPartnerUserListColor a {
+        color: #fc5ad4;
+        text-decoration: underline;
+    }
+
+.B2bUserListColor {
+    color: #0ba0cb;
+}
+
+    .B2bUserListColor a {
+        color: #0ba0cb;
+        text-decoration: underline;
+    }
+
+.EmployeeUserListColor {
+    color: #a78bd1;
+}
+
+    .EmployeeUserListColor a {
+        color: #a78bd1;
+        text-decoration: underline;
+    }
+
+.TravelGuideUserListColor {
+    color: #c7922c;
+}
+
+    .TravelGuideUserListColor a {
+        color: #c7922c;
+        text-decoration: underline;
+    }
+
+.ApiUserListColor {
+    color: #cb7d3f;
+}
+
+    .ApiUserListColor a {
+        color: #cb7d3f;
+        text-decoration: underline;
+    }
+
+.CorporateUserListColor {
+    color: #012186;
+}
+
+    .CorporateUserListColor a {
+        color: #012186;
+        text-decoration: underline;
+    }
+/*=======END USER LIST=======*/
+
+/*=======REVIEW=======*/
+.ApprovedReviewListBtnLine {
+    border-bottom: solid 2px #41bc05;
+}
+
+.PendingReviewListBtnLine {
+    border-bottom: solid 2px #ff9000;
+}
+
+.DenyReviewListBtnLine {
+    border-bottom: solid 2px #ff3f3f;
+}
+
+.ApprovedReviewListColor {
+    color: #41bc05;
+}
+
+    .ApprovedReviewListColor a {
+        color: #41bc05;
+        text-decoration: underline;
+    }
+
+.PendingReviewListColor {
+    color: #ff9000;
+}
+
+    .PendingReviewListColor a {
+        color: #ff9000;
+        text-decoration: underline;
+    }
+
+.DenyReviewListColor {
+    color: #ff3f3f;
+}
+
+    .DenyReviewListColor a {
+        color: #ff3f3f;
+        text-decoration: underline;
+    }
+
+.ApproveButton {
+    background: #39be0d;
+    border: solid 1px #29a400;
+}
+
+.DenyButton {
+    background: #ff0000;
+    border: solid 1px #e20303;
+}
+/*=====END REVIEW=====*/
+
+/*=======TARIFF=======*/
+.AddTariffCol {
+    width: 128px;
+    float: left;
+    padding-right: 8px;
+    padding-bottom: 10px;
+}
+
+.PlusMinusBox {
+    width: 60px;
+    float: left;
+}
+
+.SeaterBoxSharecab {
+    float: left;
+    background: #F4F4F4;
+    border: solid 1px #E4E4E4;
+    text-align: center;
+    margin-left: 17px;
+    padding: 0 15px;
+}
+
+.SeatChartPanel {
+    padding: 10px;
+    margin: 15px 0;
+    background-color: #FFF;
+    float: left;
+    box-shadow: 0 0 0 1px #e5e5e5 inset;
+    border-radius: 5px;
+}
+
+.PassengerCommonClass {
+    width: 47px;
+    float: left;
+}
+
+.DriverSeatBox {
+    width: 44px;
+    height: 63px;
+    margin-top: 9px;
+}
+
+.BlankPassengerSeatBox {
+    height: 29px;
+    width: 28px;
+    margin: 7px 4px;
+}
+
+.PassengerSeatBox {
+    height: 29px;
+    width: 25px;
+    background-color: #d9d9d9;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+    color: #1A1A1A;
+    text-align: center;
+    line-height: 29px;
+    position: relative;
+    margin: 7px 4px;
+    border: solid 1px #e3e3e3;
+    -webkit-border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+    .PassengerSeatBox:hover {
+        background-color: #2bca81;
+        color: #FFF;
+        cursor: pointer;
+    }
+
+.SeatTopBox {
+    position: absolute;
+    width: 6px;
+    height: 20px;
+    background-color: #f4f4f4;
+    left: 21px;
+    top: 4px;
+    z-index: 10001;
+    border: solid 1px #c1c1c1;
+    border-radius: 3px;
+}
+
+.SeatTopBox {
+    position: absolute;
+    width: 6px;
+    height: 20px;
+    background-color: #f4f4f4;
+    left: 21px;
+    top: 4px;
+    z-index: 10001;
+    border: solid 1px #c1c1c1;
+    border-radius: 3px;
+}
+
+.SelectedSeat {
+    background-color: #2bca81;
+    color: #FFF;
+}
+
+.MaleSeat {
+    background-color: #3159f0;
+    color: #FFF;
+}
+
+.FemaleSeat {
+    background-color: #e13ae3;
+    color: #FFF;
+}
+
+.ComfortSeat {
+    background-color: #ff7a29;
+    color: #FFF;
+}
+
+.ProcessSeat {
+    background-color: #f32e2e;
+    color: #FFF;
+}
+
+.SeatChartLegend {
+    width: 100%;
+    float: left;
+    margin: 5px 0;
+}
+
+.AvailableSeatColor {
+    width: 11px;
+    height: 11px;
+    background-color: #CCC;
+    float: left;
+    border-radius: 2px;
+    margin-top: 4px;
+}
+
+.AvailableSeatText {
+    font-size: 12px;
+    color: #3f3f3f;
+    float: left;
+    padding: 0 10px 0 4px;
+}
+
+.SelectedSeatColor {
+    width: 11px;
+    height: 11px;
+    background-color: #2bca81;
+    float: left;
+    border-radius: 2px;
+    margin-top: 4px;
+}
+
+.SelectedSeatText {
+    font-size: 12px;
+    color: #13a361;
+    float: left;
+    padding: 0 10px 0 4px;
+}
+
+.MaleSeatColor {
+    width: 11px;
+    height: 11px;
+    background-color: #3159f0;
+    float: left;
+    border-radius: 2px;
+    margin-top: 4px;
+}
+
+.MaleSeatText {
+    font-size: 12px;
+    color: #3159f0;
+    float: left;
+    padding: 0 10px 0 4px;
+}
+
+.FemaleSeatColor {
+    width: 11px;
+    height: 11px;
+    background-color: #e13ae3;
+    float: left;
+    border-radius: 2px;
+    margin-top: 4px;
+}
+
+.FemaleSeatText {
+    font-size: 12px;
+    color: #d623d8;
+    float: left;
+    padding: 0 10px 0 4px;
+}
+
+.ComfortSeatColor {
+    width: 11px;
+    height: 11px;
+    background-color: #ff7a29;
+    float: left;
+    border-radius: 2px;
+    margin-top: 4px;
+}
+
+.ComfortSeatText {
+    font-size: 12px;
+    color: #ff7a29;
+    float: left;
+    padding: 0 10px 0 4px;
+}
+
+.ProcessSeatColor {
+    width: 11px;
+    height: 11px;
+    background-color: #f32e2e;
+    float: left;
+    border-radius: 2px;
+    margin-top: 4px;
+}
+
+.ProcessSeatText {
+    font-size: 12px;
+    color: #f32e2e;
+    float: left;
+    padding: 0 10px 0 4px;
+}
+
+/*=======END TARIFF=======*/
+
+/*=======VEHICLE=======*/
+.VehicleNumberColor {
+    color: #0e9fce;
+}
+
+    .VehicleNumberColor a {
+        color: #0e9fce;
+        text-decoration: underline;
+    }
+
+.YesBox {
+    width: auto;
+    background: #5cb85c;
+    float: left;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 25px;
+    cursor: default;
+    padding: 0 10px;
+}
+
+.NoBox {
+    width: auto;
+    background: #f0ad4e;
+    float: left;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 25px;
+    cursor: default;
+    padding: 0 10px;
+}
+
+.ActiveBox {
+    width: auto;
+    background: #5cb85c;
+    float: left;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 25px;
+    cursor: default;
+    padding: 0 10px;
+}
+
+.PendingBox {
+    width: auto;
+    background: #f0ad4e;
+    float: left;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 25px;
+    cursor: default;
+    padding: 0 10px;
+}
+
+.BlockBox {
+    width: auto;
+    background: #e70f0f;
+    float: left;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 25px;
+    cursor: default;
+    padding: 0 10px;
+}
+
+.ApproveBox {
+    padding: 0 10px;
+    background: #5cb85c;
+    float: left;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 25px;
+    cursor: default;
+    padding: 0 10px;
+}
+/*=====END VEHICLE=====*/
+
+/*=======ANALYTICS=======*/
+.PendingPaymentGetwayBtnLine {
+    border-bottom: solid 2px #ff9000;
+}
+
+.SuccessPaymentGetwayBtnLine {
+    border-bottom: solid 2px #c7922c;
+}
+
+.PendingPaymentGetwayColor {
+    color: #ff9000;
+}
+
+    .PendingPaymentGetwayColor a {
+        color: #ffa200;
+        text-decoration: underline;
+    }
+
+.SuccessPaymentGetwayColor {
+    color: #c7922c;
+}
+
+    .SuccessPaymentGetwayColor a {
+        color: #c7922c;
+        text-decoration: underline;
+    }
+
+.DownloadListIconBox {
+    width: auto;
+    float: right;
+    padding: 0 10px;
+}
+
+/*Query Builder*/
+#ChooseFieldsLine {
+    width: 100%;
+    float: left;
+    height: 4px;
+    background: #767676;
+    margin-top: 35px;
+    position: relative;
+    margin-bottom: 70px;
+}
+
+.ChooseFieldsTab {
+    float: left;
+    margin: 15px 120px;
+    position: absolute;
+    text-align: center;
+}
+
+    .ChooseFieldsTab li {
+        display: inline;
+    }
+
+    .ChooseFieldsTab a {
+        background: #767676;
+        width: 40px;
+        height: 40px;
+        display: block;
+        border-radius: 100px;
+        margin-left: 20px;
+    }
+
+        .ChooseFieldsTab a:hover {
+            background: #0e9fce;
+        }
+
+    .ChooseFieldsTab .active a {
+        background: #0e9fce;
+    }
+
+.AvailableFieldsTitle {
+    float: left;
+    width: 100%;
+}
+
+.DropdwonBox {
+    float: left;
+    width: 96%;
+    line-height: 35px;
+    background: url(../images/inner-page-sprite.png) #EFEFEF;
+    background-position: 360px -705px;
+    padding: 0 2%;
+    color: #484848;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.SelectBox {
+    float: left;
+    width: 96%;
+    padding: 2%;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 0 0px 1px #dcdcdc inset;
+    height: 250px;
+    overflow: scroll;
+}
+
+    .SelectBox li {
+        display: inline;
+    }
+
+    .SelectBox a {
+        display: block;
+        line-height: 32px;
+        padding-left: 10px;
+        font-size: 14px;
+        color: #484848;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 1px;
+    }
+
+        .SelectBox a:hover {
+            background-color: #d9e9ef;
+            color: #000;
+        }
+
+    .SelectBox .active a {
+        background-color: #d9e9ef;
+        color: #000;
+    }
+
+.OutputFieldsTitle {
+    float: left;
+    width: 100%;
+}
+
+.SelectBox1 {
+    float: left;
+    width: 96%;
+    padding: 2%;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 0 0px 1px #dcdcdc inset;
+    height: 250px;
+    overflow: scroll;
+}
+
+#ArrowFieldAddMinusBox {
+    width: 33px;
+    height: 90px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.AddFieldArrow {
+    width: 33px;
+    height: 33px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -768px -268px;
+}
+
+.MinusFieldArrow {
+    width: 33px;
+    height: 33px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -768px -197px;
+}
+/*End Query Builder*/
+
+/*=====END ANALYTICS=====*/
+
+/*=======CMS PANEL=======*/
+.CustomizeBox {
+    background-color: #242633;
+    padding: 5px;
+    margin: 10px 20px;
+}
+
+.ActivateBox {
+    background-color: #ecedf0;
+    padding: 5px;
+    margin: 10px 20px;
+}
+
+.ThemeBox {
+    width: 100%;
+    float: left;
+}
+
+.ThemeName {
+    width: 100%;
+    float: left;
+    padding-top: 5px;
+}
+
+.ThemeBtnClass {
+    width: 100%;
+    float: left;
+    padding: 10px 0;
+}
+
+.CloseDiv {
+    line-height: 20px;
+    border: solid 1px #ededed;
+    margin-left: 15px;
+    width: 220px;
+    padding: 7px 10px;
+}
+
+.CmsCabServicesBox {
+    border: solid 1px #e0e0e0;
+    min-width: 70%;
+    min-height: 45px;
+    float: left;
+}
+
+.CmsCabServicesTitleBox {
+    background: #ecedf0;
+    width: 180px;
+    float: left;
+    height: 43px;
+    line-height: 43px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #767676;
+}
+
+.CmsCabServicesNumberBox {
+    background: #767676;
+    width: 33px;
+    height: 33px;
+    float: left;
+    height: 33px;
+    margin: 5px;
+    text-align: center;
+    line-height: 33px;
+    font-size: 17px;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.CmsCabServicesClass {
+    float: left;
+    padding: 0 15px;
+    line-height: 43px;
+    font-size: 14px;
+    color: #333333;
+}
+/*=====END CMS PANEL=====*/
+
+/*=======DISCOUNT PANEL=======*/
+.CouponTitleColor {
+    color: #484848;
+}
+
+    .CouponTitleColor a {
+        color: #484848;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+/*=====END DISCOUNT PANEL=====*/
+
+/*=======USER MODULE=======*/
+.UserContainerDiv {
+    width: 98%;
+    height: auto;
+    float: left;
+    margin: 1%;
+}
+
+.UserLeftColDiv {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.UserLeftColInnerDiv {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 10px 0 10px 0;
+}
+
+.UserFormTitle {
+    width: 20%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #242633;
+    font-weight: normal;
+}
+
+.UserFormTitle2 {
+    width: 80%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #242633;
+    font-weight: normal;
+}
+
+.UserRightColDiv {
+    width: 49%;
+    height: auto;
+    float: right;
+}
+
+.VerificationInnerDiv {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 10px 0 10px 0;
+}
+
+.VerificationInputTitle {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    text-align: left;
+    color: #242633;
+    font-weight: bold;
+}
+
+.VerificationInputDiv {
+    width: 375px;
+    height: auto;
+    float: left;
+}
+
+.ErrorDispalyDiv {
+    width: auto;
+    height: auto;
+    float: left;
+    margin: 6px 0 0 10px;
+    font-size: 13px;
+    text-align: left;
+    color: #e85c41;
+}
+
+.CompanyBranchFromOuter {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.CompanyInputOuterDiv {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 10px 0 10px 0;
+}
+
+.CompanyInputInnerDiv {
+    width: 450px;
+    height: auto;
+    float: left;
+}
+
+.CalenderOuter {
+    width: auto;
+    height: auto;
+    float: right;
+    margin: 0 0 0 20px;
+}
+/*=======FLEET PARTNER MODULE=======*/
+
+/*TABLE TITLE UNDERLINE COLOR*/
+.ReceivedBtnLine {
+    border-bottom: solid 2px #046c15;
+}
+
+.RejectBtnLine {
+    border-bottom: solid 2px #bd4701;
+}
+
+.PaidBtnLine {
+    border-bottom: solid 2px #969806;
+}
+
+.InProcessBtnLine {
+    border-bottom: solid 2px #461700;
+}
+
+.ReceivedColor {
+    color: #046c15;
+}
+
+.RejectColor {
+    color: #bd4701;
+}
+
+.PaidColor {
+    color: #969806;
+}
+
+.InProcessColor {
+    color: #461700;
+}
+/*END TABLE TITLE UNDERLINE COLOR*/
+
+/*STAR RATING*/
+.StarRatingOuter {
+    width: 85px;
+    height: auto;
+    float: left;
+}
+
+.FillStar {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 0 2px 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -322px -348px transparent;
+}
+
+.BlankStar {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 0 2px 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -339px -348px transparent;
+}
+
+.HalfStar {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 0 2px 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -356px -348px transparent;
+}
+
+.BlueStar {
+    width: 15px;
+    height: 14px;
+    float: left;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -322px -348px;
+}
+
+.GreyStar {
+    width: 15px;
+    height: 14px;
+    float: left;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -339px -348px;
+}
+/*END STAR RATING*/
+
+.BackBtnDiv {
+    width: auto;
+    float: right;
+    margin: 10px 0 0 0;
+}
+
+/*VIEW REVIEW*/
+.ViewReviewContainer {
+    width: 98%;
+    min-height: 100px;
+    float: left;
+    margin: 1%;
+}
+
+.CarOuterDiv {
+    width: 130px;
+    height: auto;
+    float: left;
+}
+
+.CarImgBox {
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    float: left;
+    border: 1px solid #e1e2e4;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+    .CarImgBox img {
+        max-width: 100%;
+        height: auto;
+    }
+
+.CarTitleDiv {
+    width: 130px;
+    height: auto;
+    float: left;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    text-align: center;
+    color: #767676;
+    font-weight: normal;
+    line-height: 22x;
+}
+
+.ReviewBox {
+    width: 100%;
+    height: auto;
+    float: left;
+    border: 1px solid #e1e2e4;
+    padding: 10px 0 10px 0;
+    position: relative;
+}
+
+.ReviewBoxArrow {
+    width: 38px;
+    height: 35px;
+    float: left;
+    z-index: 101;
+    position: absolute;
+    left: -38px;
+    top: 15px;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -765px -17px transparent;
+}
+
+.ReviewTitle {
+    width: 96%;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+    font-size: 18px;
+    text-align: left;
+    color: #2298e5;
+    font-weight: normal;
+}
+
+.OverallRatingDiv {
+    width: 96%;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+    margin-top: 10px;
+}
+
+.OverallRatingTitle {
+    width: auto;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #2298e5;
+    font-weight: normal;
+    margin-right: 20px;
+}
+
+.OverallRatingTitle2 {
+    width: auto;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #2298e5;
+    font-weight: normal;
+    margin-left: 20px;
+}
+
+.ReviewContent {
+    width: 96%;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: left;
+    color: #777777;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+.AllRatingDiv {
+    width: 96%;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+    margin-top: 10px;
+}
+
+.AllRatingTitle {
+    width: auto;
+    height: auto;
+    float: left;
+    font-size: 13px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+    margin-right: 20px;
+}
+
+.AllRatingTitle2 {
+    width: auto;
+    height: auto;
+    float: left;
+    font-size: 13px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.ReviewAutherName {
+    width: 96%;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: left;
+    color: #242633;
+    font-weight: normal;
+}
+
+.ReviewDate {
+    width: 96%;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+    text-indent: 10px;
+    font-size: 13px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+}
+
+.ReviewOuterDiv {
+    width: auto;
+    height: 21px;
+    float: left;
+    margin: 15px 0 0 10px;
+}
+
+/*BIG STAR*/
+.StarDiv {
+    width: 22px;
+    height: 21px;
+    float: left;
+    margin: 0 2px 0 0;
+}
+
+.StarFillLeft {
+    width: 11px;
+    height: 21px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -322px -372px transparent;
+}
+
+.StarFillRight {
+    width: 11px;
+    height: 21px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -333px -372px transparent;
+}
+
+.StarBlankLeft {
+    width: 11px;
+    height: 21px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -345px -372px transparent;
+}
+
+.StarBlankRight {
+    width: 11px;
+    height: 21px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -356px -372px transparent;
+}
+/*END BIG STAR*/
+
+.SmallOuterDiv {
+    width: auto;
+    height: 15px;
+    float: left;
+}
+
+.SmallStar {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 0 2px 0 0;
+}
+
+.SmallFillStarLeft {
+    width: 8px;
+    height: 15px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -322px -348px transparent;
+}
+
+.SmallFillStarRight {
+    width: 7px;
+    height: 15px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -330px -348px transparent;
+}
+
+.SmallBlankStarLeft {
+    width: 8px;
+    height: 15px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -339px -348px transparent;
+}
+
+.SmallBlankStarRight {
+    width: 7px;
+    height: 15px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -347px -348px transparent;
+}
+
+
+/*LINK CLASS*/
+.DefaultLink {
+    color: #333;
+    text-decoration: underline;
+}
+
+    .DefaultLink:hover {
+        color: #333;
+        text-decoration: underline;
+    }
+/*END LINK CLASS*/
+
+
+/*SIDE MENU ICON*/
+.CompanyMenuIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -623px -183px;
+    display: block;
+    float: left;
+}
+
+    .CompanyMenuIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -623px -226px;
+    }
+/*END SIDE MENU ICON*/
+
+
+.LiveViewBookingsColor a {
+    color: #41bc05;
+    text-decoration: underline;
+}
+
+.AddPaymentBtnIcon {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 2px 0 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -26px -550px transparent;
+}
+
+.AddBokingBtnIcon {
+    width: 20px;
+    height: 19px;
+    float: left;
+    margin: 2px 0 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -27px -159px transparent;
+}
+
+.AddUserBtnIcon {
+    width: 20px;
+    height: 17px;
+    float: left;
+    margin: 2px 0 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -454px -153px transparent;
+}
+
+/*=======B2B OVERVIEW PAGE=======*/
+
+.B2BContainer {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 10px 0 0 0;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+.B2BTitleBg {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 13px 0 13px 0;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 18px;
+    text-align: left;
+    color: #242633;
+    font-weight: normal;
+    text-indent: 10px;
+}
+
+.OverviewBox {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 10px 0 10px 0;
+}
+
+.TotalBooking {
+    width: 100%;
+    min-height: 100px;
+    float: left;
+    border-right: 2px solid #ecedf0;
+}
+
+.TotalCounting {
+    width: 100%;
+    height: auto;
+    float: left;
+    font-size: 40px;
+    text-align: center;
+    color: #767676;
+    font-weight: bold;
+}
+
+.GraphOuterDiv {
+    width: 100%;
+    height: auto;
+    float: left;
+    text-align: center;
+}
+
+.GraphTitleDiv {
+    width: 100%;
+    height: auto;
+    float: left;
+    font-size: 18px;
+    text-align: center;
+    color: #767676;
+    font-weight: normal;
+}
+
+.TotalAmountDiv {
+    width: 100%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    font-weight: normal;
+}
+
+.ReviewSummaryOuter {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 20px 0 0 0;
+}
+
+.ReviewSummaryBox {
+    width: 100%;
+    height: auto;
+    float: left;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+.StarRatingDiv {
+    width: 40%;
+    height: auto;
+    float: left;
+    margin: 10px 0 10px 0;
+}
+
+.TotalRatingDiv {
+    width: 98%;
+    height: auto;
+    float: left;
+    margin-left: 1%;
+    font-size: 55px;
+    text-align: center;
+    color: #767676;
+    font-weight: normal;
+}
+
+.OverviewStarOuter {
+    width: 98%;
+    height: auto;
+    float: left;
+    margin-left: 1%;
+    margin-bottom: 10px;
+}
+
+.OverviewStarInnerDiv {
+    width: 120px;
+    height: auto;
+    margin: auto;
+}
+
+/*GREEN STAR*/
+.OverviewStar {
+    width: 22px;
+    height: 21px;
+    float: left;
+}
+
+.GreenStarFillLeft {
+    width: 11px;
+    height: 21px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -322px -402px transparent;
+}
+
+.GreenStarFillRight {
+    width: 11px;
+    height: 21px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -333px -402px transparent;
+}
+
+.GreenStarBlankLeft {
+    width: 11px;
+    height: 21px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -345px -402px transparent;
+}
+
+.GreenStarBlankRight {
+    width: 11px;
+    height: 21px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -356px -402px transparent;
+}
+/*END GREEN STAR*/
+
+.AveRatingDiv {
+    width: 98%;
+    height: auto;
+    float: left;
+    margin-left: 1%;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    color: #767676;
+    font-weight: normal;
+}
+
+.RatingProgressBarDiv {
+    width: 60%;
+    min-height: 180px;
+    float: left;
+    margin: 10px 0 10px 0;
+    border-left: 1px solid #e0e0e0;
+}
+
+.RatingProgressBarOuter {
+    width: 90%;
+    height: auto;
+    float: left;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+.RatingProgressBarTitle {
+    width: 20%;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+}
+
+.RatingProgressBar {
+    width: 78%;
+    height: 20px;
+    float: left;
+    margin-left: 2%;
+}
+
+.RouteWiseBookingDiv {
+    width: 40%;
+    height: auto;
+    float: left;
+    border-right: 1px solid #e0e0e0;
+}
+
+.RouteWiseInnerDiv {
+    width: 96%;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.RouteTitle {
+    width: 50%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+}
+
+.RouteBookingTotal {
+    width: 30%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+}
+
+.RouteBookingColor {
+    width: 20%;
+    height: auto;
+    float: left;
+}
+
+/*ROUTE BOOKING COLOR*/
+.OneWayColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #5bc0de;
+}
+
+.RoundTripColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #db4437;
+}
+
+.MultiCityColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #f4b400;
+}
+
+.ShareColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #5cb85c;
+}
+
+.PackagesColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #0063ad;
+}
+
+.DealColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #78d6c7;
+}
+/*END ROUTE BOOKING COLOR*/
+
+.RouteWiseProgressBarDiv {
+    width: 60%;
+    height: auto;
+    float: left;
+    margin: 20px 0 0 0;
+}
+
+.RouteWiseProgressBar {
+    width: 96%;
+    height: 20px;
+    float: left;
+    margin-left: 2%;
+    margin-bottom: 20px;
+}
+
+/*=======CUSTOMER OVERVIEW PAGE=======*/
+
+.CustomerOverviewTitle {
+    width: auto;
+    height: auto;
+    float: left;
+    font-size: 18px;
+    text-align: left;
+    color: #242633;
+    font-weight: normal;
+    text-indent: 10px;
+}
+
+.CustomerWalletBal {
+    width: auto;
+    height: 34px;
+    float: right;
+    text-indent: 0;
+    margin: 0 10px 0 0;
+}
+
+.WalletIcon {
+    width: 33px;
+    height: 34px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -768px -78px transparent;
+}
+
+.RupeesIcon {
+    width: 15px;
+    height: 22px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -777px -138px transparent;
+    margin: 6px 0 0 10px;
+}
+
+.WalletAmount {
+    width: auto;
+    height: 34px;
+    line-height: 34px;
+    float: left;
+    margin: 0 0 0 10px;
+    font-size: 30px;
+    text-align: left;
+    color: #767676;
+    font-weight: bold;
+}
+
+/*VERIFICATION BROWS BTN*/
+.BrowsBtnOuter {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.VerificationBtnIcon {
+    width: 20px;
+    height: 20px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -115px -719px transparent;
+}
+
+.ViewFileIcon {
+    width: 18px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -630px -276px;
+    display: block;
+    float: left;
+}
+
+    .ViewFileIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -630px -326px;
+        cursor: pointer;
+    }
+
+
+/*WRITE REVIEW*/
+.WriteReviewOuuter {
+    width: 98%;
+    height: auto;
+    float: left;
+    margin-left: 1%;
+    margin-top: 10px;
+}
+
+.WriteReviewImg {
+    width: 100%;
+    height: auto;
+    float: left;
+    text-align: center;
+}
+
+.WriteReviewMessage {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 10px 0 0 0;
+    font-size: 28px;
+    text-align: center;
+    color: #242633;
+    font-weight: normal;
+}
+
+.WriteReviewBtnOuter {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 10px 0 0 0;
+}
+
+/*FINANCE PAGE*/
+.FinanceMenuIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -114px -16px;
+    display: block;
+    float: left;
+}
+
+    .FinanceMenuIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -115px -62px;
+    }
+
+.UploadBulkPaymentBtn {
+    min-width: 130px;
+    float: right;
+    background: #0e9fce;
+    border: 1px solid #0090bf;
+    color: #fff;
+}
+
+.FinananceInput {
+    width: 60%;
+    height: auto;
+    float: left;
+}
+
+.FinanceBtn {
+    width: 35%;
+    height: auto;
+    float: right;
+}
+
+/*FILE ICON*/
+.FinancePdfIcon {
+    width: 23px;
+    height: 30px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat no-repeat scroll -923px -17px transparent;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.ExcelFileIcon {
+    width: 23px;
+    height: 30px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat no-repeat scroll -923px -79px transparent;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.WordFileIcon {
+    width: 23px;
+    height: 30px;
+    float: left;
+    background: url(../images/inner-page-sprite.png) no-repeat no-repeat scroll -923px -141px transparent;
+    cursor: pointer;
+    margin-right: 10px;
+}
+/*END FILE ICON*/
+
+
+/*PLUS BUTTON*/
+.AddBtnIcon {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 2px 0 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -186px -554px transparent;
+}
+
+.PaymentMessageDiv {
+    width: auto;
+    height: auto;
+    float: left;
+    margin: 0 0 0 10px;
+    font-size: 14px;
+    text-align: left;
+    color: #767676;
+}
+
+.PaymentUserDetails {
+    width: 100%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+    line-height: 32px;
+}
+
+.PurchessOuter {
+    width: 98%;
+    height: auto;
+    float: left;
+    margin: 1%;
+}
+
+.CommonOuterDiv {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 0 0 10px 0;
+}
+
+.SearchOuter {
+    width: 400px;
+    height: auto;
+    float: left;
+}
+
+.VendorDetailTitle {
+    width: 15%;
+    height: auto;
+    float: left;
+    margin: 0;
+    font-size: 14px;
+    text-align: left;
+    color: #242633;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.VendorDetailDiv {
+    width: 83%;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+    font-size: 14px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+.PaymentDetailTitle {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    text-align: left;
+    color: #242633;
+    font-weight: bold;
+}
+
+
+/*DASHBOARD PAGE*/
+.ServiceBookingOuter {
+    width: 100%;
+    height: auto;
+    float: left;
+    border: 1px solid #E0E0E0;
+    background-color: #fff;
+}
+
+.ServiceLeftBox {
+    width: 50%;
+    height: auto;
+    float: left;
+    border-right: 1px solid #E0E0E0;
+}
+
+
+/*DASHBOARD COLOR*/
+.OutStationColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #f4b400;
+}
+
+.LocalColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #0f9d58;
+}
+
+.TransferColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #4285f4;
+}
+
+.PackegesColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #db11ff;
+}
+
+.OneWayDealColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #08c5b1;
+}
+
+.SharedCabColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #db4437;
+}
+/*END DASHBOARD COLOR*/
+
+
+.ServiceGraphOuter {
+    width: 50%;
+    height: auto;
+    float: left;
+    padding: 20px 0 20px 0;
+}
+
+.ServiceGraph {
+    width: 219px;
+    height: 219px;
+    margin: auto;
+}
+
+
+/*FLEET AVAILABILITY COLOR*/
+.BMWColor5 {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #7cb5ec;
+}
+
+.BMWColor7 {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #434348;
+}
+
+.NissanColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #90ed7d;
+}
+
+.SwiftColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #f7a35c;
+}
+
+.IndicaColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #8085e9;
+}
+
+.IndiGoColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #f15c80;
+}
+
+.ToyotaColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #e4d354;
+}
+
+.ToyotaSUVColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #2b908f;
+}
+/*END FLEET AVAILABILITY COLOR*/
+
+
+/*COLOR*/
+.SwiftDzireColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #176799;
+}
+
+.TataIndicaColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #2f87b0;
+}
+
+.TataIndigoColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #42a4bb;
+}
+
+.ToyotaInnovaColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #42a4bb;
+}
+
+.ToyotaSUVFinderColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #78d6c7;
+}
+
+.ReceivedPaymentColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #ff5722;
+}
+
+.CreditPaymentColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #849aa4;
+}
+
+.FuturePaymentColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #ccd6da;
+}
+
+.ReceivedPaymentColor2 {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #7992bf;
+}
+
+.CreditPaymentColor2 {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #6bd5c3;
+}
+
+.FuturePaymentColor2 {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #a9dc8e;
+}
+
+.ICICIColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #db4437;
+}
+
+.SBIColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #4285f4;
+}
+
+.SBHColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #f4b400;
+}
+
+.PayUColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #5491c5;
+}
+
+.PayPalColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #739115;
+}
+
+.CCAvenueColor {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: #ca5c2d;
+}
+/*END COLOR*/
+
+
+/*DASHBOARD*/
+.PaymentDetailsGraphOuter {
+    width: 60%;
+    height: auto;
+    float: left;
+    padding: 5px 0 5px 0;
+}
+
+.PaymentDetailsGraph {
+    width: 90%;
+    height: auto;
+    float: left;
+    margin-left: 5%;
+}
+
+.PaymentDetailLeftBox {
+    width: 40%;
+    min-height: 280px;
+    float: left;
+    border-right: 1px solid #e0e0e0;
+}
+
+.FleetAvaiGraph {
+    width: 219px;
+    height: 219px;
+    margin: 50px auto;
+}
+
+
+.BankBalLeftBox {
+    width: 50%;
+    min-height: 270px;
+    float: left;
+    border-right: 1px solid #E0E0E0;
+}
+
+.BankBalGraphOuter {
+    width: 50%;
+    height: auto;
+    float: left;
+    padding: 35px 0 35px 0;
+}
+
+.BankBalGraph {
+    width: 90%;
+    height: auto;
+    float: left;
+    margin-left: 5%;
+}
+
+
+/*USER DASHBOARD*/
+.HighestBookingLeftDiv {
+    width: 47%;
+    min-height: 215px;
+    float: left;
+    margin-left: 2%;
+    border-right: 1px solid #E0E0E0;
+    font-size: 14px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+.HighestBookingRightDiv {
+    width: 47%;
+    min-height: 215px;
+    float: left;
+    margin-left: 2%;
+    font-size: 14px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+
+/*CUSTOMER DASHBOARD*/
+.TotalAmuntDiv {
+    width: 30%;
+    min-height: 200px;
+    float: left;
+    background-color: #0e9fce;
+}
+
+.AmountOuter {
+    width: 70%;
+    height: auto;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.TotalAmountIcon {
+    width: 24px;
+    height: 33px;
+    float: left;
+    margin: 18px 0 0 0;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -922px -203px transparent;
+}
+
+.TotalBalance {
+    width: auto;
+    height: auto;
+    float: left;
+    margin-left: 5px;
+    font-size: 45px;
+    text-align: left;
+    color: #fff;
+    font-weight: bold;
+}
+
+.TotalAmountTitle {
+    width: 70%;
+    height: auto;
+    margin: auto;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+}
+
+.BigWalletIcon {
+    width: 83px;
+    height: 87px;
+    margin: 10px auto;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -1038px -17px transparent;
+}
+
+.CustomerDashboardTbl {
+    width: 66%;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+}
+
+
+.TblDownArrow {
+    width: 16px;
+    height: 16px;
+    float: right;
+    background: url(../images/down-arrow.png) no-repeat scroll 0 0 transparent;
+}
+
+/*===BOOKING CANCELLATION POPUP===*/
+.CancellPopupTitle {
+    width: 30%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #333;
+    font-weight: normal;
+    padding: 8px 0 8px 0;
+}
+
+.CancellPopupSubTitle {
+    width: 70%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+    padding: 8px 0 8px 0;
+}
+
+.CancellInputBox {
+    width: 50%;
+    height: auto;
+    float: left;
+}
+
+.CancellTbl {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+/*===NOTIFICATION COUNTER===*/
+.NotificationCounter {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    float: left;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #ff604f;
+    z-index: 101;
+    right: 10px;
+    top: 5px;
+    position: absolute;
+    font-size: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.RelDiv {
+    position: relative;
+}
+
+.NotificationContener {
+    width: 230px;
+    height: 250px;
+    float: left;
+    position: absolute;
+    top: 75px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    z-index: 102;
+    -webkit-box-shadow: 0px 2px 8px #dadada;
+    -moz-box-shadow: 0px 2px 8px #dadada;
+    box-shadow: 0px 2px 8px #dadada;
+}
+
+.NotificationHeader {
+    width: 228px;
+    height: 35px;
+    line-height: 35px;
+    float: left;
+    background-color: #b3b3b3;
+    font-size: 14px;
+    text-align: left;
+    color: #fff;
+    text-indent: 10px;
+}
+
+.NotificationRow {
+    width: 228px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    background-color: #fff;
+    font-size: 13px;
+    text-align: left;
+    color: #767676;
+    text-indent: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+    .NotificationRow:hover {
+        background-color: #f5f5f5;
+    }
+
+.RowOvel {
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    float: right;
+    font-size: 12px;
+    text-align: center;
+    text-indent: 0;
+    color: #fff;
+    background-color: #f1f1f1;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin-top: 4px;
+    margin-right: 4px;
+}
+
+.OvelOne {
+    background-color: #f4b400;
+}
+
+.OvelTwo {
+    background-color: #db4437;
+}
+
+.OvelThree {
+    background-color: #08c5b1;
+}
+
+.OvelFour {
+    background-color: #db11ff;
+}
+
+.OvelFive {
+    background-color: #4285f4;
+}
+
+.OvelSix {
+    background-color: #0f9d58;
+}
+
+/*=======BOOKING CANCELLATION PAGE=======*/
+.BookingCancellOuter {
+    width: 98%;
+    height: auto;
+    float: left;
+    margin: 1%;
+}
+
+.BookingCancellationTitle {
+    width: 100%;
+    height: auto;
+    float: left;
+    font-size: 18px;
+    text-align: left;
+    color: #242633;
+    font-weight: normal;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.CancellPopupTitle2 {
+    width: 40%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 0 8px 0;
+}
+
+.CancellPopupSubTitle2 {
+    width: 60%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+    padding: 8px 0 8px 0;
+}
+
+.CancellationTextareDiv {
+    width: 95%;
+    height: auto;
+    float: left;
+}
+
+.CancellTbl2 {
+    width: 60%;
+    height: auto;
+    float: left;
+}
+
+.CancellInputBox2 {
+    width: 30%;
+    height: auto;
+    float: left;
+}
+
+/*MESSAGE ICON*/
+.MessageIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -924px -252px;
+    display: block;
+    float: left;
+}
+
+    .MessageIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -924px -284px;
+    }
+
+/*UNIVERSAL SEARCH BOX LIST*/
+.SearchBoxList {
+    width: 400px;
+    height: auto;
+    float: left;
+    padding: 0;
+    border: 1px solid #e0e0e0;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 5px 5px;
+    z-index: 101;
+    left: 0;
+    top: 34px;
+    position: absolute;
+    background-color: #fff;
+}
+
+.SearchBoxResultDiv {
+    width: 398px;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 13px;
+    text-align: left;
+    color: #767676;
+    font-weight: normal;
+}
+
+    .SearchBoxResultDiv:hover {
+        background-color: #f5f5f5;
+        cursor: pointer;
+    }
+
+    .SearchBoxResultDiv a {
+        text-decoration: none;
+        color: #767676;
+    }
+
+/*PAYMENT DETAIL*/
+.VerifyBtnLine {
+    border-bottom: solid 2px #fc5ad4;
+}
+
+.PayInprocessBtnLine {
+    border-bottom: solid 2px #461700;
+}
+
+.PaymentPayBtnLine {
+    border-bottom: solid 2px #1037ff;
+}
+
+.PaymentPaidBtnLine {
+    border-bottom: solid 2px #969806;
+}
+
+.VerifyColor {
+    color: #fc5ad4;
+}
+
+.PayInprocessColor {
+    color: #461700;
+}
+
+.PaymentPayColor {
+    color: #1037ff;
+}
+
+.PaymentPaidColor {
+    color: #969806;
+}
+/*END PAYMENT DETAIL*/
+
+/*ACCESS DENIED*/
+.AccessDeniedBox {
+    width: 100%;
+    height: 50px;
+    float: left;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 15px 0 0 0;
+}
+
+.AccessDeniedIcon {
+    width: 26px;
+    height: 26px;
+    float: left;
+    margin: 12px 0 0 10px;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -921px -330px transparent;
+}
+
+.AccessDeniedTitle {
+    width: auto;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    margin: 0 0 0 10px;
+    font-size: 20px;
+    text-align: left;
+    color: #a9445f;
+    font-weight: normal;
+}
+
+.AccessDeniedMessage {
+    width: auto;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    margin: 0 0 0 10px;
+    font-size: 14px;
+    text-align: left;
+    color: #a9445f;
+    font-weight: normal;
+}
+
+/* SEND EMAIL */
+.SendEmailIcon {
+    width: 19px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -925px -386px;
+    display: block;
+    float: left;
+}
+
+    .SendEmailIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -925px -436px;
+        cursor: pointer;
+    }
+
+/* NEW BOOKING */
+.NewBookingIcon {
+    width: 20px;
+    height: 18px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -924px -486px;
+    display: block;
+    float: left;
+}
+
+    .NewBookingIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -924px -534px;
+        cursor: pointer;
+    }
+
+/* WALLET NEW CSS */
+.WalletBalanceAmount {
+    width: auto;
+    height: auto;
+    float: left;
+    font-size: 20px;
+    text-align: left;
+    color: #242633;
+    font-weight: normal;
+    margin: 12px 0 0 0;
+}
+
+
+
+/* API DETAILS ICON */
+.ApiIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -924px -582px;
+    display: block;
+    float: left;
+}
+
+    .ApiIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -924px -627px;
+        cursor: pointer;
+    }
+
+
+/* REVIEWS ICON */
+.ReviewIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -924px -672px;
+    display: block;
+    float: left;
+}
+
+    .ReviewIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -924px -722px;
+        cursor: pointer;
+    }
+
+
+/* PACKAGE ICON */
+.PackageIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -1203px -17px;
+    display: block;
+    float: left;
+}
+
+    .PackageIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -1203px -67px;
+        cursor: pointer;
+    }
+
+
+/* ACTIVE STATUS */
+.ActiveStatusOuter {
+    float: right;
+    padding: 10px 0;
+}
+
+.StatusTitle {
+    float: left;
+    font-size: 18px;
+    text-align: left;
+    color: #242633;
+    font-weight: normal;
+}
+
+.StatusSubTitle {
+    float: left;
+    font-size: 18px;
+    text-align: left;
+    color: #747474;
+    font-weight: normal;
+    margin: 0 0 0 10px;
+}
+
+
+/* TRACKER ICON */
+.TrackerIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -1202px -117px;
+    display: block;
+    float: left;
+}
+
+    .TrackerIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -1202px -167px;
+        cursor: pointer;
+    }
+
+
+/* ADD SALES */
+.AddSalesBox {
+    width: 450px;
+    height: auto;
+    float: left;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px 0 0 0;
+}
+
+.AddSalesOuterDiv {
+    width: 430px;
+    height: auto;
+    float: left;
+    margin: 0 0 10px 10px;
+}
+
+.AddSeleInputOuter {
+    width: 210px;
+    height: auto;
+    float: left;
+}
+
+.AddSeleInputOuter2 {
+    width: 210px;
+    height: auto;
+    float: left;
+    margin: 0 0 0 10px;
+}
+
+.SaleAddIcon {
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin: 0 0 0 10px;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -1038px -113px transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.SaleMinusIcon {
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin: 0 0 0 10px;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -1083px -113px transparent;
+    cursor: pointer;
+    border: none;
+}
+
+
+/* PENDING ICON */
+.PendingIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/inner-page-sprite.png) no-repeat scroll -1202px -216px transparent;
+    display: block;
+    float: left;
+    cursor: pointer;
+    margin: 0 5px 0 0;
+}
+
+
+/* DISPATCH ICON */
+.DispatchMenuIcon {
+    width: 21px;
+    height: 22px;
+    background: url(../images/inner-page-sprite.png) no-repeat;
+    background-position: -1202px -265px;
+    display: block;
+    float: left;
+}
+
+    .DispatchMenuIcon:hover {
+        background: url(../images/inner-page-sprite.png) no-repeat;
+        background-position: -1202px -317px;
+        cursor: pointer;
+    }
+
+/* GPS TRACKER */
+#LiveStopCarBox {
+    float: right;
+    padding: 0 5px 0px 10px;
+}
+
+.TotalLiveCar {
+    width: 39px;
+    height: 29px;
+    float: left;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -1024px -174px;
+}
+
+.LiveCarCounter {
+    width: 27px;
+    height: 18px;
+    float: left;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -1031px -229px;
+    margin: 7px 10px 0 0;
+    text-align: center;
+}
+
+.TotalCarBox {
+    padding: 2px 5px;
+    float: left;
+}
+
+.TotalStopCar {
+    width: 39px;
+    height: 29px;
+    float: left;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -1085px -174px;
+}
+
+.StopCarCounter {
+    width: 27px;
+    height: 18px;
+    float: left;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -1089px -229px;
+    margin: 7px 0 0 10px;
+    text-align: center;
+}
+
+.GpsCommonClass {
+    width: 100%;
+    padding: 4px 7px;
+    float: left;
+}
+
+.SppedBox {
+    width: 113px;
+    height: 104px;
+    position: absolute;
+    background: #FFF url(../images/inner-page-sprite.png);
+    background-position: -1016px -342px;
+    right: 4px;
+    bottom: 200px;
+    border-radius: 5px;
+}
+
+.FuelBox {
+    width: 113px;
+    height: 104px;
+    position: absolute;
+    background: #FFF url(../images/inner-page-sprite.png);
+    background-position: -1016px -455px;
+    right: 4px;
+    bottom: 90px;
+    border-radius: 5px;
+}
+
+.LiveCarInfoBoxBg {
+    width: 300px;
+    height: 170px;
+    position: absolute;
+    top: 34px;
+    left: 75px;
+}
+
+.LiveCarInfoTitle {
+    height: 35px;
+    background: #abceff;
+    border-radius: 5px 5px 0 0;
+    line-height: 35px;
+    padding-left: 7px;
+}
+
+.LiveCarInfoBox {
+    background: #FFF;
+    padding: 7px;
+}
+
+.LiveCarInfoCommon {
+    width: 100%;
+}
+
+.LiveCarInfoLeft {
+    width: 80px;
+    padding-top: 4px;
+    float: left;
+    font-size: 11px;
+}
+
+.LiveCarInfoRight {
+    width: 205px;
+    padding-top: 4px;
+    float: left;
+    font-size: 11px;
+}
+
+.LiveCarInfoBoxBootomArow {
+    width: 22px;
+    height: 19px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -773px -393px;
+    margin: auto;
+    margin-top: -5px;
+}
+
+.StartLocationBox {
+    width: 400px;
+    min-height: 60px;
+    background: #fdffe9;
+    border: solid 1px #dad9b9;
+    position: absolute;
+    padding: 7px;
+    border-radius: 5px;
+    line-height: 1.5em;
+    color: #000;
+    top: 320px;
+    left: 390px;
+}
+
+.EndLocationBox {
+    width: 400px;
+    min-height: 60px;
+    background: #fdffe9;
+    border: solid 1px #dad9b9;
+    position: absolute;
+    padding: 7px;
+    border-radius: 5px;
+    line-height: 1.5em;
+    color: #000;
+    top: 210px;
+    left: 320px;
+}
+
+.LocationArrow {
+    width: 20px;
+    height: 22px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -771px -451px;
+}
+
+.PlayBackLiveCar {
+    width: 29px;
+    height: 16px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -1022px -597px;
+}
+
+.PlayBackStopCar {
+    width: 29px;
+    height: 16px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -1094px -597px;
+}
+
+.PlayBackLiveCarUp {
+    width: 17px;
+    height: 30px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -1028px -652px;
+}
+
+.PlayBackStopCarUp {
+    width: 17px;
+    height: 30px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -1100px -652px;
+}
+
+.PlayBackIdleCarUp {
+    width: 17px;
+    height: 30px;
+    background: url(../images/inner-page-sprite.png);
+    background-position: -1028px -712px;
+}
+
+.timeInterval {
+    position: absolute;
+    height: 35px;
+    right: 10px;
+    top: 55px;
+}
+
+.GpsReportClass {
+    float: left;
+    padding: 7px 10px;
+    line-height: 35px;
+}
+
+/* POINT TO POINT  */
+.GoogleMap {
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* REVIEWS */
+.reviewsBox {
+    width: 100%; /* overflow-x:scroll; overflow-y:none;*/
+}
+
+.fpr-number {
+    width: 8%;
+    padding: 0 1% 0 0;
+    line-height: 1.5em;
+    float: left;
+}
+
+.fpr-name {
+    width: 55%;
+    padding: 0 1%;
+    line-height: 1.5em;
+    float: left;
+}
+
+.fpr-rating {
+    width: 20%;
+    padding: 0 1%;
+    line-height: 1.5em;
+    float: left;
+}
+
+.fpr-action {
+    width: 10%;
+    padding: 0 1%;
+    line-height: 1.5em;
+    float: left;
+}
+
+.fpr-questions {
+    width: 67%;
+    padding: 0 1%;
+    line-height: 1.5em;
+    float: left;
+}

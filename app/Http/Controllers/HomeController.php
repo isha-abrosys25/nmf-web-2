@@ -280,4 +280,33 @@ public function toggleLiveSection()
 
 }
 
+public function toggleExitPoll()
+{
+    $section = HomeSection::where('title', 'ExitPollSection')->first();
+
+    if ($section) {
+        // Toggle between 1 and 0
+        $section->status = $section->status == 1 ? 0 : 1;
+        $section->save();
+    } else {
+        // Create record if it doesn't exist
+        HomeSection::create([
+            'title' => 'ExitPollSection',
+            'status' => 1,
+            'section_order' => 0
+        ]);
+    }
+
+     try {
+            app(\App\Services\ExportHome::class)->run();
+        } catch (\Throwable $e) {
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+        }
+
+
+    
+ return redirect(config('global.base_url').'election/exit-poll')->with('success', 'Exit Poll visibility updated!');
+
+}
+
 }

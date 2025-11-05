@@ -10,6 +10,7 @@
 
       $showMaha = HomeSection::where('title', 'ElectionMahaSection')->where('status', 1)->exists();
       $showLive = HomeSection::where('title', 'ElectionLiveSection')->where('status', 1)->exists();
+      $showExitPoll = HomeSection::where('title', 'ExitPollSection')->where('status', 1)->exists();
   @endphp
 
   @extends('layouts.app')
@@ -60,13 +61,18 @@
                       <?php
                       $bidhansabhacatname = $category->name;
                       ?>
+                       @if (trim($bidhansabhacatname) === 'विधानसभा चुनाव')
                       <section class="election-section-live">
-                          @if ($showLive)
+                          @if ($showExitPoll)
+                               @include('components.election-exit-poll')
+                              <x-horizontal-ad :ad="$data['homeAds']['home_header_ad'] ?? null" />
+                          @elseif($showLive)
                               @include('components.election-live-section')
                               <x-horizontal-ad :ad="$data['homeAds']['home_header_ad'] ?? null" />
                           @endif
 
                       </section>
+                      @endif
                       {{-- ============================================= --}}
                       {{-- NL1043: 08.10.2025 : added --}}
                       @if (trim($bidhansabhacatname) === 'विधानसभा चुनाव')
@@ -119,139 +125,7 @@
                                   </div>
                               </div>
                           </section>
-                          {{-- <section class="maha-section">
-                            <div class="cm-container ">
-                                <div class="maha-block">
-                                    <img class="maha-img" src="{{ asset('asset/images/Maha-Muqabala-Page-1.jpg') }}"
-                                        alt="Mahamukabla-img">
-                                    <div class="mh-left">
-                                        <div class="mh-inner">
-                                            <div class="mh-title-box">
-                                                <div class="mh-title1">महामुकाबला</div>
-                                                <div class="mh-title2">महामुकाबला</div>
-                                            </div>
-                                            <div class="swiper mh-carousel">
-                                                <div class="swiper-wrapper mh-swiper-wrapper">
-                                                    <div class="swiper-slide"><img
-                                                            src="{{ asset('asset/images/big-face1.jpg') }}"
-                                                            alt="">
-                                                    </div>
-                                                    <div class="swiper-slide"><img
-                                                            src="{{ asset('asset/images/big-face2.jpg') }}"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="mh-button-prev mh-nav-left">&#8592;</div>
-                                                <div class="mh-button-next mh-nav-right">&#8594;</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mh-right">
-                                        <div class="mh-inner2">
-                                            <div class="mh-title-box">
-                                                <div class="mh-title3">बड़े चेहरे</div>
-                                                <div class="mh-title4">बड़े चेहरे</div>
-                                            </div>
-                                            <div class="w-n-status leader-box">
-                                                <div class="leader-card">
-                                                    <img src="{{ asset('asset/images/narendra-modi.jpg') }}"
-                                                        alt="Narendra Modi" class="leader-img">
-
-
-                                                    <div class="leader-info">
-                                                        <h3>नरेन्द्र मोदी</h3>
-
-                                                        <div class="status-box loss">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                                <path d="M256 480L416 288h-96V64H192v224H96l160 192z" />
-                                                            </svg>
-                                                            <span>Low</span>
-                                                        </div>
-                                                    </div>
-                                                    <img src="{{ asset('asset/images/BJP.png') }}" alt="BJP"
-                                                        class="party-logo">
-                                                </div>
-
-                                                <div class="leader-card">
-                                                    <img src="{{ asset('asset/images\nitesh-kumar.jpg') }}"
-                                                        alt="Nitish Kumar" class="leader-img">
-                                                    <div class="leader-info">
-                                                        <h3>नीतीश कुमार</h3>
-                                                        <div class="status-box lead">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                                <path d="M256 32L96 224h96v224h128V224h96L256 32z" />
-                                                            </svg>
-                                                            <span>Lead</span>
-                                                        </div>
-                                                    </div>
-                                                    <img src="{{ asset('asset\images\jdu-logo.png') }}" alt="JDU"
-                                                        class="party-logo">
-                                                </div>
-
-                                                <div class="leader-card">
-                                                    <img src="{{ asset('asset\images\tajeswai-yadav.jpg') }}"
-                                                        alt="Tejashwi Yadav" class="leader-img">
-                                                    <div class="leader-info">
-                                                        <h3>तेजस्वी यादव</h3>
-                                                        <div class="status-box loss">
-
-                                                            <span>Loss</span>
-                                                        </div>
-                                                    </div>
-                                                    <img src="{{ asset('asset\images\rjd-logo.png') }}" alt="RJD"
-                                                        class="party-logo">
-                                                </div>
-
-                                                <div class="leader-card">
-                                                    <img src="{{ asset('asset\images\rahul-gandhi.jpg') }}"
-                                                        alt="Rahul Gandhi" class="leader-img">
-                                                    <div class="leader-info">
-                                                        <h3>राहुल गांधी</h3>
-                                                        <div class="status-box trail">
-
-                                                            <span>Trail</span>
-                                                        </div>
-                                                    </div>
-                                                    <img src="{{ asset('asset\images\inc-logo.png') }}" alt="INC"
-                                                        class="party-logo">
-                                                </div>
-
-                                                <div class="leader-card">
-                                                    <img src="{{ asset('asset\images\others.jpg') }}" alt="Other"
-                                                        class="leader-img">
-                                                    <div class="leader-info">
-                                                        <h3>अन्य</h3>
-                                                        <div class="status-box loss">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                                <path d="M256 480L416 288h-96V64H192v224H96l160 192z" />
-                                                            </svg>
-                                                            <span>Low</span>
-                                                        </div>
-                                                    </div>
-                                                    <img src="{{ asset('asset\images\oth-logo.png') }}"alt="Other Party"
-                                                        class="party-logo">
-                                                </div>
-                                                <div class="leader-card">
-                                                    <img src="{{ asset('asset\images\others.jpg') }}" alt="Other"
-                                                        class="leader-img">
-                                                    <div class="leader-info">
-                                                        <h3>अन्य</h3>
-                                                        <div class="status-box lead">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                                <path d="M256 32L96 224h96v224h128V224h96L256 32z" />
-                                                            </svg>
-                                                            <span>Lead</span>
-                                                        </div>
-                                                    </div>
-                                                    <img src="{{ asset('asset\images\oth-logo.png') }}"alt="Other Party"
-                                                        class="party-logo">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section> --}}
+                        
 
                           <!-- Second visit -->
                           <section class="maha-section">

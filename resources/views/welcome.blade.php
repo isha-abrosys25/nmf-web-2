@@ -1,17 +1,15 @@
 @extends('layouts.app')
 @section('content')
-
     <?php
     use App\Models\Blog;
     use App\Models\Category;
     use App\Models\User;
     use Carbon\Carbon;
-    
+    use App\Models\HomeSection;
     use App\Models\LiveBlog;
     use App\Models\WebStories;
     use App\Models\BigEvent;
     
-    use App\Models\HomeSection;
     use App\Models\ElectionResult;
     use App\Models\MahaMukabla;
     use App\Models\Candidate;
@@ -20,7 +18,7 @@
     $class = '';
     $videorow = 0;
     $videobutrow = 0;
-    
+
     $sectionCategories = [];
     $sidebarCategoriesList = [];
     $bannerList = [];
@@ -28,14 +26,14 @@
     $bannerlinkurl = '#';
     $bannermobileimgurl = null;
     $bannermobilelinkurl = '#';
-    
+
     //Section categories
     if (!empty($data['homeSections'])) {
         foreach ($data['homeSections'] as $section) {
             $title = strtolower($section->title);
-    
+
             // Section category mapping
-    
+
             $sectionOrder = (int) $section->section_order;
             $sectionCategories[$sectionOrder] = [
                 'catid' => $section->catid,
@@ -43,11 +41,11 @@
                 'site_url' => optional($section->category)->site_url ?? '',
             ];
         }
-    
+
         // Extract special sections (राज्य and विधान सभा चुनाव) and remove from list
         $rajyaSection = collect($sectionCategories)->firstWhere('name', 'राज्य');
         $bidhanSabhaSection = collect($sectionCategories)->firstWhere('name', 'विधान सभा चुनाव');
-    
+
         $sectionCategories = collect($sectionCategories)
             ->reject(fn($section) => in_array($section['name'], ['राज्य', 'विधान सभा चुनाव']))
             ->values() // reindex starting from 0
@@ -55,15 +53,15 @@
                 return [$index + 1 => $item]; // start from 1
             })
             ->toArray();
-    
+
         //dd($sectionCategories);
     }
-    
+
     // Sidebar categories
     if (!empty($data['sidebarCategories'])) {
         foreach ($data['sidebarCategories'] as $sidebarSection) {
             $sectionOrder = (int) $sidebarSection->sidebar_sec_order;
-    
+
             if (!empty($sidebarSection->category)) {
                 $sidebarCategoriesList[$sectionOrder] = [
                     'catid' => $sidebarSection->catid,
@@ -72,7 +70,7 @@
                 ];
             }
         }
-    
+
         // Reindex starting from 1
         $sidebarCategoriesList = collect(array_values($sidebarCategoriesList))
             ->mapWithKeys(function ($item, $index) {
@@ -80,12 +78,13 @@
             })
             ->toArray();
     }
-    
+
     // Banners
     if (!empty($data['banners'])) {
         foreach ($data['banners'] as $bannerSection) {
+
             $title = strtolower($bannerSection->title);
-    
+
             if ($title === 'banner') {
                 $bannerimgurl = $bannerSection->image_url;
                 $bannerlinkurl = $bannerSection->banner_link ?? '#';
@@ -95,8 +94,8 @@
             }
         }
     }
-    
- ?>
+
+    ?>
 
     <?php
   $latest_blog = Blog::with('category')
@@ -126,7 +125,7 @@
                         $todayEng = str_replace(' ', '-', date('jS F Y')); // e.g., 5th-May-2025
                         ?>
                         <a class="brk-link"
-                            href="{{ config('global.base_url') . 'breakingnews/latest-breaking-news-in-hindi-nmfnews-' }}{{ $todayEng }}">
+                            href="{{ config('global.base_url').('breakingnews/latest-breaking-news-in-hindi-nmfnews-') }}{{ $todayEng }}">
                             {{ $blogname }}
                         </a>
                     </div>
@@ -152,7 +151,7 @@
                         @foreach ($data['uniqueTags'] as $tag)
                             @if (trim($tag) !== '')
                                 <a href="{{ rtrim($baseUrl, '/') }}/search?search={{ urlencode($tag) }}"
-                                    class="swiper-slide swiper-tag">{{ $tag }}</a>
+                                class="swiper-slide swiper-tag">{{ $tag }}</a>
                             @endif
                         @endforeach
                     </div>
@@ -171,35 +170,48 @@
     @endif
 
 
-
- @php
-
+@php
     $showMaha = HomeSection::where('title', 'ElectionMahaSection')->where('status', 1)->exists();
-    $showLive = HomeSection::where('title', 'ElectionLiveSection')->where('status', 1)->exists();
+   
+    $showLive = HomeSection::where('title', 'ElectionLiveSection')->value('status') ?? 0;
+   $showExitpoll = HomeSection::where('title', 'ExitPollSection')->value('status') ?? 0;
+
+    $showBigEvent = HomeSection::where('title', 'DisplayBigEvent')->where('status', 1)->value('status') ?? false;
 @endphp
 
-@if ($showLive)
+
+
+
+@if ($showExitpoll==1)
+    {{-- Show Exit Poll when Live is off --}}
+
+    @include('components.election-exit-poll')
+
+    @if ($showBigEvent)
+        <x-horizontal-ad :ad="$data['homeAds']['home_header_ad'] ?? null" />
+    @endif
+@elseif ($showLive==1)
+    {{--  Live has highest priority --}}
+
     @include('components.election-live-section')
-    <x-horizontal-ad :ad="$data['homeAds']['home_header_ad'] ?? null" />
+      @if ($showBigEvent)
+        <x-horizontal-ad :ad="$data['homeAds']['home_header_ad'] ?? null" />
+    @endif
 @endif
 
-
-
+    
     @php
-        $showBigEvent = HomeSection::where('title', 'DisplayBigEvent')->where('status', 1)->value('status') ?? false;
-    @endphp
-    @php
-        $showVoteInTopNews = HomeSection::where('title', 'ShowVoteInTop')->where('status', 1)->value('status') ?? false;
+        $showVoteInTopNews = HomeSection::where('title', 'ShowVoteInTop')
+            ->where('status', 1)
+            ->value('status') ?? false;
     @endphp
 
     @if ($showBigEvent)
         @php
             $bigEvent = BigEvent::where('is_active', 1)
-                ->with([
-                    'blogs' => function ($query) {
-                        $query->latest()->take(3);
-                    },
-                ])
+                ->with(['blogs' => function($query) {
+                    $query->latest()->take(3);
+                }])
                 ->orderBy('created_at', 'desc')
                 ->first();
         @endphp
@@ -209,78 +221,73 @@
 
         {{-- Horizontal-1 Advertise --}}
     @endif
+        {{-- Horizontal-1 Advertise --}}
+            <x-horizontal-ad :ad="$data['homeAds']['home_header_ad'] ?? null" />
 
-    {{-- Horizontal-1 Advertise --}}
-    <x-horizontal-ad :ad="$data['homeAds']['home_header_ad'] ?? null" />
+            @php $showBannerAboveTopNews = HomeSection::where('title', 'ShowBannerAboveTopStory')
+                ->where('status', 1)
+                ->value('status') ?? false;
+            @endphp
 
-    @php
-        $showBannerAboveTopNews =
-            HomeSection::where('title', 'ShowBannerAboveTopStory')->where('status', 1)->value('status') ?? false;
-    @endphp 
+            {{-- Banner Section --}}
+            @if ($showBannerAboveTopNews)
+                @include('components.home.banner-section', [
+                    'bannerimgurl' => $bannerimgurl,
+                    'bannerlinkurl' => $bannerlinkurl,
+                    'bannermobileimgurl' => $bannermobileimgurl,
+                    'bannermobilelinkurl' => $bannermobilelinkurl,
+            ])
+            @endif
 
-    {{-- Banner Section --}}
-    @if ($showBannerAboveTopNews)
-        @include('components.home.banner-section', [
-            'bannerimgurl' => $bannerimgurl,
-            'bannerlinkurl' => $bannerlinkurl,
-            'bannermobileimgurl' => $bannermobileimgurl,
-            'bannermobilelinkurl' => $bannermobilelinkurl,
-        ])
-    @endif
+            
+            {{-- Top News Section --}}
+            <section class="top--news">
+                @include('components.home.top-news-section', [
+                    'showVoteInTopNews' => $showVoteInTopNews
+                ])
+            </section>
 
-
-    {{-- Top News Section --}}
-    <section class="top--news">
-        @include('components.home.top-news-section', [
-            'showVoteInTopNews' => $showVoteInTopNews,
-        ])
-    </section>
-
-    {{-- Banner Section --}}
-    @if (!$showBannerAboveTopNews)
-        @include('components.home.banner-section', [
-            'bannerimgurl' => $bannerimgurl,
-            'bannerlinkurl' => $bannerlinkurl,
-            'bannermobileimgurl' => $bannermobileimgurl,
-            'bannermobilelinkurl' => $bannermobilelinkurl,
-        ])
-    @endif
+            {{-- Banner Section --}}
+            @if (!$showBannerAboveTopNews)
+                @include('components.home.banner-section', [
+                    'bannerimgurl' => $bannerimgurl,
+                    'bannerlinkurl' => $bannerlinkurl,
+                    'bannermobileimgurl' => $bannermobileimgurl,
+                    'bannermobilelinkurl' => $bannermobilelinkurl,
+                ])
+            @endif
+   
 
 
-
-    <div id="appDownloadModal">
-        <div class="app-download-modal">
-            <img class="modal-img" src="{{ config('global.base_url_asset') }}asset/images/modal.webp" alt="app-image">
-            <button class="modal-close-button" onclick="closeModal()">×</button>
-            <h2>Download Our App</h2>
-            <p>Get the best experience by downloading our mobile app!</p>
-            <div class="app_btn_wrap justify-content-center">
-                <a href="https://play.google.com/store/apps/details?id=com.kmcliv.nmfnews" class="playstore-button">
-                    <svg viewBox="0 0 512 512" class="_icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M99.617 8.057a50.191 50.191 0 00-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0027.31-8.07l266.965-149.372-74.849-74.847z">
-                        </path>
-                    </svg>
-                    <span class="texts">
-                        <span class="text-1">GET IT ON</span>
-                        <span class="text-2">Google Play</span>
-                    </span>
-                </a>
-                <a href="https://apps.apple.com/us/app/nmf-news/id6745018964" class="playstore-button">
-                    <svg viewBox="0 0 512 512" class="_icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                        style="margin-right: -7px;">
-                        <path
-                            d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z">
-                        </path>
-                    </svg>
-                    <span class="texts">
-                        <span class="text-1">GET IT ON</span>
-                        <span class="text-2">App Store</span>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </div>
+<div id="appDownloadModal">
+  <div class="app-download-modal">
+    <img class="modal-img" src="{{config('global.base_url_asset')}}asset/images/modal.webp" alt="app-image">
+    <button class="modal-close-button" onclick="closeModal()">×</button>
+    <h2>Download Our App</h2>
+    <p>Get the best experience by downloading our mobile app!</p>
+   <div class="app_btn_wrap justify-content-center">
+                            <a href="https://play.google.com/store/apps/details?id=com.kmcliv.nmfnews" class="playstore-button">
+                                <svg viewBox="0 0 512 512" class="_icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M99.617 8.057a50.191 50.191 0 00-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0027.31-8.07l266.965-149.372-74.849-74.847z">
+                                    </path>
+                                </svg>
+                                <span class="texts">
+                                    <span class="text-1">GET IT ON</span>
+                                    <span class="text-2">Google Play</span>
+                                </span>
+                            </a>
+                            <a href="https://apps.apple.com/us/app/nmf-news/id6745018964" class="playstore-button">
+                                <svg viewBox="0 0 512 512" class="_icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="margin-right: -7px;">
+                                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path>
+                                </svg>
+                                <span class="texts">
+                                    <span class="text-1">GET IT ON</span>
+                                    <span class="text-2">App Store</span>
+                                </span>
+                            </a>
+                        </div>
+  </div>
+</div>
     <div class="news-panel">
         <div class="cm-container">
             @if (!empty($sectionCategories[1]))
@@ -313,8 +320,6 @@
 
     <div class="news-panel">
         <div class="cm-container">
-            
-
             @if (!empty($sectionCategories[2]))
                 @include('components.slider-two-news-5', [
                     'cat_id' => $sectionCategories[2]['catid'],
@@ -325,14 +330,12 @@
                     'category_name' => $sectionCategories[2]['name'],
                 ])
             @endif
-            
-         
         </div>
     </div>
 
 
     <div class="news-panel reels">
-        @include('components.reels-section')
+                @include('components.reels-section')
     </div>
 
     <section class="custom_block">
@@ -526,7 +529,7 @@
                                     {{-- Show vote after the second sidebar (1-based index) --}}
                                     <div id="categories-2" class="widget widget_categories">
                                         <div class="news-tab">
-                                            @if (!$showVoteInTopNews)
+                                            @if(!$showVoteInTopNews)
                                                 @include('components.vote')
                                             @else
                                                 @include('components.podcast')
@@ -580,8 +583,8 @@
 
                     {{-- Only show heading if the component does NOT have its own header --}}
                     {{-- @if (!in_array($layoutType, [0, 2])) --}}
-                    {{-- skip news-nine-style (used in case 0 & 2) --}}
-                    {{-- <div class="news-tabs nwstb">
+                        {{-- skip news-nine-style (used in case 0 & 2) --}}
+                        {{-- <div class="news-tabs nwstb">
                             <a class="newstab_title me-3" href="{{ $section['site_url'] }}">
                                 <h2>{{ $section['name'] }}</h2>
                             </a>

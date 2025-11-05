@@ -1,0 +1,690 @@
+﻿.ch-Block {
+    display: inline;
+}
+
+.ch-wrapper .ch-vhcle-avl {
+    display: block;
+    margin: 0px;
+}
+
+    .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-heading h3 {
+        font-size: 16px;
+    } 
+
+.rating_Good {
+    background-color: #7faa46;
+    color: #ffffff;
+}
+
+.rating_Average {
+    background-color: #f8cb36;
+    color: #ffffff;
+}
+
+.rating_Very_Good {
+    background-color: #78a916;
+    color: #ffffff;
+}
+
+.p_0 {
+    padding: 0;
+}
+
+.ch-wrapper {
+    width: 100%;
+    float: left;
+    background-color: #e8e8e8;
+    padding: 2px;
+    letter-spacing: 0.5px;
+}
+
+    .ch-wrapper .ch-vhcle-avl {
+        width: 100%;
+        float: left;
+        background-color: #fff;
+        color: #000;
+        box-shadow: 0.1em 0.1em 0.2em 0 rgba(0,0,0,0.1);
+        margin-bottom: 15px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette {
+            width: 75%;
+            float: left;
+            padding: 10px;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-right-palette {
+            width: 25%;
+            float: left;
+            padding: 0;
+            background-color: #f7f7f7;
+            position: relative;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-pstn-btm {
+            width: 100%;
+            float: left;
+            position: absolute;
+            bottom: 0;
+            padding: 10px;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-heading {
+            width: 70%;
+            float: left;
+        }
+
+            .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-heading h3 {
+                font-weight: bold;
+                margin: 0;
+                font-size: 20px;
+            }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-heading h3 small {
+                    padding-left: 10px;
+                    color: #000;
+                }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-heading h3 strong {
+                    display: block;
+                    font-size: 15px;
+                    padding-top: 5px;
+                }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-offer-box {
+            width: 30%;
+            float: left;
+        }
+
+            .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-offer-box a {
+                background-color: #82c50c;
+                color: #fff !important;
+                cursor: help;
+                text-align: center;
+                border-radius: 5px;
+                padding: 5px;
+                line-height: 1.5;
+                width: 100%;
+                float: left;
+                text-decoration: none !important;
+                font-size: 12px;
+                margin-bottom: 3px;
+                letter-spacing: 0.6px;
+            }
+
+            .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-offer-box .popover {
+                font-size: 12px;
+                color: #000;
+                letter-spacing: 0.8px;
+            }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt {
+            width: 100%;
+            float: left;
+            margin-top: 15px;
+            /* display: flex;
+  		flex-wrap: wrap; */
+        }
+
+            .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-uppr-block {
+                width: 100%;
+                float: left;
+                display: block;
+            }
+
+            .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-lwr-block {
+                width: 100%;
+                display: table;
+                table-layout: fixed;
+                padding-top: 10px;
+            }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-lwr-block .ch-Block {
+                    width: calc(100% / 3);
+                    display: table-cell;
+                    float: none;
+                    vertical-align: bottom;
+                }
+
+            .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block {
+                width: 33.33%;
+                float: left;
+                padding: 0 10px;
+            }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block .img-box {
+                    width: 100%;
+                    height: 120px;
+                    float: left;
+                    position: relative;
+                    padding: 0;
+                    background-color: transparent;
+                }
+
+                    .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block .img-box img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-xxlarge {
+                    width: 100%;
+                    height: auto;
+                    float: left;
+                    display: inline-block;
+                    margin: 5px auto;
+                    padding: 0;
+                }
+
+                    .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-xxlarge li {
+                        width: 33.33%;
+                        height: auto;
+                        float: left;
+                        display: inline-block;
+                        list-style: none;
+                        text-align: center;
+                        border-right: solid 1px #2f2f2f;
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: #2f2f2f;
+                    }
+
+                        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-xxlarge li .ImGS {
+                            width: 20px;
+                            margin-top: -3px;
+                        }
+
+                        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-xxlarge li:last-child {
+                            border-right: 0;
+                        }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-smpl-list {
+                    width: 100%;
+                    height: auto;
+                    float: left;
+                    margin: 0;
+                    padding: 0;
+                    font-size: 13px;
+                }
+
+                    .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-smpl-list li {
+                        padding-left: 1.3em;
+                        list-style: none;
+                        line-height: 1.5;
+                    }
+
+                        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-smpl-list li:before {
+                            content: "\f00c";
+                            font-family: FontAwesome;
+                            display: inline-block;
+                            margin-left: -1.3em;
+                            width: 1.3em;
+                        }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-green {
+                    color: #71ab0b;
+                }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-smpl-list p {
+                    font-weight: bold;
+                    margin: 0;
+                    padding-bottom: 5px;
+                }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info {
+                    width: 100%;
+                    height: auto;
+                    float: left;
+                    margin: 5px auto;
+                    padding: 0;
+                    font-size: 13px;
+                }
+
+                    .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info li {
+                        padding-left: 1.3em;
+                        list-style: none;
+                        line-height: normal;
+                        padding-bottom: 12px;
+                    }
+
+                        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info li b {
+                            font-weight: bold;
+                            display: block;
+                        }
+
+                        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info li:first-child:before {
+                            content: "\f072";
+                            font-family: FontAwesome;
+                            display: inline-block;
+                            margin-left: -1.3em;
+                            width: 1.3em;
+                            font-size: 17px;
+                            vertical-align: middle;
+                        }
+
+                        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info li:nth-child(2):before {
+                            content: "\f0fc";
+                            font-family: FontAwesome;
+                            display: inline-block;
+                            margin-left: -1.3em;
+                            width: 1.3em;
+                            font-size: 17px;
+                            vertical-align: middle;
+                        }
+
+                        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info li:last-child:before {
+                            content: "\f0e4";
+                            font-family: FontAwesome;
+                            display: inline-block;
+                            margin-left: -1.3em;
+                            width: 1.3em;
+                            font-size: 17px;
+                            vertical-align: middle;
+                        }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block .imp-infrmtn {
+                    /* width: 100%; */
+                    height: auto;
+                    float: right;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    display: inline-block;
+                    border-radius: 4px;
+                    background-color: transparent;
+                    padding: 10px;
+                    margin: 0;
+                    text-align: center;
+                    cursor: pointer;
+                    color: #000;
+                    font-size: 14px;
+                    line-height: 2;
+                    border: 1px solid #333;
+                    font-weight: bold;
+                    outline: none !important;
+                }
+
+                    .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block .imp-infrmtn .c_name {
+                        width: 45%;
+                        float: left;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block .imp-infrmtn .ratng_status {
+                        width: 35%;
+                        float: left;
+                    }
+                    .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block .imp-infrmtn .rtng_value {
+                        width: 20%;
+                        float: left;
+                    }
+                        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block .imp-infrmtn .rtng_value span {
+                            padding: 5px;
+                            border-radius: 3px;
+                        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-infomsg-pnl {
+            width: 100%;
+            float: left;
+            padding: 10px;
+        }
+
+            .ch-wrapper .ch-vhcle-avl .ch-infomsg-pnl .ch-heading {
+                width: 75%;
+                float: left;
+                padding: 0 10px;
+            }
+
+                .ch-wrapper .ch-vhcle-avl .ch-infomsg-pnl .ch-heading p {
+                    margin: 0;
+                    font-size: 18px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    line-height: 30px;
+                }
+
+            .ch-wrapper .ch-vhcle-avl .ch-infomsg-pnl .ch-sortbox {
+                width: 25%;
+                float: left;
+            }
+
+                .ch-wrapper .ch-vhcle-avl .ch-infomsg-pnl .ch-sortbox .form-control {
+                    position: relative;
+                    padding: 5px;
+                    background: #fbfbfb;
+                    border: 1px solid #B5B5B5;
+                    line-height: 2.3996em;
+                    font-size: 13px;
+                    border-radius: 0;
+                    box-shadow: none !important;
+                    color: #000;
+                    height: 30px;
+                    letter-spacing: 0.5px;
+                }
+
+        .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-price {
+            color: #000;
+            word-wrap: break-word;
+            /*width: 100%;*/
+            float: right;
+            text-align: right;
+            font-size: 25px;
+            /*line-height: 1;*/
+            font-weight: bold;
+        }
+        .ch-wrapper .ch-vhcle-avl .ch-right-palette .divCurrency {
+            padding: 0px 6px 0px 6px;
+            height: 30px;
+        }
+            .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-daily-rntamt {
+    color: #000;
+    word-wrap: break-word;
+    width: 100%;
+    float: right;
+    text-align: right;
+    font-size: 12px;
+    padding: 10px 0;
+}
+
+            .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-daily-rntamt p {
+                margin: 0;
+            }
+
+        .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-button {
+            width: 100%;
+            float: left;
+        }
+
+            .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-button .ch-select {
+                font-size: 18px;
+                font-weight: bold;
+                color: #fff !important;
+                width: 100%;
+                float: left;
+                margin-bottom: 10px;
+                background-color: #82c50c;
+                display: inline-block;
+                border-radius: 4px;
+                text-align: center;
+                line-height: 2.2;
+                cursor: pointer;
+                outline: none !important;
+                border: 0 !important;
+                box-shadow: rgba(0,0,0,0.2) 0px -0.15em 0px inset;
+            }
+
+            .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-button .ch-email {
+                width: 100%;
+                height: auto;
+                display: inline-block;
+                border-radius: 4px;
+                background-color: transparent;
+                padding: 0 10px;
+                margin: 0;
+                text-align: center;
+                cursor: pointer;
+                color: #000;
+                font-size: 14px;
+                line-height: 2.5;
+                border: 1px solid #333;
+                font-weight: bold;
+            }
+
+                .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-button .ch-email .fa {
+                    padding-right: 10px;
+                }
+
+    .ch-wrapper .ch-strip-red {
+        width: 100%;
+        float: left;
+        padding: 10px;
+        font-size: 12px;
+        box-shadow: 0.1em 0.1em 0.2em 0 rgba(0,0,0,0.1);
+        margin-bottom: 15px;
+        background-color: #f04733;
+        color: #fff;
+    }
+
+#ch-crumbs {
+    text-align: center;
+}
+
+    #ch-crumbs ul {
+        list-style: none;
+        display: inline-table;
+        width: 100%;
+        float: left;
+        padding: 0;
+    }
+
+        #ch-crumbs ul li {
+            display: inline;
+        }
+
+            #ch-crumbs ul li a {
+                display: block;
+                float: left;
+                background: #82c50c;
+                text-align: center;
+                padding: 10px 0 10px 10px;
+                position: relative;
+                margin: 0 1% 0 0;
+                font-size: 12px;
+                text-decoration: none;
+                color: #fff;
+                width: 19%;
+                font-weight: bold;
+            }
+
+                #ch-crumbs ul li a:after {
+                    content: "";
+                    border-top: 18.5px solid transparent;
+                    border-bottom: 18.5px solid transparent;
+                    border-left: 25px solid #82c50c;
+                    position: absolute;
+                    right: -25px;
+                    top: 0;
+                    z-index: 1;
+                }
+
+                #ch-crumbs ul li a:before {
+                    content: "";
+                    border-top: 18.5px solid transparent;
+                    border-bottom: 18.5px solid transparent;
+                    border-left: 25px solid #e8e8e8;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+
+            #ch-crumbs ul li:first-child a {
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+
+                #ch-crumbs ul li:first-child a:before {
+                    display: none;
+                }
+
+            #ch-crumbs ul li:last-child a {
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                margin-right: 0;
+                width: 20%;
+            }
+
+                #ch-crumbs ul li:last-child a:after {
+                    display: none;
+                }
+
+.ch-wrapper .ch-vhcle-avl:last-child {
+    /*margin-bottom:0;*/
+}
+
+@media only screen and (max-width:1024px) {
+    .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-price {
+        font-size: 25px;
+    }
+
+    .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-offer-box a {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width:991px) {
+}
+
+@media only screen and (max-width:767px) {
+    button.imp-infrmtn.infos {
+        display: none !important;
+    }
+
+    .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block .img-box {
+        width: 50%;
+    }
+        button .imp-infrmtn.infos {
+        display: none !important;
+    }
+    .ch-wrapper {
+        padding: 2px;
+    } 
+    .ch-wrapper .ch-strip-red {
+        width: 100%;
+        float: left;
+        padding: 7px;
+        font-size: 10px;
+    }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-xxlarge li {
+            width: 100%;
+            border-right: solid 1px #fff;
+        }
+
+    .ch-wrapper .ch-vhcle-avl .ch-infomsg-pnl .ch-heading {
+        width: 100%;
+        padding: 0;
+    }
+
+        .ch-wrapper .ch-vhcle-avl .ch-infomsg-pnl .ch-heading p {
+            /*margin: 0 auto 10px;*/
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: clip;
+            white-space: normal;
+            line-height: normal;
+            display: block;
+            margin: 0px;
+        }
+
+    .ch-wrapper .ch-vhcle-avl .ch-infomsg-pnl .ch-sortbox {
+        width: 100%;
+        float: left;
+    }
+
+    .ch-wrapper .ch-vhcle-avl {
+        display: block;
+    }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette {
+            width: 100%;
+            padding: 15px;
+        }
+
+            .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-heading {
+                width: 100%;
+            }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-heading h3 strong {
+                    display: inline;
+                    padding-left: 5px;
+                }
+
+            .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block {
+                width: 100%;
+                float: left;
+                padding: 0;
+            }
+
+        .ch-wrapper .ch-vhcle-avl .ch-right-palette {
+            width: 100%;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-pstn-btm {
+            position: relative;
+            padding: 15px;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-price {
+            float: left;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-daily-rntamt {
+            float: left;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-lwr-block .ch-Block {
+            width: 100%;
+            display: block;
+            float: left;
+            vertical-align: bottom;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block .imp-infrmtn {
+            margin: 5px auto;
+            font-size: 12px;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info {
+            font-size: 11px;
+        }
+
+            .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info li {
+                padding-bottom: 7px;
+            }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info li:first-child:before {
+                    font-size: 13px;
+                }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info li:nth-child(2):before {
+                    font-size: 13px;
+                }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info li:last-child:before {
+                    font-size: 13px;
+                }
+
+                .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-supplier-info li b {
+                    display: inline;
+                }
+
+        .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-button .ch-email {
+            font-size: 12px;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-right-palette .ch-button .ch-select {
+            font-size: 14px;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block .img-box {
+            text-align: center;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-xxlarge li .ImGS {
+            width: 15px;
+        }
+
+        .ch-wrapper .ch-vhcle-avl .ch-left-palette .ch-vehcle-cntnt .ch-Block ul.ch-xxlarge li {
+            font-size: 15px;
+        }
+}
+
+ 

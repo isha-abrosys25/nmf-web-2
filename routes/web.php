@@ -348,10 +348,13 @@ Route::prefix('/election')->group(function () {
     Route::patch('/mahamukabla/toggle/{id}', [MahamukablaController::class, 'toggle'])->name('mahamukabla.toggle');
     Route::post('/mahamukabla/update-status', [MahamukablaController::class, 'updateSlideStatus'])->name('mahamukabla.updateStatus');
     Route::delete('/mahamukabla/{id}', [MahamukablaController::class, 'destroy'])->name('mahamukabla.destroy');
+    
 
     Route::get('/manage-vote-count', [ElectionResultController::class, 'manageVoteCount'])->name('voteCount');
     Route::post('/manage-vote-count/save', [ElectionResultController::class, 'saveVoteCount'])->name('voteSave');
 
+    Route::get('/exit-poll', [ElectionResultController::class, 'exitpoll'])->name('exitpoll');
+    Route::post('/exit-poll/save', [ElectionResultController::class, 'exitpollsave'])->name('exitpollsave');
     Route::get('/manage-top-party-seats', [ElectionResultController::class, 'manageSeats'])->name('manageSeats');
     Route::post('/manage-top-party-seats/save', [ElectionResultController::class, 'saveTopSeats'])->name('saveTopSeats');
     // Route::get('/vote-count-list', [ElectionResultController::class, 'voteCountList'])->name('voteCountList');
@@ -364,7 +367,7 @@ Route::get('/category', [ElectionResultController::class, 'category'])->name('ca
 
 Route::post('/toggle-maha-section', [HomeController::class, 'toggleMahaSection'])->name('toggle.maha.section');
 Route::post('/toggle-live-section', [HomeController::class, 'toggleLiveSection'])->name('toggle.live.section');
-
+Route::post('/toggle-exit-poll', [HomeController::class, 'toggleExitPoll'])->name('toggle.exit.poll');
 
 
 // can be uncomment in staging=========

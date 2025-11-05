@@ -304,6 +304,88 @@ public function saveTopSeats(Request $request)
 //     return view('voteCountList', compact('results'));
 // }
 
+public function exitpoll()
+    {
+        // Fetch only parties marked for left side table
+        // --- MODIFIED ---
+        // Added orderBy('sequence', 'asc') to sort the list
+        $results = ElectionResult::where('show_in_list', -1)
+                            ->orderBy('sequence', 'asc')
+                            ->get();
+        // --- END MODIFIED ---
+        
+        echo "coming here";
+        return view('admin.exitpoll', compact('results'));
+    }
+
+    public function exitpollsave(Request $request)
+    {
+        // Fetch parties to update
+        $parties = ElectionResult::where('show_in_list', -1)->get();
+
+        // --- REMOVED ---
+        // Removed the first loop that was saving 'exit_poll' from '_wl' input.
+        // It was conflicting with the main saving loop below and was not
+        // present in your saveTopSeats function.
+        // --- END REMOVED ---
+
+        $totalSeats = 0;  //total of exit_poll seats
+
+        // Step 1: Calculate new total (sum of all submitted seat values)
+        foreach ($parties as $party) {
+            $inputName = 'seat_' . strtolower($party->abbreviation);
+            
+            // --- MODIFIED ---
+            // Changed fallback value to $party->exit_poll
+            $seatCount = (int) $request->input($inputName, $party->exit_poll);
+            // --- END MODIFIED ---
+            
+            $totalSeats += $seatCount;
+        }
+
+        // Step 2: Check total limit
+        if ($totalSeats > 243) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'jjjYou have exceeded by ' . ($totalSeats - 243) . ' seats.');
+        }
+
+        // Step 3: Save data if within limit
+        foreach ($parties as $party) {
+            $inputName = 'seat_' . strtolower($party->abbreviation);
+
+            // --- NEW ---
+            // Get the name for the sequence input
+            $sequenceInputName = 'sequence_' . strtolower($party->abbreviation);
+            // --- END NEW ---
+
+            if ($request->has($inputName)) {
+                
+                // --- MODIFIED ---
+                $party->exit_poll = $request->input($inputName); // Ensure this saves to exit_poll
+                
+                // Check if the sequence input was submitted and update it
+                if ($request->has($sequenceInputName)) {
+                    $party->sequence = $request->input($sequenceInputName);
+                }
+                
+                $party->save();
+                // --- END MODIFIED ---
+            }
+        }
+        
+        try {
+            app(\App\Services\ExportHome::class)->run();
+        } catch (\Throwable $e) {
+            Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+        }
+        
+        // --- MODIFIED ---
+        // Changed redirect to redirect()->back() and updated message
+        // to match your saveTopSeats function for consistency.
+        return redirect()->back()->with('success', 'Seats and sequence updated successfully!');
+        // --- END MODIFIED ---
+    }
 
 
 }

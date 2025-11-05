@@ -1,0 +1,1090 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+span.textss {
+    font-size: 12px;
+    color: #de0707;
+    line-height: 28px;
+}
+
+.td_1 h4 {
+    font-size: 14px;
+    color: #2e2e2e;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.nopadding3 {
+    padding: 3px !important;
+}
+
+.p_0 {
+    padding: 0 !important;
+}
+
+.m_0 {
+    margin: 0 !important;
+}
+
+.m_b {
+    margin-bottom: 10px;
+}
+body {
+    font-family: 'Open Sans',sans-serif !important;
+    /*font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    font-family: 'Karla' !important;*/
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.alignTxt {
+    text-align: right;
+}
+
+.BRDR_0 {
+    border: 0 !important;
+}
+
+
+#pnlMsg {
+    width: 100%;
+    float: left;
+}
+
+    #pnlMsg .TxtDec {
+        width: 100%;
+        float: left;
+        font-size: 23px;
+        margin: 0 0 15px 0;
+    }
+
+    #pnlMsg .ConfrmBtn {
+        width: auto;
+        float: left;
+        font-size: 18px;
+        background-color: #82c50d;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 4px;
+        border: 0;
+        padding: 10px 20px;
+    }
+
+/*============================  Navigation  CSS ==================================*/
+#navigation_example {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+    #navigation_example .navbar-brand {
+        padding: 0px;
+    }
+
+        #navigation_example .navbar-brand > img {
+            height: auto;
+            padding: 4px;
+            width: auto;
+            float: left;
+        }
+
+    #navigation_example .navbar {
+        position: relative;
+        height: auto;
+        float: left;
+        width: 100%;
+        margin-bottom: 0;
+        border: 1px solid transparent;
+    }
+
+    #navigation_example .navbar-default {
+        background-color: white;
+        border-color: white;
+        padding: 0 50px;
+        border: none;
+    }
+
+        #navigation_example .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+            color: white;
+            background-color: #82c50d;
+            padding: 20px;
+        }
+
+        #navigation_example .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+            color: black;
+            background-color: transparent;
+            padding: 20px;
+        }
+
+        #navigation_example .navbar-default .navbar-nav > li > a {
+            color: black;
+            font-size: 18px;
+            padding: 20px;
+            text-align: center;
+        }
+
+
+
+#Header {
+    width: 100%;
+    height: auto;
+    float: left;
+    text-align: center;
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: rgba(0,0,0,0.55) 0 -2px 7px 0 !important;
+}
+
+#LogInBody {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+    #LogInBody .FormWrapper {
+        /*width: 100%;*/
+        height: auto;
+        /*float: left;*/
+        margin: 100px 0; 
+        background-color: #f5f5f5;
+        border: 1px solid #eae9e9;
+        padding: 15px;
+        box-shadow: 0 0.75rem 1.625rem 0 rgba(90, 72, 132, 0.14);
+    }
+
+        #LogInBody .FormWrapper .FormHeading {
+            color: #000;
+            width: 100%;
+            float: left;
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 0 30px 0;
+            
+        }
+        
+        #LogInBody .FormWrapper .form-group .row {
+                margin-bottom: 20px;
+        }
+        
+        #LogInBody .FormWrapper .form-group .row label {
+                font-size: 12px;
+        }
+        
+        #LogInBody .FormWrapper .form-group .row .btn-primary {
+            color: #fff !important;
+            background-color: #89D504 !important;
+            border-color: #89D504 !important;
+        }
+
+            #LogInBody .FormWrapper .FormHeading span {
+                color: #89d504;
+            }
+
+        #LogInBody .FormWrapper .InputField {
+            height: auto;
+            width: 100%;
+            float: left;
+        }
+
+            #LogInBody .FormWrapper .InputField .form-group {
+                float: left;
+                width: 100%;
+                margin-bottom: 0;
+            }
+
+                #LogInBody .FormWrapper .InputField .form-group label {
+                    display: inline-block;
+                    max-width: 100%;
+                    margin-bottom: 5px;
+                    font-weight: 700;
+                    width: 100%;
+                    height: auto;
+                    line-height: 20px;
+                    float: left;
+                    font-size: 12px;
+                    color: #2f2f2f;
+                    margin: 12px 0px 5px 0px;
+                }
+
+                #LogInBody .FormWrapper .InputField .form-group .form-control {
+                    display: block;
+                    padding: 5px;
+                    font-size: 15px;
+                    color: #2f2f2f;
+                    background-color: #fff;
+                    background-image: none;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                    width: 100%;
+                    height: 50px;
+                    line-height: 50px;
+                    float: left;
+                    border: 1px solid #f1f1f1;
+                    border-radius: 4px;
+                    text-indent: 12px;
+                    -webkit-transition: none;
+                    -o-transition: none;
+                    transition: none;
+                    outline: none !important;
+                }
+
+                #LogInBody .FormWrapper .InputField .form-group a.FrgtPwd {
+                    text-align: center;
+                    margin: 50px 0 10px;
+                    font-size: 13px;
+                    color: #2f2f2f;
+                    font-weight: bold;
+                }
+
+                    #LogInBody .FormWrapper .InputField .form-group a.FrgtPwd:hover {
+                        color: #89d504;
+                    }
+
+                #LogInBody .FormWrapper .InputField .form-group .SubmitBtn {
+                    background: #82c50d;
+                    border-radius: 0;
+                    font-size: 16px;
+                    color: #fff;
+                    display: inline-block;
+                    font-weight: 700;
+                    margin-top: 10px;
+                    padding: 0 30px;
+                    text-decoration: none;
+                    line-height: 3;
+                    width: auto;
+                    float: left;
+                }
+
+        #LogInBody .FormWrapper .BottomText {
+            width: 100%;
+            float: left;
+            text-align: center;
+            margin: 0;
+            font-size: 13px;
+            color: #2f2f2f;
+            font-weight: bold;
+            border-top: 1px solid #f1f1f1;
+            padding-top: 15px;
+        }
+
+            #LogInBody .FormWrapper .BottomText a {
+                color: #89d504 !important;
+                text-decoration: none !important;
+            }
+
+
+/*====================================== Dashboard  CSS ===============================*/
+#DashBoard {
+    width: 100%;
+    height: auto;
+    float: left;
+    background-color: #fafafa;
+    padding: 50px 0;
+}
+
+    #DashBoard .DashBoardList {
+        width: 100%;
+        height: auto;
+        float: left;
+        border-radius: 4px;
+        box-shadow: rgb(204, 204, 204) 1px 2px 4px;
+        border: 1px solid rgb(229, 229, 229);
+        background: rgb(255, 255, 255);
+    }
+
+        #DashBoard .DashBoardList .sidebar-toggle {
+            margin-left: -240px;
+        }
+
+        #DashBoard .DashBoardList .sidebar {
+            width: 100%;
+            height: auto;
+            float: left;
+        }
+
+            #DashBoard .DashBoardList .sidebar #leftside-navigation ul,
+            #DashBoard .DashBoardList .sidebar #leftside-navigation ul ul {
+                margin: -2px 0 0;
+                padding: 0;
+            }
+
+                #DashBoard .DashBoardList .sidebar #leftside-navigation ul li {
+                    background-color: #2e2e2e;
+                    list-style-type: none;
+                    border-bottom: 1px solid #4a4a4a;
+                }
+
+                    #DashBoard .DashBoardList .sidebar #leftside-navigation ul li.active ul {
+                        display: block;
+                    }
+
+                    #DashBoard .DashBoardList .sidebar #leftside-navigation ul li a {
+                        color: #fff;
+                        text-decoration: none;
+                        display: block;
+                        padding: 18px 0 18px 25px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        outline: 0;
+                        -webkit-transition: all 200ms ease-in;
+                        -moz-transition: all 200ms ease-in;
+                        -o-transition: all 200ms ease-in;
+                        -ms-transition: all 200ms ease-in;
+                        transition: all 200ms ease-in;
+                    }
+
+                        #DashBoard .DashBoardList .sidebar #leftside-navigation ul li a:hover {
+                            color: #82c50e;
+                        }
+
+                        #DashBoard .DashBoardList .sidebar #leftside-navigation ul li a span {
+                            display: inline-block;
+                        }
+
+                        #DashBoard .DashBoardList .sidebar #leftside-navigation ul li a i {
+                            width: 20px;
+                        }
+
+                            #DashBoard .DashBoardList .sidebar #leftside-navigation ul li a i .fa-angle-left,
+                            #DashBoard .DashBoardList .sidebar #leftside-navigation ul li a i .fa-angle-right {
+                                padding-top: 3px;
+                            }
+
+                #DashBoard .DashBoardList .sidebar #leftside-navigation ul ul {
+                    display: none;
+                }
+
+                    #DashBoard .DashBoardList .sidebar #leftside-navigation ul ul li {
+                        background: #fff;
+                        margin-bottom: 0;
+                        margin-left: 0;
+                        margin-right: 0;
+                        border-bottom: 1px solid #f1f0f0;
+                    }
+
+                        #DashBoard .DashBoardList .sidebar #leftside-navigation ul ul li:last-child {
+                            border-bottom: 0;
+                        }
+
+                        #DashBoard .DashBoardList .sidebar #leftside-navigation ul ul li a {
+                            font-size: 15px;
+                            color: #2e2e2e;
+                        }
+
+        #DashBoard .DashBoardList .HeadForm {
+            width: 100%;
+            height: auto;
+            float: left;
+            background-color: #fafafa;
+            padding: 15px;
+        }
+
+            #DashBoard .DashBoardList .HeadForm h2 {
+                margin: 0;
+                font-size: 20px;
+                font-weight: bold;
+                color: #2f2f2f;
+                text-align: left;
+            }
+
+        #DashBoard .DashBoardList .BodyForm {
+            width: 100%;
+            height: auto;
+            float: left;
+            padding: 15px;
+        }
+
+            #DashBoard .DashBoardList .BodyForm .CarDtl {
+                width: 100%;
+                height: auto;
+                float: left;
+                padding: 20px 0;
+            }
+
+                #DashBoard .DashBoardList .BodyForm .CarDtl h3.CrDTL {
+                    width: 100%;
+                    height: auto;
+                    float: left;
+                    padding: 15px;
+                    font-weight: bold;
+                    margin: 0 auto 20px;
+                    font-size: 20px;
+                    background-color: #fafafa;
+                    border-bottom: 1px solid #f1f0f0;
+                }
+
+            #DashBoard .DashBoardList .BodyForm .form-group {
+                width: 100%;
+                height: auto;
+                float: left;
+                margin-bottom: 25px;
+            }
+
+                #DashBoard .DashBoardList .BodyForm .form-group label {
+                    width: 100%;
+                    float: left;
+                    margin-bottom: 10px;
+                }
+
+                #DashBoard .DashBoardList .BodyForm .form-group table label {
+                    width: auto;
+                    float: none;
+                    margin-bottom: 10px;
+                    margin-right: 20px;
+                }
+
+                #DashBoard .DashBoardList .BodyForm .form-group .form-control {
+                    outline: none !important;
+                    box-shadow: none !important;
+                    transition: none !important;
+                    height: 40px;
+                    border-radius: 2px;
+                    width: 100%;
+                    float: left;
+                    color: #2f2f2f;
+                }
+
+            #DashBoard .DashBoardList .BodyForm .SbtBtn {
+                width: 30%;
+                height: 45px;
+                font-size: 14px;
+                font-weight: bold;
+                color: #fff;
+                border: 1px solid #82c50f;
+                background-color: #82c50f;
+                border-radius: 2px;
+                outline: none !important;
+                text-align: center;
+                padding: 0;
+            }
+
+            #DashBoard .DashBoardList .BodyForm .file {
+                position: relative;
+                overflow: hidden;
+                background-color: transparent;
+                border: 2px dashed #cacbcd;
+                border-radius: 4px !important;
+                color: #303030;
+                font-size: 14px;
+                padding: 0;
+                text-align: center;
+                width: 100%;
+                height: 100px;
+                font-weight: bold;
+                line-height: 7;
+                margin-bottom: 20px !important;
+            }
+
+                #DashBoard .DashBoardList .BodyForm .file span {
+                    line-height: normal;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                #DashBoard .DashBoardList .BodyForm .file .fa {
+                    display: block;
+                }
+
+                #DashBoard .DashBoardList .BodyForm .file input {
+                    position: absolute;
+                    opacity: 0;
+                    right: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    float: left;
+                }
+
+            #DashBoard .DashBoardList .BodyForm .CarDtl ul {
+                width: 100%;
+                float: left;
+                margin: 0;
+                padding: 0 10px;
+            }
+
+                #DashBoard .DashBoardList .BodyForm .CarDtl ul li {
+                    width: 25%;
+                    float: left;
+                    margin: 0 auto 15px;
+                    padding: 0 10px;
+                }
+
+                    #DashBoard .DashBoardList .BodyForm .CarDtl ul li .ImgWrapper {
+                        width: 100%;
+                        height: 100px;
+                        float: left;
+                        margin-bottom: 20px !important;
+                    }
+
+                        #DashBoard .DashBoardList .BodyForm .CarDtl ul li .ImgWrapper img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+
+            #DashBoard .DashBoardList .BodyForm .ImgWrapper {
+                width: 100%;
+                height: 100px;
+                float: left;
+            }
+
+                #DashBoard .DashBoardList .BodyForm .ImgWrapper img {
+                    width: auto;
+                    height: 100%;
+                    object-fit: contain;
+                }
+
+            #DashBoard .DashBoardList .BodyForm .input-group {
+                width: calc(95% / 2);
+                margin-right: 10px;
+                float: left;
+                margin-bottom: 15px;
+            }
+
+                #DashBoard .DashBoardList .BodyForm .input-group:last-child {
+                    margin-right: 0;
+                }
+
+
+            #DashBoard .DashBoardList .BodyForm ul.GalleryXWide {
+                width: 100%;
+                height: auto;
+                float: left;
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0;
+            }
+
+                #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left {
+                    width: 100%;
+                    height: auto;
+                    float: left;
+                    list-style: none;
+                    margin: 0;
+                    display: flex;
+                    margin-bottom: 20px;
+                }
+
+                    #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover {
+                        width: 100%;
+                        height: auto;
+                        float: left;
+                        padding: 15px;
+                        border: 1px solid #f1f0f0;
+                        background: #fff;
+                        box-shadow: 0 3px 8px rgba(195,195,195,0.26);
+                        -moz-box-shadow: 0 3px 8px rgba(195,195,195,0.26);
+                        -ms-box-shadow: 0 3px 8px rgba(195,195,195,0.26);
+                        -webkit-box-shadow: 0 3px 8px rgba(195,195,195,0.26);
+                    }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .B0Rder {
+                            float: left;
+                            border-right: 1px solid #f1f0f0;
+                        }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .img_box {
+                            width: 100%;
+                            height: 120px;
+                            float: left;
+                            position: relative;
+                            padding: 0;
+                            background-color: transparent;
+                        }
+
+                            #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .img_box img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover ul.CdxxlargeIcon {
+                            width: 100%;
+                            height: auto;
+                            float: left;
+                            display: inline-block;
+                            margin: 10px auto 0;
+                        }
+
+                            #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover ul.CdxxlargeIcon li {
+                                width: 33.33%;
+                                height: auto;
+                                float: left;
+                                display: inline-block;
+                                list-style: none;
+                                text-align: center;
+                                border-right: solid 1px #2f2f2f;
+                                font-size: 20px;
+                                font-weight: bold;
+                                color: #2f2f2f;
+                            }
+
+                                #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover ul.CdxxlargeIcon li:last-child {
+                                    border-right: 0;
+                                }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover ul.CdxxCity {
+                            width: 100%;
+                            height: auto;
+                            float: left;
+                            display: inline-block;
+                            margin: 10px auto 0;
+                        }
+
+                            #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover ul.CdxxCity li {
+                                width: 100%;
+                                height: auto;
+                                float: left;
+                                display: inline-block;
+                                list-style: none;
+                                text-align: left;
+                                border-right: 0;
+                                font-size: 14px;
+                                font-weight: bold;
+                                color: #2f2f2f;
+                            }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Txt_box {
+                            width: 100%;
+                            height: auto;
+                            float: left;
+                            padding: 0;
+                        }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Title {
+                            width: 100%;
+                            height: auto;
+                            float: left;
+                            font-size: 18px;
+                            font-weight: bold;
+                            margin: 0 auto 15px;
+                        }
+                            #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Title .txtrgt {
+                                float: right;
+                            }
+                            #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Price {
+                            float: left;
+                            color: #2f2f2f;
+                            font-size: 26px;
+                            margin: 0;
+                            font-weight: bold;
+                            width: 100%;
+                            text-align: center;
+                        }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Txt_box .dotlist {
+                            width: 100%;
+                            height: auto;
+                            float: left;
+                            color: #2f2f2f;
+                            font-size: 14px;
+                            line-height: 1.6;
+                            text-align: left;
+                            padding: 0;
+                        }
+
+                            #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Txt_box .dotlist span {
+                                display: block;
+                                width: 100%;
+                                float: left;
+                                line-height: 2;
+                            }
+
+                                #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Txt_box .dotlist span b {
+                                    width: 50%;
+                                    float: left;
+                                }
+
+                                #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Txt_box .dotlist span:last-child {
+                                    border-right: 0;
+                                }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ChckValuBtn {
+                            width: 100%;
+                            height: 40px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: #fff;
+                            border: 1px solid #82c50f;
+                            background-color: #82c50f;
+                            border-radius: 2px;
+                            outline: none !important;
+                            text-align: center;
+                        }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ChckValuBtnLeft {
+                            width: 98%;
+                            height: 40px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: #fff;
+                            border: 1px solid #82c50f;
+                            background-color: #82c50f;
+                            border-radius: 2px;
+                            outline: none !important;
+                            text-align: center;
+                            float:left;
+                        }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ChckValuBtnRight {
+                            width: 98%;
+                            height: 40px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: #fff;
+                            border: 1px solid #82c50f;
+                            background-color: #82c50f;
+                            border-radius: 34px;
+                            outline: none !important;
+                            text-align: center;
+                            float: right;
+                        }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ChckValuBtnRed {
+                            width: 98%;
+                            height: 40px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: #fff;
+                            border: 1px solid #ff0808;
+                            background-color: #ff0808;
+                            border-radius: 2px;
+                            outline: none !important;
+                            text-align: center;
+                            float: right;
+                        }
+
+                        #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ProviderDetlBox {
+                            width: 100%;
+                            float: left;
+                            height: auto;
+                            border: 1px solid #f1f0f0;
+                            padding: 7px;
+                            border-radius: 4px;
+                            margin-top: 45px;
+                            background-color: #fafafa;
+                        }
+
+                            #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ProviderDetlBox .PrvdrImgBox {
+                                width: 25%;
+                                height: 30px;
+                                float: left;
+                            }
+
+                                #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ProviderDetlBox .PrvdrImgBox img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                }
+
+                            #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ProviderDetlBox .RatingValue {
+                                width: 100%;
+                                float: left;
+                                text-align: center;
+                                font-size: 20px;
+                                font-weight: bold;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                padding: 0 5px;
+                            }
+
+            #DashBoard .DashBoardList .BodyForm .form-group textarea {
+                height: 125px !important;
+            }
+
+            #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover ul.CdxxlargeIcon li .ImGS {
+                width: 20px;
+                margin-top: -3px;
+            }
+
+/*====================================== DashBoard  CSS ===============================*/
+
+/*====================================== Footer  CSS ===============================*/
+footer {
+    width: 100%;
+    height: auto;
+    float: left;
+    background: #2e2e2e;
+    padding: 30px 0;
+}
+
+    footer .footer_list {
+        width: 100%;
+        height: auto;
+        float: left;
+        padding: 10px 0;
+        border-bottom: 1px solid #3b3b3b;
+    }
+
+        footer .footer_list:last-child {
+            width: 100%;
+            height: auto;
+            float: left;
+            padding: 10px 0;
+            border-bottom: 0;
+        }
+
+        footer .footer_list ul li:first-child {
+            color: #82c50d;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        footer .footer_list ul {
+            width: 100%;
+            list-style: none;
+            padding-left: 0;
+            float: left;
+        }
+
+            footer .footer_list ul li a {
+                float: left;
+                width: 100%;
+                color: #fff;
+                font-size: 13px;
+                font-weight: 600;
+                padding: 5px 0;
+            }
+
+        footer .footer_list:last-child ul li a {
+            float: left;
+            width: 100%;
+            color: #717171;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 5px 0;
+        }
+
+        footer .footer_list .social {
+            width: 100%;
+            float: left;
+        }
+
+            footer .footer_list .social ul li {
+                float: right;
+                list-style: none;
+                width: auto;
+                margin: 0 0 0 5px;
+            }
+
+        footer .footer_list .copyright {
+            font-size: 13px;
+            color: #717171;
+            float: left;
+            width: 100%;
+            padding: 10px 0 0;
+            text-align: right;
+        }
+
+        footer .footer_list .f-logo {
+            float: right;
+        }
+
+        footer .footer_list h4 {
+            font-size: 22px;
+            color: #82c50d;
+            font-weight: 300;
+        }
+
+        footer .footer_list p {
+            color: #717171;
+            font-size: 14px;
+            font-weight: 300;
+            padding: 5px 0;
+        }
+
+        footer .footer_list .subscibe {
+            width: 70%;
+            float: left;
+        }
+
+            footer .footer_list .subscibe input[type=text] {
+                float: left;
+                background: #2d2d2d;
+                border: 1px solid #3b3b3b;
+                width: 70%;
+                color: #545353;
+                font-size: 14px;
+                font-weight: 400;
+                padding: 10px;
+            }
+
+        footer .footer_list input[type=submit] {
+            float: left;
+            width: 30%;
+            padding: 9px;
+            border: 1px solid #82c50d;
+            background: 0 0;
+            color: #82c50d;
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+            footer .footer_list input[type=submit]:hover {
+                float: left;
+                width: 30%;
+                padding: 9px;
+                border: 1px solid #82c50d;
+                background: 0 0;
+                color: #ffffff;
+                font-size: 14px;
+                font-weight: 400;
+                cursor: pointer;
+                background-color: #82c50d;
+            }
+/*====================== Footer  CSS =======================*/
+
+
+/*====================== Modalpopup  CSS =======================*/
+.modalBackground {
+    background-color: Black;
+    filter: alpha(opacity=90);
+    opacity: 0.8;
+}
+
+.modalPopup {
+    background-color: transparent;
+    border: 0;
+    width: 500px;
+    height: auto;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    float: left;
+    width: 100%;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    float: left;
+    width: 100%;
+    color: #fff;
+    background-color: #82c50d;
+}
+
+    .modal-header .close {
+        margin-top: 0;
+        background-color: transparent !important;
+        opacity: 1;
+        color: #fff;
+        border: 0 !important;
+    }
+
+    .modal-header .modal-title {
+        margin: 0;
+        line-height: 1.42857143;
+        font-size: 20px;
+    }
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+    float: left;
+    width: 100%;
+    font-size: 16px;
+    line-height: 2;
+    color: black;
+}
+
+    .modal-body p {
+        margin: 0;
+    }
+
+.modal-footer {
+    padding: 15px;
+    float: left;
+    width: 100%;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+
+.modal-confirmbtn {
+    background: #82c50d;
+    border-radius: 0;
+    font-size: 16px;
+    color: #fff;
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 10px;
+    padding: 0 30px;
+    text-decoration: none;
+    line-height: 3;
+    width: auto;
+}
+/*====================== Modalpopup  CSS =======================*/
+
+
+.alignItem {
+    display: table;
+}
+
+.alignItemBtm {
+    /*float: none !important;*/
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+
+#DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Txt_box .dotlist span span {
+    width: 50%;
+}
+
+
+#DashBoard .DashBoardList .BodyForm .form-group input[disabled] {
+    outline: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+    height: 40px;
+    border-radius: 2px;
+    width: 100%;
+    float: left;
+    color: #2f2f2f;
+    cursor: default;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;    
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+}
+
+.btttn {
+    padding: 10px 0px !important;
+}
+
+@media only screen and (max-width:767px) {
+    #LogInBody .FormWrapper .BottomText {
+        margin: 30px 0 10px;
+        padding-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .name {
+        padding: 79px 51px 15px 50px !important;
+    }
+}

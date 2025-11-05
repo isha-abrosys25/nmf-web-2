@@ -1,0 +1,249 @@
+@media only screen and (max-width:1260px){
+#DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover ul.CdxxlargeIcon li{
+    font-size:15px;
+    }
+   #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ProviderDetlBox .RatingValue {
+    font-size: 14px;
+}
+    #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ProviderDetlBox .PrvdrImgBox {
+    height: 20px;
+    }
+    #DashBoard .DashBoardList .BodyForm .input-group {
+    width: calc(90% / 2);
+    }
+    #DashBoard .DashBoardList .BodyForm .file {
+    font-size: 11px;
+    line-height: 8;
+}
+} 
+@media only screen and (max-width:991px){
+#navigation_example .navbar-default {
+    background-color: white;
+    border-color: white;
+    padding: 0 10px;
+    border: none;
+}
+	footer .footer_list .subscibe {
+    width:100% !important;
+    float: left;
+}
+    #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .B0Rder {
+    border: 0;
+}
+    #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ProviderDetlBox {
+    width: 47%;
+    margin-left: 15px;
+}
+    #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ChckValuBtn {
+    width: 48%;
+    margin-top: 15px;
+    float: left;
+}
+    #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Price {
+    margin: 20px 0 0 0;
+    border-top: 1px solid #f1f0f0;
+    padding-top: 10px;
+}
+    #DashBoard .DashBoardList .BodyForm .file {
+    font-size: 11px;
+    line-height: 6;
+    height: 80px;
+}
+    #DashBoard .DashBoardList .BodyForm .ImgWrapper {
+    height: 80px;
+    background-color: #fafafa;
+    }
+    #DashBoard .DashBoardList .BodyForm .CarDtl ul li .ImgWrapper {
+    height: 80px;
+    }
+    #DashBoard .DashBoardList .BodyForm .CarDtl ul li .ImgWrapper img {
+    object-fit: contain;
+}
+    #DashBoard .DashBoardList .BodyForm .ImgWrapper img {
+    object-fit: contain;
+}
+} 
+@media only screen and (max-width:767px){
+
+    i.fa.fa-2x.fa-inr {
+        font-size: 12px;
+    }
+
+    i.material-icons {
+        font-size: 13px;
+    }
+
+    #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Title {
+        font-size: 15px;
+    }
+
+
+    .alignItemBtm {
+        float: left;
+        display: block;
+        vertical-align: bottom;
+    }
+	.vertical-align {
+    display: block;
+}
+.alignTxt {
+    text-align: center;
+}
+.P_N_0{
+  padding:0 !important;      
+ }
+	
+#navigation_example .navbar-default {
+    background-color: white;
+    border-color: white;
+   	padding:0;
+   	border: none;
+}
+#navigation_example .navbar-brand > img {
+    padding: 0;	
+}
+#navigation_example	.navbar-nav {
+    margin: 0 -15px;
+}
+	#LogInBody .FormWrapper .FormHeading {
+    margin: 15px 0;
+	font-size: 22px;
+}
+    #LogInBody .FormWrapper {
+        margin: 15px 0 !important;
+        padding: 10px;
+    }
+	#LogInBody .FormWrapper .InputField .form-group .form-control{
+		font-size:13px;
+		height:40px;
+	}
+	#LogInBody .FormWrapper .InputField .form-group {
+    margin-bottom: 0px;
+}
+	#LogInBody .FormWrapper .InputField .form-group .SubmitBtn {
+    font-size: 14px;
+    padding: 0 20px;
+    line-height: 2.5;
+	}
+#DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .Txt_box .dotlist {
+    font-size: 12px;
+    padding: 15px 15px 0 15px;
+    margin: 20px 0 0 0;
+    border-top: 1px solid #f1f0f0;
+    text-align:center;
+}	
+#DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ChckValuBtn {
+    width: 100%;
+    }
+#DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .ProviderDetlBox {
+    width: 100%;
+    margin-left: 0;
+}
+    #DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover ul.CdxxlargeIcon li {
+    border: 0;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid #2f2f2f;
+    width: 100%;
+    line-height: 2;
+}
+#DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover ul.CdxxlargeIcon li:last-child{
+   border:0;
+}
+#DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover ul.CdxxlargeIcon {
+    width: 30%;
+    padding: 0 10px;
+    margin:0;
+}
+#DashBoard .DashBoardList .BodyForm ul.GalleryXWide li.Ad1Left .ContentCover .img_box {
+    width: 70%;
+}
+    #DashBoard .DashBoardList .HeadForm h2 {
+    font-size: 18px;
+    }
+    #DashBoard .DashBoardList .HeadForm {
+    padding: 10px;
+}
+
+    #DashBoard .DashBoardList .BodyForm {
+        padding: 10px;
+        line-height: 2;
+    }
+ #DashBoard .DashBoardList .BodyForm .form-group {
+    margin-bottom: 10px;
+}
+    #DashBoard .DashBoardList .BodyForm .form-group label {
+         /*margin-bottom: -10px;*/
+        font-size: 13px;
+    }
+#DashBoard .DashBoardList .BodyForm .form-group .form-control {
+    height: 35px;
+    font-size: 12px;    
+    }    
+ #DashBoard .DashBoardList .BodyForm .SbtBtn {
+    width: 100%;
+     float:left;
+    }
+    #DashBoard .DashBoardList .BodyForm .CarDtl h3.CrDTL {
+padding: 10px;
+    margin: 0 auto 10px;
+    font-size: 16px;
+    border: 1px solid #f1f0f0;
+}
+  #DashBoard .DashBoardList .BodyForm .file {
+    font-size: 8px;
+    line-height: 7;
+    height: 60px;
+}  
+#DashBoard .DashBoardList .BodyForm .ImgWrapper {
+    height: 60px;
+}    
+  #DashBoard .DashBoardList .BodyForm .CarDtl ul li .ImgWrapper {
+    height: 60px;
+}  
+#DashBoard .DashBoardList .BodyForm .CarDtl ul li {
+    width: 33.33%;
+    padding:0 5px;
+    }
+#DashBoard .DashBoardList .BodyForm .CarDtl {
+    padding: 20px 0 0;
+}    
+    
+footer .footer_list ul {
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+    float: left;
+    text-align: center;
+}	
+footer .footer_list ul li:first-child {
+    color: #82c50d;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+}
+footer .footer_list ul li a {
+    float: left;
+    width: 100%;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 0;
+    text-align: center;
+}	
+footer .footer_list .social ul li {
+    float: none;
+    list-style: none;
+    width: auto;
+    margin: 0 0 0 5px;
+    display: inline-block;
+}	
+footer .footer_list .copyright {
+    font-size: 13px;
+    color: #717171;
+    float: left;
+    width: 100%;
+    padding: 10px 0 0;
+    text-align: center;
+}
+}

@@ -1,0 +1,1616 @@
+@media only screen and (max-width: 1024px) {
+		#rental_offer .vertical-align .btn-success {
+    color: #000;
+    background-color: #88d700;
+    border-color: #88d700;
+    font-size: 12px;
+    font-weight: bold;
+    /* padding: 10px 16px; */
+    border-radius: 0;
+    width: 100%;
+}
+    #rental_offer .vertical-align ul li p {
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+    }
+
+    .banner-section .banner-content .panel-default .nav-tabs > li {
+        float: left;
+        margin-bottom: -1px;
+        width: 33%;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .banner-section .banner-content .panel-default_inner .nav-tabs > li {
+        float: left !important;
+        margin-bottom: -1px;
+        width: 25% !important;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        background-color: #fff;
+        border: 1px solid #89D504;
+    }
+
+    .banner-section .banner-content .panel-default_inner_sub .nav-tabs > li {
+        float: left !important;
+        margin-bottom: -1px;
+        width: 20%;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        background-color: #fff;
+        border: 1px solid #89D504;
+    }
+
+    .banner-section_PPC .banner-content .panel-default .nav-tabs > li {
+        float: left;
+        margin-bottom: -1px;
+        width: 33%;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .banner-section_PPC .banner-content .panel-default_inner .nav-tabs > li {
+        float: left !important;
+        margin-bottom: -1px;
+        width: 25% !important;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        background-color: #fff;
+        border: 1px solid #89D504;
+    }
+
+    .banner-section_PPC .banner-content .panel-default_inner_sub .nav-tabs > li {
+        float: left !important;
+        margin-bottom: -1px;
+        width: 20%;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        background-color: #fff;
+        border: 1px solid #89D504;
+    }
+
+    .new-banner-section .banner-content .panel-default .nav-tabs > li {
+        float: left;
+        margin-bottom: -1px;
+        width: 33%;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .new-banner-section .banner-content .panel-default_inner .nav-tabs > li {
+        float: left !important;
+        margin-bottom: -1px;
+        width: 25% !important;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        background-color: #fff;
+        border: 1px solid #89D504;
+    }
+
+    .new-banner-section .banner-content .panel-default_inner_sub .nav-tabs > li {
+        float: left !important;
+        margin-bottom: -1px;
+        width: 20%;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        background-color: #fff;
+        border: 1px solid #89D504;
+    }
+
+    .provider_wrapper .vertical-align .list-inline > li {
+        display: inline-block;
+        padding-right: 3px;
+        padding-left: 3px;
+        text-align: center;
+        float: left;
+        width: 100%;
+    }
+
+    .provider_wrapper .vertical-align ul li p {
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+    }
+
+    .provider_wrapper .vertical-align ul {
+        margin-bottom: 10px;
+        /*width:33.3%;*/
+    }
+
+    .route_wrapper .vertical-align .list-inline > li {
+        display: inline-block;
+        padding-right: 3px;
+        padding-left: 3px;
+        text-align: center;
+        float: left;
+        width: 100%;
+    }
+
+    .route_wrapper .vertical-align ul li p {
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+    }
+
+    .route_wrapper .vertical-align ul {
+        margin-bottom: 10px;
+        /*width:33.3%;*/
+    }
+
+    .airport_wrapper .vertical-align .list-inline > li {
+        display: inline-block;
+        padding-right: 3px;
+        padding-left: 3px;
+        text-align: center;
+        float: left;
+        width: 100%;
+    }
+
+    .airport_wrapper .vertical-align ul li p {
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+    }
+
+    .airport_wrapper .vertical-align ul {
+        margin-bottom: 10px;
+        /*width:33.3%;*/
+    }
+}
+
+@media only screen and (max-width:991px) {
+		#rental_offer .vertical-align .btn-success {
+    color: #000;
+    background-color: #88d700;
+    border-color: #88d700;
+    font-size: 12px;
+    font-weight: bold;
+    /* padding: 10px 16px; */
+    border-radius: 0;
+    width: 100%;
+}
+    #navigation_example .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+        padding: 20px 10px;
+    }
+
+    #navigation_example .navbar-default .navbar-nav > li > a {
+        padding: 20px 10px;
+    }
+
+        #navigation_example .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+            padding: 20px 10px;
+        }
+
+    #navigation_example .navbar-default {
+        background-color: white;
+        border-color: white;
+        padding: 0 10px;
+        border: none;
+    }
+
+    .banner-section .banner-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 27%;
+    }
+
+        .banner-section .banner-content .panel-default_inner .nav-tabs > li {
+            float: left !important;
+            margin-bottom: -1px;
+            width: 30% !important;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+            background-color: #fff;
+            border: 1px solid #89D504;
+        }
+
+    .banner-section, .banner-section_About {
+        background-color: #EEE;
+        min-height: 642px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        float: left;
+        width: 100%;
+        background-image: url(../images/banner_images/mainbanner.png);
+    }
+
+    .banner-india, .banner-section_About {
+        background-color: #EEE;
+        min-height: 642px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        float: left;
+        width: 100%;
+        background-image: url(../images/banner_images/mainbanner.png);
+    }
+
+
+    .banner-section_PPC .banner-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 3%;
+    }
+
+        .banner-section_PPC .banner-content .panel-default_inner .nav-tabs > li {
+            float: left !important;
+            margin-bottom: -1px;
+            width: 30% !important;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+            background-color: #fff;
+            border: 1px solid #89D504;
+        }
+
+    .banner-section_PPC {
+        background-color: #EEE;
+        min-height: 642px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        float: left;
+        width: 100%;
+        background-image: url(../images/banner_images/mainbanner.png);
+    }
+
+        .new-banner-section .banner-content {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 3%;
+        }
+
+            .new-banner-section .banner-content .panel-default_inner .nav-tabs > li {
+                float: left !important;
+                margin-bottom: -1px;
+                width: 30% !important;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: bold;
+                background-color: #fff;
+                border: 1px solid #89D504;
+            }
+
+    .new-banner-section {
+        background-color: #EEE;
+        min-height: 642px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        float: left;
+        width: 100%;
+        background-image: url(../images/banner_images/mainbanner.png);
+    }
+
+
+
+    footer .footer_list .subscibe {
+        width: 100% !important;
+        float: left;
+    }
+
+    #rental_offer .vertical-align .list-inline > li {
+        display: inline-block;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    #airport_wrapper .white_box {
+        margin: 0;
+        background-color: #fff;
+        width: 100%;
+        height: 200px;
+        float: left;
+        padding-top: 10px;
+        margin-top: 15px;
+    }
+
+    #route_wrapper .white_box {
+        margin: 0;
+        background-color: #fff;
+        width: 100%;
+        height: 200px;
+        float: left;
+        padding-top: 10px;
+        margin-top: 15px;
+    }
+
+
+    .box #exTab1 .nav-pills > li {
+        float: left;
+        width: 33% !important;
+    }
+
+    .box #exTab1 .parentTabs .nav-tabs > li {
+        float: left;
+        margin: 0;
+        width: 20%;
+        border: 1px solid #89d504;
+        padding: 0;
+    }
+
+    .box #exTab1 .parentTabs .form-group .btn-info {
+        color: #fff;
+        background-color: #82c50e;
+        border-color: #82c50e;
+        width: 100%;
+        float: left;
+        height: auto;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px 0;
+        outline: none;
+        border-radius: 0;
+    }
+
+    .box #exTab1 .tab-content .tab-pane .form-group .btn-info {
+        color: #fff;
+        background-color: #82c50e;
+        border-color: #82c50e;
+        width: 100%;
+        float: left;
+        height: auto;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 10px;
+        outline: none;
+        border-radius: 0;
+    }
+
+    .box #exTab1 .tab-content .tab-pane .nav-tabs > li {
+        float: left;
+        margin: 0;
+        width: 25%;
+        border: 1px solid #89d504;
+        padding: 0;
+    }
+
+    .box #exTab1 .nav-pills > li:last-child {
+        margin: 0 !important;
+        color: #232020;
+        background-color: #fff;
+        font-weight: bold;
+        float: right;
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .lbl_Display {
+        font-size: 11px;
+    }
+
+    .ch-wrapper {
+        padding: 0px;
+    }
+
+    .strip_grey p {
+        font-size: 14px;
+        display: none;
+    } 
+
+    span#wuc_Search_Vehicle_lblAirportName {
+        font-size: 11px;
+    }
+
+    span#wuc_Search_Vehicle_Label3 {
+        font-size: 11px;
+    }
+
+    span#wuc_Search_Vehicle_lblDroplocation {
+        font-size: 11px;
+    }
+
+    #car_modify .strip .btn-info {
+        padding: 4px 15px;
+    }
+
+    #car_modify .strip {
+        padding: 5px 5px;
+    }
+
+    .ch-vhcle-avl {
+        margin-top: 20px;
+    }
+
+    span#wuc_Search_Vehicle_lblAirportName {
+        font-size: 11px;
+    }
+
+    span#wuc_Search_Vehicle_lblDroplocation {
+        font-size: 11px;
+    }
+
+    span#wuc_Search_Vehicle_Label3 {
+        font-size: 11px;
+    } 
+
+    #who-AboutUs {
+    padding:10px 0;
+    }
+        #who-AboutUs h2 {
+            text-align: center;
+        }
+        #who-AboutUs p {
+            text-align: justify;
+        } 
+    #rental_offer .vertical-align .btn-success {
+        color: #000;
+        background-color: #88d700;
+        border-color: #88d700;
+        font-size: 12px;
+        font-weight: bold;
+        /* padding: 10px 16px; */
+        border-radius: 0;
+        width: 100%;
+    }
+	
+    .blog-block, .blog-posts ul li, .left-sec, .right-sec {
+        width: 100%;
+    }
+
+    .f-logo {
+        margin-top: 40px;
+    }
+
+    .bottom-footer ul, .c-info, .copyright, .right-sec, .top-footer, .who-we-are, .who-AboutUs {
+        text-align: center;
+    }
+
+    .bottom-footer .social, .wha-content ul li {
+        display: inline-block;
+        float: none;
+    }
+
+
+    .bottom-footer ul {
+        float: left;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #navigation_example .navbar-brand {
+        padding: 0px;
+        margin: 0;
+        width: 100%;
+        float: left;
+        text-align: center;
+    }
+
+    #navigation_example .navbar-default {
+          background-color: white !important;
+    padding: 4px !important;
+    border-bottom: 3px solid #82c50c !important;
+    }
+
+    #navigation_example .navbar-brand > img {
+        float: none;
+    }
+
+    #navigation_example .navbar-default .MrgnNav {
+        width: 100%;
+        float: left;
+    }
+
+    #navigation_example .navbar-default .navbar-right {
+        float: left;
+        width: 100%;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
+
+        #navigation_example .navbar-default .navbar-right li {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            float: left;
+        }
+
+            #navigation_example .navbar-default .navbar-right li a {
+                padding: 10px 0 !important;
+                font-size: 18px;
+                float: left;
+                width: 100%;
+                display: inline-block;
+                line-height: 1;
+                font-weight: bold;
+                color: #3c3c3c;
+            }
+
+                #navigation_example .navbar-default .navbar-right li a img {
+                    /*width: 100%;*/
+                }
+
+    .banner-section .banner-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 33%;
+    }
+
+        .banner-section .banner-content .panel-default .nav-tabs > li {
+            float: left;
+            margin-bottom: -1px;
+            width: 50%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            .banner-section .banner-content .panel-default .nav-tabs > li:last-child {
+                float: right;
+                margin-bottom: -1px;
+                width: 100%;
+                text-align: center;
+                font-weight: bold;
+                cursor: default;
+            }
+
+        .banner-section .banner-content .panel-default_inner .nav-tabs > li {
+            float: left !important;
+            margin-bottom: -1px;
+            width:30% !important;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+            background-color: #fff;
+            border: 1px solid #89D504;
+        }
+
+        .banner-section .banner-content .panel-default > .panel-body {
+            padding: 5px;
+            background-color: #e2e2e2;
+        }
+
+        .banner-section .banner-content .panel-default_inner > .panel-body {
+            padding: 5px;
+        }
+
+        .banner-section .banner-content .panel-default_inner .nav-tabs > li > a {
+            margin-right: 0;
+            line-height: normal;
+            border: 0;
+            border-radius: 0;
+            color: #000;
+            padding: 5px;
+        }
+
+        .banner-section .banner-content .panel-default_inner_sub .nav-tabs > li > a {
+            margin-right: 0;
+            line-height: normal;
+            border: 0;
+            border-radius: 0;
+            color: #000;
+            padding: 7px 0;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .banner-section .banner-content .panel-default_inner_sub .panel-body {
+            padding: 5px;
+        }
+
+        .banner-section .banner-content .panel-default_inner .form-group .form-control {
+            display: block;
+            width: 100%;
+            height: 30px;
+            padding: 2px 8px;
+            font-size: 10px;
+        }
+
+        .banner-section .banner-content .panel-default_inner .form-group label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 0;
+            font-weight: bold;
+            width: 100%;
+            color: #000;
+            font-size: 11px;
+        }
+
+        .banner-section .banner-content .panel-default_inner .form-group .btn-success {
+            color: #fff;
+            background-color: #89d504 !important;
+            border: 0;
+            width: 100%;
+            box-shadow: 2px 2px 2px #383737;
+            font-weight: bold !important;
+            font-size: 14px !important;
+            padding: 5px !important;
+            float: left;
+        }
+
+        .banner-section .banner-content .panel-default h3 {
+            margin: 0;
+            padding-bottom: 3px;
+            font-weight: bold;
+            font-size: 15px;
+            color: #000;
+        }
+
+        .banner-section .banner-content .panel-default .nav-tabs > li > a {
+            margin-right: 0;
+            line-height: normal;
+            border: 0;
+            border-radius: 0;
+            color: #000;
+            padding: 5px;
+            font-size: 10px;
+        }
+
+    .banner-section, .banner-section_About {
+        background-color: #EEE;
+        min-height: 642px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        float: left;
+        width: 100%;
+        background-image: url(../images/banner_images/main-banner.png);
+    }
+
+    .banner-india, .banner-section_About {
+        background-color: #EEE;
+        min-height: 750px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        float: left;
+        width: 100%;
+        background-image: url(../images/banner_images/main-banner2.png);
+    }
+
+    .banner-section .banner-content .box {
+        float: left;
+        width: 100%;
+        margin-top: -13px;
+    }
+
+    .banner-india .banner-content .box {
+        float: left;
+        width: 100%;
+        margin-top: -13px;
+    }
+
+    .banner-section_PPC .banner-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 3%;
+    }
+
+        .banner-section_PPC .banner-content .panel-default .nav-tabs > li {
+            float: left;
+            margin-bottom: -1px;
+            width: 50%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            .banner-section_PPC .banner-content .panel-default .nav-tabs > li:last-child {
+                float: right;
+                margin-bottom: -1px;
+                width: 100%;
+                text-align: center;
+                font-weight: bold;
+                cursor: default;
+            }
+
+        .banner-section_PPC .banner-content .panel-default_inner .nav-tabs > li {
+            float: left !important;
+            margin-bottom: -1px;
+            width: 50% !important;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+            background-color: #fff;
+            border: 1px solid #89D504;
+        }
+
+        .banner-section_PPC .banner-content .panel-default > .panel-body {
+            padding: 5px;
+            background-color: #e2e2e2;
+        }
+
+        .banner-section_PPC .banner-content .panel-default_inner > .panel-body {
+            padding: 5px;
+        }
+
+        .banner-section_PPC .banner-content .panel-default_inner .nav-tabs > li > a {
+            margin-right: 0;
+            line-height: normal;
+            border: 0;
+            border-radius: 0;
+            color: #000;
+            padding: 5px;
+        }
+
+        .banner-section_PPC .banner-content .panel-default_inner_sub .nav-tabs > li > a {
+            margin-right: 0;
+            line-height: normal;
+            border: 0;
+            border-radius: 0;
+            color: #000;
+            padding: 7px 0;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .banner-section_PPC .banner-content .panel-default_inner_sub .panel-body {
+            padding: 5px;
+        }
+
+        .banner-section_PPC .banner-content .panel-default_inner .form-group .form-control {
+            display: block;
+            width: 100%;
+            height: 30px;
+            padding: 2px 8px;
+            font-size: 10px;
+        }
+
+        .banner-section_PPC .banner-content .panel-default_inner .form-group label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 0;
+            font-weight: bold;
+            width: 100%;
+            color: #000;
+            font-size: 11px;
+        }
+
+        .banner-section_PPC .banner-content .panel-default_inner .form-group .btn-success {
+            color: #fff;
+            background-color: #89d504 !important;
+            border: 0;
+            width: 100%;
+            box-shadow: 2px 2px 2px #383737;
+            font-weight: bold !important;
+            font-size: 14px !important;
+            padding: 5px !important;
+            float: left;
+        }
+
+        .banner-section_PPC .banner-content .panel-default h3 {
+            margin: 0;
+            padding-bottom: 3px;
+            font-weight: bold;
+            font-size: 15px;
+            color: #000;
+        }
+
+        .banner-section_PPC .banner-content .panel-default .nav-tabs > li > a {
+            margin-right: 0;
+            line-height: normal;
+            border: 0;
+            border-radius: 0;
+            color: #000;
+            padding: 5px;
+            font-size: 10px;
+        }
+
+    .banner-section_PPC {
+        background-color: #EEE;
+        min-height: 750px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        float: left;
+        width: 100%;
+        background-image: url(../images/banner_images/main-banner2.png);
+    }
+
+        .banner-section_PPC .banner-content .box {
+            float: left;
+            width: 100%;
+            margin-top: -13px;
+        }
+
+        .new-banner-section .banner-content {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0%;
+        }
+
+            .new-banner-section .banner-content .panel-default .nav-tabs > li {
+                float: left;
+                margin-bottom: -1px;
+                width: 50%;
+                text-align: center;
+                font-weight: bold;
+            }
+
+                .new-banner-section .banner-content .panel-default .nav-tabs > li:last-child {
+                    float: right;
+                    margin-bottom: -1px;
+                    width: 100%;
+                    text-align: center;
+                    font-weight: bold;
+                    cursor: default;
+                }
+
+            .new-banner-section .banner-content .panel-default_inner .nav-tabs > li {
+                float: left !important;
+                margin-bottom: -1px;
+                width: 50% !important;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: bold;
+                background-color: #fff;
+                border: 1px solid #89D504;
+            }
+
+            .new-banner-section .banner-content .panel-default > .panel-body {
+                padding: 5px;
+                background-color: #e2e2e2;
+            }
+
+            .new-banner-section .banner-content .panel-default_inner > .panel-body {
+                padding: 5px;
+            }
+
+            .new-banner-section .banner-content .panel-default_inner .nav-tabs > li > a {
+                margin-right: 0;
+                line-height: normal;
+                border: 0;
+                border-radius: 0;
+                color: #000;
+                padding: 5px;
+            }
+
+            .new-banner-section .banner-content .panel-default_inner_sub .nav-tabs > li > a {
+                margin-right: 0;
+                line-height: normal;
+                border: 0;
+                border-radius: 0;
+                color: #000;
+                padding: 7px 0;
+                font-weight: bold;
+                font-size: 12px;
+            }
+
+            .new-banner-section .banner-content .panel-default_inner_sub .panel-body {
+                padding: 5px;
+            }
+
+            .new-banner-section .banner-content .panel-default_inner .form-group .form-control {
+                display: block;
+                width: 100%;
+                height: 30px;
+                padding: 2px 8px;
+                font-size: 10px;
+            }
+
+            .new-banner-section .banner-content .panel-default_inner .form-group label {
+                display: inline-block;
+                max-width: 100%;
+                margin-bottom: 0;
+                font-weight: bold;
+                width: 100%;
+                color: #000;
+                font-size: 11px;
+            }
+
+            .new-banner-section .banner-content .panel-default_inner .form-group .btn-success {
+                color: #fff;
+                background-color: #89d504 !important;
+                border: 0;
+                width: 100%;
+                box-shadow: 2px 2px 2px #383737;
+                font-weight: bold !important;
+                font-size: 14px !important;
+                padding: 5px !important;
+                float: left;
+            }
+
+            .new-banner-section .banner-content .panel-default h3 {
+                margin: 0;
+                padding-bottom: 3px;
+                font-weight: bold;
+                font-size: 15px;
+                color: #000;
+            }
+
+            .new-banner-section .banner-content .panel-default .nav-tabs > li > a {
+                margin-right: 0;
+                line-height: normal;
+                border: 0;
+                border-radius: 0;
+                color: #000;
+                padding: 5px;
+                font-size: 10px;
+            }
+
+    .new-banner-section {
+        background-color: #EEE;
+        min-height: 750px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        float: left;
+        width: 100%;
+        background-image: url(../images/banner_images/main-banner2.png);
+    }
+
+        .new-banner-section .banner-content .box {
+            float: left;
+            width: 100%;
+            margin-top: 0px !important;
+        }
+
+
+        .new-banner-section .engine_container {
+            font-size: 1em;
+            background-color: #e2e2e2;
+            margin-top: 0px;
+            padding-bottom: 0px;
+            padding-top: 0px;
+        }
+
+    .airport_wrapper .vertical-align .list-inline > li {
+        display: inline-block;
+        padding-right: 3px;
+        padding-left: 3px;
+        text-align: center;
+        float: inherit;
+    }
+
+    .route_wrapper .vertical-align .list-inline > li {
+        display: inline-block;
+        padding-right: 3px;
+        padding-left: 3px;
+        text-align: center;
+        float: inherit;
+    }
+
+    .provider_wrapper .vertical-align .list-inline > li {
+        display: inline-block;
+        padding-right: 3px;
+        padding-left: 3px;
+        text-align: center;
+        float: inherit;
+    }
+
+    .provider_wrapper .vertical-align ul {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .airport_wrapper .vertical-align .listalign table td {
+        width: 50%;
+        display: inline-block;
+    }
+
+    .provider_wrapper .vertical-align .listalign table td {
+        width: 50%;
+        display: inline-block;
+    }
+
+    .route_wrapper .vertical-align .listalign table td {
+        width: 50%;
+        display: inline-block;
+    }
+
+    .route_wrapper .vertical-align ul {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .airport_wrapper .vertical-align ul {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    #navigation_example .navbar-default {
+        background-color: white;
+        border-color: white;
+        padding: 0;
+        border: none;
+    }
+
+    .navbar-collapse {
+        padding-right: 15px;
+        padding-left: 15px;
+        overflow-x: visible;
+        -webkit-overflow-scrolling: touch;
+        border-top: 0;
+        -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #9cd92f;
+    }
+
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: #fff;
+    }
+
+    .navbar-default .navbar-toggle {
+        border-color: #89d504;
+    }
+
+    #testimonial p::before {
+        background-image: url(../images/icon.png);
+        left: 0px;
+        top: -15px;
+        width: 28px;
+    }
+
+    #testimonial p::after {
+        background-image: url(../images/icon-bottom.png);
+        bottom: 0;
+        right: 0px;
+        width: 29px;
+    }
+
+    #blog-area .blog-block {
+        width: 100%;
+        height: auto;
+        float: left;
+        margin-bottom: 30px;
+    }
+
+    #get-strt-sec {
+        width: 100%;
+        height: auto;
+        float: left;
+        background: #FFF;
+        padding: 50px 0;
+    }
+
+    #blog-area .blog-info {
+        background: #f8f7f7;
+        border-top: 5px solid #82c50d;
+        box-sizing: border-box;
+        float: left;
+        min-height: 200px;
+        padding: 20px;
+        width: 100%;
+    }
+
+    #info-section p {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    #testimonial p {
+        color: #707070;
+        font-size: 18px;
+        line-height: 29px;
+        padding: 0 10%;
+        position: relative;
+        font-weight: 400;
+    }
+
+    footer .footer_list .subscibe {
+        width: 100%;
+        float: left;
+    }
+
+    footer .footer_list .copyright {
+        font-size: 13px;
+        color: #717171;
+        float: left;
+        width: 100%;
+        padding: 10px 0 0;
+        text-align: center;
+    }
+
+    footer .footer_list h4 {
+        font-size: 22px;
+        color: #82c50d;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    footer .footer_list p {
+        color: #717171;
+        font-size: 14px;
+        font-weight: 300;
+        padding: 5px 0;
+        text-align: center;
+    }
+
+    footer .footer_list .f-logo {
+        float: right;
+        text-align: center !important;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    footer .footer_list ul li a {
+        float: left;
+        width: 100%;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 5px 0;
+        text-align: center;
+    }
+
+    footer .footer_list ul li:first-child {
+        color: #82c50d;
+        font-weight: 600;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    footer .footer_list ul {
+        width: 100%;
+        list-style: none;
+        padding-left: 0;
+        float: left;
+        text-align: center;
+    }
+
+    footer .footer_list .social ul li {
+        float: none;
+        list-style: none;
+        width: auto;
+        margin: 0 0 0 5px;
+        display: inline-block;
+    }
+
+    .item blockquote p {
+        background-color: #88d700;
+        font-size: 17px;
+        padding: 30px;
+        text-align: justify;
+        color: black;
+        border-radius: 5px;
+        line-height: 1.8;
+        margin-top: 20px;
+    }
+
+    .about_us .text {
+        margin-top: 20px;
+        float: left;
+    }
+
+    #search_vehicle .btn-info {
+        color: #fff;
+        background-color: #82c50e;
+        border-color: #82c50e;
+        width: 100%;
+        float: left;
+        height: auto;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 6px;
+        outline: none;
+        border-radius: 0;
+        margin-top: 15px;
+    }
+
+    #booking_detail .content .box {
+        float: left;
+        margin-top: 0px;
+        width: 100%;
+    }
+
+    #booking_detail .content .form-control1 {
+        margin: 10px 0;
+        display: block;
+        width: 100%;
+        height: 35px;
+        padding: 6px 12px;
+        font-size: 11px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+
+    #booking_detail .content .span_dec {
+        color: red;
+        border: 1px dotted red;
+        padding: 5px;
+        margin: 10px 0;
+        float: left;
+    }
+
+    #booking_detail .content .h_dec {
+        margin: 0;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 8px 0;
+        border-bottom: 1px dotted;
+        margin-bottom: 5px;
+    }
+
+    #search_vehicle .search_result .p_dec {
+        margin: 0;
+        font-size: 10px;
+        padding-bottom: 15px;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    #search_vehicle .list-inline > li {
+        display: inline-block;
+        padding-right: 5px;
+        padding-left: 5px;
+        width: 100%;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    #search_vehicle .search_result p {
+        margin: 0;
+        font-size: 7px;
+        padding-bottom: 0px;
+        font-weight: 600;
+        text-align: center;
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    .vehicle_detail #demo p {
+        margin: 0;
+        font-weight: bold;
+        font-size: 11px;
+        text-transform: uppercase;
+        padding: 7px 0;
+    }
+
+    .vehicle_detail #demo .form-control {
+        display: block;
+        width: 100%;
+        height: 35px;
+        padding: 6px 12px;
+        font-size: 11px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+
+    .vehicle_detail #demo label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: 700;
+        font-size: 10px;
+    }
+
+    #booking_detail .content .form-control {
+        display: block;
+        width: 100%;
+        height: 35px;
+        padding: 6px 12px;
+        font-size: 11px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+
+    #booking_detail .content label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: 700;
+        font-size: 11px;
+    }
+
+    #booking_detail .content p {
+        margin: 0;
+        padding: 1px 0;
+        font-size: 11px;
+    }
+
+    #booking_detail .content .btn-info {
+        color: #fff;
+        background-color: #82c50e;
+        border-color: #82c50e;
+        width: auto;
+        float: left;
+        height: auto;
+        font-size: 11px;
+        font-weight: bold;
+        padding: 7px 20px;
+        outline: none;
+        border-radius: 0;
+        margin-top: 16px;
+    }
+
+    #booking_detail .content .form_grp {
+        padding: 15px 0 0;
+        font-weight: bold;
+        font-size: xx-small;
+    }
+
+    #booking_detail .content input[type=checkbox], input[type=radio] {
+        margin: 1px 3px 0 0;
+        margin-top: 1px\9;
+        line-height: normal;
+        float: left;
+    }
+
+    #booking_detail .header {
+        width: 100%;
+        height: auto;
+        float: left;
+        border: 1px solid #82c50e;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding: 10px 15px;
+    }
+
+        #booking_detail .header h1 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: #82c50e;
+        }
+
+    .box #exTab1 .nav-pills > li {
+        float: left;
+        width: 32% !important;
+    }
+
+        .box #exTab1 .nav-pills > li:last-child {
+            margin: 0;
+            color: #232020;
+            background-color: #fff;
+            font-weight: bold;
+            padding: 11px 0;
+            float: right;
+            width: 100%;
+        }
+
+    .box #exTab1 .parentTabs .nav-tabs > li {
+        float: left;
+        margin: 0;
+        width: 33%;
+        border: 1px solid #89d504;
+        padding: 0;
+    }
+
+        .box #exTab1 .parentTabs .nav-tabs > li.active > a, .box #exTab1 .parentTabs .nav-tabs > li.active > a:focus, .box #exTab1 .parentTabs .nav-tabs > li.active > a:hover {
+            font-size: 12px;
+            color: #fff;
+            cursor: default;
+            background-color: #89d504;
+            border: none;
+            border-bottom-color: transparent;
+            font-weight: bold;
+            margin: 0;
+            border-radius: 0;
+            padding: 6px 0;
+        }
+
+        .box #exTab1 .parentTabs .nav-tabs > li > a {
+            margin-right: 0;
+            line-height: 1.42857143;
+            border: none;
+            border-radius: 0;
+            background-color: #fff;
+            color: #232020;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+
+    .box #exTab1 .nav-pills > li.active > a, .box #exTab1 .nav-pills > li.active > a:focus, .box #exTab1 .nav-pills > li.active > a:hover {
+        color: #fff;
+        font-size: 13px;
+        background-color: #89d504;
+        font-weight: bold;
+        border-radius: 0px 0px 4px 4px;
+        padding: 3px 0;
+    }
+
+    .box #exTab1 .nav-pills > li > a {
+        border-radius: 0;
+        color: #232020;
+        background-color: #fff;
+        font-weight: bold;
+        border-radius: 0px 0px 4px 4px;
+        padding: 3px 0;
+        font-size: 13px;
+    }
+
+    .box #exTab1 .parentTabs .form-group label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: normal;
+        margin: 0;
+        padding: 3px 0;
+        color: #232020;
+        text-align: left;
+        float: left;
+    }
+
+    .box #exTab1 .parentTabs .form-group .form-control {
+        display: block;
+        width: 100%;
+        height: 33px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+
+    .box #exTab1 .parentTabs .form-group {
+        margin-bottom: 3px;
+    }
+
+        .box #exTab1 .parentTabs .form-group .btn-info {
+            color: #fff;
+            background-color: #82c50e;
+            border-color: #82c50e;
+            width: 100%;
+            float: left;
+            height: auto;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 7px 0;
+            outline: none;
+            border-radius: 0;
+            margin: 7px 0;
+        }
+
+    .box #exTab1 .tab-content .tab-pane .nav-tabs > li {
+        float: left;
+        margin: 0;
+        width: 33% !important;
+        border: 1px solid #89d504;
+        padding: 0;
+    }
+
+        .box #exTab1 .tab-content .tab-pane .nav-tabs > li > a {
+            margin-right: 0;
+            line-height: 1.42857143;
+            border: none;
+            border-radius: 0;
+            background-color: #fff;
+            color: #232020;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 8px;
+        }
+
+        .box #exTab1 .tab-content .tab-pane .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+            font-size: 11px;
+            color: #fff;
+            cursor: default;
+            background-color: #89d504;
+            border: none;
+            border-bottom-color: transparent;
+            font-weight: bold;
+            margin: 0;
+            padding: 8px;
+        }
+
+    .box #exTab1 .tab-content .tab-pane .form-group {
+        margin-bottom: 5px;
+    }
+
+        .box #exTab1 .tab-content .tab-pane .form-group label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+            font-weight: 700;
+            margin: 0;
+            padding: 2px 0;
+            color: #232020;
+            text-align: left;
+            float: left;
+        }
+
+        .box #exTab1 .tab-content .tab-pane .form-group .form-control {
+            display: block;
+            width: 100%;
+            height: 35px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+
+        .box #exTab1 .tab-content .tab-pane .form-group .btn-info {
+            color: #fff;
+            background-color: #82c50e;
+            border-color: #82c50e;
+            width: 100%;
+            float: left;
+            height: auto;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 7px;
+            outline: none;
+            border-radius: 0;
+            margin: 7px 0;
+        }
+
+        .box #exTab1 .tab-content .tab-pane .form-group select {
+            text-transform: none;
+            display: block;
+            width: 100%;
+            height: 35px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+}

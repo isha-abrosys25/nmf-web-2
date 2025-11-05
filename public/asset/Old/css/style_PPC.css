@@ -1,0 +1,278 @@
+.nm_1 {
+    background: #82c50d;
+    /*padding: 3px;*/
+    padding: 0px !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    display: flex;
+}
+
+.nm_2 {
+    display: flex;
+}
+
+.nm_4 {
+    padding: 0px;
+}
+
+.nm_5 {
+    padding: 0px;
+}
+
+.nm_4 h3 {
+    font-size: 19px;
+    line-height: 24px;
+    color: white;
+    font-weight: 600;
+}
+
+.nm_5 h3 {
+    font-weight: 800;
+    color: white;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0px;
+}
+
+.engine {
+    background: url(../images/main-banner2.png);
+    background-repeat: no-repeat;
+    min-height: 800px;
+}
+
+i.fa.fa-car {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    /* color: white;
+   width: 215px;  font-size: 30px;*/
+    padding: 8px 5px 0px 0px;
+}
+i.fa.fa-motorcycle{
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    /* color: white;
+   width: 215px;  font-size: 30px;*/
+    padding: 8px 5px 0px 0px;
+}
+
+.name {
+    padding: 0px 20px 85px 12px;
+}
+
+
+/*new banner section*/
+
+.new-banner-section .nm_1 {
+    background: #82c50d;
+    /*padding: 3px;*/
+    padding: 0px !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    display: flex;
+}
+
+.new-banner-section .nm_2 {
+    display: flex;
+}
+
+.new-banner-section .nm_4 {
+    padding: 5px;
+}
+
+.new-banner-section .nm_5 {
+    padding: 0px;
+}
+
+.new-banner-section .nm_4 h3 {
+    font-size: 19px;
+    line-height: 24px;
+    color: white;
+    font-weight: 600;
+}
+
+.new-banner-section .nm_5 h3 {
+    font-weight: 800;
+    color: white;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 2px 0px 0px 50px;
+}
+
+.new-banner-section .engine {
+    background: url(../images/main-banner2.png);
+    background-repeat: no-repeat;
+    min-height: 800px;
+}
+
+.new-banner-section i.fa.fa-car {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    /* color: white;
+   width: 215px;  font-size: 30px;*/
+    padding: 8px 5px 0px 0px;
+}
+
+.new-banner-section .name {
+    padding: 0px 20px 90px 12px;
+}
+
+.new-banner-section img.imgg {
+    padding: 8px 5px 2px 30px;
+}
+
+
+/*new banner section*/
+
+@media only screen and (max-width:787px) {
+    .help {
+        padding: 0px !important;
+    }
+}
+@media only screen and (max-width:575px) {
+    .contacts {
+        text-align: center !important;
+    }
+
+    .nm_1 {
+        display: inline-block;
+    }
+
+    .nm_2 {
+        margin: -4px;
+    }
+
+    .name {
+        padding: 0px 38px 239px 38px !important;
+    }
+
+    .nm_5 h3 {
+        font-size: 15px;
+        line-height: 15px;
+        padding: 0px !important;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    img.imgg {
+        padding: 12px 0px 1px 0px !important;
+        width: 38px;
+    }
+
+    .new-banner-section .name {
+        padding: 0px 38px 239px 38px !important;
+    }
+
+    .new-banner-section .contacts {
+        text-align: center !important;
+    }
+
+    .new-banner-section .nm_1 {
+        display: inline-block;
+    }
+
+    .new-banner-section .nm_2 {
+        margin: -4px;
+    }
+
+    .new-banner-section .nm_5 h3 {
+        font-size: 15px;
+        line-height: 20px;
+        padding: 1px !important;
+        text-align: left;
+    }
+
+    .new-banner-section img.imgg {
+        padding: 10px 0px 0px 0px !important;
+        width: 50px;
+    }
+}
+
+@media only screen and (max-width:567px) {
+    .ctt a {
+        font-size: 15px !important
+    }
+
+    .new-banner-section .ctt a {
+        font-size: 15px !important
+    }
+}
+
+@media only screen and (max-width:767px) {
+
+    .name {
+        padding: 0px 20px 287px 12px;
+    }
+
+    .contacts {
+        text-align: center !important;
+    }
+
+    .new-banner-section .name {
+        padding: 0px 20px 287px 12px;
+    }
+
+    .new-banner-section .contacts {
+        text-align: center !important;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .nm_1 {
+        display: inline-block;
+    }
+
+    .name {
+        padding: 33px 51px 15px 50px !important;
+    }
+
+    .contacts {
+        text-align: right;
+    }
+
+    #navigation_example .navbar-default {
+        padding: 5px 10px !important;
+        background-color: white;
+        border-color: white;
+        border: none;
+    }
+
+
+    .new-banner-section .nm_1 {
+        display: inline-block;
+    }
+
+    .new-banner-section .name {
+        padding: 20px 79px 200px 67px !important;
+    }
+
+    .new-banner-section .contacts {
+        text-align: right;
+    }
+}
+
+/*@media only screen and (max-width: 768px) {
+    .new-banner-section .name {
+        padding: 15px 173px 260px 170px !important;
+    }
+
+    .new-banner-section .nm_5 h3 {
+        font-weight: 800;
+        color: white;
+        font-size: 18px;
+        line-height: 20px;
+        padding: 9px 0px 0px 2px;
+    }
+
+    .new-banner-section img.imgg {
+        padding: 0px;
+    }
+    }*/

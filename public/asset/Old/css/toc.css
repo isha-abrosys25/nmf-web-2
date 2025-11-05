@@ -1,0 +1,128 @@
+﻿section .panel-group .panel {
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+section #accordion .panel-heading {
+ padding: 0;
+}
+section #accordion .panel-title > a {
+    display: block;
+    padding: 13px;
+    outline: none;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 15px;
+}
+section .panel-default>.panel-heading {
+color: #000000;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: #ddd;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-left: 5px solid #096609;
+}
+section .panel-default {
+    border-color: #82c50d;
+}
+section .panel-default>.panel-heading+.panel-collapse>.panel-body {
+       border-bottom: 1px solid #82c50d;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 5px solid #82c50d;
+    border-right: 1px solid #82c50d;
+	border-top:none;
+}
+section #accordion .panel-title > a.accordion-toggle::before, #accordion a[data-toggle="collapse"]::before  {
+  content:"\f078";
+    float: right;
+    font:normal normal normal 14px/1 FontAwesome;
+	margin-right :1em;
+}
+section #accordion .panel-title > a.accordion-toggle.collapsed::before, #accordion a.collapsed[data-toggle="collapse"]::before  {
+    content:"\f077";
+}
+section{
+	width:100%;
+	height:auto;
+	float:left;
+}
+section .p_dec{
+    margin: 0 0 15px 0;
+    color:#000;
+    font-size: 13px;
+    text-align:left;
+}
+section .h3_dec{
+	font-size: 24px;
+    margin: 0;
+    padding: 30px 0 20px;
+    text-align: center;
+}
+section ol li{
+    color: #000;
+    font-size: 13px;
+    list-style-position: inside;
+    text-indent: -2em;
+padding-bottom: 10px;
+}
+section .style_type li{
+    color: #000;
+    font-size: 13px;
+    list-style-position: inside;
+    text-indent: -2em;
+padding-bottom: 0px;
+}
+section ol{
+list-style:none;
+margin:0;
+padding: 0 0 0 40px;
+}
+
+
+section .style_type li:before {
+  content: '\25CF ';
+    padding-right: 15px;
+    font-size: 15px;
+    color: green;
+    font-weight:300;
+}
+section ol li:before {
+  content: '\2714';
+    padding-right: 10px;
+    font-size: 18px;
+    color: green;
+    font-weight:300;
+}
+
+@media only screen and (max-width:767px){
+    section .p_dec {
+    margin: 0 0 15px 0;
+    color: #000;
+    font-size: 11px;
+    text-align: justify;
+}
+    section #accordion .panel-title > a {
+    display: block;
+    padding: 13px 5px;
+    outline: none;
+    font-weight: 100;
+    text-decoration: none;
+    font-size: 12px;
+}
+    section ol li{
+    color: #000;
+    font-size: 11px;
+    list-style-position: inside;
+    text-indent: -2em;
+padding-bottom: 10px;
+}
+section .style_type li{
+    color: #000;
+    font-size: 11px;
+    list-style-position: inside;
+    text-indent: -2em;
+padding-bottom: 0px;
+}
+}
