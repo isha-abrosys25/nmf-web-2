@@ -13,7 +13,7 @@
             !important;
         }
     </style>
-    <link rel="stylesheet" href="{{config('global.base_asset')}}asset/css/liveblogs.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('asset/css/liveblogs.css') }}" type="text/css" media="all">
     <div class="cm-container" style="transform: none;">
         <div class="inner-page-wrapper" style="transform: none;">
             <div id="primary" class="content-area" style="transform: none;">

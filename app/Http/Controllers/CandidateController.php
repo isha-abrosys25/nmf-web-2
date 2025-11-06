@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidate;
-use App\Models\Party;
+use App\Models\Party;  // Use Party model now
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-
+use Illuminate\Support\Facades\Log;
 class CandidateController extends Controller
 {
     // Show add candidate form
@@ -18,13 +18,13 @@ class CandidateController extends Controller
 
     // Store candidate data
     public function store(Request $request)
-    {
-        $request->validate([
-            'party_id'        => 'required|exists:parties,id',
-            'candidate_name'  => 'required|string|max:255',
-            'candidate_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'area'            => 'required|string|max:255',
-        ]);
+{
+    $request->validate([
+       'party_id'        => 'required|exists:parties,id',
+        'candidate_name'  => 'required|string|max:255',
+        'candidate_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'area'            => 'required|string|max:255',
+    ]);
 
         $imagePath = null;
         if ($request->hasFile('candidate_image')) {
@@ -46,10 +46,17 @@ class CandidateController extends Controller
             'candidate_image' => $imagePath,
             'area'            => $request->area,
             'is_active'       => 1,
-            'c_status'        => 'SELECT_ONE', // default
+            'c_status'        => 'SELECT', // default
         ]);
 
-        return redirect()->route('candidates.list')->with('success', 'Candidate added successfully!');
+        try {
+            app(\App\Services\ExportHome::class)->run();
+        } catch (\Throwable $e) {
+             Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+        }
+       return redirect(config('global.base_url').'election/candidates')->with('success', 'Candidate added successfully!');
+
+//        return redirect()->route('candidates.list')->with('success', 'Candidate added successfully!');
     }
 
     // Candidate List
@@ -67,7 +74,16 @@ class CandidateController extends Controller
         $candidate->c_status = $request->status; // store dropdown selection
         $candidate->save();
 
-        return back()->with('success', 'Candidate status updated successfully!');
+         try {
+            app(\App\Services\ExportHome::class)->run();
+        } catch (\Throwable $e) {
+             Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+        }
+
+        
+        return redirect(config('global.base_url').'election/candidates')->with('success', 'Candidate status updated successfully!');
+
+        //return back()->with('success', 'Candidate status updated successfully!');
     }
 
     // Edit Candidate
@@ -77,6 +93,7 @@ class CandidateController extends Controller
         $parties = Party::select('id', 'party_name')->get();
         return view('admin.editCandidate', compact('candidate', 'parties'));
     }
+    
 
     // Update Candidate
     public function update(Request $request, $id)
@@ -116,20 +133,35 @@ class CandidateController extends Controller
             'area'            => $request->area
         ]);
 
-        return redirect()->route('candidates.list')->with('success', 'Candidate updated successfully!');
-    }
-
-    // Delete Candidate
-    public function destroy($id)
-    {
-        $candidate = Candidate::findOrFail($id);
-
-        if ($candidate->candidate_image && file_exists(public_path($candidate->candidate_image))) {
-            unlink(public_path($candidate->candidate_image));
+        try {
+            app(\App\Services\ExportHome::class)->run();
+        } catch (\Throwable $e) {
+             Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
-        $candidate->delete();
+        return redirect(config('global.base_url').'election/candidates')->with('success', 'Candidate updated successfully!');
 
-        return redirect()->back()->with('success', 'Candidate deleted successfully!');
+       // return redirect()->route('candidates.list')->with('success', 'Candidate updated successfully!');
     }
+    // Delete Candidate
+public function destroy($id)
+{
+    $candidate = Candidate::findOrFail($id);
+
+    // Delete image file
+    if ($candidate->candidate_image && file_exists(public_path($candidate->candidate_image))) {
+        unlink(public_path($candidate->candidate_image));
+    }
+
+    $candidate->delete();
+     try {
+            app(\App\Services\ExportHome::class)->run();
+        } catch (\Throwable $e) {
+             Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+        }
+
+        return redirect(config('global.base_url').'election/candidates')->with('success', 'Candidate deleted successfully!');
+   // return redirect()->back()->with('success', 'Candidate deleted successfully!');
+}
+
 }

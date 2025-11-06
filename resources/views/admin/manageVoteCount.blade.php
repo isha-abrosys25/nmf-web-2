@@ -34,7 +34,6 @@
             background-color: #0577bd;
             color: #fff;
         }
-
         .btn_delete {
             background-color: #ff0000;
             margin-left: 1.5px
@@ -221,13 +220,13 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center px-5 py-2.5">
-                                <h3 class="card-title mb-0 fs-5">Manage Vote Count</h3>
+                                <h3 class="card-title mb-0 fs-5">Party wise seats</h3>
 
                                 {{-- Top Party Seats --}}
                                 <div class="card-tool ">
                                     <div class="input-group input-group-sm float-right  ">
                                         <a href="{{ route('manageSeats') }}" class="--btn" style="background: #28364f">
-                                            Top Party Seats <span class="ms-2">→</span>
+                                            Alliance wise seats <span class="ms-2">→</span>
                                         </a>
                                     </div>
 

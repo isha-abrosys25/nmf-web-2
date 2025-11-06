@@ -110,8 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
-    // comment section close
-
+    
     // related news slider
             document.addEventListener('DOMContentLoaded', function() {
             new Swiper('.rel-swiper', {
@@ -212,32 +211,7 @@ function updateStatus(message) {
         }, 3000);
     }
 }
-// comment modal
-document.addEventListener("DOMContentLoaded", function () {
-  const commentSection = document.getElementById("commentSection");
-  if (!commentSection) return;
 
-  // One handler for all clicks (works even after Livewire re-renders)
-  document.addEventListener("click", function (e) {
-    // Open/Toggle
-    if (e.target.closest("#commentToggle")) {
-      commentSection.classList.toggle("active");
-      return;
-    }
-    // Close button
-    if (e.target.closest("#close-btn2")) {
-      commentSection.classList.remove("active");
-      return;
-    }
-  });
-
-  // Optional: ESC closes
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      commentSection.classList.remove("active");
-    }
-  });
-});
 // Modal functions
 function showModal() {
     const modal = document.getElementById('appDownloadModal');
@@ -379,4 +353,3 @@ document.addEventListener('click', function(event) {
         closeModal();
     }
 });
-

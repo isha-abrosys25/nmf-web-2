@@ -56,7 +56,6 @@
      	
 
     @endphp
-    	{{-- NL1047: 13Oct2025 Added* --}}
     <section class="bb-banner">
         <img src="{{ big_event_banner_url($bigEvent) }}" alt="Big-event" loading="lazy">
     </section>
@@ -77,7 +76,6 @@
             <div class="bigbreaking-wrap">
                 <div class="bb-left">
                     <div class="cstm--card-m">
-		    {{-- NL1047: 13Oct2025 Added* --}}
                         <div class="bb--card-m bb-media relative block">
 
                             @if ($videoInfo)
@@ -175,10 +173,14 @@
                   
                 <div class="bb-right">
                     <span class="bb-tag inner">
-                        {{  $bigblog->tag ?? 'Big Event' }}
+                        {{  $bigEvent->tag ?? 'Big Event' }}
                     </span>
+                  
+                    
                    <a href="{{ url( $bigblog->full_url) }}">
-                        <h1 class="bb-title">{{ $bigblog->name }}</h1>
+                        <h1 class="bb-title">  @if ($bigblog->isLive == 1)
+                                    <span class="live_tag_bigevnt">LIVE <span></span></span>
+                                @endif{{ $bigblog->name }}</h1>
                     </a>
 
                 </div>

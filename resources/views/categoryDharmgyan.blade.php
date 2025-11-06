@@ -90,12 +90,7 @@
                                                     $symbol = $blog->link ? '<i class="fa fa-video-camera" aria-hidden="true" style="color: red;"></i>&nbsp;&nbsp;' : '';
                                                     $truncated = $symbol . $blog->name;
                                                     //$ff = config('global.blog_images_everywhere')($blog);
-                                                    $ff  = cached_blog_image($blog);
-                                                    // if (empty($ff)) {
-                                                    //     if (!empty($blog->BE_image)) {
-                                                    //         $ff = asset($blog->BE_image);
-                                                    //     }
-                                                    // }
+                                                    $ff  = cached_blog_image($blog); 
                                                     ?>
                                                     <div class="nws_card">
                                                         <div class="nws_card_top dg_top">

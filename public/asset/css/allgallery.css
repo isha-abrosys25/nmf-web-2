@@ -7,110 +7,19 @@
     }
 }
 
-.at_main {
+/* .at_main {
     background: #ffffff;
     padding: 26px 26px 5px 26px;
     border-radius: 10px;
     border: 1px solid #c0bdbd;
+} */
+.rt_sub2 {
+    font-size: 16px;
+    line-height: 22px;
+    color: #333333;
+    margin-top: 12px;
+    margin-bottom: 20px;
 }
-/*--------------------------------------- time duration overlay  in video details, allVideoCataagory-------------------------------- */
-
-/* ---------- Layout basics ---------- */
-.custom_ct { width: 100%; }
-.custom_ct h2 { border-left: 4px solid red; padding-left: 18px; }
-
-.at_main {
-  background: #ffffff;
-  padding: 26px 26px 5px 26px;
-  border-radius: 10px;
-  border: 1px solid #c0bdbd;
-}
-
-/* ---------- Make image wrappers positioned (so overlays can anchor) ---------- */
-.nws_card_top,
-.custom-img-link,
-.nws_article_lt,
-.rel_top,
-.vdo_card_top,
-.vdoCard_img,
-.i_img,
-.nws_article_lt a,
-.custom-img-link img,
-.rel_top img {
-  position: relative;
-  display: block;
-}
-
-/* ensure image covers parent where needed */
-.vdoCard_img img,
-.custom-img-link img,
-.nws_article_lt img,
-.rel_top img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ---------- Duration overlay (single, authoritative definition) ---------- */
-.playBtn-wrap3 {
-  position: absolute;
-  bottom: 8px;          /* adjust to your taste */
-  right: 8px;           /* adjust to your taste */
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  padding: 3px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  z-index: 999;         /* make sure it's above the thumbnail */
-  max-width: 96px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* small round play button inside overlay */
-.playBtn-wrap3 .play-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-}
-.playBtn-wrap3 .play-btn i { font-size: 11px; color: #fff; }
-
-/* duration text */
-.playBtn-wrap3 .v-duration2,
-.playBtn-wrap3 p {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-size: 12px;
-}
-
-/* ---------- Sub-video grid specifics ---------- */
-.sub-video-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
-.sub-video-items .vdo_card .vdo_card_top { width: 100%; height: 115px; border-radius: 10px; overflow: hidden; position: relative; }
-.sub-video-items .vdo_card .vdo_card_top .vdoCard_img { width: 100%; height: 100%; display: block; object-fit: cover; }
-
-/* ---------- Small device tweaks ---------- */
-@media (max-width: 600px) {
-  .sub-video-items { grid-template-columns: repeat(2, 1fr); }
-  .playBtn-wrap3 { bottom: 6px; right: 6px; padding: 3px 6px; font-size: 11px; }
-}
-
-
-
-
-
-
-
-/* ---------------------- */ 
 .mySwiper3 {
     overflow-y: visible;
 }
@@ -211,9 +120,9 @@ height: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
-        /* .vdo_card_top{
+        .vdo_card_top{
             
-        } */
+        }
         .vdo_card_bottom a{
             color: #333333;
             font-weight: 500;
@@ -265,7 +174,7 @@ border-radius: 8px;
     backdrop-filter: blur(15px);
     text-align: left;
     display: -webkit-box;
-    /* -webkit-line-clamp: 2; */
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;

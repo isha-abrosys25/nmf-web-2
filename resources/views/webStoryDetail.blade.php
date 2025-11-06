@@ -461,10 +461,22 @@
 
         
        @if (config('global.gtm_enabled'))
-            <amp-analytics
+            <!-- <amp-analytics
             config="https://www.googletagmanager.com/amp.json?id={{ config('global.gtm_id') }}"
             data-credentials="include">
-            </amp-analytics>
+            </amp-analytics> -->
+            <amp-analytics type="gtag" data-credentials="include">
+                <script type="application/json">
+                {
+                    "vars": {
+                    "gtag_id": "G-9D3VCPPRWL",
+                    "config": {
+                        "G-9D3VCPPRWL": { "groups": "default" }
+                    }
+                    }
+                }
+                </script>
+                </amp-analytics>
         @endif
 
     </amp-story>

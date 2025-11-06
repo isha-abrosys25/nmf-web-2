@@ -134,7 +134,7 @@
                                         <div class="loader"></div>
                                     </div>
                                     <table class="table text-nowrap webs-table">
-                                         <!-- NL1037:03Oct2025:Added Delete column -->
+                                      
                                         <thead>
                                             <tr>
                                                 <th>Action</th>

@@ -1,12 +1,10 @@
 @extends('layouts.app')
-
-@section('meta')
-    <link rel="amphtml" href="{{ route('showStoryAmp', ['cat_name' => $data['category']->site_url, 'name' => $data['blog']->site_url]) }}">
+@section('head')
+    <link rel="amphtml" href="{{ url()->current() . '/amp' }}">
 @endsection
-
 @section('content')
     <?php
-    // $ff = config('global.blog_images_everywhere')($data['blog'] ?? null);
+    //$ff = config('global.blog_images_everywhere')($data['blog'] ?? null);
     $ff  = cached_blog_image($data['blog']); 
     $imageToUse = $ff;
     $customImageUrl = "{{config('global.base_url_asset')}}asset/images/NMF_BreakingNews.png";

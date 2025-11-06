@@ -14,7 +14,6 @@
             cursor: pointer;
 
         }
-
         .btn_view {
             background-color: #0381cf;
 

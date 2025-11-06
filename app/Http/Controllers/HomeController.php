@@ -239,10 +239,10 @@ public function toggleMahaSection()
             'section_order' => 0
         ]);
     }
- try {
+     try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+             Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
 
@@ -251,6 +251,7 @@ public function toggleMahaSection()
 
 
 }
+
 public function toggleLiveSection()
 {
     $section = HomeSection::where('title', 'ElectionLiveSection')->first();
@@ -271,7 +272,7 @@ public function toggleLiveSection()
      try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
 
@@ -279,7 +280,6 @@ public function toggleLiveSection()
  return redirect(config('global.base_url').'election/manage-vote-count')->with('success', 'Election Result visibility updated!');
 
 }
-
 public function toggleExitPoll()
 {
     $section = HomeSection::where('title', 'ExitPollSection')->first();
@@ -308,5 +308,6 @@ public function toggleExitPoll()
  return redirect(config('global.base_url').'election/exit-poll')->with('success', 'Exit Poll visibility updated!');
 
 }
+
 
 }

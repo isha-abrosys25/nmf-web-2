@@ -17,7 +17,6 @@
             cursor: pointer;
 
         }
-
         .btn_view {
             background-color: #0381cf;
 
@@ -86,11 +85,11 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center px-5 py-2.5">
-                                <h3 class="card-title mb-0 fs-5">Party seats</h3>
+                                <h3 class="card-title mb-0 fs-5">Alliance wise seats</h3>
                                 <div class="card-tool ">
                                     <div class="input-group input-group-sm float-right  ">
                                         <a href="{{ route('voteCount') }}" class="--btn" style="background: #28364f">
-                                            Manage vote count <span class="ms-2">→</span>
+                                            Party wise seats <span class="ms-2">→</span>
                                         </a>
                                     </div>
                                 </div>
@@ -125,57 +124,43 @@
                                 </div>
                             @endif
 
-                        <form action="{{ route('saveTopSeats') }}" method="post" id="seatForm">
-    @csrf
+                            <form action="{{ route('saveTopSeats') }}" method="post" id="seatForm">
+                                @csrf
 
-    <div id="totalSeatsError" style="display:none;" class="alert alert-danger text-center mb-3">
-    </div>
+                                <!-- Global error area -->
+                                <div id="totalSeatsError" style="display:none;" class="alert alert-danger text-center mb-3">
+                                </div>
 
-    <div class="card-body py-2">
-        <table class="table text-nowrap table-bordered">
-            <thead class="table-primary">
-                <tr>
-                    {{-- These are your new static headers --}}
-                    <th>Party Name</th>
-                    <th>Seats</th>
-                    <th>Sequence</th>
-                </tr>
-            </thead>
-         <tbody>
-    {{-- Loop through each party to create a new row <tr> --}}
-    @foreach ($parties as $party)
-        <tr>
-            <td>
-                {{-- Column 1: Party Name (Only) --}}
-                {{ $party->party_name }}
-            </td>
-            <td>
-                {{-- Column 2: Seats Input --}}
-                <input type="number" class="form-control seat-input1"
-                       placeholder="Total seats"
-                       name="seat_{{ strtolower($party->abbreviation) }}"
-                       value="{{ old('seat_' . strtolower($party->abbreviation), $party->seats_won) }}"
-                       min="0" step="1"
-                       data-party="{{ $party->abbreviation }}">
-            </td>
-            <td>
-                {{-- Column 3: NEW Sequence Input --}}
-                <input type="number" class="form-control"
-                       placeholder="Sequence"
-                       name="sequence_{{ strtolower($party->abbreviation) }}"
-                       value="{{ old('sequence_' . strtolower($party->abbreviation), $party->sequence) }}"
-                       min="1" step="1">
-            </td>
-        </tr>
-    @endforeach
-</tbody>
-        </table>
-    </div>
+                                <div class="card-body py-2">
+                                    <table class="table text-nowrap table-bordered">
+                                        <thead class="table-primary">
+                                            <tr>
+                                                @foreach ($parties as $party)
+                                                    <th>{{ $party->abbreviation }}</th>
+                                                @endforeach
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                @foreach ($parties as $party)
+                                                    <td>
+                                                        <input type="number" class="form-control seat-input1"
+                                                            placeholder="Total seats"
+                                                            name="seat_{{ strtolower($party->abbreviation) }}"
+                                                            value="{{ old('seat_' . strtolower($party->abbreviation), $party->seats_won) }}"
+                                                            min="0" step="1"
+                                                            data-party="{{ $party->abbreviation }}">
+                                                    </td>
+                                                @endforeach
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-    <div class="text-center p-3">
-        <button type="submit" class="--btn pb-2" style="background: #28364f;">Submit</button>
-    </div>
-</form>
+                                <div class="text-center p-3">
+                                    <button type="submit" class="--btn pb-2" style="background: #28364f;">Submit</button>
+                                </div>
+                            </form>
                             <div class="col-sm-12 col-md-7 d-flex justify-content-end">
                                 <div class="dataTables_paginate paging_simple_numbers" id="dataTableExample_paginate">
                                     <ul class="pagination">

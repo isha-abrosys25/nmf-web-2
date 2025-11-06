@@ -39,6 +39,9 @@
     <div class="mb-3">
         <label for="party_logo" class="form-label">Party Logo</label>
         <input type="file" class="form-control" id="party_logo" name="party_logo" accept="image/*">
+		<small class="text-danger d-block mt-1">
+                                            * Recommended size: 100×100 px (1:1 aspect ratio)
+            </small>
     </div>
 
     <button type="submit" class="btn btn-primary">Save Party</button>

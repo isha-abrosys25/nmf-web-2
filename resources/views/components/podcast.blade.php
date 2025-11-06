@@ -109,15 +109,18 @@ $isVideo = $podcastData['isVideo'];
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const wrapper = document.querySelector(".yt-video");
-        if (!wrapper) return;
+document.addEventListener("DOMContentLoaded", function() {
+    const wrappers = document.querySelectorAll(".yt-video");
+    if (!wrappers.length) return;
 
+    wrappers.forEach(wrapper => {
         const btn = wrapper.querySelector(".yt-play-btn");
+        if (!btn) return;
+
         btn.addEventListener("click", function() {
+
             const videoId = wrapper.getAttribute("data-id");
 
-            // Build iframe with autoplay + mute (to guarantee it plays)
             const iframe = document.createElement("iframe");
             iframe.width = "345";
             iframe.height = "auto";
@@ -127,12 +130,13 @@ $isVideo = $podcastData['isVideo'];
             iframe.allow = "autoplay; encrypted-media";
             iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0`;
 
-            // Replace content with iframe
             wrapper.innerHTML = "";
             wrapper.appendChild(iframe);
         });
     });
+});
 </script>
+
 
 <script>
     function playCustomVideo(id) {

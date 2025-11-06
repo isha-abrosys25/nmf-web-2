@@ -4,17 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Party;
-//instead of assets/images/party_logos use asset/images/election-widget
 
 class PartyController extends Controller
 {
-    // Show Add Party Form
     public function add()
     {
         return view('admin.addPartyDetails');
     }
 
-    // Save Party
     public function save(Request $request)
     {
         $request->validate([
@@ -43,7 +40,6 @@ class PartyController extends Controller
 
         return redirect()->back()->with('success', 'Party details added successfully!');
     }
-
     // Show Party List
     public function list()
     {

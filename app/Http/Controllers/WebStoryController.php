@@ -273,8 +273,7 @@ class WebStoryController extends Controller
         $webstory->status = 1;
         $webstory->save();
         app(\App\Services\ExportHome::class)->run();
-       //NL1037:03Oct2025:Commented below line andded the new one. It was going to localhost on publish button click.
-       // return redirect()->back()->with('success', 'Webstory published successfully.');
+           // return redirect()->back()->with('success', 'Webstory published successfully.');
        return redirect(config('global.base_url').'webstory')->with('success', 'Web Story published successfully.');
        
 

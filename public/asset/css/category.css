@@ -131,11 +131,11 @@
     color: #797979;
   }
 }
-
+/* NL1021- 16sep 2025 - poppins removed */
 .editedby {
   font-size: 12px;
   color: #666;
-  font-family: poppins;
+  font-family: "Noto Sans Devanagari", sans-serif;
 
   a {
     color: #000;
@@ -267,12 +267,13 @@ a.trendingtopic_container {
 a.trendingtopic_container {
   width: fit-content;
 }
-
+/* NL1021- 16sep 2025 - added */
 /* election */
 .election-image {
   max-width: 1270px;
   width: 100%;
   margin: 0 auto;
+  margin-bottom: 15px;
 }
 
 .el-mob {
@@ -1016,7 +1017,7 @@ a.trendingtopic_container {
   display: flex;
   gap: 5px;
 }
-
+/* NL1021- 16sep 2025 - poppins removed */
 .publish_dt,
 .publish_tm {
   display: flex;
@@ -1024,7 +1025,7 @@ a.trendingtopic_container {
   gap: 3px;
   color: #666666c7;
   font-size: 12px;
-  font-family: poppins;
+  font-family: "Noto Sans Devanagari", sans-serif;
 }
 
 .news_sub_wrap {
@@ -1608,6 +1609,7 @@ a.trendingtopic_container {
 /* For mobile phones: */
 /* ========================== */
 @media (max-width: 600px) {
+/* NL1021- 16sep 2025 - addeed */
   .election-image {
     max-width: 100%;
   }

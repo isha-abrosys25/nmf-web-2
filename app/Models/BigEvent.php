@@ -47,19 +47,16 @@ class BigEvent extends Model
     }
 
     // Blogs attached to this big event (many-to-many via pivot table)
-public function blogs()
-{
-    return $this->belongsToMany(
-        Blog::class,
-        'big_event_blogs',
-        'big_event_id',
-        'blog_id'
-    )
-    ->withTimestamps()
-    ->withPivot('id', 'sort_order')
-    ->orderBy('big_event_blogs.sort_order', 'asc');
-}
-
+    public function blogs()
+    {
+        return $this->belongsToMany(
+            Blog::class,
+            'big_event_blogs',
+            'big_event_id',
+            'blog_id'
+        )->withTimestamps()
+         ->withPivot('id', 'sort_order');
+    }
 
     public function comments()
     {

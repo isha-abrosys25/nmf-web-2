@@ -7,7 +7,7 @@ use App\Models\HomeSection;
 use App\Models\Category;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
-//i have commented all the /Log part . uncomment it
+
 
 class HomeCategorySequence extends Controller
 {
@@ -53,7 +53,7 @@ class HomeCategorySequence extends Controller
         try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            // \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
         return response()->json(['success' => true]);
@@ -171,7 +171,7 @@ class HomeCategorySequence extends Controller
         try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            // \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
         return redirect(config('global.base_url').'home-category/')->with('success', 'Category added successfully');
@@ -315,7 +315,7 @@ class HomeCategorySequence extends Controller
         try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            // \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
         return redirect(config('global.base_url').'home-category/')->with('success', 'Category updated successfully');
@@ -331,7 +331,7 @@ class HomeCategorySequence extends Controller
          try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            // \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
         return redirect(config('global.base_url').'home-category/')->with('success', 'Category deleted successfully');
@@ -394,7 +394,7 @@ class HomeCategorySequence extends Controller
          try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            // \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
 

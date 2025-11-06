@@ -180,14 +180,14 @@
                                 <table class="table article-table text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th>Action333</th>
+                                            <th>Action</th>
                                             <th>ID</th>
                                             <th>Event Name</th>
                                             <th>Author Name</th>
                                             <th>Category</th>
                                             <th>Status</th>
                                             <th>Manage</th>
-                                            <th>Publish Date123</th>
+                                            <th>Publish Date</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <link rel="stylesheet" href="{{ config('global.base_url_asset') }}asset/css/sports.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{config('global.base_url_asset')}}asset/css/sports.css" type="text/css" media="all" />
 
     <div style="transform: none;">
         <div class="custom-inner-page-wrapper" style="transform: none;">
@@ -44,8 +44,7 @@
                                                     <!-- Google Ad -->
                                                     <ins class="adsbygoogle"
                                                         style="display:inline-block; width:300px; height:100px;"
-                                                        data-ad-client="{{ $topAd->google_client }}"
-                                                        data-ad-slot="{{ $topAd->google_slot }}"></ins>
+                                                        data-ad-client="{{ $topAd->google_client }}" data-ad-slot="{{ $topAd->google_slot }}"></ins>
                                                     <script>
                                                         (adsbygoogle = window.adsbygoogle || []).push({});
                                                     </script>
@@ -57,7 +56,7 @@
                                                         @endphp
 
                                                         <a href="{{ $topAd->custom_link ?? '#' }}" target="_blank">
-                                                            <img src="{{ $imagePath }}" alt="Advertisement" />
+                                                            <img src="{{$imagePath}}" alt="Advertisement" />
                                                         </a>
                                                     @endif
                                                 @endif
@@ -83,23 +82,14 @@
                                                     $symbol = $blog->link ? '<i class="fa fa-video-camera" aria-hidden="true" style="color: red;"></i>&nbsp;&nbsp;' : '';
                                                     $truncated = $symbol . $blog->name;
                                                     //$ff = config('global.blog_images_everywhere')($blog);
-                                                    // if no blog image then take big event image
-                                                    $ff = cached_blog_image($blog);
-                                                    // if (empty($ff)) {
-                                                    //     if (!empty($blog->BE_image)) {
-                                                    //         $ff = asset($blog->BE_image);
-                                                    //     }
-                                                    // }
-                                                    
+                                                    $ff  = cached_blog_image($blog); 
                                                     ?>
                                                     <div class="nws_card">
                                                         <div class="nws_card_top dg_top">
                                                             <a
-                                                                href="{{ asset('/') }}@if (isset($blog->isLive) && $blog->isLive != 0) live/ @endif{{ $cat->site_url ?? '' }}/{{ $blog->site_url ?? '' }}">
-                                                                @if (!empty($ff))
-                                                                    <img src="{{ $ff }}"
-                                                                        alt="{{ $blog->name }}">
-                                                                @endif
+                                                                href="{{ asset('/') }}@if(isset($blog->isLive) && $blog->isLive != 0)live/@endif{{ isset($cat->site_url) ? $cat->site_url : '' }}/<?php echo isset($blog->site_url) ? $blog->site_url : ''; ?>">
+                                                                <img @if (!empty($ff)) src="{{ $ff }}" @endif
+                                                                    alt="{{ $blog->name }}">
                                                             </a>
                                                             <div class="category_strip">
                                                                 <a href="{{ asset('/') }}{{ isset($cat->site_url) ? $cat->site_url : '' }}"
@@ -109,7 +99,7 @@
                                                         </div>
                                                         <div class="nws_card_bottom">
                                                             <a
-                                                                href="{{ asset('/') }}@if (isset($blog->isLive) && $blog->isLive != 0) live/ @endif{{ isset($category->site_url) ? $category->site_url : '-' }}/<?php echo isset($blog->site_url) ? $blog->site_url : ''; ?>"><?php echo $truncated; ?>
+                                                                href="{{ asset('/') }}@if(isset($blog->isLive) && $blog->isLive != 0)live/@endif{{ isset($category->site_url) ? $category->site_url : '-' }}/<?php echo isset($blog->site_url) ? $blog->site_url : ''; ?>"><?php echo $truncated; ?>
                                                             </a>
                                                         </div>
                                                         <div class="publish_wrap">
@@ -131,13 +121,13 @@
                                                     <?php
                                                     $cat = App\Models\Category::where('id', $blog->categories_ids)->first();
                                                     //$ff = config('global.blog_images_everywhere')($blog);
-                                                    $ff = cached_blog_image($blog);
+                                                    $ff  = cached_blog_image($blog); 
                                                     $symbol = $blog->link ? '<i class="fa fa-video-camera" aria-hidden="true" style="color: red;"></i>&nbsp;&nbsp;' : '';
                                                     $truncated = $symbol . $blog->name;
                                                     ?>
                                                     <div class="custom-tab-card">
                                                         <a class="custom-img-link"
-                                                            href="{{ asset('/') }}@if (isset($blog->isLive) && $blog->isLive != 0) live/ @endif{{ isset($cat->site_url) ? $cat->site_url : '' }}/<?php echo isset($blog->site_url) ? $blog->site_url : ''; ?>">
+                                                            href="{{ asset('/') }}@if(isset($blog->isLive) && $blog->isLive != 0)live/@endif{{ isset($cat->site_url) ? $cat->site_url : '' }}/<?php echo isset($blog->site_url) ? $blog->site_url : ''; ?>">
                                                             <img @if (!empty($ff)) src="{{ $ff }}" @endif
                                                                 alt="{{ $blog->name }}">
                                                         </a>
@@ -146,7 +136,7 @@
                                                                 class="nws_article_strip">{{ $cat->name ?? '' }}
                                                             </a> --}}
                                                             <a id="cat-t"
-                                                                href="{{ asset('/') }}@if (isset($blog->isLive) && $blog->isLive != 0) live/ @endif{{ isset($category->site_url) ? $category->site_url : '-' }}/<?php echo isset($blog->site_url) ? $blog->site_url : ''; ?>"><?php echo $truncated; ?>
+                                                                href="{{ asset('/') }}@if(isset($blog->isLive) && $blog->isLive != 0)live/@endif{{ isset($category->site_url) ? $category->site_url : '-' }}/<?php echo isset($blog->site_url) ? $blog->site_url : ''; ?>"><?php echo $truncated; ?>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -162,12 +152,12 @@
                                             ?>
                                             @if ($webStories->isNotEmpty())
                                                 @include('components.category.cat-web-story', [
-                                                    'webStories' => $webStories,
+                                                    'webStories' => $webStories
                                                 ])
                                             @endif
 
                                             {{-- -Photo Gallery- --}}
-                                            <?php /* ?> ?> ?> ?>
+                                            <?php /* ?> ?>
                                             <?php
                                             $cat_name = App\Models\Category::where('name', 'खेल')->first();
                                             $galleryblogs = App\Models\Blog::with('category')->where('status', '1')->where('categories_ids', $cat_name->id)->whereNull('link')->orderByDesc('id')->limit(6)->get();
@@ -253,7 +243,7 @@
                                                     </button>
                                                 </div>
                                             @endif
-
+                                            
                                         </div>
                                     </div>
                                     <div class="col_right">
@@ -278,13 +268,13 @@
                                                 'blogs' => $blogs,
                                             ])
                                         @endforeach
-
+                                        
                                         {{-- Vertical-Small-2 Category Advertise --}}
                                         <x-vertical-sm-ad :ad="$categoryAds['category_sidebar_vaerical_ad2'] ?? null" />
 
                                     </div>
                                 </div>
-
+                                
                                 {{-- Horizontal-2 Advertise --}}
                                 <x-horizontal-ad :ad="$categoryAds['category_bottom_ad'] ?? null" />
 

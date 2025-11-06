@@ -193,11 +193,14 @@
   color: #6f6f6f;
   margin-right: 7px;
 }
+
 .poweredby a {
-  width: 102px;
+  width: 112px;
   display: inline-block;
+  height: max-content;
 }
-.poweredby a img{
+
+.poweredby a img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -208,15 +211,16 @@
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
 
-  
-}
-.poweredby a img:hover{
-  opacity: 1;
+
 }
 
+.poweredby a img:hover {
+  opacity: 1;
+}
+ <!-- NL1023 : 16/09/2023 - removed poppins -->
 .poweredby {
   margin-left: auto;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Noto Sans Devanagari", sans-serif;
   font-size: 14px;
   font-weight: 500;
 
@@ -224,10 +228,10 @@
 
 .nsl-block {
   margin-top: 24px;
-
+ <!-- NL1023 : 16/09/2023 - removed poppins -->
   p {
     font-size: 15px;
-    font-family: poppins, sans-serif;
+    font-family: "Noto Sans Devanagari", sans-serif;
     color: #6f6f6f;
     margin-bottom: 10px;
   }
@@ -263,23 +267,23 @@
 }
 
 .Subscribe-btn {
-    margin-left: auto;
-    height: 100%;
-    width: 175px;
-    border: none;
-    border-radius: 11px;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    background-color: #ffff;
-    font-weight: 500;
-    font-size: 18px;
-    padding-top: 5px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 0.3s;
+  margin-left: auto;
+  height: 100%;
+  width: 175px;
+  border: none;
+  border-radius: 11px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  background-color: #ffff;
+  font-weight: 500;
+  font-size: 18px;
+  padding-top: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s;
 }
 
 .Subscribe-btn:hover {
@@ -394,10 +398,10 @@
   font-weight: 600;
   font-size: 14px;
 }
-
+ <!-- NL1023 : 16/09/2023 - removed poppins -->
 .footer-site-info {
   font-size: 14px;
-  font-family: poppins, sans-serif;
+  font-family: "Noto Sans Devanagari", sans-serif;
   color: #6f6f6f;
 }
 
@@ -618,14 +622,14 @@ footer li {
   color: #00bcd4;
   font-size: 89.5%;
 }
-
+ <!-- NL1023 : 16/09/2023 - removed poppins-->
 footer p {
   line-height: 24px;
   font-size: 15px;
   margin-bottom: 0px;
   color: #c1c1c1;
   font-weight: 500;
-  font-family: poppins, sans-serif;
+  font-family: "Noto Sans Devanagari", sans-serif;
 }
 
 .ftcol {
@@ -669,7 +673,8 @@ footer p {
     padding-top: 40px;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 52px;
+    padding-bottom: 50px;
+    /* padding-bottom: 25px; */
   }
 
   .footer-top {

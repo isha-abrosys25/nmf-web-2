@@ -50,6 +50,9 @@
                             <div class="mb-3">
                                 <label class="form-label">Candidate Image:</label>
                                 <input type="file" name="candidate_image" class="form-control fc-i">
+								<small class="text-danger d-block mt-1">
+                                    * Recommended size: 100×100 px (1:1 aspect ratio)
+                                </small>
                                 @if (old('candidate_image'))
                                     <img src="{{ asset(old('candidate_image')) }}" alt="Candidate Preview" width="100"
                                         class="mt-2">

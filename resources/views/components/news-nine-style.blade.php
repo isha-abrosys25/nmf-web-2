@@ -29,9 +29,10 @@
         <a href="{{ $cat_site_url }}">अधिक<i class="fa-solid fa-arrow-right"></i>
         </a>
     </div>
-    <div class="cs_row">
+    <div class="cs_row px-0">
         @foreach ($chunks as $chunk)
-            <div class="custom_left">
+	{{-- NL1060:27oct2025 - Added --}}
+            <div class="custom_left pl-0">
                 <div>
                     @foreach ($chunk as $item)
                         <div class="card_small">

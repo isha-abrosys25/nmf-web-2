@@ -1,294 +1,48 @@
 <!doctype html>
-<html lang="en-US">
-
+<html lang="hi">
 <head>
-   
     <?php
     use Carbon\Carbon;
-    $setting = App\Models\Setting::where('id', 1)->first(); ?>
+    //NL1028:Added new component to remove the function from app blade for SEO purpose
+    use App\View\Components\TitleDescription;
+    $setting = App\Models\Setting::where('id', 1)->first(); 
+    ?>
+    @php
+  $metaTitle = isset($data['blog'])
+    ? ($data['blog']->name ?? ($setting->site_name ?? ''))
+    : (new TitleDescription('title'))->display();
+
+$metaTitle = preg_replace('/\s+/', ' ', $metaTitle);
+
+
+  $metaDescription = isset($data['blog'])
+    ? ($data['blog']->sort_description ?? ($setting->site_name ?? ''))
+    : (new TitleDescription('description'))->display();
+
+$metaDescription = preg_replace('/\s+/', ' ', $metaDescription);
+
+@endphp
+    <title>{{ $metaTitle }}</title>
+    <meta name="description" content="{{ $metaDescription }}">
+    <meta name="keywords" content="{{ isset($data['blog']->keyword) ? $data['blog']->keyword : (isset($setting->keyword) ? $setting->keyword : '') }}">
     <meta charset="UTF-8">
+    @if (!str_contains(strtolower(config('global.base_url')), 'stgn'))
+    <meta name="robots" content="index, follow" />
+    @endif
+    <meta name="language" content="hi" />
+    <meta name="googlebot" content="notranslate">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{-- <meta http-equiv="refresh" content="150" /> --}}
-    <link href="{{ asset('asset/css/big-breaking.css') }}" rel="stylesheet">
-
-    <link href="{{ asset('/frontend/images/logo.png') }}" rel="shortcut icon" type="image/x-icon">
-    @php
-        $canonicalUrl = str_replace('/amp', '/', url()->current());
-        $ampUrl = url()->current();
-    @endphp
-
-    <link rel="canonical" href="{{ $canonicalUrl }}" />
-    <link rel="amphtml" href="{{ $ampUrl }}" />
-
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "name": "MMF News",
-      "url": "https://newsnmf.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://newsnmf.com/search?search={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": "Organization",
-      "name": "NMF News",
-      "url": "https://newsnmf.com",
-      "logo": {
-        "@type": "ImageObject",
-
-        "width": 300,
-        "height": 60
-      },
-      "sameAs": [
-        "https://www.facebook.com/officialnmfnews",
-        "https://x.com/NMFNewsOfficial",
-        "https://www.youtube.com/c/NMFNews/featured",
-        "https://www.instagram.com/nmfnewsofficial"
-      ]
-    }
-  ]
-}
-</script>
-    <?php
-    // if (!function_exists('DisplayTitleDescription')) {
-        function DisplayTitleDescription($title)
-        {
-            $URL = strtolower($_SERVER['REQUEST_URI']);
-            $statepos = strrpos($URL, '?');
-            $statename = '';
-            $DisplayTitle = '';
-            $DisplayDescription = '';
-            if (str_contains($URL, 'dharma-gyan')) {
-                $DisplayTitle = 'धर्म ज्ञान: Spiritual Insights, Teachings, and Religious News | NMF News';
-                $DisplayDescription = 'NMF News पर पाएं धर्म, आध्यात्मिकता और जीवन से जुड़ी गहरी शिक्षाएँ। वेद, उपनिषद, धार्मिक अनुष्ठान, और संतों के उपदेशों के साथ आध्यात्मिक यात्रा के बारे में जानें। धर्म ज्ञान के हर पहलू पर विशेषज्ञ विश्लेषण।';
-            } elseif (str_contains($URL, 'entertainment')) {
-                $DisplayTitle = 'मनोरंजन समाचार: Latest Entertainment News, Movies, Celebrities & More | NMF News';
-                $DisplayDescription = 'NMF News पर पाएं ताजगी से भरपूर मनोरंजन की खबरें, फिल्म रिव्यू, सेलिब्रिटी गॉसिप, टीवी शो और म्यूजिक इंडस्ट्री की सभी अपडेट्स। मनोरंजन की दुनिया की हर प्रमुख खबर, सिर्फ NMF News पर।';
-            } elseif (str_contains($URL, 'exclusive')) {
-                $DisplayTitle = 'ताज़ा खबरें, स्पेशल रिपोर्ट्स और ब्रेकिंग स्टोरीज़ | NMF News';
-                $DisplayDescription = 'NMF News पर पढ़ें एक्सक्लूसिव रिपोर्ट्स, ब्रेकिंग न्यूज़ और विशेष जांच। हर दिन की ताज़ा खबरों के साथ जानें वो ख़बरें, जो आपको कहीं और नहीं मिलेंगी। देश-दुनिया की खास खबरों के लिए जुड़ें NMF News के साथ।';
-            } elseif (str_contains($URL, 'world')) {
-                $DisplayTitle = 'दुनिया न्यूज़: Latest World News, Global Updates, Breaking Headlines | NMF News';
-                $DisplayDescription = 'दुनिया भर की ताज़ा खबरें, ब्रेकिंग न्यूज़ और वैश्विक घटनाएँ पढ़ें। राजनीति, समाज, व्यापार, विज्ञान, खेल और अन्य महत्वपूर्ण ख़बरों के लिए जुड़े रहें NMF News के साथ।';
-            } elseif (str_contains($URL, 'utility')) {
-                $DisplayTitle = 'Utility News: Useful Tips, Guides, Resources & Updates | NMF News';
-                $DisplayDescription = "NMF News के 'यूटिलिटी' सेक्शन में पाएं उपयोगी टिप्स, गाइड्स और संसाधन जो आपकी ज़िंदगी को आसान बनाएं। स्वास्थ्य, वित्त, टेक्नोलॉजी और अन्य महत्वपूर्ण जानकारी के लिए जुड़े रहें।";
-            } elseif (str_contains($URL, 'technology')) {
-                $DisplayTitle = 'टेक्नोलॉजी समाचार: Latest Tech Updates, Gadgets, Innovations & Analysis | NMF News';
-                $DisplayDescription = 'NMF News पर पाएं टेक्नोलॉजी से जुड़ी ताज़ा खबरें, गैजेट्स, इनोवेशन, और डिजिटल दुनिया की प्रमुख घटनाओं का विश्लेषण। स्मार्टफोन, AI, सॉफ़्टवेयर, और नई तकनीकों के बारे में जानें हर अपडेट।';
-            } elseif (str_contains($URL, 'sports')) {
-                $DisplayTitle = 'खेल समाचार: ताजा खेल अपडेट्स, मैच रिजल्ट्स, विश्लेषण और ब्रेकिंग न्यूज़ | NMF News';
-                $DisplayDescription = 'NMF News पर पाएं खेल से जुड़ी ताज़ा खबरें, मैच के लाइव रिजल्ट्स, प्रमुख खेल आयोजनों का विश्लेषण और खिलाड़ियों की खबरें। क्रिकेट, फुटबॉल, बैडमिंटन और अन्य खेलों के बारे में सभी अपडेट यहाँ पाएँ।';
-            } elseif (str_contains($URL, 'lifestyle')) {
-                $DisplayTitle = 'लाइफस्टाइल समाचार: Health, Fashion, Wellness, Tips & Trends | NMF News';
-                $DisplayDescription = 'NMF News पर पाएं लाइफस्टाइल से जुड़ी ताज़ा खबरें, स्वास्थ्य, फैशन, फिटनेस, और वेलनेस टिप्स। जीवनशैली के नए ट्रेंड्स, शॉपिंग गाइड और मानसिक स्वास्थ्य पर विशेषज्ञ सलाह के लिए जुड़े रहें।';
-            } elseif (str_contains($URL, 'podcast')) {
-                $DisplayTitle = 'पॉडकास्ट: Latest Episodes, Talks, Interviews & Discussions | NMF News';
-                $DisplayDescription = 'NMF News के पॉडकास्ट सेक्शन में पाएं ताज़ा एपिसोड्स, दिलचस्प इंटरव्यूज़ और विशेषज्ञों से की गई चर्चा। राजनीति, समाज, बिजनेस, और अन्य विषयों पर गहन बातें सिर्फ NMF News पॉडकास्ट में।';
-            } elseif (str_contains($URL, 'state/maharashtra')) {
-                $DisplayTitle = 'महाराष्ट्र न्यूज़: Latest Maharashtra News, Breaking Headlines | NMF News';
-                $DisplayDescription = 'महाराष्ट्र से जुड़ी ताज़ा खबरें, ब्रेकिंग न्यूज़ और इन-डेप्थ एनालिसिस यहां पढ़ें। राजनीति, समाज, उद्योग और अन्य ख़बरों के लिए जुड़े रहें NMF News के साथ।';
-            } elseif (str_contains($URL, 'state/bihar')) {
-                $DisplayTitle = 'बिहार न्यूज़: Latest Bihar News, Breaking Headlines | NMF News';
-                $DisplayDescription = 'बिहार से जुड़ी ताज़ा खबरें, ब्रेकिंग न्यूज़ और इन-डेप्थ एनालिसिस यहां पढ़ें। राजनीति, अर्थव्यवस्था, संस्कृति और अन्य ख़बरों के लिए जुड़े रहें NMF News के साथ।';
-            } elseif (str_contains($URL, 'state/uttrakhand')) {
-                $DisplayTitle = 'उत्तराखंड न्यूज़: Latest Uttarakhand News, Breaking Headlines | NMF News';
-                $DisplayDescription = 'उत्तराखंड से जुड़ी ताज़ा खबरें, ब्रेकिंग न्यूज़ और इन-डेप्थ एनालिसिस यहां पढ़ें। राजनीति, पर्यावरण, संस्कृति और अन्य ख़बरों के लिए जुड़े रहें NMF News के साथ।';
-            } elseif (str_contains($URL, 'state/new-delhi')) {
-                $DisplayTitle = 'नई दिल्ली न्यूज़: Latest New Delhi News, Breaking Headlines | NMF News';
-                $DisplayDescription = 'नई दिल्ली से जुड़ी ताज़ा खबरें, ब्रेकिंग न्यूज़ और इन-डेप्थ एनालिसिस यहां पढ़ें। राजनीति, समाज, सरकार की योजनाएं और अन्य ख़बरों के लिए जुड़े रहें NMF News के साथ।';
-            } elseif (str_contains($URL, 'state/jharkhand')) {
-                $DisplayTitle = 'झारखंड न्यूज़: Latest Jharkhand News, Breaking Headlines | NMF News';
-                $DisplayDescription = 'झारखंड से जुड़ी ताज़ा खबरें, ब्रेकिंग न्यूज़ और इन-डेप्थ एनालिसिस यहां पढ़ें। राजनीति, विकास, जनजीवन और अन्य ख़बरों के लिए जुड़े रहें NMF News के साथ।';
-            } elseif (str_contains($URL, 'state/uttar-pradesh')) {
-                $DisplayTitle = 'उत्तर प्रदेश न्यूज़: Latest Uttar Pradesh News, Breaking Headlines | NMF News';
-                $DisplayDescription = 'उत्तर प्रदेश से जुड़ी ताज़ा खबरें, ब्रेकिंग न्यूज़ और इन-डेप्थ एनालिसिस यहां पढ़ें। राजनीति, समाज, संस्कृति और अन्य ख़बरों के लिए जुड़े रहें NMF News के साथ।';
-            } elseif (str_contains($URL, 'state=maharashtra')) {
-                $DisplayTitle = 'महाराष्ट्र विधान सभा चुनाव: Latest Updates, Results, and Analysis | NMF News';
-                $DisplayDescription = 'महाराष्ट्र विधान सभा चुनाव से जुड़ी ताज़ा खबरें, चुनाव परिणाम, राजनीति और विश्लेषण पढ़ें। जानें महाराष्ट्र के विधानसभा चुनाव के बारे में सभी अपडेट और नतीजे NMF News पर।';
-            } elseif (str_contains($URL, 'state=jharkhand')) {
-                $DisplayTitle = 'झारखंड विधान सभा चुनाव: Latest Updates, Results, and Analysis | NMF News';
-                $DisplayDescription = 'झारखंड विधान सभा चुनाव से जुड़ी ताज़ा खबरें, चुनाव परिणाम, और राजनीतिक विश्लेषण पढ़ें। झारखंड विधानसभा चुनाव के बारे में हर अपडेट और नतीजे पाएँ NMF News पर।';
-            } elseif (str_contains($URL, 'state=new-delhi')) {
-                $DisplayTitle = 'नई दिल्ली विधान सभा चुनाव: Latest Updates, Results, and Analysis | NMF News';
-                $DisplayDescription = 'नई दिल्ली विधान सभा चुनाव से जुड़ी ताज़ा खबरें, चुनाव परिणाम और राजनीतिक विश्लेषण पढ़ें। नई दिल्ली विधानसभा चुनाव के नतीजे और सभी महत्वपूर्ण घटनाओं की जानकारी पाएं NMF News पर।';
-            } elseif (str_contains($URL, 'state=bihar')) {
-                $DisplayTitle = 'बिहार विधान सभा चुनाव: Latest Updates, Results, and Analysis | NMF News';
-                $DisplayDescription = 'बिहार विधान सभा चुनाव से जुड़ी ताज़ा खबरें, चुनाव परिणाम और विश्लेषण पढ़ें। बिहार विधानसभा चुनाव के नतीजे और सभी प्रमुख घटनाओं की जानकारी पाएं NMF News पर।';
-            } elseif ($URL == '/state-legislative-assembly-election') {
-                $DisplayTitle = 'राज्य विधान सभा चुनाव 2024: ताजा अपडेट्स और चुनावी विश्लेषण | NMF न्यूज | newsnmf.com';
-                $DisplayDescription = 'राज्य विधान सभा चुनाव 2024 से जुड़ी सभी एक्सक्लूसिव खबरें और ताजा अपडेट्स पाएं। जानें प्रमुख पार्टियों, उम्मीदवारों और चुनावी रणनीतियों का गहराई से विश्लेषण केवल NMF News – जिस पर देश करता है भरोसा। पर।';
-            } elseif (str_contains($URL, 'breakingnews')) {
-                $todayEng = date('jS F Y');
-                // Get current day and month in English
-                $day = date('j');
-                $month = date('n'); // Numeric month (1-12)
-                $weekday = date('w'); // Numeric day of week (0 = Sunday, 6 = Saturday)
-        
-                // Hindi names for months and weekdays
-                $hindiMonths = ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'];
-                $hindiWeekdays = ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'];
-        
-                // Compose the final string
-                $formattedDate = $day . ' ' . $hindiMonths[$month - 1] . ', ' . $hindiWeekdays[$weekday];
-        
-                $DisplayTitle = 'NMF न्यूज - एक क्लिक में पढ़ें ' . $formattedDate . ' की अहम खबरें - ' . $todayEng . ' breaking latest news';
-                $DisplayDescription = 'Stay updated with the latest breaking news for ' . $formattedDate . ' – covering top headlines, current affairs, and major developments as they unfold throughout the day.';
-            } else {
-                $DisplayTitle = 'NMF News - जिस पर देश करता है भरोसा | Trusted Global Affairs Insights';
-                $DisplayDescription = 'NMF News – जिस पर देश करता है भरोसा। पर पाएं रक्षा, कूटनीति और वैश्विक संबंधों पर ताज़ा खबरें, विश्लेषण और विशेषज्ञ दृष्टिकोण।';
-            }
-            if ($statepos > 0) {
-                $statename = substr($URL, $statepos + 7);
-                $DisplayTitle = $DisplayTitle . '(' . $statename . ')';
-            }
-        
-            if ($title == 'title') {
-                echo $DisplayTitle;
-            } elseif ($title == 'description') {
-                echo $DisplayDescription;
-            }
-        
-    }
-    ?>
-    <title><?php
-    if (isset($data['blog'])) {
-        echo isset($data['blog']->name) ? $data['blog']->name : (isset($setting->site_name) ? $setting->site_name : '');
-    } else {
-        DisplayTitleDescription('title');
-    }
-    ?></title>
-    <meta name="description" content="<?php
-    if (isset($data['blog'])) {
-        echo isset($data['blog']->sort_description) ? $data['blog']->sort_description : (isset($setting->site_name) ? $setting->site_name : '');
-    } else {
-        DisplayTitleDescription('description');
-    }
+@if (request()->is('video/*'))
+    <meta http-equiv="refresh" content="1200" /> 
+@elseif (request()->is('podcast/*'))
+    <meta http-equiv="refresh" content="1200" />
+@else
+    <meta http-equiv="refresh" content="300" />
+@endif
     
-    ?>">
-    <meta name="keywords"
-        content="{{ isset($data['blog']->keyword) ? $data['blog']->keyword : (isset($setting->keyword) ? $setting->keyword : '') }}">
-    <meta property="fb:app_id" content="3916260501994016" />
-    <meta property="og:site_name" content="newsnmf" />
-    <meta property="og:title" content="<?php
-    if (isset($data['blog'])) {
-        echo isset($data['blog']->name) ? $data['blog']->name : (isset($setting->site_name) ? $setting->site_name : '');
-    } else {
-        DisplayTitleDescription('title');
-    }
-    ?>" />
-    <meta property="og:description" content="<?php
-    if (isset($data['blog'])) {
-        echo isset($data['blog']->sort_description) ? $data['blog']->sort_description : (isset($setting->site_name) ? $setting->site_name : '');
-    } else {
-        DisplayTitleDescription('description');
-    }
-    ?>" />
-    <meta property="og:type" content="website" />
-    <?php
-    $get_baseUrl = config('global.base_url_web_stories');
-    $todayEng = str_replace(' ', '-', date('jS F Y')); // e.g., 5th-May-2025
-    $slug = $get_baseUrl . 'breakingnews/latest-breaking-news-in-hindi-nmfnews-' . $todayEng;
-    ?>
-    <meta property="og:url" content="<?php
-    $URL = strtolower($_SERVER['REQUEST_URI']);
-    if (str_contains($URL, 'breakingnews')) {
-        echo $slug;
-    }
-    if (isset($data['category']) && isset($data['blog'])) {
-        echo asset('/') . $data['category']->site_url . '/' . $data['blog']->site_url;
-    }
-    ?>" />
-
-    <?php
-    $currentUrl = url()->current();
-    $baseBreakingNewsUrl = url('/breakingnews');
-    $customImageUrl = asset('asset/images/NMF_BreakingNews.png');
-    
-    $ff = config('global.blog_images_everywhere')($data['blog'] ?? null);
-    $imageToUse = asset($ff);
-    
-    if (Str::startsWith($currentUrl, $baseBreakingNewsUrl)) {
-        $imageToUse = $customImageUrl;
-    }
-    ?>
-
-
-    <meta property="og:image" content="<?php
-    // $ff = config('global.blog_images_everywhere')($data['blog'] ?? null);
-    echo $imageToUse;
-    ?>" />
-        <link rel="icon" href="https://stgn.newsnmf.com/frontend/images/DARK_LOGO.png" type="image/png">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="newsnmf">
-    <meta name="twitter:url" content="<?php
-    $URL = strtolower($_SERVER['REQUEST_URI']);
-    if (str_contains($URL, 'breakingnews')) {
-        echo $slug;
-    }
-    if (isset($data['category']) && isset($data['blog'])) {
-        echo asset('/') . $data['category']->site_url . '/' . $data['blog']->site_url;
-    }
-    ?>" />
-    <meta name="twitter:title" content="<?php
-    if (isset($data['blog'])) {
-        echo isset($data['blog']->name) ? $data['blog']->name : (isset($setting->site_name) ? $setting->site_name : '');
-    } else {
-        DisplayTitleDescription('title');
-    }
-    ?>" />
-    <meta name="twitter:description" content="<?php
-    if (isset($data['blog'])) {
-        echo isset($data['blog']->sort_description) ? $data['blog']->sort_description : (isset($setting->site_name) ? $setting->site_name : '');
-    } else {
-        DisplayTitleDescription('description');
-    }
-    ?>" />
-    <meta property="twitter:image:type" content="image/jpeg" />
-    <meta property="twitter:image:width" content="660" />
-    <meta property="twitter:image:height" content="367" />
-    <meta name="twitter:image" content="<?php
-    //$ff = config('global.blog_images_everywhere')($data['blog'] ?? null);
-    echo $imageToUse;
-    ?>" />
-
-    <link rel="profile" href="https://gmpg.org/xfn/11">
-    <meta name="robots" content="max-image-preview:large" />
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="{{ asset('asset/css/swiper-bundle.min.css') }}" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}" type="text/css" media="all" />
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('asset/plugins/bootstrap.min.css') }}" type="text/css" media="all" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@100..900&display=swap"
-        rel="stylesheet">
-    <script type="text/javascript" src="{{ asset('/asset/js/jquery.min.js') }}" id="jquery-core-js"></script>
-    <!--<script type="text/javascript" src="{{ asset('/asset/js/jquery/jquery-migrate.min.js') }}" id="jquery-migrate-js">
-        < script src = "{{ asset('asset/plugins/bootstrap.min.js') }}"
-        defer >
-    </script>-->
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script async src="//www.instagram.com/embed.js"></script>
-    
-      <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" 
-  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
-</script>
-    
-     <!-- Google Tag Manager -->
+  <!-- Google Tag Manager -->
+    @if (config('global.gtm_enabled'))
     <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -303,169 +57,240 @@
             j.src =
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5BSHD2LX');
+        })(window, document, 'script', 'dataLayer', '{{ config('global.gtm_id') }}');
     </script>
+    @endif
     <!-- End Google Tag Manager -->
+     <!-- Canonical -->
+     @php
+        $canonicalUrl = str_replace('/amp', '/', url()->current());
+    @endphp
+    <link rel="canonical" href="{{ $canonicalUrl }}" />
+    @yield('head')
+    <!-- NL1025:20Sept:2025:Added config path -->
+    <link href="{{config('global.base_url_frontend')}}frontend/images/logo.png" rel="shortcut icon" type="image/x-icon">
+    <link href="{{config('global.base_url_asset')}}asset/css/big-breaking.css?v=1.23" rel="stylesheet">
+       <!-- NL1025:15Sept:2025:Added Condition to show -->
+        <!-- NL1025:20Sept:2025:Added config path in url -->
+    @if (config('global.schema_enabled'))
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "NMF News",
+      "url": "{{ config('global.base_url') }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ config('global.base_url') }}/search?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "NMF News",
+      "url": "{{ config('global.base_url') }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{config('global.base_url_frontend')}}frontend/images/logo.png",
+        "width": 300,
+        "height": 60
+      },
+      "sameAs": [
+        "https://www.facebook.com/NMFNewsNational",
+        "https://x.com/NMFNewsOfficial",
+        "https://www.youtube.com/c/NMFNews/featured",
+        "https://www.instagram.com/nmfnewsofficial"
+      ]
+    }
+  ]
+}
+</script>
+@endif
+   <!--NL1028:17Sep2025:removed the function for SEO performance -->
+    <meta property="fb:app_id" content="3916260501994016" />
+    @php
+    // Get base URL from your config/global.php
+    $baseUrl = config('global.base_url'); // e.g. https://www.newsnmf.com
+
+    // Parse host from that URL
+    $host = parse_url($baseUrl, PHP_URL_HOST);  // returns www.newsnmf.com
+
+    // Strip "www." and take the first segment before "."
+    $domainOnly = explode('.', str_replace('www.', '', $host))[0]; // newsnmf
+
+    @endphp
+    <meta property="og:site_name" content="{{ ucfirst($domainOnly) }}">
+    <meta property="og:title" content="{{ $metaTitle }}"/>
+    <meta property="og:description" content="{{ $metaDescription }}"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ rtrim(config('global.base_url'), '/') }}{{ request()->getPathInfo() }}" />
+    <?php
+    $URL= config('global.base_url');
+    $baseBreakingNewsUrl = url('/breakingnews');
+    //$customImageUrl =  asset('asset/images/NMF_BreakingNews.png');
+    $customImageUrl = config('global.base_url_image') . "asset/images/NMF_BreakingNews.png";
+   // $ff = config('global.blog_images_everywhere')($data['blog'] ?? null);
+   $blog = $data['blog'] ?? null;
+   $ff = cached_blog_image($blog);
+
+    
+    $imageToUse = $ff;
+
+    if (Str::startsWith($URL, $baseBreakingNewsUrl)) {
+        $imageToUse = $customImageUrl;
+    }
+    ?>
+    <meta property="og:image" content="<?php
+    // $ff = config('global.blog_images_everywhere')($data['blog'] ?? null);
+    echo $imageToUse;
+    ?>" />
+    <meta property="og:image:type" content="image/jpeg">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@nmfnewsofficial">
+    <meta name="twitter:url" content="{{ rtrim(config('global.base_url'), '/') }}{{ request()->getPathInfo() }}" />
+    <meta name="twitter:title" content="{{ $metaTitle }}"/>
+    <meta name="twitter:description" content="{{ $metaDescription }}"/>
+    <meta property="twitter:image:type" content="image/jpeg" />
+    <meta property="twitter:image:width" content="660" />
+    <meta property="twitter:image:height" content="367" />
+    <meta name="twitter:image" content="<?php
+    //$ff = config('global.blog_images_everywhere')($data['blog'] ?? null);
+    echo $imageToUse;
+    ?>" />
+
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <meta name="robots" content="max-image-preview:large" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{config('global.base_url_asset')}}asset/css/swiper-bundle.min.css" type="text/css" media="all" />
+    <!-- NL1028:15Sept:2025:Commented:Start -->
+   <!-- <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}" type="text/css" media="all" />-->
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{config('global.base_url_asset')}}asset/plugins/bootstrap.min.css" type="text/css" media="all" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@100..900&display=swap"
+        rel="stylesheet">
+    <script type="text/javascript" src="{{config('global.base_url_asset')}}asset/js/jquery.min.js" id="jquery-core-js"></script>
+<!-- Lazy load 3rd-party SDKs -->
+<script>    
+window.addEventListener('load', function () {
+  // Google Ads
+  let ads = document.createElement('script');
+  ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986924419662120";
+  ads.async = true; ads.crossOrigin = "anonymous";
+  document.body.appendChild(ads);
+
+  // Facebook SDK
+  let fb = document.createElement('script');
+  fb.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0";
+  fb.async = true; document.body.appendChild(fb);
+
+  // Instagram
+  let ig = document.createElement('script');
+  ig.src = "https://www.instagram.com/embed.js";
+  ig.async = true; document.body.appendChild(ig);
+
+  // Twitter
+  let tw = document.createElement('script');
+  tw.src = "https://platform.twitter.com/widgets.js";
+  tw.async = true; document.body.appendChild(tw);
+});
+</script>
+  <!-- NL1025:15Sept:2025:Commented:Start -->
+     <!-- Google Tag Manager -->
+   <!--  <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5BSHD2LX');
+    </script> -->
+    <!-- End Google Tag Manager -->
+     <!-- NL1025:15Sept:2025:Commented:End -->
 
   
 
     <script type="text/javascript">
-        /* <![CDATA[ */
-        window._wpemojiSettings = {
-            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/",
-            "ext": ".png",
-            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/",
-            "svgExt": ".svg",
-            "source": {
-                "concatemoji": "https:\/\/demo.themebeez.com\/demos-2\/cream-magazine-free\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.4.4"
-            }
-        };
-        /*! This file is auto-generated */
-        ! function(i, n) {
-            var o, s, e;
-
-            function c(e) {
-                try {
-                    var t = {
-                        supportTests: e,
-                        timestamp: (new Date).valueOf()
-                    };
-                    sessionStorage.setItem(o, JSON.stringify(t))
-                } catch (e) {}
-            }
-
-            function p(e, t, n) {
-                e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(t, 0, 0);
-                var t = new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data),
-                    r = (e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(n, 0, 0), new Uint32Array(e
-                        .getImageData(0, 0, e.canvas.width, e.canvas.height).data));
-                return t.every(function(e, t) {
-                    return e === r[t]
-                })
-            }
-
-            function u(e, t, n) {
-                switch (t) {
-                    case "flag":
-                        return n(e, "\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", "\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f") ? !1 : !
-                            n(e, "\ud83c\uddfa\ud83c\uddf3", "\ud83c\uddfa\u200b\ud83c\uddf3") && !n(e,
-                                "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f",
-                                "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"
-                            );
-                    case "emoji":
-                        return !n(e, "\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff",
-                            "\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")
-                }
-                return !1
-            }
-
-            function f(e, t, n) {
-                var r = "undefined" != typeof WorkerGlobalScope && self instanceof WorkerGlobalScope ? new OffscreenCanvas(
-                        300, 150) : i.createElement("canvas"),
-                    a = r.getContext("2d", {
-                        willReadFrequently: !0
-                    }),
-                    o = (a.textBaseline = "top", a.font = "600 32px Arial", {});
-                return e.forEach(function(e) {
-                    o[e] = t(a, e, n)
-                }), o
-            }
-
-            function t(e) {
-                var t = i.createElement("script");
-                t.src = e, t.defer = !0, i.head.appendChild(t)
-            }
-            "undefined" != typeof Promise && (o = "wpEmojiSettingsSupports", s = ["flag", "emoji"], n.supports = {
-                everything: !0,
-                everythingExceptFlag: !0
-            }, e = new Promise(function(e) {
-                i.addEventListener("DOMContentLoaded", e, {
-                    once: !0
-                })
-            }), new Promise(function(t) {
-                var n = function() {
-                    try {
-                        var e = JSON.parse(sessionStorage.getItem(o));
-                        if ("object" == typeof e && "number" == typeof e.timestamp && (new Date).valueOf() <
-                            e.timestamp + 604800 && "object" == typeof e.supportTests) return e.supportTests
-                    } catch (e) {}
-                    return null
-                }();
-                if (!n) {
-                    if ("undefined" != typeof Worker && "undefined" != typeof OffscreenCanvas && "undefined" !=
-                        typeof URL && URL.createObjectURL && "undefined" != typeof Blob) try {
-                        var e = "postMessage(" + f.toString() + "(" + [JSON.stringify(s), u.toString(), p
-                                .toString()
-                            ].join(",") + "));",
-                            r = new Blob([e], {
-                                type: "text/javascript"
-                            }),
-                            a = new Worker(URL.createObjectURL(r), {
-                                name: "wpTestEmojiSupports"
-                            });
-                        return void(a.onmessage = function(e) {
-                            c(n = e.data), a.terminate(), t(n)
-                        })
-                    } catch (e) {}
-                    c(n = f(s, u, p))
-                }
-                t(n)
-            }).then(function(e) {
-                for (var t in e) n.supports[t] = e[t], n.supports.everything = n.supports.everything && n
-                    .supports[t], "flag" !== t && (n.supports.everythingExceptFlag = n.supports
-                        .everythingExceptFlag && n.supports[t]);
-                n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && !n.supports.flag, n
-                    .DOMReady = !1, n.readyCallback = function() {
-                        n.DOMReady = !0
+    <!-- NL1023 : 16/09/2023 - removed -->
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll("img[data-src]");
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute("data-src");
+                        observer.unobserve(img);
                     }
-            }).then(function() {
-                return e
-            }).then(function() {
-                var e;
-                n.supports.everything || (n.readyCallback(), (e = n.source || {}).concatemoji ? t(e
-                    .concatemoji) : e.wpemoji && e.twemoji && (t(e.twemoji), t(e.wpemoji)))
-            }))
-        }((window, document), window._wpemojiSettings);
-        /* ]]> */
+                });
+            });
+            lazyImages.forEach(img => observer.observe(img));
+        });
     </script>
-
-
-
-    <link rel="stylesheet" id="wp-block-library-css" href="{{ asset('/asset/style.min.css') }}" type="text/css"
-        media="all" />
-    <link rel="stylesheet" id="cream-magazine-fonts-css"
-        href="https://fonts.googleapis.com/css2?family=Inter&#038;family=Poppins:ital,wght@0,600;1,600&#038;display=swap"
+  <!-- NL1023 : 16/09/2023 - commented -->
+    {{-- <link rel="stylesheet" id="wp-block-library-css" href="{{config('global.base_url_asset')}}asset/style.min.css" type="text/css"
+        media="all" /> --}}
+	 <!-- NL1028:15Sept:2025:Commented:Start -->
+   <!-- <link rel="stylesheet" id="fontAwesome-4-css" href="{{ asset('/asset/fonts/fontAwesome/fontAwesome.min.css') }}"
+        type="text/css" media="all" />-->
+  <!-- NL1023 : 16/09/2023 - commented -->
+    {{-- <link rel="stylesheet" id="feather-icons-css" href="{{config('global.base_url_asset')}}{{ asset/fonts/feather/feather.min.css"
+        type="text/css" media="all" /> --}}
+	  <!-- NL1023 : 16/09/2023 - removed wp id -->
+    <link rel="stylesheet" href="{{config('global.base_url_asset')}}asset/css/main.css?v=1.18"
         type="text/css" media="all" />
-    <link rel="stylesheet" id="fontAwesome-4-css" href="{{ asset('/asset/fonts/fontAwesome/fontAwesome.min.css') }}"
-        type="text/css" media="all" />
-    <link rel="stylesheet" id="feather-icons-css" href="{{ asset('/asset/fonts/feather/feather.min.css') }}"
-        type="text/css" media="all" />
-    <link rel="stylesheet" id="cream-magazine-main-css" href="{{ asset('/asset/css/main.css?v=1.14') }}"
-        type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ asset('/asset/css/header.css') }}" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ asset('/asset/css/footer.css') }}" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ asset('/asset/css/webstory.css') }}" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ asset('/asset/css/category.css') }}" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="{{config('global.base_url_asset')}}asset/css/header.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{config('global.base_url_asset')}}asset/css/footer.css?v=1.1" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="{{config('global.base_url_asset')}}/asset/css/webstory.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{config('global.base_url_asset')}}/asset/css/category.css?v=1.1" type="text/css" media="all" />
     </script>
-    <script type="text/javascript" src="{{ asset('asset/js/swiper-bundle.min.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('/asset/css/style.css') }}" type="text/css" media="all" />
+    <script type="text/javascript" src="{{config('global.base_url_asset')}}asset/js/swiper-bundle.min.js" ></script>
+    
+    <link rel="stylesheet" href="{{config('global.base_url_asset')}}asset/css/style.css" type="text/css" media="all" />
     <style id="theia-sticky-sidebar-stylesheet-TSS">
         .theiaStickySidebar:after {
             content: "";
             display: table;
             clear: both;
         }
+        li.item.new a span {color: #ffdf00; font-weight:400}
+        .mobile-new {color: #ff0000 !important;font-weight:600}
     </style>
 </head>
-
-<body data-rsssl="1"
-    class="home page-template page-template-template-home page-template-template-home-php page page-id-362 wp-custom-logo wp-embed-responsive right-sidebar">
-
+  <!-- NL1023 : 16/09/2023 - removed wp class -->
+<body class="home right-sidebar">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BSHD2LX" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
+     <?php
+                                         
+                                            
+                                            $menus = App\Models\Menu::whereRelation('type', 'type', 'Header')
+                                                ->whereRelation('category', 'category', 'User')
+                                                ->where([['status', '1'], ['menu_id', 0]])
+                                                ->whereNotNull('sequence_id')
+                                                ->where('sequence_id', '!=', 0)
+                                                ->orderBy('sequence_id', 'asc')
+                                                ->get()
+                                                ->take(11)
+                                                ->toArray();
+                                            ?>
 
     <div class="page-wrapper">
 
@@ -474,7 +299,8 @@
                 <div class="--header-container">
                     <div class="--header-left">
                         <a href="/" class="--nmf-logo">
-                            <img src="https://www.newsnmf.com/frontend/images/logo.png" alt="Logo"
+                            <!-- NL1025:20Sept:2025:Added config path -->
+                            <img src="{{config('global.base_url_frontend')}}frontend/images/logo.png" alt="Logo"
                                 class="--logo" />
                         </a>
                     </div>
@@ -508,16 +334,19 @@
 
                                 <div class="--hdr-t-r">
                                     <div class="pod-cast">
-                                        <a href="https://www.newsnmf.com/being-ghumakkad"><img loading="lazy"
-                                                style="width: 30px;" src="https://www.newsnmf.com/file/bg_icon.png"
-                                                alt=""></a>
-                                        <a href="https://www.newsnmf.com/Podcast"><img loading="lazy"
-                                                style="width: 54px;"
-                                                src="https://www.newsnmf.com/file/podcost_icon.png"
-                                                alt=""></a>
+                                        <a href="{{ config('global.base_url') }}being-ghumakkad">
+                             <!--NL1028:Added:global config path-->
+                                            <img loading="lazy" style="width: 30px;"
+                                                src="{{ config('global.base_url_image') }}file/bg_icon.png" alt="">
+                                        </a>
+ 
+                                        <a href="{{ config('global.base_url') }}Podcast">
+                                            <img loading="lazy" style="width: 54px;"
+                                                src="{{ config('global.base_url_image') . 'file/podcost_icon.png' }}" alt="">
+                                        </a>
                                     </div>
                                     <div class="social-wrap">
-                                        <a href="https://www.facebook.com/officialnmfnews" target="_blank"
+                                        <a href="https://www.facebook.com/NMFNewsNational/" target="_blank"
                                             class="social-item"><span><i
                                                     class="fa-brands fa-facebook-f"></i></span></a>
                                         <a href="https://x.com/NMFNewsOfficial" target="_blank"
@@ -533,8 +362,9 @@
                                                     class="fa-brands fa-whatsapp"></i></span></a>
                                     </div>
                                     {{-- login button here --}}
+                                   {{-- login button here --}}
                                     @auth('viewer')
-                                        <form method="POST" action="{{ route('viewer.logout') }}" class="inline">
+                                        <form method="POST" action="{{ rtrim(config('global.base_url'), '/').(route('viewer.logout', [], false)) }}" class="inline">
                                             @csrf
                                             <button type="submit" class="log logout-btn">
                                                 <i class="fas fa-sign-out-alt"></i>
@@ -542,13 +372,11 @@
                                             </button>
                                         </form>
                                     @else
-                                        <a href="{{ route('auth.google') }}"
-                                            class="log">
+                                        <a href="{{ rtrim(config('global.base_url'), '/').(route('auth.google', [], false)) }}" class="log">
                                             <i class="fa-solid fa-user"></i>
                                             Login
                                         </a>
                                     @endauth
-
                                 </div>
                                 <!-- Search Modal -->
                                 <div id="searchModal" class="search-modal">
@@ -572,8 +400,9 @@
                                         <button class="close_btn" id="close-btn">
                                             <i class="fa-solid fa-times"></i>
                                         </button>
+                                        <!-- NL1025:20Sept:2025:Added config path -->
                                         <a href="{{ asset('/') }}" class="modal_logo"><img loading="lazy"
-                                                src="https://www.newsnmf.com/frontend/images/logo.png" alt=""></a>
+                                               src="{{config('global.base_url_frontend')}}frontend/images/logo.png" alt=""></a>
                                         <a class="Headertag ms-0" style="margin-left: 0px"> <span class="">जिस
                                                 पर
                                                 देश</span><span class="HeadertagHalf">करता है भरोसा</span> </a>
@@ -646,10 +475,11 @@
 
                                             <li id="navLogo"
                                                 class="menu-item menu-item-type-custom menu-item-object-custom">
-                                                <a class="sub_logo" href="https://www.newsnmf.com/"
+                                                <a class="sub_logo" href="{{ asset('/') }}"
                                                     aria-current="page">
+                                                    <!-- NL1025:20Sept:2025:Added config path -->
                                                     <img loading="lazy"
-                                                        src="https://www.newsnmf.com/frontend/images/logo.png"
+                                                       src="{{config('global.base_url_frontend')}}frontend/images/logo.png"
                                                         alt="" style="width: 41px" />
                                                 </a>
                                             </li>
@@ -661,30 +491,15 @@
                                             //     ->get()
                                             //     ->toArray();
                                             
-                                            $menus = App\Models\Menu::whereRelation('type', 'type', 'Header')
-                                                ->whereRelation('category', 'category', 'User')
-                                                ->where([['status', '1'], ['menu_id', 0]])
-                                                ->whereNotNull('sequence_id')
-                                                ->where('sequence_id', '!=', 0)
-                                                ->orderBy('sequence_id', 'asc')
-                                                ->get()
-                                                ->take(11)
-                                                ->toArray();
-                                            
-                                            // $menus = App\Models\Menu::where('menu_id', 0)->where('status', 1)->where('type_id', '1')->where('category_id', '2')->get();
-                                            
-                                            /*  $duniyaIndex = array_search('दुनिया', array_column($menus, 'menu_name'));
-                            $rajyaIndex = array_search('राज्य', array_column($menus, 'menu_name'));
-                            $slaIndex = array_search('विधान सभा चुनाव 2024', array_column($menus, 'menu_name'));
-                            
-                            if ($duniyaIndex !== false && $rajyaIndex !== false && $slaIndex !== false) {
-                                $duniyaItem = $menus[$duniyaIndex];
-                                $slaItem = $menus[$slaIndex];
-                                unset($menus[$duniyaIndex], $menus[$slaIndex]);
-                            
-                                array_splice($menus, $rajyaIndex + 1, 0, [$duniyaItem, $slaItem]);
-                            } */
-                                            
+                                          //  $menus = App\Models\Menu::whereRelation('type', 'type', 'Header')
+                                              //  ->whereRelation('category', 'category', 'User')
+                                              //  ->where([['status', '1'], ['menu_id', 0]])
+                                              //  ->whereNotNull('sequence_id')
+                                              //  ->where('sequence_id', '!=', 0)
+                                              //  ->orderBy('sequence_id', 'asc')
+                                              //  ->get()
+                                               // ->take(11)
+                                               // ->toArray();
                                             ?>
                                             @foreach ($menus as $menu)
                                                 <?php
@@ -694,7 +509,8 @@
                                                 $subMenus = App\Models\Menu::where('menu_id', $menu['id'])->where('status', '1')->where('type_id', '1')->where('category_id', '2')->get();
                                                 $file = App\Models\File::where('id', $menu['image'])->first();
                                                 ?>
-                                                <li class="item">
+                                                <li class="item {{ Str::contains($menu['menu_link'], 'state-legislative-assembly-election') ? 'new' : '' }}">
+
                                                     <a href="{{ asset($menu['menu_link']) }}" class="link">
                                                         <span> {{ $menu['menu_name'] }}</span>
                                                         @if (count($subMenus) > 0)
@@ -733,32 +549,24 @@
             <div class="menu-container">
                 <ul class="menu-list">
                     @php
-                        $menuItems = [
-                            ['name' => 'होम', 'slug' => '/'],
-                            ['name' => 'न्यूज', 'slug' => '/news'],
-                            ['name' => 'मनोरंजन', 'slug' => '/entertainment'],
-                            ['name' => 'यूटीलिटी', 'slug' => '/utility'],
-                            ['name' => 'खेल', 'slug' => '/sports'],
-                            ['name' => 'धर्म ज्ञान', 'slug' => '/dharma-gyan'],
-                            ['name' => 'राज्य', 'slug' => '/states'],
-                            ['name' => 'ट्रेंडिंग न्यूज़', 'slug' => '/trending-news'],
-                            ['name' => 'टेक्नोलॉजी', 'slug' => '/technology'],
-                            ['name' => 'लाइफस्टाइल', 'slug' => '/lifestyle'],
-                            ['name' => 'पॉडकास्ट', 'slug' => '/podcast'],
-                            ['name' => 'दुनिया', 'slug' => '/world'],
-                            ['name' => 'ब्लॉग', 'slug' => '/blog'],
-                            ['name' => 'एक्सक्लूसिव', 'slug' => '/exclusive'],
-                            ['name' => 'करियर', 'slug' => '/career'],
-                            ['name' => 'वेब स्टोरी', 'slug' => '/web-stories'],
-                        ];
+                      $baseUrl = config('global.base_url'); // your configured base URL
+                       
                     @endphp
 
-                    @foreach ($menuItems as $item)
-                        <li
-                            class="menu-item {{ request()->is('/') && $item['slug'] === '/' ? 'active' : '' }}{{ request()->is(ltrim($item['slug'], '/')) && $item['slug'] !== '/' ? 'active' : '' }}">
-                            <a href="{{ url($item['slug']) }}" class="menu-link">{{ $item['name'] }}</a>
+                     @foreach ($menus  as $item)
+		               @php
+                        if (substr($item['menu_link'], 0, 1) !== '/') {
+                            $item['menu_link'] = '/' . $item['menu_link'];
+                        }
+                           $fullUrl = (substr($baseUrl, -1) === '/' ? substr($baseUrl, 0, -1) : $baseUrl) . $item['menu_link'];
+                        @endphp   
+                     <li
+                            class="menu-item {{ request()->is('/') &&  $item['menu_link'] === '/' ? 'active' : '' }}{{ request()->is(ltrim($item['menu_link'], '/')) && $item['menu_link'] !== '/' ? 'active' : '' }}">
+                            <a href="{{ $fullUrl}}" class="menu-link {{   str_contains( $item['menu_link'], 'state-legislative-assembly-election') ? 'mobile-new' : '' }}">{{ $item['menu_name'] }}
+</a>
                         </li>
                     @endforeach
+                   
 
                 </ul>
             </div>
@@ -768,7 +576,6 @@
             @yield('content')
         </div>
         <!-- Bottom Navigation -->
-
          <?php
            use App\Models\Clip;
           
@@ -782,19 +589,19 @@
             $videourl=$clip->site_url;
          ?>
         <div class="btm-nav">
-            <a href="{{ url('/short-videos/' . $catUrl.'/'.$videourl) }}" class="nav-item">
+                <a href="{{ config('global.base_url') . 'short-videos/' . $catUrl . '/' . $videourl }}" class="nav-item">
                 <i class="fas fa-bolt"></i>
                 <span>शॉर्ट्स</span>
             </a>
-            <a href="{{ url('/web-stories') }}" class="nav-item">
+            <a href="{{ config('global.base_url'). 'web-stories' }}" class="nav-item">
                 <div class="webstory-icon"></div>  
                 <span>वेब स्टोरीज़</span>
             </a>
-            <a href="{{ url('/') }}" class="nav-item active">
+            <a href="{{config('global.base_url') }}" class="nav-item active">
                 <i class="fas fa-home"></i>
                 <span>होम</span>
             </a>
-            <a href="{{ url('/nmfvideos') }}" class="nav-item">
+            <a href="{{ config('global.base_url') . '/nmfvideos' }}" class="nav-item">
                 <i class="fa-solid fa-video"></i> 
                 <span>वीडियो</span>
             </a>
@@ -828,10 +635,12 @@
                     <div class="footer_left">
                         <div class="footer_logo_wrap">
                             <a href="{{ asset('/') }}" class="footer_logo">
-                                <img loading="lazy" src="https://www.newsnmf.com/frontend/images/logo.png" alt="" />
+                                <!-- NL1025:20Sept:2025:Added config path -->
+
+                                <img loading="lazy" src="{{config('global.base_url_frontend')}}frontend/images/logo.png" alt="" />
                             </a>
                             <div class="footer_logo">
-                                <img loading="lazy" src="https://www.newsnmf.com/banner/logo.png" alt="">
+                                <img loading="lazy" src="{{config('global.base_url_asset')}}asset/images/kmc_logo.png" alt="">
                             </div>
                         </div>
                         <p>NMF News is a Subsidary of Khetan Media Creation Pvt Ltd</p>
@@ -945,7 +754,7 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ url('/') }}">
+                        <form method="POST" action="{{config('global.base_url') }}">
                             @csrf
                             <input type="hidden" name="_action" value="subscribe">
                             <div class="nsl-block">
@@ -969,8 +778,10 @@
                     <div class="ftcol">
                         <div class="poweredby">
                             <span>Designed & Developed by</span>
+                            <!-- NL1025:20Sept:2025:Added config path -->
+
                             <a href="https://www.abrosys.com/"> <img width="102" height="19"
-                                    src="{{ asset('asset/images/abrosys.png') }}"
+                                    src="{{config('global.base_url_asset')}}asset/images/abrosys.png"
                                     alt="Abrosys Technologies Private Limited"></a>
                         </div>
                     </div>
@@ -982,8 +793,8 @@
                 <i class="fa fa-angle-up" aria-hidden="true"></i>
             </button>
         </div>
-        <script type="text/javascript" id="cream-magazine-bundle-js-extra">
-            /* <![CDATA[ */
+	  <!-- NL1023 : 16/09/2023 - commented wp-script -->
+        {{-- <script type="text/javascript" id="cream-magazine-bundle-js-extra">
             var cream_magazine_script_obj = {
                 "show_search_icon": "1",
                 "show_news_ticker": "1",
@@ -992,22 +803,14 @@
                 "enable_sticky_sidebar": "1",
                 "enable_sticky_menu_section": ""
             };
-            /* ]]> */
-        </script>
-        <script type="text/javascript" src="{{ asset('/asset/js/bundle.min.js') }}" id="cream-magazine-bundle-js"></script>
+        </script> --}}
+
+        <script type="text/javascript" src="{{ asset('/asset/js/bundle.min.js') }}" id="cream-magazine-bundle-js" defer></script>
         <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v55bfa2fee65d44688e90c00735ed189a1713218998793"
             integrity="sha512-FIKRFRxgD20moAo96hkZQy/5QojZDAbyx0mQ17jEGHCJc/vi0G2HXLtofwD7Q3NmivvP9at5EVgbRqOaOQb+Rg=="
             data-cf-beacon='{"rayId":"877e2b567a269fa5","r":1,"version":"2024.3.0","token":"e07ffd4cc02748408b326adb64b6cc16"}'
             crossorigin="anonymous"></script>
         <script src="{{ asset('asset/js/main.js') }}" defer></script>
-
-        <!-- newsnmf.com -->
-        <!--script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986924419662120"
-        crossorigin="anonymous"></script-->
-        <!-- nmfnewsonline.com -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986924419662120"
-            crossorigin="anonymous"></script>
-
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 document.querySelectorAll(".modal_item > a").forEach(function(menuLink) {
@@ -1023,8 +826,99 @@
                 });
             });
         </script>
+        <script>
+            $(function() {
+                $('#load-more-btn').on('click', function() {
+                    let button = $(this);
+                    let offset = parseInt(button.data('offset'));
+                    let name = button.data('name');
+                    let state = button.data('state');
+                    let subcat = button.data('subcat');
+
+                    button.prop('disabled', true).html(
+                        'Loading... <i class="fa-solid fa-spinner fa-spin"></i>');
+
+
+                    $.ajax({
+                        url: `/categories/${name}/load-more`,
+                        method: 'GET',
+                        data: {
+                            offset,
+                            state,
+                            subcat
+                        },
+                        success: function(res) {
+                            if (res.count > 0) {
+                                $('#blog-list').append(res.blogs);
+                                button.data('offset', offset + res.count)
+                                    .prop('disabled', false)
+                                    .html('Show More <i class="fa-solid fa-angle-down"></i>');
+                            } else {
+                                button.remove(); // no more blogs
+                            }
+                        },
+                        error: function() {
+                            alert('Failed to load more blogs.');
+                            button.prop('disabled', false)
+                                .html('Show More <i class="fa-solid fa-angle-down"></i>');
+                        }
+                    });
+                });
+            });
+        </script>
+        <script>
+            $(function() {
+                $('#state-load-more-btn').on('click', function() {
+                    let button = $(this);
+                    let offset = parseInt(button.data('offset'));
+                    let name = button.data('name');
+
+                    button.prop('disabled', true).html(
+                        'Loading... <i class="fa-solid fa-spinner fa-spin"></i>');
+
+                    $.ajax({
+                        url: `/state/${name}/load-more`,
+                        method: 'GET',
+                        data: { offset },
+                        success: function(res) {
+                            if (res.count > 0) {
+                                $('#blog-list').append(res.blogs);
+                                button.data('offset', offset + res.count)
+                                    .prop('disabled', false)
+                                    .html('Show More <i class="fa-solid fa-angle-down"></i>');
+                            } else {
+                                button.remove();
+                            }
+                        },
+                        error: function() {
+                            alert('Failed to load more blogs.');
+                            button.prop('disabled', false).html('Show More <i class="fa-solid fa-angle-down"></i>');
+                        }
+                    });
+                });
+            });
+        </script>
+ <script>
+$(document).ready(function(){
+    $(".middle_widget_six_carousel").owlCarousel({
+        items: 2,     
+        margin: 15,    
+        loop: true,     
+        autoplay: true, 
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+        nav: true,       
+        dots: false,       
+        responsive: {
+            0:   { items: 1 },
+            600: { items: 2 },
+            1000:{ items: 2 }
+        }
+    });
+});
+</script>
+ 
+ 
         <x-home.gdpr-consent />
-
 </body>
-
 </html>

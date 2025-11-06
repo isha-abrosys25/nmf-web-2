@@ -9,7 +9,6 @@
     @endphp
     @php
         $canonicalUrl = str_replace('/amp', '/', url()->current());
-        $ampUrl = url()->current();
     @endphp
     <meta charset="utf-8">
     <title>{{ $data['blog']->name }}</title>
@@ -17,7 +16,6 @@
         content="{{ Str::limit(strip_tags($data['blog']->sort_description ?? $data['blog']->description), 160) }}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <link rel="canonical" href="{{ $canonicalUrl }}" />
-    <link rel="amphtml" href="{{ $ampUrl }}" />
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
@@ -1502,9 +1500,9 @@
         <script type="application/json">
   {
     "vars": {
-      "gtag_id": "UA-XXXXX-Y", 
+      "gtag_id": "G-9D3VCPPRWL", 
       "config": {
-        "UA-XXXXX-Y": { "groups": "default" }
+        "G-9D3VCPPRWL": { "groups": "default" }
       }
     },
     "triggers": {

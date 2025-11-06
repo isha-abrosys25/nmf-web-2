@@ -102,9 +102,12 @@ class FileController extends Controller
             $year = date('Y');
             $month = date('m');
             $basePath = public_path("file/Image");
+
+  //$basePath = '/var/www/html/new_cms/public/file/Image/';
+
             $destinationPath = $basePath . '/' . $year . '/' . $month;
 
-            //  Ensure directory exists (like move() does internally)
+            // ✅ Ensure directory exists (like move() does internally)
             if (!is_dir($destinationPath)) {
                 mkdir($destinationPath, 0775, true);
             }
@@ -118,7 +121,7 @@ class FileController extends Controller
 
             $fullPath = $destinationPath . '/' . $fileName;
 
-            //  Convert + save directly to destination
+            // ✅ Convert + save directly to destination
             $manager = new ImageManager(new GdDriver());
             $manager->read($file)
                 ->toWebp(80)
@@ -126,7 +129,7 @@ class FileController extends Controller
 
             // Save info in DB
             $file_data = File::create([
-                "user_id"   => auth()->id ?? 1,
+                "user_id"   => auth()->id() ?? 1,
                 "file_name" => $fileName,
                 "file_type" => 'image/webp',
                 "file_size" => filesize($fullPath),
@@ -144,7 +147,7 @@ class FileController extends Controller
                 'location'  => $imageUrl,
             ]);
         } catch (\Exception $e) {
-            // \Log::error('Image upload failed: ' . $e->getMessage());
+            \Log::error('Image upload failed: ' . $e->getMessage());
 
             return response()->json([
                 'success' => false,

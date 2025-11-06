@@ -520,7 +520,7 @@
           </div>
       </div>
       {{-- added===== --}}
-      @php
+    {{--   @php
           $results3 = $topParties->take(4)->map(function ($p) {
               return [
                   'party_name' => $p->party_name,
@@ -528,11 +528,13 @@
                   'seats_won' => $p->seats_won,
               ];
           });
-      @endphp
+      @endphp  --}}
 
-      <script>
+
+      {{-- <script>
           const results3 = @json($results3);
-      </script>
+      </script>   --}}
+
       {{-- added end====== --}}
 
       {{-- NL1031: 19.09.2025 : added chart js --}}

@@ -39,7 +39,6 @@ use App\Http\Controllers\ElectionResultController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\MahamukablaController;
 use App\Http\Controllers\PartyController;
-use Illuminate\Support\Facades\Artisan;
 
 
 Route::get('/bihar-election-2025-phase-1', [StoryController::class, 'biharphaseone'])->name('biharphaseone');
@@ -48,7 +47,6 @@ Route::get('/clear-cache', function () {
     if (request()->input('key') !== env('CACHE_CLEAR_KEY')) {
         abort(403);
     }
-    // can be uncomment in staging=========
 
     Artisan::call('cache:clear');
     Artisan::call('route:clear');
@@ -310,20 +308,17 @@ Route::prefix('/district')->group(function () {
     Route::post('/update-status', [DistrictController::class, 'updateStatus'])->name('updateDistrictStatus');
 });
 
-
-
 Route::prefix('/election')->group(function () {
-
-    // Election Result Routes
     Route::get('/add', [ElectionResultController::class, 'add'])->name('addElection');
     Route::post('/save', [ElectionResultController::class, 'save'])->name('saveElectionData');
     Route::get('/results', [ElectionResultController::class, 'showresults'])->name('showElectionResults');
-
-    // Edit / Update / Delete Election
+ 
+    // Edit/update/delete
     Route::get('/edit/{id}', [ElectionResultController::class, 'edit'])->name('editElection');
     Route::post('/update/{id}', [ElectionResultController::class, 'update'])->name('updateElection');
     Route::get('/delete/{id}', [ElectionResultController::class, 'delete'])->name('deleteElection');
-
+ 
+    // Party routes
     // Party Routes
     Route::get('/add-party', [PartyController::class, 'add'])->name('addParty');
     Route::post('/save-party', [PartyController::class, 'save'])->name('saveParty');
@@ -334,7 +329,7 @@ Route::prefix('/election')->group(function () {
     Route::delete('/party/delete/{id}', [PartyController::class, 'destroy'])->name('party.destroy');
     // Candidate Routes
     Route::get('/candidates', [CandidateController::class, 'list'])->name('candidates.list'); // show all candidates
-    Route::get('/candidates/create', [CandidateController::class, 'create'])->name('candidates.create');
+    Route::get('/candidates/create', [CandidateController::class, 'create'])->name('candidates.create');  // Party routes
     Route::post('/candidates/store', [CandidateController::class, 'store'])->name('candidates.store');
     Route::get('/candidates/edit/{id}', [CandidateController::class, 'edit'])->name('candidates.edit');
     Route::post('/candidates/update/{id}', [CandidateController::class, 'update'])->name('candidates.update');
@@ -344,41 +339,32 @@ Route::prefix('/election')->group(function () {
     // Mahamukabla Routes
     Route::get('/mahamukabla/create', [MahamukablaController::class, 'create'])->name('mahamukabla.create');
     Route::post('/mahamukabla/store', [MahamukablaController::class, 'store'])->name('mahamukabla.store');
-    Route::get('/mahamukabla/show', [MahamukablaController::class, 'show'])->name('mahamukabla.show');
-    Route::patch('/mahamukabla/toggle/{id}', [MahamukablaController::class, 'toggle'])->name('mahamukabla.toggle');
+    Route::get('/mahamukabla/show', [MahamukablaController::class, 'show'])->name('mahamukabla.show');  // Party routes
+     Route::patch('/mahamukabla/toggle/{id}', [MahamukablaController::class, 'toggle'])->name('mahamukabla.toggle');
     Route::post('/mahamukabla/update-status', [MahamukablaController::class, 'updateSlideStatus'])->name('mahamukabla.updateStatus');
     Route::delete('/mahamukabla/{id}', [MahamukablaController::class, 'destroy'])->name('mahamukabla.destroy');
-    
 
     Route::get('/manage-vote-count', [ElectionResultController::class, 'manageVoteCount'])->name('voteCount');
     Route::post('/manage-vote-count/save', [ElectionResultController::class, 'saveVoteCount'])->name('voteSave');
-
     Route::get('/exit-poll', [ElectionResultController::class, 'exitpoll'])->name('exitpoll');
     Route::post('/exit-poll/save', [ElectionResultController::class, 'exitpollsave'])->name('exitpollsave');
+
     Route::get('/manage-top-party-seats', [ElectionResultController::class, 'manageSeats'])->name('manageSeats');
     Route::post('/manage-top-party-seats/save', [ElectionResultController::class, 'saveTopSeats'])->name('saveTopSeats');
-    // Route::get('/vote-count-list', [ElectionResultController::class, 'voteCountList'])->name('voteCountList');
+    
     Route::post('/candidates/{id}/status', [CandidateController::class, 'updateCandidateStatus'])->name('candidates.updateCandidateStatus');
 
 });
-
-Route::get('/photos', [ElectionResultController::class, 'index'])->name('index');
-Route::get('/category', [ElectionResultController::class, 'category'])->name('category');
-
 Route::post('/toggle-maha-section', [HomeController::class, 'toggleMahaSection'])->name('toggle.maha.section');
 Route::post('/toggle-live-section', [HomeController::class, 'toggleLiveSection'])->name('toggle.live.section');
 Route::post('/toggle-exit-poll', [HomeController::class, 'toggleExitPoll'])->name('toggle.exit.poll');
-
-
-// can be uncomment in staging=========
-// Route::prefix('roles')->group(function () {
-
-//     Route::get('/', [RoleController::class, 'index'])->name('RoleList');
-//     Route::get('/add', [RoleController::class, 'add'])->name('addRole');
-//     Route::post('/add', [RoleController::class, 'save'])->name('roleAdd');
-//     Route::get('edit/{id}', [RoleController::class, 'edit'])->name('editRole');
-//     Route::post('edit/{id}', [RoleController::class, 'editSave'])->name('editSave');
-// });
+Route::prefix('roles')->group(function () {
+    Route::get('/', [RoleController::class, 'index'])->name('RoleList');
+    Route::get('/add', [RoleController::class, 'add'])->name('addRole');
+    Route::post('/add', [RoleController::class, 'save'])->name('roleAdd');
+    Route::get('edit/{id}', [RoleController::class, 'edit'])->name('editRole');
+    Route::post('edit/{id}', [RoleController::class, 'editSave'])->name('editSave');
+});
 Route::prefix('users')->group(function () {
     // Route::get('/', [UsersController::class, 'index'])->name('UserList');
     // Route::get('/add', [UsersController::class, 'add'])->name('addUser');
@@ -448,14 +434,13 @@ Route::prefix('/ads')->group(function () {
     Route::get('/edit/{id}', [AdsController::class, 'edit'])->name('edit');
     Route::post('/edit/{id}', [AdsController::class, 'updateAd'])->name('updateAd');
 });
-//can be uncomment=====================
-// Route::get('/sitemap.xml', [SitemapController::class, 'index']);
-// Route::get('/news-sitemap.xml', [SitemapController::class, 'newsSitemap']);
-// Route::get('/webstories-sitemap.xml', [SitemapController::class, 'webstoriesSitemap']);
-// Route::get('/articles-sitemap.xml', [SitemapController::class, 'sitemapIndex']);
-// Route::get('/sitemap/generic-articles-{date}.xml', [SitemapController::class, 'dailySitemap'])
-//      ->where('date', '\d{4}-\d{2}-\d{2}');
-// Route::get('/feed', [RSSFeedController::class, 'index']);
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+Route::get('/news-sitemap.xml', [SitemapController::class, 'newsSitemap']);
+Route::get('/webstories-sitemap.xml', [SitemapController::class, 'webstoriesSitemap']);
+Route::get('/articles-sitemap.xml', [SitemapController::class, 'sitemapIndex']);
+Route::get('/sitemap/generic-articles-{date}.xml', [SitemapController::class, 'dailySitemap'])
+     ->where('date', '\d{4}-\d{2}-\d{2}');
+Route::get('/feed', [RSSFeedController::class, 'index']);
 Route::get('/home-videos', [VideoController::class, 'HomepageVideo'])->name('HomepageVideo');
 Route::get('/menusequence', [MenuSequenceController::class, 'index'])->name('getmenusequence');
 Route::post('/menusequence', [MenuSequenceController::class, 'updateMenuOrder'])->name('menusequence.update');
@@ -482,21 +467,18 @@ Route::get('/nmfvideos/{cat_name}', [StoryController::class, 'nmfvideosCategory'
 Route::get('/event/video/{cat_name}/{name}', [BigEventController::class, 'showEventVideo'])->name('showEventVideo');
 Route::get('/event/{cat_name}/{name}', [BigEventController::class, 'showEventStory'])->name('showEventStory');
 
-
+Route::get('/photos', [ElectionResultController::class, 'index'])->name('index');
+Route::get('/category', [ElectionResultController::class, 'category'])->name('category');
 
 Route::get('/web-stories', [StoryController::class, 'getAllwebStories'])->name('getAllwebStories');
 Route::get('/web-stories/{cat_name}', [StoryController::class, 'webStoriesByCategory'])->name('webStoriesByCategory');
 Route::get('/web-stories/{cat_name}/{name}', [StoryController::class, 'webStoryDetail'])->name('web-stories');
-
-
-
-// AMP route first
 Route::get('/{cat_name}/{name}/amp', [StoryController::class, 'showStoryAmp'])->name('showStoryAmp');
-// Normal route
 Route::get('/{cat_name}/{name}', [StoryController::class, 'showStory'])->name('showStory');
 Route::get('/{cat_name}', [StoryController::class, 'category'])->name('category');
 Route::post('/', [HomeController::class, 'handlePost']);
 Route::post('/increase-webhitcount', [StoryController::class, 'increaseWebHitCount']);
 Route::post('/submit-vote/{id}', [HomeController::class, 'savedVote'])->name('vote.submit');
 Route::get('/api/vote/results/{id}', [HomeController::class, 'getVoteResults']);
+
 

@@ -161,11 +161,10 @@
   border-radius: 5px;
   overflow: hidden;
 }
-
 .story-card2 .web-tag {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 6px;
+  left: 5px;
   background-color: rgba(255, 255, 255, 0.918);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
@@ -185,6 +184,7 @@
   a {
     height: 300px;
     overflow: hidden;
+    position: relative;
   }
 }
 

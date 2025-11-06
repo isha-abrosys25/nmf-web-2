@@ -98,7 +98,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid">tttttttt
+            <div class="container-fluid">
                 <!-- /.row -->
                 <div class="row">
                     <div class="col-12">

@@ -68,7 +68,38 @@ class NotificationService
 	//NL1041:06Oct2025:added blogcategoryEngName
         $categoryTopic = strtolower(str_replace(' ', '_', $blogcategoryEngName));
 
+       if($isbreaking == 1){
+
         $payload = [
+            'message' => [
+                "topic"=>  "breaking-news",
+                'data' => [
+                    'id' => $blogId,
+                    'type' => $type,
+                    'category' => $blogcategoryName,
+                    'imageUrl' => $liveimagepath,
+                    'videoUri' => $request->link,
+                    'image' => $liveimagepath,
+                    'title' => $notificationTitle,
+                    'body' => $notificationBody,
+                ],
+                'android' => [
+                    'priority' => 'high',
+                ],
+                'apns' => [
+                    'headers' => [
+                        'apns-priority' => '10',
+                    ],
+                    'payload' => [
+                        'aps' => [
+                            'content-available' => 1,
+                        ],
+                    ],
+                ],
+            ],
+        ];
+    } else{
+      $payload = [
             'message' => [
                 //NL1041:06Oct2025:Commented topic added from condition
                 //'topic' => 'nmf-news-app-stagging-v2',
@@ -98,6 +129,8 @@ class NotificationService
                 ],
             ],
         ];
+
+    }
 
         Log::info(json_encode($payload, JSON_PRETTY_PRINT));
       // Send the notification

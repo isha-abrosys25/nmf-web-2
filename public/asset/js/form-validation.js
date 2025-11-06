@@ -67,8 +67,8 @@ window.VideoFormUtils = {
             if (videoFile.type !== 'video/mp4') {
                 this.showError('video_file-error', 'Only .mp4 files are allowed.', fieldRef);
                 isValid = false;
-            } else if (videoFile.size > 512 * 1024 * 1024) {
-                this.showError('video_file-error', 'Video must not exceed 512 MB.', fieldRef);
+            } else if (videoFile.size > 300 * 1024 * 1024) {
+                this.showError('video_file-error', 'Video must not exceed 300 MB.', fieldRef);
                 isValid = false;
             }
         }
@@ -197,8 +197,8 @@ window.VideoFormUtils = {
                 if (videoFile.type !== 'video/mp4') {
                     this.showError('video_file-error', 'Only .mp4 files are allowed.', fieldRef);
                     isValid = false;
-                } else if (videoFile.size > 512 * 1024 * 1024) {
-                    this.showError('video_file-error', 'Video must not exceed 512 MB.', fieldRef);
+                } else if (videoFile.size > 300 * 1024 * 1024) {
+                    this.showError('video_file-error', 'Video must not exceed 300 MB.', fieldRef);
                     isValid = false;
                 }
             }

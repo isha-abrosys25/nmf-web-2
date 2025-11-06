@@ -4,10 +4,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous">
-
     <link href="{{ asset('asset/new_admin/css/main_style.css') }}" rel="stylesheet" />
 @endpush
-
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -201,7 +199,7 @@
                                     <div class="uploads-container row">
                                         {{-- <div class="uploads col-md-5" id="image-upload-section">
                                             <div class="uploads-box">
-                                                <span class="-title">Upload Image</span>
+                                                <span class="-title">Upload Thumb Image</span>
                                                 <p class="-paragraph px-5">
                                                 <ul class="-paragraph-content text-start" style="color: #ff3131;">
                                                     <li>Only .jpeg, .jpg, and .png files are allowed*</li>
@@ -305,7 +303,7 @@
                                                 <ul class="-paragraph-content text-start" style="color: #ff3131;">
                                                     <li>Only .jpeg, .jpg, and .png files are allowed*</li>
                                                     <li class="text-left">The image size must not exceed 200 KB.</li>
-                                                    <li class="text-left">Image dimension should be (800x450) px.</li>
+                                                    <li class="text-left">Image dimension should be (1500x515) px.</li>
                                                 </ul>
                                                 </p>
 
@@ -337,7 +335,7 @@
                                                 <ul class="-paragraph-content text-start" style="color: #ff3131;">
                                                     <li>Only .jpeg, .jpg, and .png files are allowed*</li>
                                                     <li class="text-left">The image size must not exceed 200 KB.</li>
-                                                    <li class="text-left">Image dimension should be (800x450) px.</li>
+                                                    <li class="text-left">Image dimension should be (1500x100) px.</li>
                                                 </ul>
                                                 </p>
 

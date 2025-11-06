@@ -264,7 +264,7 @@ class BigEventController extends Controller
             'background_image'  => $bgImage,
             'banner_image'      => $bannerImage,
             'is_active'         => $request->has('publish') ? 1 : 0,
-            'tag'              => $request->tags,
+            'tag'              => $request->name,
             'video_url'        => $request->video_url,
         ]);
 
@@ -356,7 +356,7 @@ class BigEventController extends Controller
         $bigEvent->short_desc  = $request->sort_desc;
         $bigEvent->description = $request->description;
         $bigEvent->is_active   = $request->has('publish') ? 1 : 0;
-        $bigEvent->tag         = $request->tags;
+        $bigEvent->tag         = $request->name;
         $bigEvent->video_url   = $request->video_url;
 
         // File updates (delete old if new exists)
@@ -411,9 +411,7 @@ class BigEventController extends Controller
         }
 
         // Save changes
-      if ($request->filled('video_url')) {
-        $bigEvent->video_path = $request->video_url;
-     }
+        $bigEvent->video_url = $request->video_url;
         $bigEvent->save();
 	
     

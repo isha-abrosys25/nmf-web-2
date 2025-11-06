@@ -1,8 +1,9 @@
+ <!-- NL1023 : 16/09/2023 - removed poppins -->
 .breaking_main {
     h2 {
         border-left: 4px solid red;
         padding-left: 18px;
-        font-family: Poppins;
+        font-family: "Noto Sans Devanagari", sans-serif;
     }
 }
 

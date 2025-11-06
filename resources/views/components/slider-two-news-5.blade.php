@@ -1,7 +1,7 @@
   <?php  
    use App\Models\HomeSection;
     use App\Models\ElectionResult;
-    use App\Models\MahaMukabla;
+    use App\Models\Mahamukabla;
     use App\Models\Candidate;
     use App\Models\Party;
 ?>

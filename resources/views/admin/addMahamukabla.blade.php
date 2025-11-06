@@ -46,6 +46,9 @@
                                 <label class="form-label fw-bold">Upload Slide Image:</label>
                                 <input type="file" name="slide_image" class="form-control fc-i border "
                                     required>
+								<small class="text-danger d-block mt-1">
+                                    * Recommended size: 420×215 px ( 16:9 aspect ratio)
+                                </small>	
                                 @if (old('slide_image'))
                                     <img src="{{ asset(old('slide_image')) }}" alt="Slide Preview" width="100"
                                         class="mt-2">

@@ -110,7 +110,7 @@ class MenuController extends Controller
 	try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            // \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
         return redirect(config('global.base_url').'menu');
 	
@@ -154,7 +154,7 @@ class MenuController extends Controller
 	try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            // \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
         return redirect(config('global.base_url').'menu');
        // return redirect('/menu');
@@ -177,7 +177,7 @@ class MenuController extends Controller
 	try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            // \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
         return redirect(config('global.base_url').'menu');
        // return redirect('/menu');
@@ -203,7 +203,7 @@ class MenuController extends Controller
         try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            // \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
         //return redirect(config('global.base_url').'menu');
  

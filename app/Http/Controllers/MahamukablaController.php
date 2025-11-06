@@ -9,7 +9,7 @@ use App\Models\Party;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
- //instead of assets/images/mahamukabla_slides use asset/images/election-widget/
+ 
 class MahamukablaController extends Controller
 {
     // Show create form
@@ -67,8 +67,14 @@ class MahamukablaController extends Controller
             // 'author_id' => $request->author_id,
             'slide_image' => $imagePath,
         ]);
- 
-        return redirect()->back()->with('success', 'Mahamukabla entry added successfully!');
+        try {
+            app(\App\Services\ExportHome::class)->run();
+        } catch (\Throwable $e) {
+             Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+        }
+
+        //return redirect()->back()->with('success', 'Mahamukabla entry added successfully!');
+        return redirect(config('global.base_url').'election/mahamukabla/show')->with('success', 'Mahamukabla entry added successfully!');
     }
  
     // Show all Mahamukabla entries (with Party + Candidate)

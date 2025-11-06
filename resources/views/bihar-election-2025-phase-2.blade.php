@@ -11,7 +11,7 @@
                             title="Back to Bihar Election 2025" role="button" aria-label="Back to Bihar Election 2025">
                             ← Back to Bihar Election 2025
                         </a>
-                         <h4 class="my-2">Bihar Election 2025 phase 2</h4>
+                         <h4 class="my-2">बिहार विधानसभा चुनाव 2025 फेज 2</h4>
                       <!--   <iframe src="{{ config('global.base_url') }}Second-Phase-122-Assembly-Constituencies.pdf" width="100%" height="800px"
                             style="border:none;">
                         </iframe> -->
