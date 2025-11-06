@@ -338,7 +338,7 @@
             flex-grow: 1;
             width: calc(100% - 100px); /* Handle wrapping */
               border-left: 2px solid #ff1d1d9f ;
-        padding-left: 12px;rgba(255, 29, 29, 0.548)
+              padding-left: 12px;
         }
         @media (max-width: 480px) {
             .news-time {
