@@ -337,6 +337,8 @@
         .news-content {
             flex-grow: 1;
             width: calc(100% - 100px); /* Handle wrapping */
+              border-left: 2px solid #ff1d1d9f ;
+        padding-left: 12px;rgba(255, 29, 29, 0.548)
         }
         @media (max-width: 480px) {
             .news-time {
@@ -1109,13 +1111,11 @@
             </ol>
         </nav>
 
-        @if (!empty($liveDetailAds['detail_header_ad']))
-            <div class="ad-container">
-                <amp-ad layout="responsive" width="300" height="300" type="adsense"
-                    data-ad-client="{{ $liveDetailAds['detail_header_ad']->client_id }}" data-ad-slot="{{ $liveDetailAds['detail_header_ad']->slot_id }}">
-                </amp-ad>
-            </div>
-        @endif
+         <div class="ad-container">
+                            <amp-ad layout="responsive" width="300" height="250" type="adsense"
+                                data-ad-client="ca-pub-3986924419662120" data-ad-slot="2615238860">
+                            </amp-ad>
+                        </div>
         <div class="article--main-grid">
             <div class="article--main-content">
                 <header class="article--header">
@@ -1298,13 +1298,11 @@
                     @endforeach
                 </div>
 
-                @if (!empty($liveDetailAds['detail_bottom_ad']))
-                    <div class="ad-container" style="margin-top: 20px;">
-                        <amp-ad layout="responsive" width="300" height="250" type="adsense"
-                           data-ad-client="{{ $liveDetailAds['detail_bottom_ad']->client_id }}" data-ad-slot="{{ $liveDetailAds['detail_bottom_ad']->slot_id }}">
-                        </amp-ad>
-                    </div>
-                @endif
+                 <div class="ad-container">
+            <amp-ad layout="responsive" width="300" height="300" type="adsense"
+                data-ad-client="ca-pub-3986924419662120" data-ad-slot="3774348576">
+            </amp-ad>
+        </div>
             </div>
             {{-- 
                 Sidebar from liveBlogs.blade.php is omitted as the controller
