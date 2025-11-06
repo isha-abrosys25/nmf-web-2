@@ -7,6 +7,116 @@ use App\Models\BlogVideoGifs;
 use App\Models\WebStoryFiles;
 
 return [
+    /**
+     * Sanitizes HTML content for AMP pages by converting
+     * standard embeds to their AMP-compliant equivalents.
+     *
+     * @param string $html The raw HTML content.
+     * @return string The sanitized, AMP-compliant HTML.
+     */
+'sanitize_amp_content' => function ($html) {
+    if (empty($html)) {
+        return '';
+    }
+
+    // 1. Decode HTML entities first (e.g., &lt;blockquote&gt; -> <blockquote>)
+    $html = html_entity_decode($html);
+
+    // 2. ⭐ Convert Facebook <iframe> embeds FIRST
+    // We must run this *before* the generic iframe stripper in step 3
+    $html = preg_replace_callback(
+        // This regex looks for the specific Facebook plugin iframe
+        '/<iframe[^>]*src="https?:\/\/www\.facebook\.com\/plugins\/(?:post|video)\.php\?href=([^"&]+)[^"]*"[^>]*><\/iframe>/i',
+        function ($m) {
+            // $m[1] is the URL-encoded href (e.g., "https%3A%2F%2F...")
+            // We must decode it to get the clean URL.
+            $decoded_href = urldecode($m[1]);
+            return '<amp-facebook width="552" height="310" layout="responsive" data-href="'.$decoded_href.'"></amp-facebook>';
+        },
+        $html
+    );
+
+    // 2b. ⭐ NEW: Convert YouTube <iframe> embeds
+    // This must also run before the stripper in Step 3
+    $html = preg_replace_callback(
+        // This regex looks for the specific YouTube embed iframe
+        '/<iframe[^>]*src="https?:\/\/(?:www\.)?youtube\.com\/embed\/([a-zA-Z0-9_-]+)[^"]*"[^>]*><\/iframe>/i',
+        function ($m) {
+            // $m[1] is the YouTube Video ID
+            return '<amp-youtube data-videoid="'.$m[1].'" layout="responsive" width="480" height="270"></amp-youtube>';
+        },
+        $html
+    );
+
+
+    // 3. Clean ALL OTHER invalid tags (style, script, and any remaining iframes)
+    $html = preg_replace('/<(script|style|iframe|video|source|embed|object)[^>]*>.*?<\/\1>/si', '', $html);
+    $html = preg_replace('/\sstyle=(\'|")(.*?)\1/i', '', $html);
+
+    // 4. Convert <img> to <amp-img>
+    $html = preg_replace_callback(
+        '/<img[^>]+>/i',
+        function ($match) {
+            preg_match('/src=["\']([^"\']+)["\']/', $match[0], $srcMatch);
+            $src = $srcMatch[1] ?? '';
+            if (empty($src)) return '';
+
+            preg_match('/alt=["\']([^"\']+)["\']/', $match[0], $altMatch);
+            $alt = $altMatch[1] ?? 'image';
+
+            return '<amp-img src="'.$src.'" alt="'.htmlspecialchars($alt).'" width="600" height="400" layout="responsive"></amp-img>';
+        },
+        $html
+    );
+
+    // 5. Convert YouTube (RAW LINKS)
+    // This will now only catch raw text links, as iframes were handled in 2b
+    $html = preg_replace_callback(
+        '/https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/i',
+        fn($m) => '<amp-youtube data-videoid="'.$m[1].'" layout="responsive" width="480" height="270"></amp-youtube>',
+        $html
+    );
+
+    // 6. Convert Twitter (Blockquotes FIRST, then raw links)
+    $html = preg_replace_callback(
+        '/<blockquote[^>]*twitter[^>]*>.*?twitter\.com\/[^\/]+\/status\/(\d+).*?<\/blockquote>/is',
+        fn($m) => '<amp-twitter width="375" height="472" layout="responsive" data-tweetid="'.$m[1].'"></amp-twitter>',
+        $html
+    );
+    $html = preg_replace_callback(
+        '/(?:<p>)?https?:\/\/(?:www\.)?(twitter\.com|x\.com)\/[^\/]+\/status\/(\d+)(?:.*?)(?:<\/p>)?/i',
+        fn($m) => '<amp-twitter width="375" height="472" layout="responsive" data-tweetid="'.$m[2].'"></amp-twitter>',
+        $html
+    );
+
+    // 7. Convert Instagram (Blockquotes FIRST, then raw links)
+    $html = preg_replace_callback(
+        '/<blockquote[^>]*instagram-media[^>]*>.*?\/(?:p|reel)\/([a-zA-Z0-9_-]+)\/.*?(<\/blockquote>)/is',
+        fn($m) => '<amp-instagram data-shortcode="'.$m[1].'" width="400" height="400" layout="responsive"></amp-instagram>',
+        $html
+    );
+    $html = preg_replace_callback(
+        '/(?:<p>)?https?:\/\/(?:www\.)?instagram\.com\/(?:p|reel)\/([a-zA-Z0-9_-]+)\/?(?:.*?)(?:<\/p>)?/i',
+        function ($m) {
+            return '<amp-instagram data-shortcode="'.$m[1].'" width="400" height="500" layout="responsive"></amp-instagram>';
+        },
+        $html
+    );
+    
+    // 8. Convert Facebook (Embedded Divs and Raw Links)
+    $html = preg_replace_callback(
+        '/<div class="fb-post"[^>]*data-href="([^"]+)"[^>]*><\/div>/i',
+        fn($m) => '<amp-facebook width="552" height="310" layout="responsive" data-href="'.$m[1].'"></amp-facebook>',
+        $html
+    );
+    $html = preg_replace_callback(
+        '/(?:<p>)?(https?:\/\/(?:www\.)?facebook\.com\/(?:[a-zA-Z0-9_.-]+\/(?:posts|videos)\/|video\.php\?v=)([0-9]+))(?:.*?)(?:<\/p>)?/i',
+        fn($m) => '<amp-facebook width="552" height="310" layout="responsive" data-href="'.$m[1].'"></amp-facebook>',
+        $html
+    );
+
+    return $html;
+},
     'sequence_global_array' => [
             '1' => '1',
             '2' => '2',

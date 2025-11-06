@@ -21,9 +21,6 @@ use App\Models\Mahamukabla;
 use App\Models\Candidate;
 use App\Models\ElectionResult;
 use Jenssegers\Agent\Agent; //  Import Agent
-
-use App\Helpers\AmpHelper;
-
 class StoryController extends Controller
 {
 
@@ -730,9 +727,6 @@ public function showStoryAmp($cat_name, $name)
     );
     // --- End of copied logic ---
 
- foreach ($liveBlogs as $liveBlog) {
-            $liveBlog->update_content = AmpHelper::convertEmbedsToAmp($liveBlog->update_content);
-        }
     // Render the new AMP view
     return view('liveBlogs-amp', [
         'blogs' => $blog,

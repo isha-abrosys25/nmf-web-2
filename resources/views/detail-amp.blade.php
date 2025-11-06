@@ -24,7 +24,7 @@
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-<script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
+    <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
     <script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
     <script async custom-element="amp-facebook" src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"></script>
     <style amp-custom>
@@ -1901,79 +1901,65 @@
 
                 <!-- Article Content -->
                 <!-- Article Content -->
-                <div class="readmore" [class]="ui.readMore ? 'readmore expanded' : 'readmore'">
-                    <div class="article--content">
-                        @php
-                            $description = $data['blog']->description ?? '';
+<div class="readmore" [class]="ui.readMore ? 'readmore expanded' : 'readmore'">
+    <div class="article--content">
 
-                            // Split description by </p> but keep closing tag so structure stays intact
-                            $paragraphs = preg_split(
-                                '/(<\/p>)/i',
-                                $description,
-                                -1,
-                                PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY,
-                            );
+@php
+// Get full content
+$description = $data['blog']->description ?? '';
 
-                            // Count blocks: all <p> tags count
-                            $pCount = preg_match_all('/<p[^>]*>.*?<\/p>/is', $description);
-                            $divCount = preg_match_all('/<div[^>]*>.*?<\/div>/is', $description);
-                            $blockCount = $pCount + $divCount;
+// 1.  CLEAN INVALID AMP TAGS
+$description = preg_replace('/<(script|style|iframe|video|source|embed|object)[^>]*>.*?<\/\1>/si', '', $description);
+$description = preg_replace('/\sstyle=(\'|")(.*?)\1/i', '', $description);
 
-                            // Decide where to inject
-                            // $injectionIndex = $blockCount >= 3 ? 3 : ($blockCount == 2 ? 2 : ($blockCount == 1 ? 1 : 0));
-                            $injectionIndex = $blockCount > 1 ? $blockCount - 1 : 0;
-                            $injected = false;
-                            $count = 0;
+// 2.CONVERT TWITTER BLOCKQUOTE → AMP-TWITTER
 
-                            // Helper: detect if block is pseudo-heading (<p><strong>...</strong></p> only)
-                            function isPseudoHeading($html)
-                            {
-                                return preg_match('/^<p[^>]*>\s*<strong>.*<\/strong>\s*<\/p>$/is', trim($html));
-                            }
-                        @endphp
+$description = preg_replace_callback(
+    '/<blockquote[^>]*twitter[^>]*>.*?twitter\.com\/[^\/]+\/status\/(\d+).*?<\/blockquote>/is',
+    function ($m) {
+        $tweetId = $m[1];
+        return '<amp-twitter width="375" height="600" layout="responsive" data-tweetid="'.$tweetId.'"></amp-twitter>';
+    },
+    $description
+);
+//  3.  CONVERT RAW TWITTER/X LINKS → AMP
+$description = preg_replace_callback(
+    '/https?:\/\/(?:www\.)?(twitter\.com|x\.com)\/[^\/]+\/status\/(\d+)/i',
+    fn($m) => '<amp-twitter width="375" height="600" layout="responsive" data-tweetid="'.$m[2].'"></amp-twitter>',
+    $description
+);
 
-                        @if ($injectionIndex === 0)
-                            @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
-                                @include('components.related-articles', [
-                                    'articles' => $data['latests'],
-                                ])
-                            @endif
-                            @php $injected = true; @endphp
-                        @endif
+// 4. CONVERT IMAGES → AMP-IMG
 
-                        @foreach ($paragraphs as $block)
-                            {!! $block !!}
-                            @if (preg_match('/<\/p>/i', $block))
-                                @php $count++; @endphp
+$description = preg_replace_callback(
+    '/<img[^>]+>/i',
+    function ($match) {
+        preg_match('/src=["\']([^"\']+)["\']/', $match[0], $s);
+        $src = $s[1] ?? '';
+        return '<amp-img src="'.$src.'" width="600" height="400" layout="responsive"></amp-img>';
+    },
+    $description
+);
 
-                                @if (!$injected && $count === $injectionIndex)
-                                    {{-- If this block is a pseudo-heading, inject BEFORE it --}}
-                                    @if (isPseudoHeading($block))
-                                        @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
-                                            @include('components.related-articles', [
-                                                'articles' => $data['latests'],
-                                            ])
-                                        @endif
-                                        @php $injected = true; @endphp
-                                    @else
-                                        @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
-                                            @include('components.related-articles', [
-                                                'articles' => $data['latests'],
-                                            ])
-                                        @endif
-                                        @php $injected = true; @endphp
-                                    @endif
-                                @endif
-                            @endif
-                        @endforeach
+// 5. CONVERT YOUTUBE LINKS → AMP-YOUTUBE
 
-                        @if (!$injected)
-                            @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
-                                @include('components.related-articles', [
-                                    'articles' => $data['latests'],
-                                ])
-                            @endif
-                        @endif
+$description = preg_replace_callback(
+    '/https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/',
+    fn($m) => '<amp-youtube data-videoid="'.$m[1].'" layout="responsive" width="480" height="270"></amp-youtube>',
+    $description
+);
+$description = preg_replace_callback(
+    '/https?:\/\/youtu\.be\/([a-zA-Z0-9_-]+)/',
+    fn($m) => '<amp-youtube data-videoid="'.$m[1].'" layout="responsive" width="480" height="270"></amp-youtube>',
+    $description
+);
+@endphp
+
+<!-- ✅ FINAL OUTPUT -->
+<div class="amp-content">
+   {!! config('global.sanitize_amp_content')($data['blog']->description ?? '') !!}
+</div>
+
 
                         <!-- WhatsApp Button -->
                         <div class="wp-btn">

@@ -28,10 +28,9 @@
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-
     <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
-<script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
-<script async custom-element="amp-facebook" src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"></script>
+    <script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
+    <script async custom-element="amp-facebook" src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"></script>
 
     <style amp-custom>
         /* Base Reset */
@@ -61,6 +60,7 @@
 
         /* Container */
         .article--container {
+            margin: 0 auto;
             margin: 0 auto;
         }
 
@@ -1267,6 +1267,7 @@
                     @foreach ($liveBlogs as $liveBlog)
                         @php
                             $get_liveBlogs_author = App\Models\User::find($liveBlog->author);
+                            $sanitized_content = config('global.sanitize_amp_content')($liveBlog->update_content);
                         @endphp
                         <div class="news-card">
                             <div class="news-time">
@@ -1290,7 +1291,7 @@
                                         This content MUST be sanitized server-side to convert
                                         standard tags to <amp-img>, <amp-video>, etc.
                                     --}}
-                                    {!! $liveBlog->update_content !!}
+                                    {!! $sanitized_content !!}
                                 </div>
                             </div>
                         </div>
