@@ -725,110 +725,119 @@
             /* Your existing base style, no change here */
             background: rgba(0, 0, 0, 0.5);
         }
-            .modalmenu {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    .modal_item {
-        margin: 0;
-        padding: 5px 14px;
-        border-bottom: 1px solid #f0f0f0;
-    }
 
-    /* Target direct links (items without submenus) */
-    .modal_item > a {
-        display: block;
-        padding: 12px 15px;
-        text-decoration: none;
-        color: #333;
-        font-size: 1rem;
-    }
-    .modal_item > a:hover {
-        background-color: #f8f8f8;
-    }
-    .modal_item i {
-        margin-right: 10px;
-        width: 20px; /* Standardize icon width */
-        text-align: center;
-        color: #999;
-    }
+        .modalmenu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    /* ACCORDION CONTAINER (Removing default AMP borders/backgrounds) */
-    .modal_item amp-accordion {
-        border: none;
-    }
-    .modal_item amp-accordion section {
-        margin: 0;
-        border: none;
-        background-color: transparent;
-    }
+        .modal_item {
+            margin: 0;
+            padding: 5px 14px;
+            border-bottom: 1px solid #f0f0f0;
+        }
 
-    .amp-menu-header {
-        margin: 0;
-        padding: 0;
-        cursor: pointer;
-        background-color: transparent;
-        font-size: 1rem;
-        font-weight: normal;
-        color: #333;
-        display: flex;
-        align-items: center;
-        padding: 12px 15px;
-        line-height: 1.2;
-        border: none;
-    }
-    .amp-menu-header:hover {
-        background-color: #f8f8f8;
-    }
+        /* Target direct links (items without submenus) */
+        .modal_item>a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+        }
 
-    .amp-menu-header::after {
-    content: '\25bc';
-    font-size: 0.7em;
-    margin-right: 5px;
-    transition: transform 0.3s;
-    transform-origin: center;
-    position: absolute;
-    right: 10px;
-    color: #666;
-    }
+        .modal_item>a:hover {
+            background-color: #f8f8f8;
+        }
 
-    .modal_item amp-accordion section[expanded] .amp-menu-header::after {
-        transform: rotate(180deg);
-    }
-    
+        .modal_item i {
+            margin-right: 10px;
+            width: 20px;
+            /* Standardize icon width */
+            text-align: center;
+            color: #999;
+        }
 
-    .amp-menu-submenu-content {
-        padding: 0;
-        background-color: #fcfcfc;
-    }
+        /* ACCORDION CONTAINER (Removing default AMP borders/backgrounds) */
+        .modal_item amp-accordion {
+            border: none;
+        }
 
-    .amp-menu-parent-link-in-dropdown {
-        display: block;
-        padding: 10px 15px;
-        font-weight: 500;
-        text-decoration: none;
-        color: #007bff; 
-        border-bottom: 1px solid #eee;
-        font-size: 0.95rem;
-    }
+        .modal_item amp-accordion section {
+            margin: 0;
+            border: none;
+            background-color: transparent;
+        }
+
+        .amp-menu-header {
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            background-color: transparent;
+            font-size: 1rem;
+            font-weight: normal;
+            color: #333;
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            line-height: 1.2;
+            border: none;
+        }
+
+        .amp-menu-header:hover {
+            background-color: #f8f8f8;
+        }
+
+        .amp-menu-header::after {
+            content: '\25bc';
+            font-size: 0.7em;
+            margin-right: 5px;
+            transition: transform 0.3s;
+            transform-origin: center;
+            position: absolute;
+            right: 10px;
+            color: #666;
+        }
+
+        .modal_item amp-accordion section[expanded] .amp-menu-header::after {
+            transform: rotate(180deg);
+        }
 
 
-    .modal_submenu {
-        list-style: none;
-        padding: 5px 0 5px 0;
-        margin: 0;
-    }
-    .modal_submenu li a {
-        display: block;
-        padding: 8px 15px 8px 35px; 
-        text-decoration: none;
-        color: #666;
-        font-size: 0.9rem;
-    }
-    .modal_submenu li a:hover {
-        background-color: #f0f0f0;
-    }
+        .amp-menu-submenu-content {
+            padding: 0;
+            background-color: #fcfcfc;
+        }
+
+        .amp-menu-parent-link-in-dropdown {
+            display: block;
+            padding: 10px 15px;
+            font-weight: 500;
+            text-decoration: none;
+            color: #007bff;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+
+
+        .modal_submenu {
+            list-style: none;
+            padding: 5px 0 5px 0;
+            margin: 0;
+        }
+
+        .modal_submenu li a {
+            display: block;
+            padding: 8px 15px 8px 35px;
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .modal_submenu li a:hover {
+            background-color: #f0f0f0;
+        }
 
 
         /* Modal Content - The Slide-In Menu */
@@ -1029,6 +1038,7 @@
 
         /* Just In Widget */
         .just_in {
+            height: 275px;
             padding: 1px 14px 0;
             border-radius: 10px;
             background: #fff;
@@ -1064,6 +1074,56 @@
             width: 16px;
             height: 16px;
             animation: pulse 1s linear infinite;
+        }
+
+        .news-tabs a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .news-tabs {
+            font-size: 20px;
+            margin-top: 0;
+            padding-left: 10px;
+            border-left: 4px solid #ff0000;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-radius: 3px;
+            display: block;
+        }
+
+        #categories-canoon:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        #categories-canoon {
+            background-color: rgb(255, 255, 255);
+            margin-bottom: 15px;
+            padding: 0px 0px 10px;
+            border-radius: 0px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(255, 255, 255) rgb(255, 255, 255) rgb(201, 201, 201);
+            border-image: initial;
+            border-bottom: 1px solid rgb(201, 201, 201);
+        }
+
+        .more_btn {
+            display: table;
+            justify-content: space-between;
+            align-items: center;
+            color: #f3242b;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 17px;
+            border-radius: 13px;
+            padding: 1.5px 10px;
+            text-decoration: none;
+            background-color: transparent;
+            margin-top: 12px;
+            margin-bottom: 12px;
         }
 
         @keyframes pulse {
@@ -1630,9 +1690,9 @@
                                         ✕
                                     </button>
                                     <a href="/" class="modal_logo">
-                <!-- CONVERSION TO AMP: Img tag replaced with amp-img, width and height are mandatory -->
-                <amp-img src="https://www.newsnmf.com/frontend/images/logo.png" alt="NMF News Logo"
-                    width="50" height="48" layout="fixed"></amp-img>
+                                        <!-- CONVERSION TO AMP: Img tag replaced with amp-img, width and height are mandatory -->
+                                        <amp-img src="https://www.newsnmf.com/frontend/images/logo.png"
+                                            alt="NMF News Logo" width="50" height="48" layout="fixed"></amp-img>
                                     </a>
                                     <span class="Headertag" style="margin-left: 0px">
                                         <span style="color: #333;">जिस पर देश</span>
@@ -1643,7 +1703,7 @@
                                 <?php
                                 // Define category-to-icon mapping
                                 $categoryIcons = [
-            'होम' => 'fa-solid fa-house',
+                                    'होम' => 'fa-solid fa-house',
                                     'न्यूज' => 'fa-solid fa-newspaper',
                                     'राज्य' => 'fa-solid fa-landmark',
                                     'एक्सक्लूसिव' => 'fa-solid fa-star',
@@ -1654,15 +1714,15 @@
                                     'लाइफस्टाइल' => 'fa-solid fa-heart',
                                     'पॉडकास्ट' => 'fa-solid fa-podcast',
                                     'दुनिया' => 'fa-solid fa-globe',
-            'विधान सभा चुनाव' => 'fa-solid fa-person-booth',
-            'क्राइम' => 'fa-solid fa-user-secret',
-            'वेब स्टोरी' => 'fa-solid fa-photo-film',
-            'यूटीलिटी' => 'fa-solid fa-wrench',
-            'करियर' => 'fa-solid fa-briefcase',
-            'ट्रेंडिंग न्यूज़' => 'fa-solid fa-bolt',
-            'ब्लॉग' => 'fa-solid fa-pen-nib',
-        ];
-
+                                    'विधान सभा चुनाव' => 'fa-solid fa-person-booth',
+                                    'क्राइम' => 'fa-solid fa-user-secret',
+                                    'वेब स्टोरी' => 'fa-solid fa-photo-film',
+                                    'यूटीलिटी' => 'fa-solid fa-wrench',
+                                    'करियर' => 'fa-solid fa-briefcase',
+                                    'ट्रेंडिंग न्यूज़' => 'fa-solid fa-bolt',
+                                    'ब्लॉग' => 'fa-solid fa-pen-nib',
+                                ];
+                                
                                 $toggleMenus = App\Models\Menu::whereRelation('type', 'type', 'Header')
                                     ->whereRelation('category', 'category', 'User')
                                     ->where([['status', '1'], ['menu_id', 0]])
@@ -1674,57 +1734,56 @@
 
                                 <ul class="modalmenu">
                                     @foreach ($toggleMenus as $menu)
-                <?php
-                // Submenu logic remains untouched, only used to determine structure
-                                                    $subMenus = App\Models\Menu::where('menu_id', $menu->id)
-                                                        ->where('status', 1)
-                                                        ->where('type_id', 1)
-                                                        ->where('category_id', 2)
-                                                        ->orderBy('sequence_id', 'asc')
-                                                        ->get();
-                $hasSubMenus = count($subMenus) > 0;
-                ?>
+                                        <?php
+                                        // Submenu logic remains untouched, only used to determine structure
+                                        $subMenus = App\Models\Menu::where('menu_id', $menu->id)->where('status', 1)->where('type_id', 1)->where('category_id', 2)->orderBy('sequence_id', 'asc')->get();
+                                        $hasSubMenus = count($subMenus) > 0;
+                                        ?>
 
-                <li class="modal_item">
-                    @if ($hasSubMenus)
-                        <!-- AMP Accordion for the collapsible section -->
-                        <amp-accordion class="amp-menu-toggle" animate>
-                            <!-- The <section> defines one accordion item -->
-                            <section>
-                                <!-- H4 is the required header element and acts as the toggle button for the content below -->
-                                <h4 class="amp-menu-header">
-                                    <!-- The icon and menu name remain, but the H4 is NOT a link to prevent conflict with accordion toggle -->
-                                    <i class="{{ $categoryIcons[$menu->menu_name] ?? 'fa-solid fa-link' }}"></i>
-                                    {{ $menu->menu_name }}
-                                </h4>
-                                
-                                <!-- The div is the collapsible content -->
-                                <div class="amp-menu-submenu-content">
-                                    <!-- Since the H4 is the toggle, we add the main category link inside the dropdown content -->
-                                    <a href="{{ asset($menu->menu_link) }}" class="amp-menu-parent-link-in-dropdown">
-                                        {{ $menu->menu_name }} 
-                                    </a>
+                                        <li class="modal_item">
+                                            @if ($hasSubMenus)
+                                                <!-- AMP Accordion for the collapsible section -->
+                                                <amp-accordion class="amp-menu-toggle" animate>
+                                                    <!-- The <section> defines one accordion item -->
+                                                    <section>
+                                                        <!-- H4 is the required header element and acts as the toggle button for the content below -->
+                                                        <h4 class="amp-menu-header">
+                                                            <!-- The icon and menu name remain, but the H4 is NOT a link to prevent conflict with accordion toggle -->
+                                                            <i
+                                                                class="{{ $categoryIcons[$menu->menu_name] ?? 'fa-solid fa-link' }}"></i>
+                                                            {{ $menu->menu_name }}
+                                                        </h4>
 
-                                                <ul class="modal_submenu">
-                                                    @foreach ($subMenus as $subMenu)
-                                                        <li>
-                                                            <a href="{{ asset($subMenu->menu_link) }}">
-                                                    <!-- Simple unicode circle for maximum AMP compliance and icon consistency -->
-                                                    <span style="font-size: 0.5em; vertical-align: middle; margin-right: 8px;">&#9679;</span>
-                                                                {{ $subMenu->menu_name }}
+                                                        <!-- The div is the collapsible content -->
+                                                        <div class="amp-menu-submenu-content">
+                                                            <!-- Since the H4 is the toggle, we add the main category link inside the dropdown content -->
+                                                            <a href="{{ asset($menu->menu_link) }}"
+                                                                class="amp-menu-parent-link-in-dropdown">
+                                                                {{ $menu->menu_name }}
                                                             </a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-                                </div>
-                            </section>
-                        </amp-accordion>
-                    @else
-                        <!-- Simple link if no submenus -->
-                        <a href="{{ asset($menu->menu_link) }}">
-                            <i class=" {{ $categoryIcons[$menu->menu_name] ?? 'fa-solid fa-link' }}"></i>
-                            {{ $menu->menu_name }}
-                        </a>
+
+                                                            <ul class="modal_submenu">
+                                                                @foreach ($subMenus as $subMenu)
+                                                                    <li>
+                                                                        <a href="{{ asset($subMenu->menu_link) }}">
+                                                                            <!-- Simple unicode circle for maximum AMP compliance and icon consistency -->
+                                                                            <span
+                                                                                style="font-size: 0.5em; vertical-align: middle; margin-right: 8px;">&#9679;</span>
+                                                                            {{ $subMenu->menu_name }}
+                                                                        </a>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    </section>
+                                                </amp-accordion>
+                                            @else
+                                                <!-- Simple link if no submenus -->
+                                                <a href="{{ asset($menu->menu_link) }}">
+                                                    <i
+                                                        class=" {{ $categoryIcons[$menu->menu_name] ?? 'fa-solid fa-link' }}"></i>
+                                                    {{ $menu->menu_name }}
+                                                </a>
                                             @endif
                                         </li>
                                     @endforeach
@@ -1987,135 +2046,135 @@
                     <div class="amp-content">
                         {!! config('global.sanitize_amp_content')($data['blog']->description ?? '') !!}
                     </div>
-                   
+
                 </div>
-                 @php
-                        // Get full content
-                        $description = $data['blog']->description ?? '';
-                        // ------------------
-                        $paragraphs = preg_split(
-                            '/(<\/p>)/i',
-                            $description,
-                            -1,
-                            PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY,
-                        );
-                        $pCount = preg_match_all('/<p[^>]*>.*?<\/p>/is', $description);
-                        $divCount = preg_match_all('/<div[^>]*>.*?<\/div>/is', $description);
+                @php
+                    // Get full content
+                    $description = $data['blog']->description ?? '';
+                    // ------------------
+                    $paragraphs = preg_split(
+                        '/(<\/p>)/i',
+                        $description,
+                        -1,
+                        PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY,
+                    );
+                    $pCount = preg_match_all('/<p[^>]*>.*?<\/p>/is', $description);
+                    $divCount = preg_match_all('/<div[^>]*>.*?<\/div>/is', $description);
 
-                        $blockCount = $pCount + $divCount;
-                        $injectionIndex = $blockCount > 1 ? $blockCount - 1 : 0;
-                        $injected = false;
-                        $count = 0;
+                    $blockCount = $pCount + $divCount;
+                    $injectionIndex = $blockCount > 1 ? $blockCount - 1 : 0;
+                    $injected = false;
+                    $count = 0;
 
-                        // Helper: detect if block is pseudo-heading (<p><strong>...</strong></p> only)
-                        function isPseudoHeading($html)
-                        {
-                            return preg_match('/^<p[^>]*>\s*<strong>.*<\/strong>\s*<\/p>$/is', trim($html));
-                        }
-                    @endphp
+                    // Helper: detect if block is pseudo-heading (<p><strong>...</strong></p> only)
+                    function isPseudoHeading($html)
+                    {
+                        return preg_match('/^<p[^>]*>\s*<strong>.*<\/strong>\s*<\/p>$/is', trim($html));
+                    }
+                @endphp
 
-                    @if ($injectionIndex === 0)
-                        @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
-                            @include('components.related-articles', [
-                                'articles' => $data['latests'],
-                            ])
-                        @endif
-                        @php $injected = true; @endphp
+                @if ($injectionIndex === 0)
+                    @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
+                        @include('components.related-articles', [
+                            'articles' => $data['latests'],
+                        ])
                     @endif
+                    @php $injected = true; @endphp
+                @endif
 
-                    <div class="ad-container">
-                        <p class="ad-title">Advertisement</p>
-                        <amp-ad layout="responsive" width="300" height="300" type="adsense"
-                            data-ad-client="ca-pub-3986924419662120" data-ad-slot="3774348576">
-                        </amp-ad>
-                    </div>
-                    @foreach ($paragraphs as $block)
+                <div class="ad-container">
+                    <p class="ad-title">Advertisement</p>
+                    <amp-ad layout="responsive" width="300" height="300" type="adsense"
+                        data-ad-client="ca-pub-3986924419662120" data-ad-slot="3774348576">
+                    </amp-ad>
+                </div>
+                @foreach ($paragraphs as $block)
 
-                        @if (preg_match('/<\/p>/i', $block))
-                            @php $count++; @endphp
+                    @if (preg_match('/<\/p>/i', $block))
+                        @php $count++; @endphp
 
-                            @if (!$injected && $count === $injectionIndex)
-                                {{-- If this block is a pseudo-heading, inject BEFORE it --}}
-                                @if (isPseudoHeading($block))
-                                    @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
-                                        @include('components.related-articles', [
-                                            'articles' => $data['latests'],
-                                        ])
-                                    @endif
-                                    @php $injected = true; @endphp
-                                @else
-                                    @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
-                                        @include('components.related-articles', [
-                                            'articles' => $data['latests'],
-                                        ])
-                                    @endif
-                                    @php $injected = true; @endphp
+                        @if (!$injected && $count === $injectionIndex)
+                            {{-- If this block is a pseudo-heading, inject BEFORE it --}}
+                            @if (isPseudoHeading($block))
+                                @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
+                                    @include('components.related-articles', [
+                                        'articles' => $data['latests'],
+                                    ])
                                 @endif
+                                @php $injected = true; @endphp
+                            @else
+                                @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
+                                    @include('components.related-articles', [
+                                        'articles' => $data['latests'],
+                                    ])
+                                @endif
+                                @php $injected = true; @endphp
                             @endif
                         @endif
-                    @endforeach
-                    @if (!$injected)
-                        @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
-                            @include('components.related-articles', [
-                                'articles' => $data['latests'],
-                            ])
-                        @endif
                     @endif
-
-
-                    <!-- WhatsApp Button -->
-                    <div class="wp-btn">
-                        <a href="https://whatsapp.com/channel/0029VajdZqv9xVJbRYtSFM3C"
-                            class="article--whatsapp-button" target="_blank">
-                            व्हॉट्सऐप चैनल से जुड़ें
-                            <svg viewBox="0 0 48 48" y="0px" x="0px" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"
-                                    fill="#fff"></path>
-                                <path
-                                    d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"
-                                    fill="#fff"></path>
-                                <path
-                                    d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"
-                                    fill="#cfd8dc"></path>
-                                <path
-                                    d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"
-                                    fill="#40c351"></path>
-                                <path clip-rule="evenodd"
-                                    d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"
-                                    fill-rule="evenodd" fill="#fff"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="ad-container">
-                        <p class="ad-title">Advertisement</p>
-                        <amp-ad layout="responsive" width="300" height="300" type="adsense"
-                            data-ad-client="ca-pub-3986924419662120" data-ad-slot="3774348576">
-                        </amp-ad>
-                    </div>
-                    <!-- Tags Section -->
-                    @if (!empty($data['blog']->tags))
-                        <section class="article--tags-section">
-                            <h3 class="article--tags-title">Tags</h3>
-                            <div class="article--tags-container">
-                                @foreach (explode(',', $data['blog']->tags) as $tag)
-                                    @if (trim($tag) !== '')
-                                        <a href="{{ url('/search?search=' . trim($tag)) }}" class="article--tag">
-                                            {{ trim($tag) }}
-                                        </a>
-                                    @endif
-                                @endforeach
-                            </div>
-
-                            <!-- Middle Horizontal Ad -->
-                            <div class="ad-container">
-                                <p class="ad-title">Advertisement</p>
-                                <amp-ad layout="responsive" width="300" height="300" type="adsense"
-                                    data-ad-client="ca-pub-3986924419662120" data-ad-slot="3774348576">
-                                </amp-ad>
-                            </div>
-                        </section>
+                @endforeach
+                @if (!$injected)
+                    @if (!empty($data['latests']) && $data['latests']->isNotEmpty())
+                        @include('components.related-articles', [
+                            'articles' => $data['latests'],
+                        ])
                     @endif
+                @endif
+
+
+                <!-- WhatsApp Button -->
+                <div class="wp-btn">
+                    <a href="https://whatsapp.com/channel/0029VajdZqv9xVJbRYtSFM3C" class="article--whatsapp-button"
+                        target="_blank">
+                        व्हॉट्सऐप चैनल से जुड़ें
+                        <svg viewBox="0 0 48 48" y="0px" x="0px" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"
+                                fill="#fff"></path>
+                            <path
+                                d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"
+                                fill="#fff"></path>
+                            <path
+                                d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"
+                                fill="#cfd8dc"></path>
+                            <path
+                                d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"
+                                fill="#40c351"></path>
+                            <path clip-rule="evenodd"
+                                d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"
+                                fill-rule="evenodd" fill="#fff"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="ad-container">
+                    <p class="ad-title">Advertisement</p>
+                    <amp-ad layout="responsive" width="300" height="300" type="adsense"
+                        data-ad-client="ca-pub-3986924419662120" data-ad-slot="3774348576">
+                    </amp-ad>
+                </div>
+                <!-- Tags Section -->
+                @if (!empty($data['blog']->tags))
+                    <section class="article--tags-section">
+                        <h3 class="article--tags-title">Tags</h3>
+                        <div class="article--tags-container">
+                            @foreach (explode(',', $data['blog']->tags) as $tag)
+                                @if (trim($tag) !== '')
+                                    <a href="{{ url('/search?search=' . trim($tag)) }}" class="article--tag">
+                                        {{ trim($tag) }}
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+
+                        <!-- Middle Horizontal Ad -->
+                        <div class="ad-container">
+                            <p class="ad-title">Advertisement</p>
+                            <amp-ad layout="responsive" width="300" height="300" type="adsense"
+                                data-ad-client="ca-pub-3986924419662120" data-ad-slot="3774348576">
+                            </amp-ad>
+                        </div>
+                    </section>
+                @endif
 
                 <!-- Fade effect - moved outside article--content but inside readmore -->
                 {{-- <div class="readmore__fade" [hidden]="ui.readMore"></div> --}}
@@ -2129,6 +2188,46 @@
                     </button>
 
                 </div> --}}
+                <div class="col_right">
+                    {{-- - 10 latest articles displayed - --}}
+                    @include('components.latestStories-amp')
+
+
+                    {{-- Vertical-Small-1 Advertise --}}
+                    {{-- <x-vertical-sm-ad :ad="$data['detailsAds']['detail_sidebar_vertical_ad1'] ?? null" /> --}}
+
+                    @php
+                        $categories = [
+                            ['name' => 'ट्रेंडिंग न्यूज़', 'limit' => 5],
+                            ['name' => 'पॉडकास्ट', 'limit' => 1],
+                            ['name' => 'टेक्नोलॉजी', 'limit' => 5],
+                            ['name' => 'स्पेशल्स', 'limit' => 5],
+                        ];
+                    @endphp
+
+                    @foreach ($categories as $cat)
+                        @php
+                            $category = App\Models\Category::where('name', $cat['name'])->first();
+                            $blogs = App\Models\Blog::where('status', 1)
+                                ->where('categories_ids', $category->id ?? 0)
+                                ->orderBy('updated_at', 'desc')
+                                ->limit($cat['limit'])
+                                ->get();
+                        @endphp
+
+                        @if ($blogs->isNotEmpty())
+                            @include('components.side-widgets-amp', [
+                                'categoryName' => $cat['name'],
+                                'category' => $category,
+                                'blogs' => $blogs,
+                            ])
+                        @endif
+                    @endforeach
+
+                    {{-- Vertical-Small-2 Advertise --}}
+                    {{-- <x-vertical-sm-ad :ad="$data['detailsAds']['detail_sidebar_vertical_ad2'] ?? null" /> --}}
+
+                </div>
             </div>
             <footer class="footer_main">
                 <div class="cm-container">
