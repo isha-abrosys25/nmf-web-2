@@ -31,6 +31,61 @@
     <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
 
     <style amp-custom>
+        .news-tabs {
+            font-size: 20px;
+            margin-top: 0;
+            padding-left: 10px;
+            border-left: 4px solid #ff0000;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-radius: 3px;
+            display: block;
+        }
+
+        .news-tabs a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+
+        /* ---------------------------
+       WIDGET BOX (categories-canoon)
+       --------------------------- */
+        #categories-canoon {
+            background-color: #fff;
+            margin-bottom: 15px;
+            padding: 0 0 10px;
+            border-radius: 0;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #fff #fff #c9c9c9;
+            border-bottom: 1px solid #c9c9c9;
+        }
+
+        #categories-canoon:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+
+        /* ---------------------------
+       MORE BUTTON (अधिक →)
+       --------------------------- */
+        .more_btn {
+            display: inline-block;
+            color: #f3242b;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 17px;
+            border-radius: 13px;
+            padding: 3px 12px;
+            text-decoration: none;
+            background-color: transparent;
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+
         /* Base Reset */
         * {
             margin: 0;
@@ -1038,7 +1093,6 @@
 
         /* Just In Widget */
         .just_in {
-            height: 275px;
             padding: 1px 14px 0;
             border-radius: 10px;
             background: #fff;
@@ -1074,56 +1128,6 @@
             width: 16px;
             height: 16px;
             animation: pulse 1s linear infinite;
-        }
-
-        .news-tabs a {
-            color: #1a1a1a;
-            text-decoration: none;
-        }
-
-        .news-tabs {
-            font-size: 20px;
-            margin-top: 0;
-            padding-left: 10px;
-            border-left: 4px solid #ff0000;
-            color: #1a1a1a;
-            font-weight: 700;
-            margin-bottom: 15px;
-            border-radius: 3px;
-            display: block;
-        }
-
-        #categories-canoon:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        #categories-canoon {
-            background-color: rgb(255, 255, 255);
-            margin-bottom: 15px;
-            padding: 0px 0px 10px;
-            border-radius: 0px;
-            border-width: 1px;
-            border-style: solid;
-            border-color: rgb(255, 255, 255) rgb(255, 255, 255) rgb(201, 201, 201);
-            border-image: initial;
-            border-bottom: 1px solid rgb(201, 201, 201);
-        }
-
-        .more_btn {
-            display: table;
-            justify-content: space-between;
-            align-items: center;
-            color: #f3242b;
-            font-size: 15px;
-            font-weight: 600;
-            line-height: 17px;
-            border-radius: 13px;
-            padding: 1.5px 10px;
-            text-decoration: none;
-            background-color: transparent;
-            margin-top: 12px;
-            margin-bottom: 12px;
         }
 
         @keyframes pulse {
@@ -1952,8 +1956,8 @@
                 <div class="article--media">
                     <div class="article--image-wrapper">
                         @if ($data['blog']->link)
-                            @if (!empty($data['youtubeVideoId']))
-                                <amp-youtube data-videoid="{{ $data['youtubeVideoId'] }}"
+                            @if (str_contains($data['blog']->link, 'youtube'))
+                                <amp-youtube data-videoid="{{ Str::afterLast($data['blog']->link, 'v=') }}"
                                     layout="responsive" width="480" height="270">
                                 </amp-youtube>
                             @else
@@ -2210,6 +2214,7 @@
                             $category = App\Models\Category::where('name', $cat['name'])->first();
                             $blogs = App\Models\Blog::where('status', 1)
                                 ->where('categories_ids', $category->id ?? 0)
+                                ->where('id', '!=', $data['blog']->id) //  EXCLUDE CURRENT BLOG
                                 ->orderBy('updated_at', 'desc')
                                 ->limit($cat['limit'])
                                 ->get();

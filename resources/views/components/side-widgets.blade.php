@@ -23,7 +23,7 @@
                         <a
                             href="{{ asset('/') }}{{ isset($category->site_url) ? $category->site_url : '' }}/<?php echo isset($blog->site_url) ? $blog->site_url : ''; ?>">
                             <img @if (!empty($ff)) src="{{ asset($ff) }}" @endif
-                                alt="{{ isset($blog->short_title) && $blog->short_title ? $blog->short_title : $blog->name }} loading="lazy">
+                                alt="{{ isset($blog->short_title) && $blog->short_title ? $blog->short_title : $blog->name }}">
                         </a>
                     </div>
                     <div class="card_small_title">

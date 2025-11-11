@@ -31,7 +31,7 @@
     <script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
     <script async custom-element="amp-facebook" src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"></script>
     <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style amp-custom>
         /* Base Reset */
@@ -441,6 +441,56 @@
             margin-bottom: 10px;
         }
 
+        /* ---------------------------
+       WIDGET BOX (categories-canoon)
+       --------------------------- */
+        #categories-canoon {
+            background-color: #fff;
+            margin-bottom: 15px;
+            padding: 0 0 10px;
+            border-radius: 0;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #fff #fff #c9c9c9;
+            border-bottom: 1px solid #c9c9c9;
+        }
+
+        #categories-canoon:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+
+        /* ---------------------------
+       MORE BUTTON (अधिक →)
+       --------------------------- */
+        .more_btn {
+            display: inline-block;
+            color: #f3242b;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 17px;
+            border-radius: 13px;
+            padding: 3px 12px;
+            text-decoration: none;
+            background-color: transparent;
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+
+        .newstab_title {
+            font-size: 20px;
+            margin-top: 0;
+            padding-left: 10px;
+            border-left: 4px solid #ff0000;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-radius: 3px;
+            display: block;
+            text-decoration: none;
+        }
+
         /* ==============================================
         END OF LIVE BLOG STYLES
         ==============================================
@@ -573,7 +623,7 @@
             position: fixed;
             left: 0;
             top: 0;
-            width: 100%; 
+            width: 100%;
             height: 100%;
             background-color: #ffffff;
             box-shadow: 0 7px 29px rgba(0, 0, 0, 0.2);
@@ -612,7 +662,8 @@
             width: 62px;
         }
 
-        .modal_logo amp-img { /* Changed from img to amp-img */
+        .modal_logo amp-img {
+            /* Changed from img to amp-img */
             width: 100%;
             height: auto;
         }
@@ -621,7 +672,8 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            border-top: 1px solid #cbcbcb; /* Added from original liveBlogs */
+            border-top: 1px solid #cbcbcb;
+            /* Added from original liveBlogs */
         }
 
         .modal_item {
@@ -739,10 +791,11 @@
         .modalmenu a i {
             margin-right: 10px;
         }
-        
+
         .modalmenu a:hover {
-             color: #ff0000;
+            color: #ff0000;
         }
+
         /* END OF UPDATED STYLES */
 
         /* Mobile Navigation */
@@ -1192,8 +1245,8 @@
                                     </button>
                                     <a href="/" class="modal_logo">
                                         {{-- UPDATED: Switched to amp-img for compliance --}}
-                                        <amp-img src="https://www.newsnmf.com/frontend/images/logo.png" alt="NMF News Logo"
-                                            width="50" height="48" layout="fixed"></amp-img>
+                                        <amp-img src="https://www.newsnmf.com/frontend/images/logo.png"
+                                            alt="NMF News Logo" width="50" height="48" layout="fixed"></amp-img>
                                     </a>
                                     <span class="Headertag" style="margin-left: 0px">
                                         <span style="color: #333;">जिस पर देश</span>
@@ -1237,12 +1290,7 @@
                                     @foreach ($toggleMenus as $menu)
                                         <?php
                                         // Submenu logic remains untouched, only used to determine structure
-                                        $subMenus = App\Models\Menu::where('menu_id', $menu->id)
-                                            ->where('status', 1)
-                                            ->where('type_id', 1)
-                                            ->where('category_id', 2)
-                                            ->orderBy('sequence_id', 'asc')
-                                            ->get();
+                                        $subMenus = App\Models\Menu::where('menu_id', $menu->id)->where('status', 1)->where('type_id', 1)->where('category_id', 2)->orderBy('sequence_id', 'asc')->get();
                                         $hasSubMenus = count($subMenus) > 0;
                                         ?>
 
@@ -1255,15 +1303,17 @@
                                                         <!-- H4 is the required header element and acts as the toggle button for the content below -->
                                                         <h4 class="amp-menu-header">
                                                             <!-- The icon and menu name remain, but the H4 is NOT a link to prevent conflict with accordion toggle -->
-                                                            <i class="{{ $categoryIcons[$menu->menu_name] ?? 'fa-solid fa-link' }}"></i>
+                                                            <i
+                                                                class="{{ $categoryIcons[$menu->menu_name] ?? 'fa-solid fa-link' }}"></i>
                                                             {{ $menu->menu_name }}
                                                         </h4>
-                                                        
+
                                                         <!-- The div is the collapsible content -->
                                                         <div class="amp-menu-submenu-content">
                                                             <!-- Since the H4 is the toggle, we add the main category link inside the dropdown content -->
-                                                            <a href="{{ asset($menu->menu_link) }}" class="amp-menu-parent-link-in-dropdown">
-                                                                {{ $menu->menu_name }} 
+                                                            <a href="{{ asset($menu->menu_link) }}"
+                                                                class="amp-menu-parent-link-in-dropdown">
+                                                                {{ $menu->menu_name }}
                                                             </a>
 
                                                             <ul class="modal_submenu">
@@ -1271,7 +1321,8 @@
                                                                     <li>
                                                                         <a href="{{ asset($subMenu->menu_link) }}">
                                                                             <!-- Simple unicode circle for maximum AMP compliance and icon consistency -->
-                                                                            <span style="font-size: 0.5em; vertical-align: middle; margin-right: 8px;">&#9679;</span>
+                                                                            <span
+                                                                                style="font-size: 0.5em; vertical-align: middle; margin-right: 8px;">&#9679;</span>
                                                                             {{ $subMenu->menu_name }}
                                                                         </a>
                                                                     </li>
@@ -1282,10 +1333,11 @@
                                                 </amp-accordion>
                                             @else
                                                 <!-- Simple link if no submenus -->
-                                            <a href="{{ asset($menu->menu_link) }}">
-                                                    <i class=" {{ $categoryIcons[$menu->menu_name] ?? 'fa-solid fa-link' }}"></i>
-                                                {{ $menu->menu_name }}
-                                            </a>
+                                                <a href="{{ asset($menu->menu_link) }}">
+                                                    <i
+                                                        class=" {{ $categoryIcons[$menu->menu_name] ?? 'fa-solid fa-link' }}"></i>
+                                                    {{ $menu->menu_name }}
+                                                </a>
                                             @endif
                                         </li>
                                     @endforeach
@@ -1564,6 +1616,69 @@
                         data-ad-client="ca-pub-3986924419662120" data-ad-slot="3774348576">
                     </amp-ad>
                 </div>
+                 <div style="margin-top: 20px;">
+            {{-- - 10 latest articles displayed - --}}
+            @include('components.latestStories-amp')
+
+
+            {{-- Vertical-Small-1 Advertise --}}
+            {{-- <x-vertical-sm-ad :ad="$data['detailsAds']['detail_sidebar_vertical_ad1'] ?? null" /> --}}
+
+            @php
+                $categories = [
+                    ['name' => 'ट्रेंडिंग न्यूज़', 'limit' => 5],
+                    ['name' => 'पॉडकास्ट', 'limit' => 1],
+                    ['name' => 'टेक्नोलॉजी', 'limit' => 5],
+                    ['name' => 'स्पेशल्स', 'limit' => 5],
+                ];
+            @endphp
+
+            @foreach ($categories as $cat)
+                @php
+                    // --- Server-side logic ---
+                    // Find the category
+                    $category = App\Models\Category::where('name', $cat['name'])->first();
+
+                    // Safely get the current blog ID to exclude it
+                    // Check if $blogs is passed in as the *current* blog (a single model)
+                    $currentBlogId = null;
+                    if (isset($blogs) && method_exists($blogs, 'getKey')) {
+                        // $blogs is a single Eloquent model
+                        $currentBlogId = $blogs->id;
+                    } elseif (isset($blog) && isset($blog->id)) {
+                        // Second check, just in case
+                        $currentBlogId = $blog->id;
+                    } elseif (isset($data) && isset($data['blog']) && isset($data['blog']->id)) {
+                        // Third check, from original
+                        $currentBlogId = $data['blog']->id;
+                    }
+
+                    // Build the query
+                    $query = App\Models\Blog::where('status', 1)->where('categories_ids', $category->id ?? 0);
+
+                    // Only add the 'where not equal' clause if we have a current blog ID
+                    if ($currentBlogId) {
+                        $query->where('id', '!=', $currentBlogId); // EXCLUDE CURRENT BLOG
+                    }
+
+                    // Fetch the blogs into a NEW variable to avoid conflicts
+                    $relatedBlogs = $query->orderBy('updated_at', 'desc')->limit($cat['limit'])->get();
+                @endphp
+
+                {{-- The original logic remains unchanged --}}
+                @if ($relatedBlogs->isNotEmpty())
+                    @include('components.side-widgets-amp', [
+                        'categoryName' => $cat['name'],
+                        'category' => $category,
+                        'blogs' => $relatedBlogs, // Pass the new variable to the component
+                    ])
+                @endif
+            @endforeach
+
+            {{-- Vertical-Small-2 Advertise --}}
+            {{-- <x-vertical-sm-ad :ad="$data['detailsAds']['detail_sidebar_vertical_ad2'] ?? null" /> --}}
+
+        </div>
             </div>
             {{-- 
                 Sidebar from liveBlogs.blade.php is omitted as the controller
@@ -1571,7 +1686,9 @@
                 and the detail-amp template is single-column.
             --}}
         </div>
+       
     </div>
+
     <footer class="footer_main">
         <div class="cm-container">
             <div class="footer-top">
