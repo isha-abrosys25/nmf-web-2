@@ -100,7 +100,7 @@
                                                               <h3>6 नवंबर - 121 सीटें</h3>
                                                           </div>
                                                           <a class="phase-details-btn ps-btn1"
-                                                              href="https://stgn.newsnmf.com/bihar-election-2025-phase-1">Full
+                                                              href="https://www.newsnmf.com/bihar-election-2025-phase-1">Full
                                                               Details</a>
                                                       </div>
                                                       <div class="phase-date">
@@ -109,7 +109,7 @@
                                                               <h3>11 नवंबर - 122 सीटें</h3>
                                                           </div>
                                                           <a class="phase-details-btn ps-btn2"
-                                                              href="https://stgn.newsnmf.com/bihar-election-2025-phase-2">Full
+                                                              href="https://www.newsnmf.com/bihar-election-2025-phase-2">Full
                                                               Details</a>
                                                       </div>
                                                   </div>
@@ -410,7 +410,7 @@
                                                               <div class="win-t"></div>
                                                               <div class="win-l"></div>
                                                           </div>
-                                                          <canvas id="semiCircleChartNew"></canvas>
+                                                         <canvas id="semiCircleChartNew" width="256" height="170"></canvas>
                                                           <!-- <div class="legend" id="chartLegend"></div> -->
                                                           <div class="total-seats">
                                                               <p>Total Seats</p>
@@ -542,247 +542,157 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
       <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
-      <script>
-          // maha mukabla swiper
-          const swiper = new Swiper('.mh-carousel', {
-              loop: true,
-              navigation: {
-                  nextEl: '.mh-button-next',
-                  prevEl: '.mh-button-prev',
-              },
-              autoplay: {
-                  delay: 3000,
-                  disableOnInteraction: false,
-              },
-          });
-          document.addEventListener("DOMContentLoaded", function() {
-              // ---------------- COUNTER ----------------
-              const counters = document.querySelectorAll(".count");
-              counters.forEach(counter => {
-                  let target = +counter.getAttribute("data-count");
-                  let current = 0;
-                  let increment = Math.ceil(target / 50);
+<script>
+    // This script block should be the ONLY one that defines and creates charts.
 
-                  let interval = setInterval(() => {
-                      current += increment;
-                      if (current >= target) {
-                          current = target;
-                          clearInterval(interval);
-                      }
-                      counter.textContent = current.toString().padStart(2, '0');
-                  }, 30);
-              });
+    // 1. Define data for the new chart
+    const resultsNew = [
+        { party_name: "NDA", seats_won: 95, abbreviation: "nda" },
+        { party_name: "RJD+", seats_won: 70, abbreviation: "rjd" },
+        { party_name: "OTH", seats_won: 20, abbreviation: "oth" }
+    ];
 
-              // ---------------- SEMI-CIRCLE CHART FUNCTION ----------------
-              if (window.Chart && window.ChartDataLabels && !Chart._nmfDataLabelsRegistered) {
-                  Chart.register(ChartDataLabels);
-                  Chart._nmfDataLabelsRegistered = true;
-              }
+    // 2. Define data for other charts (if they exist)
+    const results1 = [
+        { party_name: "NDA", seats_won: 87, abbreviation: "nda" },
+        { party_name: "RJD+", seats_won: 53, abbreviation: "rjd" },
+        { party_name: "LJP", seats_won: 5, abbreviation: "ljp" },
+        { party_name: "OTH", seats_won: 9, abbreviation: "oth" }
+    ];
+    
+    const results2 = [
+        { party_name: "NDA", seats_won: 87, abbreviation: "nda" },
+        { party_name: "RJD+", seats_won: 53, abbreviation: "rjd" },
+        { party_name: "LJP", seats_won: 5, abbreviation: "ljp" },
+        { party_name: "OTH", seats_won: 9, abbreviation: "oth" }
+    ];
 
-              function createSemiCircleChart(canvasId, results, options = {}) {
-                  const canvas = document.getElementById(canvasId);
-                  if (!canvas) return null;
+    // 3. Handle Swiper (with a check to prevent errors)
+    const mhCarousel = document.querySelector('.mh-carousel');
+    if (mhCarousel) {
+        new Swiper('.mh-carousel', {
+            loop: true,
+            navigation: {
+                nextEl: '.mh-button-next',
+                prevEl: '.mh-button-prev',
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+    }
 
-                  // destroy old instance
-                  if (canvas._chartInstance) {
-                      try {
-                          canvas._chartInstance.destroy();
-                      } catch (e) {}
-                      canvas._chartInstance = null;
-                  }
+    // 4. Run all chart/counter code on DOMContentLoaded
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        // ---------------- COUNTER ----------------
+        const counters = document.querySelectorAll(".count");
+        counters.forEach(counter => {
+            let target = +counter.getAttribute("data-count");
+            let current = 0;
+            let increment = Math.ceil(target / 50);
 
-                  // Filter out LJP
-                  const filteredResults = results.filter(r => r.abbreviation.toLowerCase() !== 'ljp');
+            let interval = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(interval);
+                }
+                counter.textContent = current.toString().padStart(2, '0');
+            }, 30);
+        });
 
-                  // Prepare labels, values, and colors
-                  const labels = filteredResults.map(r => r.party_name);
-                  const values = filteredResults.map(r => r.seats_won);
-                  const colorMap = {
-                      'nda': '#fd6101',
-                      'rjd': '#13B605',
-                      'jsp': '#FABB00',
-                      'oth': '#D13A37'
-                  };
-                  const colors = filteredResults.map(r => colorMap[r.abbreviation.toLowerCase()] || '#13B605');
-                  const aspectRatio = (typeof options.aspectRatio !== 'undefined') ?
-                      options.aspectRatio :
-                      (window.innerWidth < 768 ? 1 : 1.5);
+        // ---------------- SEMI-CIRCLE CHART FUNCTION ----------------
+        if (window.Chart && window.ChartDataLabels && !Chart._nmfDataLabelsRegistered) {
+            Chart.register(ChartDataLabels);
+            Chart._nmfDataLabelsRegistered = true;
+        }
 
-                  const config = {
-                      type: 'doughnut',
-                      data: {
-                          labels: labels,
-                          datasets: [{
-                              data: values,
-                              backgroundColor: colors,
-                              borderWidth: 2,
-                              borderColor: 'white',
-                              hoverOffset: 15,
-                              borderRadius: 4
-                          }]
-                      },
-                      options: {
-                          responsive: true,
-                          maintainAspectRatio: true,
-                          aspectRatio: aspectRatio,
-                          rotation: -90,
-                          circumference: 180,
-                          cutout: options.cutout || '60%',
-                          animation: {
-                              duration: options.duration || 600
-                          },
-                          plugins: {
-                              legend: {
-                                  display: false
-                              },
-                              // NL1031:16Sep2025: Disable tooltip
-                              tooltip: {
-                                  enabled: false,
-                                  callbacks: {
-                                      label: function(context) {
-                                          const label = context.label || '';
-                                          const value = context.raw || 0;
-                                          const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                          const percentage = total ? Math.round((value / total) * 100) : 0;
-                                          return `${label}: ${percentage}%`;
-                                      }
-                                  }
-                              },
-                              datalabels: {
-                                  color: 'black',
-                                  font: {
-                                      weight: 'bold',
-                                      size: options.datalabelSize || 14
-                                  },
-                                  formatter: () => ''
-                              }
-                          }
-                      },
-                      plugins: []
-                  };
+        function createSemiCircleChart(canvasId, results, options = {}) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return null; // This safely skips charts that don't exist on the page
 
-                  if (window.ChartDataLabels) config.plugins.push(ChartDataLabels);
+            if (canvas._chartInstance) {
+                try { canvas._chartInstance.destroy(); } catch (e) {}
+                canvas._chartInstance = null;
+            }
 
-                  const chartInstance = new Chart(canvas.getContext('2d'), config);
-                  canvas._chartInstance = chartInstance;
-                  return chartInstance;
-              }
+            const filteredResults = results.filter(r => r.abbreviation.toLowerCase() !== 'ljp');
+            const labels = filteredResults.map(r => r.party_name);
+            const values = filteredResults.map(r => r.seats_won);
+            const colorMap = {
+                'nda': '#fd6101',
+                'rjd': '#13B605',
+                'jsp': '#FABB00',
+                'oth': '#D13A37'
+            };
+            const colors = filteredResults.map(r => colorMap[r.abbreviation.toLowerCase()] || '#13B605');
+            const aspectRatio = (typeof options.aspectRatio !== 'undefined') ?
+                options.aspectRatio :
+                (window.innerWidth < 768 ? 1 : 1.5);
 
-              // Example datasets
-              const results1 = [{
-                      party_name: "NDA",
-                      seats_won: 87,
-                      abbreviation: "nda"
-                  },
-                  {
-                      party_name: "RJD+",
-                      seats_won: 53,
-                      abbreviation: "rjd"
-                  },
-                  {
-                      party_name: "LJP",
-                      seats_won: 5,
-                      abbreviation: "ljp"
-                  },
-                  {
-                      party_name: "OTH",
-                      seats_won: 9,
-                      abbreviation: "oth"
-                  }
-              ];
+            const config = {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors,
+                        borderWidth: 2,
+                        borderColor: 'white',
+                        hoverOffset: 15,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    aspectRatio: aspectRatio,
+                    rotation: -90,
+                    circumference: 180,
+                    cutout: options.cutout || '60%',
+                    animation: {
+                        duration: options.duration || 600
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false },
+                        datalabels: {
+                            color: 'black',
+                            font: { weight: 'bold', size: options.datalabelSize || 14 },
+                            formatter: () => ''
+                        }
+                    }
+                },
+                plugins: []
+            };
 
-              const results2 = [{
-                      party_name: "NDA",
-                      seats_won: 87,
-                      abbreviation: "nda"
-                  },
-                  {
-                      party_name: "RJD+",
-                      seats_won: 53,
-                      abbreviation: "rjd"
-                  },
-                  {
-                      party_name: "LJP",
-                      seats_won: 5,
-                      abbreviation: "ljp"
-                  },
-                  {
-                      party_name: "OTH",
-                      seats_won: 9,
-                      abbreviation: "oth"
-                  }
-              ];
+            if (window.ChartDataLabels) config.plugins.push(ChartDataLabels);
+            canvas._chartInstance = new Chart(canvas.getContext('2d'), config);
+            return canvas._chartInstance;
+        }
 
-              const results3 = [{
-                      party_name: "NDA",
-                      seats_won: 90,
-                      abbreviation: "nda"
-                  },
-                  {
-                      party_name: "RJD+",
-                      seats_won: 50,
-                      abbreviation: "rjd"
-                  },
-                  {
-                      party_name: "LJP",
-                      seats_won: 3,
-                      abbreviation: "ljp"
-                  },
-                  {
-                      party_name: "OTH",
-                      seats_won: 10,
-                      abbreviation: "oth"
-                  }
-              ];
+        // ---------------- INIT ALL CHARTS ----------------
+        // Note: 'results3' is defined globally in your HTML, so we can use it here.
+        
+        createSemiCircleChart('semiCircleChartNew', resultsNew, { duration: 500 });
+        createSemiCircleChart('semiCircleChart2', results2, { duration: 500 });
+        createSemiCircleChart('semiCircleChart3', results3, { duration: 500 });
+        // The call to 'semiCircleChart' is removed as it doesn't exist.
 
-              // ✅ New dataset for the new chart
-              const resultsNew = [{
-                      party_name: "NDA",
-                      seats_won: 95,
-                      abbreviation: "nda"
-                  },
-                  {
-                      party_name: "RJD+",
-                      seats_won: 70,
-                      abbreviation: "rjd"
-                  },
-                  {
-                      party_name: "OTH",
-                      seats_won: 20,
-                      abbreviation: "oth"
-                  }
-              ];
-
-              // init charts
-              createSemiCircleChart('semiCircleChartNew', resultsNew, {
-                  duration: 500
-              });
-
-              // init charts
-              createSemiCircleChart('semiCircleChart', results1, {
-                  duration: 500
-              });
-              createSemiCircleChart('semiCircleChart2', results2, {
-                  duration: 500
-              });
-              createSemiCircleChart('semiCircleChart3', results3, {
-                  duration: 500
-              });
-
-
-              // re-render on resize (debounced)
-              let resizeTimer;
-              window.addEventListener('resize', function() {
-                  clearTimeout(resizeTimer);
-                  resizeTimer = setTimeout(function() {
-                      createSemiCircleChart('semiCircleChartNew', resultsNew);
-                      createSemiCircleChart('semiCircleChart', results1);
-                      createSemiCircleChart('semiCircleChart2', results2);
-                      createSemiCircleChart('semiCircleChart3', results3);
-                  }, 200);
-              });
-          });
-      </script>
+        // ---------------- RE-RENDER ON RESIZE ----------------
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                createSemiCircleChart('semiCircleChartNew', resultsNew);
+                createSemiCircleChart('semiCircleChart2', results2);
+                createSemiCircleChart('semiCircleChart3', results3);
+            }, 200);
+        });
+    });
+</script>
 
       <script>
           const swipernew = new Swiper('.swiper2', {
