@@ -32,7 +32,7 @@
     <script async custom-element="amp-facebook" src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"></script>
     <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    @yield('head')
     <style amp-custom>
         /* Base Reset */
         * {
@@ -1616,69 +1616,69 @@
                         data-ad-client="ca-pub-3986924419662120" data-ad-slot="3774348576">
                     </amp-ad>
                 </div>
-                 <div style="margin-top: 20px;">
-            {{-- - 10 latest articles displayed - --}}
-            @include('components.latestStories-amp')
+                <div style="margin-top: 20px;">
+                    {{-- - 10 latest articles displayed - --}}
+                    @include('components.latestStories-amp')
 
 
-            {{-- Vertical-Small-1 Advertise --}}
-            {{-- <x-vertical-sm-ad :ad="$data['detailsAds']['detail_sidebar_vertical_ad1'] ?? null" /> --}}
+                    {{-- Vertical-Small-1 Advertise --}}
+                    {{-- <x-vertical-sm-ad :ad="$data['detailsAds']['detail_sidebar_vertical_ad1'] ?? null" /> --}}
 
-            @php
-                $categories = [
-                    ['name' => 'ट्रेंडिंग न्यूज़', 'limit' => 5],
-                    ['name' => 'पॉडकास्ट', 'limit' => 1],
-                    ['name' => 'टेक्नोलॉजी', 'limit' => 5],
-                    ['name' => 'स्पेशल्स', 'limit' => 5],
-                ];
-            @endphp
+                    @php
+                        $categories = [
+                            ['name' => 'ट्रेंडिंग न्यूज़', 'limit' => 5],
+                            ['name' => 'पॉडकास्ट', 'limit' => 1],
+                            ['name' => 'टेक्नोलॉजी', 'limit' => 5],
+                            ['name' => 'स्पेशल्स', 'limit' => 5],
+                        ];
+                    @endphp
 
-            @foreach ($categories as $cat)
-                @php
-                    // --- Server-side logic ---
-                    // Find the category
-                    $category = App\Models\Category::where('name', $cat['name'])->first();
+                    @foreach ($categories as $cat)
+                        @php
+                            // --- Server-side logic ---
+                            // Find the category
+                            $category = App\Models\Category::where('name', $cat['name'])->first();
 
-                    // Safely get the current blog ID to exclude it
-                    // Check if $blogs is passed in as the *current* blog (a single model)
-                    $currentBlogId = null;
-                    if (isset($blogs) && method_exists($blogs, 'getKey')) {
-                        // $blogs is a single Eloquent model
-                        $currentBlogId = $blogs->id;
-                    } elseif (isset($blog) && isset($blog->id)) {
-                        // Second check, just in case
-                        $currentBlogId = $blog->id;
-                    } elseif (isset($data) && isset($data['blog']) && isset($data['blog']->id)) {
-                        // Third check, from original
-                        $currentBlogId = $data['blog']->id;
-                    }
+                            // Safely get the current blog ID to exclude it
+                            // Check if $blogs is passed in as the *current* blog (a single model)
+                            $currentBlogId = null;
+                            if (isset($blogs) && method_exists($blogs, 'getKey')) {
+                                // $blogs is a single Eloquent model
+                                $currentBlogId = $blogs->id;
+                            } elseif (isset($blog) && isset($blog->id)) {
+                                // Second check, just in case
+                                $currentBlogId = $blog->id;
+                            } elseif (isset($data) && isset($data['blog']) && isset($data['blog']->id)) {
+                                // Third check, from original
+                                $currentBlogId = $data['blog']->id;
+                            }
 
-                    // Build the query
-                    $query = App\Models\Blog::where('status', 1)->where('categories_ids', $category->id ?? 0);
+                            // Build the query
+                            $query = App\Models\Blog::where('status', 1)->where('categories_ids', $category->id ?? 0);
 
-                    // Only add the 'where not equal' clause if we have a current blog ID
-                    if ($currentBlogId) {
-                        $query->where('id', '!=', $currentBlogId); // EXCLUDE CURRENT BLOG
-                    }
+                            // Only add the 'where not equal' clause if we have a current blog ID
+                            if ($currentBlogId) {
+                                $query->where('id', '!=', $currentBlogId); // EXCLUDE CURRENT BLOG
+                            }
 
-                    // Fetch the blogs into a NEW variable to avoid conflicts
-                    $relatedBlogs = $query->orderBy('updated_at', 'desc')->limit($cat['limit'])->get();
-                @endphp
+                            // Fetch the blogs into a NEW variable to avoid conflicts
+                            $relatedBlogs = $query->orderBy('updated_at', 'desc')->limit($cat['limit'])->get();
+                        @endphp
 
-                {{-- The original logic remains unchanged --}}
-                @if ($relatedBlogs->isNotEmpty())
-                    @include('components.side-widgets-amp', [
-                        'categoryName' => $cat['name'],
-                        'category' => $category,
-                        'blogs' => $relatedBlogs, // Pass the new variable to the component
-                    ])
-                @endif
-            @endforeach
+                        {{-- The original logic remains unchanged --}}
+                        @if ($relatedBlogs->isNotEmpty())
+                            @include('components.side-widgets-amp', [
+                                'categoryName' => $cat['name'],
+                                'category' => $category,
+                                'blogs' => $relatedBlogs, // Pass the new variable to the component
+                            ])
+                        @endif
+                    @endforeach
 
-            {{-- Vertical-Small-2 Advertise --}}
-            {{-- <x-vertical-sm-ad :ad="$data['detailsAds']['detail_sidebar_vertical_ad2'] ?? null" /> --}}
+                    {{-- Vertical-Small-2 Advertise --}}
+                    {{-- <x-vertical-sm-ad :ad="$data['detailsAds']['detail_sidebar_vertical_ad2'] ?? null" /> --}}
 
-        </div>
+                </div>
             </div>
             {{-- 
                 Sidebar from liveBlogs.blade.php is omitted as the controller
@@ -1686,7 +1686,7 @@
                 and the detail-amp template is single-column.
             --}}
         </div>
-       
+
     </div>
 
     <footer class="footer_main">

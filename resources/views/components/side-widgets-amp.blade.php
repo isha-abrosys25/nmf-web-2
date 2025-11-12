@@ -1,3 +1,5 @@
+@section('head')
+
 <style amp-custom>
     /* ---------------------------
        CATEGORY HEADING (news-tabs)
@@ -61,6 +63,7 @@
         opacity: 0.8;
     }
 </style>
+@endsection
 
 @if ($categoryName == 'पॉडकास्ट')
     @php return; @endphp
