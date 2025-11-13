@@ -67,7 +67,7 @@ $status = HomeSection::where('title', 'ElectionLiveSection')->value('status') ??
                 @php
                     $classMap = [
                         'NDA' => 'nda',
-                        'RJD+' => 'rjd',
+                        'MGB' => 'mgb',
                         'JSP' => 'jsp',
                         'OTH' => 'oth',
                     ];
@@ -180,7 +180,7 @@ $status = HomeSection::where('title', 'ElectionLiveSection')->value('status') ??
                 }
 
                 // Filter out LJP
-                const filteredResults = results.filter(r => r.abbreviation.toLowerCase() !== 'ljp');
+                const filteredResults = results.filter(r => r.abbreviation.toLowerCase() !== 'ljpr');
 
                 // Prepare labels, values, and colors
                 const labels = filteredResults.map(r => r.party_name);
@@ -262,11 +262,11 @@ $status = HomeSection::where('title', 'ElectionLiveSection')->value('status') ??
                     seats_won: 87
                 },
                 {
-                    party_name: "RJD+",
+                    party_name: "MGB",
                     seats_won: 53
                 },
                 {
-                    party_name: "LJP",
+                    party_name: "LJPR",
                     seats_won: 5
                 },
                 {
@@ -280,11 +280,11 @@ $status = HomeSection::where('title', 'ElectionLiveSection')->value('status') ??
                     seats_won: 87
                 },
                 {
-                    party_name: "RJD+",
+                    party_name: "MGB",
                     seats_won: 53
                 },
                 {
-                    party_name: "LJP",
+                    party_name: "LJPR",
                     seats_won: 5
                 },
                 {

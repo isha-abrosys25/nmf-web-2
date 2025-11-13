@@ -7842,16 +7842,19 @@ swiper-slide img {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    justify-content: center;
     font-weight: bold;
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
     font-size: 14px;
     text-transform: uppercase;
 }
 
 .status-box svg {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     margin-bottom: 4px;
+    margin-left: 4px;
+    align-self: flex-end;
 }
 
 /* Lead (Green Up Arrow) */
@@ -8214,13 +8217,13 @@ swiper-slide img {
 }
 
 /* LJP */
-.live-party-table .ljp- {
+.live-party-table .ljpr- {
     background-color: #e9e7fb;
     border: 2px solid #c2cdf5;
     border-radius: 50px;
 }
 
-.live-party-table .ljp- td:first-child {
+.live-party-table .ljpr- td:first-child {
     background-color: #6776AD;
 }
 
@@ -8292,11 +8295,11 @@ swiper-slide img {
     background: #EE740F;
 }
 
-.live-result-box.rjd .title {
+.live-result-box.mgb .title {
     background: #13B605;
 }
 
-.live-result-box.ljp .title {
+.live-result-box.ljpr .title {
     background: #6776AD;
 }
 
@@ -8322,7 +8325,7 @@ swiper-slide img {
 
 .live-win-mark {
     position: absolute;
-    top: -6px;
+    top: -9px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
