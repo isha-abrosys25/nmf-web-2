@@ -240,7 +240,8 @@ try {
             Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
-    return redirect()->back()->with('success', 'Vote counts updated successfully!');
+    // return redirect()->back()->with('success', 'Vote counts updated successfully!');
+    return redirect(config('global.base_url').'election/manage-vote-count')->with('success', 'Vote counts updated successfully!');
 }
 
 public function manageSeats()

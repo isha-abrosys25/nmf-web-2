@@ -40,6 +40,8 @@ use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\MahamukablaController;
 use App\Http\Controllers\PartyController;
 
+use App\Http\Controllers\ExpressController;
+
 
 Route::get('/bihar-election-2025-phase-1', [StoryController::class, 'biharphaseone'])->name('biharphaseone');
 Route::get('/bihar-election-2025-phase-2', [StoryController::class, 'biharphasetwo'])->name('biharphasetwo');
@@ -474,6 +476,8 @@ Route::get('/event/{cat_name}/{name}', [BigEventController::class, 'showEventSto
 
 Route::get('/photos', [ElectionResultController::class, 'index'])->name('index');
 Route::get('/category', [ElectionResultController::class, 'category'])->name('category');
+
+Route::get('/expressnews', [ExpressController::class, 'show']);
 
 Route::get('/web-stories', [StoryController::class, 'getAllwebStories'])->name('getAllwebStories');
 Route::get('/web-stories/{cat_name}', [StoryController::class, 'webStoriesByCategory'])->name('webStoriesByCategory');
