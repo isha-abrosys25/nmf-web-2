@@ -94,9 +94,70 @@
     <section
         style="display: flex; flex-direction: column; gap: 20px; justify-content: center;  margin: auto; width: 100%;">
         @include('components.election-live-section')
-        @include('components.election-maha-section')
+        <div id="maha-section-wrapper">
+            {{-- This loads the component on the initial page load --}}
+            @include('partials._maha-section')
+        </div>
 
     </section>
+
+    {{-- This script provides the auto-refresh logic --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // 1. A function to initialize your Swiper slider
+        // We need this because we must re-run it every time the HTML is refreshed.
+        function initializeMahaSwiper() {
+            var swiperContainer = document.querySelector('#maha-section-wrapper .mh-carousel');
+            
+            if (swiperContainer) {
+                // Destroy old Swiper instance if it exists, to prevent errors
+                if (swiperContainer.swiper) {
+                    swiperContainer.swiper.destroy(true, true);
+                }
+                
+                // Create the new Swiper instance (this is your original script)
+                new Swiper(swiperContainer, {
+                    loop: true,
+                    navigation: {
+                        nextEl: '.mh-button-next',
+                        prevEl: '.mh-button-prev',
+                    },
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                });
+            }
+        }
+
+        // 2. A function to fetch the new HTML content from your route
+        async function refreshMahaSection() {
+            try {
+                // Fetch the new HTML from the route we created
+                const response = await fetch('/refresh-maha-section');
+                const html = await response.text();
+                
+                // Replace the content of the wrapper div
+                document.getElementById('maha-section-wrapper').innerHTML = html;
+                
+                // Re-initialize Swiper on the new content
+                initializeMahaSwiper();
+
+            } catch (error) {
+                console.error('Error refreshing Maha Muqabala:', error);
+            }
+        }
+
+        // 3. Initialize Swiper on the first page load
+        initializeMahaSwiper();
+
+        // 4. Set the interval to refresh (e.g., every 5 seconds)
+        // Change 5000 to however often you want to refresh
+        setInterval(refreshMahaSection, 5000); // 5000 milliseconds = 5 seconds
+
+    });
+</script>
 
     <script>
         // 1. Handle Swiper for Maha-Mukabla

@@ -42,6 +42,18 @@ use App\Http\Controllers\PartyController;
 
 use App\Http\Controllers\ExpressController;
 
+Route::get('/refresh-maha-section', function () {
+    // This route just returns the partial.
+    // The partial file itself handles all the data-fetching.
+    return view('partials._maha-section');
+});
+
+
+Route::get('/election-live-section', function () {
+    // This route just returns the partial.
+    // The partial file itself handles all the data-fetching.
+    return view('partials._election-live-section.php');
+});
 
 Route::get('/bihar-election-2025-phase-1', [StoryController::class, 'biharphaseone'])->name('biharphaseone');
 Route::get('/bihar-election-2025-phase-2', [StoryController::class, 'biharphasetwo'])->name('biharphasetwo');
