@@ -141,6 +141,7 @@ public function videoSitemap()
             'loc' => url('/videos/' . $video->category->site_url . '/' . $video->site_url),
             'lastmod' => $video->updated_at,
             'priority' => '0.5',
+            'thumbnail' => url($video->thumbnail_path), 
         ];
     }
 
@@ -149,11 +150,12 @@ public function videoSitemap()
         ->header('Content-Type', 'application/xml');
 }
 
+
 public function reelVideoSitemap()
 {
     $urls = [];
 
-    $clips = \App\Models\Clip::where('status', 1)
+    $clips = Clip::where('status', 1)
         ->with('category')
         ->orderBy('created_at', 'desc')
         ->take(100)
@@ -166,6 +168,7 @@ public function reelVideoSitemap()
             'loc' => url('/reels/' . $clip->category->site_url . '/' . $clip->site_url),
             'lastmod' => $clip->updated_at,
             'priority' => '0.5',
+            'thumbnail' => url($clip->thumb_image), 
         ];
     }
 
@@ -173,6 +176,7 @@ public function reelVideoSitemap()
         ->view('reel-sitemap', compact('urls'))
         ->header('Content-Type', 'application/xml');
 }
+
 
 
  }

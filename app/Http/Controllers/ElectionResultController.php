@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ElectionResult;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ElectionResultController extends Controller
 {
@@ -23,10 +24,6 @@ class ElectionResultController extends Controller
         $party->save();
     }
 }
-
- 
-
-
     public function add()
     {
         return view('admin.addElectionData');
@@ -49,17 +46,6 @@ class ElectionResultController extends Controller
             'show_in_highlight' => $request->show_in_highlight ?? 1,
         ]);
 
-
-        // Get current total
-        // $currentTotal = ElectionResult::sum('seats_won');
-        // $newTotal = $currentTotal + $request->seats_won;
-
-        // Check constraint (243 max)
-        // if ($newTotal > 243) {
-        //     return redirect()->back()
-        //         ->withInput()
-        //         ->with('error', 'Total seats cannot exceed 243. Currently available seats left: ' . (243 - $currentTotal));
-        // }
     ElectionResult::create($request->only('party_name','abbreviation','alliance','seats_won'));
 
     // Recalculate totals and percentages
@@ -109,14 +95,6 @@ public function update(Request $request, $id)
         
     ]);
 
-        // $currentTotal = ElectionResult::sum('seats_won');
-        // $newTotal = ($currentTotal - $result->seats_won) + $request->seats_won;
-        
-        // if ($newTotal > 243) {
-        //     return redirect()->back()
-        //         ->withInput()
-        //         ->with('error', 'Total seats cannot exceed 243. Currently available seats left: ' . (243 - ($currentTotal - $result->seats_won)));
-        // }
         $result->update([
             'party_name'        => $request->party_name,
             'abbreviation'      => $request->abbreviation,
@@ -240,13 +218,12 @@ try {
             Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
-    // return redirect()->back()->with('success', 'Vote counts updated successfully!');
     return redirect(config('global.base_url').'election/manage-vote-count')->with('success', 'Vote counts updated successfully!');
 }
 
 public function manageSeats()
 {
-    // Fetch only parties marked for left side table
+
     $parties = ElectionResult::where('show_in_highlight', -1)->get();
 
     return view('admin.topPartySeats', compact('parties'));
@@ -278,14 +255,13 @@ public function saveTopSeats(Request $request)
     foreach ($parties as $party) {
         $inputName = 'seat_' . strtolower($party->abbreviation);
         
-        // --- NEW ---
-        // Get the name for the sequence input
+
         $sequenceInputName = 'sequence_' . strtolower($party->abbreviation);
-        // --- END NEW ---
+
 
         if ($request->has($inputName)) {
             
-            // --- MODIFIED ---
+
             $party->seats_won = $request->input($inputName);
             
             // Check if the sequence input was submitted and update it
@@ -294,11 +270,9 @@ public function saveTopSeats(Request $request)
             }
             
             $party->save();
-            // --- END MODIFIED ---
+
         }
     }
-
-    // --- MODIFIED ---
    try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
@@ -308,14 +282,6 @@ public function saveTopSeats(Request $request)
     // return redirect()->back()->with('success', ' Seats and sequence updated successfully!');
 }
 
-// public function voteCountList()
-// {
-//     // Fetch parties that are active in list view
-//     $results = ElectionResult::where('show_in_list', -1)->orderBy('id', 'asc')->get();
-
-//     // Pass data to Blade
-//     return view('voteCountList', compact('results'));
-// }
 
 public function exitpoll()
     {
@@ -345,22 +311,6 @@ public function exitpoll()
         $party->save();
     }
  
-   /* $totalSeats = 0;  //total of seats_won
- 
-    // Step 1: Calculate new total (sum of all submitted seat values)
-    foreach ($parties as $party) {
-        $inputName = 'seat_' . strtolower($party->abbreviation);
-        $seatCount = (int) $request->input($inputName, $party->exit_poll);
-        $totalSeats += $seatCount;
-    }
- 
-    // Step 2: Check total limit
-    if ($totalSeats > 243) {
-        return redirect()->back()
-            ->withInput()
-            ->with('error', 'You have exceeded by ' . ($totalSeats - 243) . ' seats.');
- 
-    } */
  
     // Step 3: Save data if within limit
     foreach ($parties as $party) {

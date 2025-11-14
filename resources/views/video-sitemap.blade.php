@@ -6,6 +6,8 @@
         <lastmod>{{ \Carbon\Carbon::parse($url['lastmod'])->format('Y-m-d') }}</lastmod>
         <changefreq>daily</changefreq>
         <priority>{{ $url['priority'] ?? '0.5' }}</priority>
+
+        <thumbnail>{{ $url['thumbnail'] }}</thumbnail> 
     </url>
 @endforeach
 </urlset>
