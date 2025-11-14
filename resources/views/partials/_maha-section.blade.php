@@ -19,11 +19,6 @@ $status = HomeSection::where('title', 'ElectionMahaSection')->value('status') ??
 
 @if ($showMaha)
     <section class="maha-section">
-        <div class="stopwatch-container">
-            <div class="stopwatch-display">
-            <span id="stopwatch">00:00:00</span>
-            </div>
-        </div>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
             let seconds = 0;
