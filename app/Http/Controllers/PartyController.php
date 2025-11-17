@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Party;
+use Illuminate\Support\Facades\Log;
 
 class PartyController extends Controller
 {
@@ -38,7 +39,13 @@ class PartyController extends Controller
             'status'       => 1 // default enabled
         ]);
 
-        return redirect()->back()->with('success', 'Party details added successfully!');
+        try {
+            app(\App\Services\ExportHome::class)->run();
+        } catch (\Throwable $e) {
+             Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+        }
+
+        return redirect(config('global.base_url').'election/party/list')->with('success', 'Parties updated successfully!');
     }
     // Show Party List
     public function list()
