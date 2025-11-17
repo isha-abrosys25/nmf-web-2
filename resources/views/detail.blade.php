@@ -30,10 +30,10 @@
             "publisher": {
                 "@type": "Organization",
                 "name": "NMF News",
-                "logo": {
-                "@type": "ImageObject",
-                "url": "{{config('global.base_url_frontend')}}frontend/images/logo.png }}"
-                }
+               "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{config('global.base_url_frontend')}}frontend/images/logo.png"
+                }
             },
             "datePublished": "{{ $data['blog']->created_at->toIso8601String() }}",
             "dateModified": "{{ $data['blog']->updated_at->toIso8601String() }}",
@@ -44,29 +44,31 @@
         }
     </script>
 
-    @if (!empty($data['blog']->link))
+    @if ($data['youtubeVideoId'] || str_contains($data['blog']->link ?? '', '.mp4'))
         <script type="application/ld+json">
-            {!! json_encode([
-            "@context" => "https://schema.org",
-            "@type" => "VideoObject",
-            "name" => $data['blog']->name,
-            "description" => Str::limit(strip_tags($data['blog']->sort_description ?? $data['blog']->description), 200),
-            "thumbnailUrl" => cached_blog_image($data['blog']),
-            "uploadDate" => \Carbon\Carbon::parse($data['blog']->created_at)->toIso8601String(),
-            "contentUrl" => $data['blog']->link,
-            "embedUrl" => str_contains($data['blog']->link, 'youtube') ? $data['blog']->link : null,
-            "publisher" => [
-                "@type" => "Organization",
-                "name" => "NMF News",
-                "logo" => [
+    {!! json_encode([
+        "@context" => "https://schema.org",
+        "@type" => "VideoObject",
+        "name" => $data['blog']->name,
+        "description" => Str::limit(strip_tags($data['blog']->sort_description ?? $data['blog']->description), 200),
+        "thumbnailUrl" => cached_blog_image($data['blog']),
+        "uploadDate" => \Carbon\Carbon::parse($data['blog']->created_at)->toIso8601String(),
+        "contentUrl" => $data['blog']->link,
+        "embedUrl" => $data['youtubeVideoId'] 
+                        ? "https://www.youtube.com/embed/" . $data['youtubeVideoId'] 
+                        : (str_contains($data['blog']->link, '.mp4') ? $data['blog']->link : null),
+        "publisher" => [
+            "@type" => "Organization",
+            "name" => "NMF News",
+            "logo" => [
                 "@type" => "ImageObject",
-                "url" => "{{config('global.base_url_frontend')}}frontend/images/logo.png",
+                "url" => config('global.base_url_frontend') . "frontend/images/logo.png",
                 "width" => 300,
                 "height" => 60,
-                ]
             ]
-            ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
-        </script>
+        ]
+    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+    </script>
     @endif
     <style>
         .breadcrumb {
@@ -264,29 +266,34 @@
                                                 </div>
                                                 <div class="at_img">
                                                     <figure class="relative">
-                                                        @if ($data['blog']->link)
-                                                            @if (str_contains($data['blog']->link, 'youtube'))
-                                                                <div class="respnsive_iframe">
-                                                                    <iframe loading="lazy"
-                                                                        class="attachment-full size-full wp-post-image"
-                                                                        src="{{ $data['blog']->link }}"></iframe>
-                                                                </div>
-                                                            @else
-                                                                <video controls="controls" autoplay muted id="video1"
-                                                                    class="--video respnsive_iframe"
-                                                                    style="padding-top:0px!important;">
-                                                                    <source src="{{ $data['blog']->link }}"
-                                                                        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-                                                                </video>
-                                                            @endif
+                                                        @if ($data['youtubeVideoId'])
+                                                            {{-- This is the new logic for YouTube --}}
+                                                            <div class="respnsive_iframe">
+                                                                <iframe loading="lazy"
+                                                                    class="attachment-full size-full wp-post-image"
+                                                                    src="https://www.youtube.com/embed/{{ $data['youtubeVideoId'] }}"
+                                                                    frameborder="0"
+                                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                                    allowfullscreen>
+                                                                </iframe>
+                                                            </div>
+                                                        @elseif (!empty($data['blog']->link) && str_contains($data['blog']->link, '.mp4'))
+                                                            {{-- This is for other .mp4 videos --}}
+                                                            <video controls="controls" autoplay muted id="video1"
+                                                                class="--video respnsive_iframe"
+                                                                style="padding-top:0px!important;">
+                                                                <source src="{{ $data['blog']->link }}"
+                                                                    type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                                                            </video>
                                                         @else
+                                                            {{-- This is the fallback image --}}
                                                             @php
-
                                                                 $ff = cached_blog_image($data['blog']);
                                                             @endphp
                                                             <img @if (!empty($ff)) src="{{ $ff }}" @endif
                                                                 alt="{{ $data['blog']->name }}">
                                                         @endif
+
                                                         {{-- Image Credit --}}
                                                         @if (!empty($data['blog']->credits))
                                                             <div class="at_img_credit py-2 ps-3">
@@ -480,10 +487,10 @@
                                         {{-- Sidebar --}}
                                         <div class="col_right">
                                             {{-- - 10 latest articles displayed - --}}
-                                        @include('components.latestStories')
+                                            @include('components.latestStories')
 
-                                        {{-- Vertical-Small-1 Advertise --}}
-                                        <x-vertical-sm-ad :ad="$data['detailsAds']['detail_sidebar_vertical_ad1'] ?? null" />
+                                            {{-- Vertical-Small-1 Advertise --}}
+                                            <x-vertical-sm-ad :ad="$data['detailsAds']['detail_sidebar_vertical_ad1'] ?? null" />
 
                                             @php
                                                 $categories = [

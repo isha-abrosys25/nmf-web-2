@@ -1183,7 +1183,7 @@
         .js_right {
             margin-bottom: 4px;
         }
-        
+
         .js_right p {
             margin-bottom: 3px;
             font-size: 14px;
@@ -1191,6 +1191,7 @@
             font-weight: 600;
 
         }
+
         .js_right a {
             font-size: 15px;
             color: #666;
@@ -1512,8 +1513,8 @@
         </style>
     </noscript>
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
+
+  <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "NewsArticle",
@@ -1547,10 +1548,10 @@
     }
     </script>
 
-
-    @if (!empty($data['blog']->link))
+    {{-- We use the logic from your controller to check for a YouTube ID or an .mp4 file --}}
+    @if ($data['youtubeVideoId'] || str_contains($data['blog']->link ?? '', '.mp4'))
         <script type="application/ld+json">
-                                                                                                                                            {!! json_encode([
+        {!! json_encode([
             "@context" => "https://schema.org",
             "@type" => "VideoObject",
             "name" => $data['blog']->name,
@@ -1558,7 +1559,9 @@
             "thumbnailUrl" => asset(config('global.blog_images_everywhere')($data['blog'])),
             "uploadDate" => \Carbon\Carbon::parse($data['blog']->created_at)->toIso8601String(),
             "contentUrl" => $data['blog']->link,
-            "embedUrl" => str_contains($data['blog']->link, 'youtube') ? $data['blog']->link : null,
+            "embedUrl" => $data['youtubeVideoId'] 
+                            ? "https://www.youtube.com/embed/" . $data['youtubeVideoId'] 
+                            : (str_contains($data['blog']->link, '.mp4') ? $data['blog']->link : null),
             "publisher" => [
                 "@type" => "Organization",
                 "name" => "NMF News",
@@ -1570,7 +1573,7 @@
                 ]
             ]
         ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
-                                                                                                                                        </script>
+        </script>
     @endif
 
     <script type="application/ld+json">
@@ -1599,35 +1602,6 @@
         ]
     }
     </script>
-
-
-    @php
-        $video = $data['blog'] ?? null;
-    @endphp
-    @if (!empty($video?->link))
-        <script type="application/ld+json">
-                                                                                                                                        {!! json_encode([
-            "@context" => "https://schema.org",
-            "@type" => "VideoObject",
-            "name" => $video->name,
-            "description" => Str::limit(strip_tags($video->sort_description ?? $video->description), 200),
-            "thumbnailUrl" => asset(config('global.blog_images_everywhere')($video)),
-            "uploadDate" => \Carbon\Carbon::parse($video->created_at)->toIso8601String(),
-            "contentUrl" => $video->link,
-            "embedUrl" => str_contains($video->link, 'youtube') ? $video->link : null,
-            "publisher" => [
-                "@type" => "Organization",
-                "name" => "NMF News",
-                "logo" => [
-                    "@type" => "ImageObject",
-                    "url" => "https://newsnmf.com/frontend/images/logo.png",
-                    "width" => 300,
-                    "height" => 60,
-                ]
-            ]
-        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
-                                                                                                                                    </script>
-    @endif
 </head>
 
 <body>
@@ -1981,17 +1955,19 @@
                 <!-- Media Content -->
                 <div class="article--media">
                     <div class="article--image-wrapper">
-                        @if ($data['blog']->link)
-                            @if (str_contains($data['blog']->link, 'youtube'))
-                                <amp-youtube data-videoid="{{ Str::afterLast($data['blog']->link, 'v=') }}"
-                                    layout="responsive" width="480" height="270">
-                                </amp-youtube>
-                            @else
-                                <amp-video width="480" height="270" layout="responsive" controls>
-                                    <source src="{{ $data['blog']->link }}" type="video/mp4">
-                                </amp-video>
-                            @endif
+
+                        @if ($data['youtubeVideoId'])
+                            {{-- This is the correct way --}}
+                            <amp-youtube data-videoid="{{ $data['youtubeVideoId'] }}" layout="responsive"
+                                width="480" height="270">
+                            </amp-youtube>
+                        @elseif (!empty($data['blog']->link))
+                            {{-- This handles non-youtube videos, like .mp4 files --}}
+                            <amp-video width="480" height="270" layout="responsive" controls>
+                                <source src="{{ $data['blog']->link }}" type="video/mp4">
+                            </amp-video>
                         @else
+                            {{-- This is the fallback image if there is no video --}}
                             @php
                                 $ff = config('global.blog_images_everywhere')($data['blog']);
                             @endphp
@@ -2007,7 +1983,6 @@
                         @endif
                     </div>
                 </div>
-
                 <!-- Follow Section -->
 
                 <div class="follow_us">

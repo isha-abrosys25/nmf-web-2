@@ -73,9 +73,26 @@ private function getBlogData($cat_name, $name)
         ];
     });
 }
+
+private function getYouTubeVideoId($url)
+{
+    if (empty($url)) {
+        return null;
+    }
+    
+    // Regex to match all common YouTube URL formats
+    $pattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/|u\/\w\/|watch\?.+&v=)?([\w\-]{11})(?:.+)?/';
+    
+    if (preg_match($pattern, $url, $matches)) {
+        return $matches[1]; // Returns the 11-character ID
+    }
+    
+    return null; // No match found
+}
+
 public function showStory($cat_name, $name)
 {
-        $agent = new Agent();
+    $agent = new Agent();
 
     // 🟣 If it's a mobile device, redirect to AMP page
     if ($agent->isMobile()) {
@@ -84,8 +101,13 @@ public function showStory($cat_name, $name)
             'name' => $name
         ]);
     }
+    
     $data = $this->getBlogData($cat_name, $name);
     if (!$data) return view('error');
+
+    // --- THIS IS THE NEW LINE ---
+    $data['youtubeVideoId'] = $this->getYouTubeVideoId($data['blog']->link ?? null);
+    // --- END NEW LINE ---
 
     $comments = $data['blog']->comments()
         ->withCount('likes')
@@ -93,35 +115,22 @@ public function showStory($cat_name, $name)
         ->paginate(10);
 
     return view('detail')->with('data', [
-        ...$data,
+        ...$data, // This now correctly includes 'youtubeVideoId'
         'comments' => $comments,
         'isLoggedIn' => Auth::guard('viewer')->check(),
         'currentViewer' => Auth::guard('viewer')->user(),
     ]);
 }
 
+
+
 public function showStoryAmp($cat_name, $name)
 {
-    $data = $this->getBlogData($cat_name, $name); // Re-type this line
+    // This is the line you marked "Re-type this line"
+    $data = $this->getBlogData($cat_name, $name); 
     if (!$data) return view('error');
 
-    // ---- START: YouTube Embed ID Extraction for AMP ----
-    // Initialize the key so it always exists
-    $data['youtubeVideoId'] = null; 
-
-    // Check if the blog has a link
-    if (!empty($data['blog']->link)) {
-        $url = $data['blog']->link;
-        
-        // Use regex to find the video ID from a youtube.com/embed/ URL
-        $pattern = '/(?:youtube\.com\/embed\/)([\w\-]+)/';
-        
-        if (preg_match($pattern, $url, $matches)) {
-            // $matches[1] will contain the extracted VIDEO_ID
-            $data['youtubeVideoId'] = $matches[1];
-        }
-    }
-    // ---- END: YouTube Embed ID Extraction for AMP ----
+    $data['youtubeVideoId'] = $this->getYouTubeVideoId($data['blog']->link ?? null);
 
     $comments = $data['blog']->comments()
         ->withCount('likes')
@@ -130,9 +139,8 @@ public function showStoryAmp($cat_name, $name)
 
     $agent = new Agent();
 
-    // Always show AMP if URL has /amp
     return view('detail-amp')->with('data', [
-        ...$data, // This now includes 'youtubeVideoId'
+        ...$data, // This now includes the *correct* 'youtubeVideoId'
         'comments' => $comments,
         'isLoggedIn' => Auth::guard('viewer')->check(),
         'currentViewer' => Auth::guard('viewer')->user(),

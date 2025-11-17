@@ -4,10 +4,20 @@
 
 <head>
     @php
-        // Get the main image for the live blog
+        // --- Logic for Schemas ---
         $imageUrl = config('global.blog_images_everywhere')($blogs);
         $customImageUrl = asset('asset/images/NMF_BreakingNews.png');
         $imageToUse = !empty($imageUrl) ? $imageUrl : $customImageUrl;
+
+        // YouTube ID Extractor Logic
+        $youtubeVideoId = null;
+        if (!empty($blogs->link)) {
+            $pattern =
+                '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/|u\/\w\/|watch\?.+&v=)?([\w\-]{11})(?:.+)?/';
+            if (preg_match($pattern, $blogs->link, $matches)) {
+                $youtubeVideoId = $matches[1];
+            }
+        }
     @endphp
     @php
         // Create the canonical URL by removing /amp
@@ -19,6 +29,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <link rel="canonical" href="{{ $canonicalUrl }}" />
 
+    {{-- All your amp-custom-element scripts... --}}
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
@@ -32,6 +43,90 @@
     <script async custom-element="amp-facebook" src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"></script>
     <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": {!! json_encode(Str::limit($blogs->name, 110)) !!},
+        "description": {!! json_encode(Str::limit(strip_tags($blogs->sort_description ?? $blogs->description), 200)) !!},
+        "image": [
+            "{{ $imageToUse }}"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": {!! json_encode($author->name ?? 'NMF News') !!}
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "NMF News",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ asset('/frontend/images/logo.png') }}"
+            }
+        },
+        "datePublished": "{{ $blogs->created_at->toIso8601String() }}",
+        "dateModified": "{{ $blogs->updated_at->toIso8601String() }}",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ url()->current() }}"
+        }
+    }
+    </script>
+
+    @if ($youtubeVideoId || str_contains($blogs->link ?? '', '.mp4'))
+        <script type="application/ld+json">
+        {!! json_encode([
+            "@context" => "https://schema.org",
+            "@type" => "VideoObject",
+            "name" => $blogs->name,
+            "description" => Str::limit(strip_tags($blogs->sort_description ?? $blogs->description), 200),
+            "thumbnailUrl" => $imageToUse,
+            "uploadDate" => \Carbon\Carbon::parse($blogs->created_at)->toIso8601String(),
+            "contentUrl" => $blogs->link,
+            "embedUrl" => $youtubeVideoId 
+                            ? "https://www.youtube.com/embed/" . $youtubeVideoId 
+                            : (str_contains($blogs->link, '.mp4') ? $blogs->link : null),
+            "publisher" => [
+                "@type" => "Organization",
+                "name" => "NMF News",
+                "logo" => [
+                    "@type" => "ImageObject",
+                    "url" => "https://newsnmf.com/frontend/images/logo.png",
+                    "width" => 300,
+                    "height" => 60,
+                ]
+            ]
+        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+        </script>
+    @endif
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{ url('/') }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{ $category->name }}",
+                "item": "{{ url($category->site_url) }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": {!! json_encode(strip_tags($blogs->name)) !!},
+                "item": "{{ url()->current() }}"
+            }
+        ]
+    }
+    </script>
     @yield('head')
     <style amp-custom>
         /* Base Reset */
@@ -1372,18 +1467,29 @@
         </div>
     </nav>
     <div class="article--container">
+        \
         <nav class="article-breadcrumb" aria-label="Breadcrumb">
             <ol class="breadcrumb-list">
                 <li class="breadcrumb-item">
-                    <a href="/" rel="home">Home</a>
+                    <a href="{{ url('/') }}" rel="home">Home</a>
                 </li>
                 <svg fill="#666" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="15"
                     height="15">
                     <path
                         d="M439.1 297.4C451.6 309.9 451.6 330.2 439.1 342.7L279.1 502.7C266.6 515.2 246.3 515.2 233.8 502.7C221.3 490.2 221.3 469.9 233.8 457.4L371.2 320L233.9 182.6C221.4 170.1 221.4 149.8 233.9 137.3C246.4 124.8 266.7 124.8 279.2 137.3L439.2 297.3z" />
                 </svg>
+
                 <li class="breadcrumb-item">
-                    <a href="{{ asset('/') }}">Live Blogs</a>
+                    <a href="{{ url($category->site_url) }}">{{ $category->name }}</a>
+                </li>
+                <svg fill="#666" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="15"
+                    height="15">
+                    <path
+                        d="M439.1 297.4C451.6 309.9 451.6 330.2 439.1 342.7L279.1 502.7C266.6 515.2 246.3 515.2 233.8 502.7C221.3 490.2 221.3 469.9 233.8 457.4L371.2 320L233.9 182.6C221.4 170.1 221.4 149.8 233.9 137.3C246.4 124.8 266.7 124.8 279.2 137.3L439.2 297.3z" />
+                </svg>
+
+                <li class="breadcrumb-item">
+                    <span>{{ strip_tags($blogs->name) }}</span>
                 </li>
             </ol>
         </nav>
@@ -1477,11 +1583,26 @@
 
                 <div class="article--media">
                     <div class="article--image-wrapper">
-                        @if ($imageUrl)
-                            <amp-img src="{{ $imageUrl }}" alt="{{ $blogs->name }}" layout="responsive"
-                                width="800" height="450">
-                            </amp-img>
+
+                        @if ($youtubeVideoId)
+                            {{-- This is the logic for YouTube --}}
+                            <amp-youtube data-videoid="{{ $youtubeVideoId }}" layout="responsive" width="480"
+                                height="270">
+                            </amp-youtube>
+                        @elseif (!empty($blogs->link) && str_contains($blogs->link, '.mp4'))
+                            {{-- This handles non-youtube .mp4 files --}}
+                            <amp-video width="480" height="270" layout="responsive" controls>
+                                <source src="{{ $blogs->link }}" type="video/mp4">
+                            </amp-video>
+                        @else
+                            {{-- This is the fallback image --}}
+                            @if ($imageUrl)
+                                <amp-img src="{{ $imageUrl }}" alt="{{ $blogs->name }}" layout="responsive"
+                                    width="800" height="450">
+                                </amp-img>
+                            @endif
                         @endif
+
                     </div>
                 </div>
 

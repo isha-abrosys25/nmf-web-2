@@ -1,5 +1,80 @@
 @extends('layouts.app')
 @section('content')
+
+@section('content')
+    @php
+        // --- Logic for Schemas ---
+        $blogImage = config('global.blog_images_everywhere')($blogs ?? null);
+        $customImageUrl = config('global.base_url_asset') . 'asset/images/NMF_BreakingNews.png';
+        $imageToUse = !empty($blogImage) ? $blogImage : $customImageUrl;
+
+        // YouTube ID Extractor Logic
+        $youtubeVideoId = null;
+        if (!empty($blogs->link)) {
+            $pattern =
+                '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/|u\/\w\/|watch\?.+&v=)?([\w\-]{11})(?:.+)?/';
+            if (preg_match($pattern, $blogs->link, $matches)) {
+                $youtubeVideoId = $matches[1];
+            }
+        }
+    @endphp
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": {!! json_encode(Str::limit($blogs->name, 110)) !!},
+        "description": {!! json_encode(Str::limit(strip_tags($blogs->sort_description ?? $blogs->description), 200)) !!},
+        "image": [
+            "{{ $imageToUse }}"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": {!! json_encode($author->name ?? 'NMF News') !!}
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "NMF News",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ config('global.base_url_frontend') }}frontend/images/logo.png"
+            }
+        },
+        "datePublished": "{{ $blogs->created_at->toIso8601String() }}",
+        "dateModified": "{{ $blogs->updated_at->toIso8601String() }}",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ url()->current() }}"
+        }
+    }
+    </script>
+
+    @if ($youtubeVideoId || str_contains($blogs->link ?? '', '.mp4'))
+        <script type="application/ld+json">
+        {!! json_encode([
+            "@context" => "https://schema.org",
+            "@type" => "VideoObject",
+            "name" => $blogs->name,
+            "description" => Str::limit(strip_tags($blogs->sort_description ?? $blogs->description), 200),
+            "thumbnailUrl" => $imageToUse,
+            "uploadDate" => \Carbon\Carbon::parse($blogs->created_at)->toIso8601String(),
+            "contentUrl" => $blogs->link,
+            "embedUrl" => $youtubeVideoId 
+                            ? "https://www.youtube.com/embed/" . $youtubeVideoId 
+                            : (str_contains($blogs->link, '.mp4') ? $blogs->link : null),
+            "publisher" => [
+                "@type" => "Organization",
+                "name" => "NMF News",
+                "logo" => [
+                    "@type" => "ImageObject",
+                    "url" => config('global.base_url_frontend') . "frontend/images/logo.png",
+                    "width" => 300,
+                    "height" => 60,
+                ]
+            ]
+        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+        </script>
+    @endif
     <style>
         .breadcrumb {
             background: rgba(0, 0, 0, .03);
@@ -19,21 +94,40 @@
             <div id="primary" class="content-area" style="transform: none;">
                 <main id="main" class="site-main" style="transform: none;">
                     <div class="cm_archive_page" style="transform: none;">
+                        {{-- Correct 3-level breadcrumb --}}
                         <div class="breadcrumb  default-breadcrumb" style="display: block;">
                             <nav role="navigation" aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs"
                                 itemprop="breadcrumb">
                                 <ul class="trail-items" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                                     <meta name="numberOfItems" content="3">
                                     <meta name="itemListOrder" content="Ascending">
+
                                     <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
-                                        class="trail-item trail-begin"><a href="/" rel="home"
-                                            itemprop="item"><span itemprop="name">Home</span></a>
+                                        class="trail-item trail-begin">
+                                        <a href="{{ url('/') }}" rel="home" itemprop="item">
+                                            <span itemprop="name">Home</span>
+                                        </a>
                                         <meta itemprop="position" content="1">
                                     </li>
+
                                     <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
-                                        class="trail-item"><a href="{{ asset('/') }}" itemprop="item"><span
-                                                itemprop="name">Live Blogs</span></a>
+                                        class="trail-item">
+                                        <a href="{{ url($category->site_url) }}" itemprop="item">
+                                            <span itemprop="name">{{ $category->name }}</span>
+                                        </a>
                                         <meta itemprop="position" content="2">
+                                    </li>
+
+                                    {{-- The current page (article) is not a link --}}
+                                    {{-- This is the FIXED code --}}
+                                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
+                                        class="trail-item trail-end">
+                                        <span itemprop="item" itemscope itemtype="http://schema.org/WebPage">
+                                            <meta itemprop="url" content="{{ url()->current() }}" />
+                                            <span itemprop="name">{{ strip_tags($blogs->name) }}</span>
+                                        </span>
+
+                                        <meta itemprop="position" content="3">
                                     </li>
                                 </ul>
                             </nav>
@@ -89,7 +183,9 @@
                                                 <div class="news-feed-wrapper">
                                                     @foreach ($liveBlogs as $liveBlog)
                                                         @php
-                                                            $get_liveBlogs_author = App\Models\User::find($liveBlog->author);
+                                                            $get_liveBlogs_author = App\Models\User::find(
+                                                                $liveBlog->author,
+                                                            );
                                                         @endphp
                                                         <div class="news-card">
                                                             <div class="news-time">
