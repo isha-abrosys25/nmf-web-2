@@ -1607,6 +1607,7 @@ template {
         display: inline-flex !important;
     }
 }
+
 /* NL1061: 13.10.2025 : removed */
 .flex-row {
     -webkit-box-orient: horizontal !important;
@@ -2296,6 +2297,7 @@ body.boxed .page-wrapper .cm-container {
     margin-top: 10px;
     margin-bottom: 12px;
 }
+
 /* NL1061: 13.10.2025 : removed */
 .brk-news-wrap {
     display: flex;
@@ -4517,6 +4519,7 @@ ul.topsocial-icons li {
     border: 1px solid #c5c5c5;
     overflow: hidden;
 }
+
 /* NL1061: 13.10.2025 : removed */
 .just_in_main {
     overflow: hidden;
@@ -6990,6 +6993,7 @@ swiper-slide img {
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
 }
+
 /* NL1061: 13.10.2025 : added */
 .custom_left {
     width: 33.3333333333%;
@@ -7018,6 +7022,7 @@ swiper-slide img {
     padding: 0 17px;
     gap: 20px;
 }
+
 /* NL1061: 13.10.2025 : added */
 .side_widgets .card_small .card_small_top {
     width: 200px;
@@ -7656,6 +7661,7 @@ swiper-slide img {
     font-size: 32px;
     line-height: 37px;
 }
+
 .election-section-live {
     margin-bottom: 15px;
 }
@@ -7757,10 +7763,12 @@ swiper-slide img {
     transition: .3s all ease-in-out;
     /* animation: pops-up 2s ease-in-out; */
 }
+
 .ext-table {
     width: 210px;
     margin: 0 auto;
 }
+
 .live-party-table tbody tr:hover {
     transform: scale(1.02);
 }
@@ -7861,9 +7869,11 @@ swiper-slide img {
 .status-box.lead {
     color: #00cc00;
 }
+
 .status-box.win {
     color: #00a300;
 }
+
 .status-box.trail {
     color: #d75c01;
 }
@@ -8333,7 +8343,8 @@ swiper-slide img {
     align-items: center;
     z-index: 1;
 }
-.live-win-mark h5{
+
+.live-win-mark h5 {
     margin-bottom: -2px;
 }
 
@@ -9046,6 +9057,7 @@ li.item.new a span::before {
     -o-animation: blinks 1s infinite;
     animation: blinks 1s infinite;
 }
+
 @keyframes blinks {
 
     0%,
@@ -9060,10 +9072,12 @@ li.item.new a span::before {
         color: #000;
     }
 }
-.mobile-new{
+
+.mobile-new {
     position: relative;
     color: #000;
 }
+
 .mobile-new::before {
     content: 'New';
     position: absolute;
@@ -9083,6 +9097,7 @@ li.item.new a span::before {
     -o-animation: blinks2 1s infinite;
     animation: blinks2 1s infinite;
 }
+
 @keyframes blinks2 {
 
     0%,
@@ -9096,6 +9111,7 @@ li.item.new a span::before {
         color: red;
     }
 }
+
 /* NL1061: 13.10.2025 : added */
 /* .at_content table tr:nth-child(odd) {
     background-color: yellow;
@@ -10456,11 +10472,12 @@ li.item.new a span::before {
 }
 
 .texts {
-    margin-left: 1rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     line-height: 1;
+    margin: 0 auto;
+    padding: 8px 0;
 }
 
 .text-1 {
@@ -10471,7 +10488,7 @@ li.item.new a span::before {
 
 .text-2 {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .footer-site-info {
@@ -10727,9 +10744,11 @@ footer p {
         padding: 1px 4px 1px 13px;
         width: 82px;
     }
+
     .live-chart-container {
-    scale: 0.92;
+        scale: 0.92;
     }
+
     .live-result-box .title {
         font-size: 17px;
     }
@@ -10762,8 +10781,9 @@ footer p {
     }
 
     .mh-inner {
-    width: 356px;
+        width: 356px;
     }
+
     .mh-title1 {
         font-size: 2.8rem;
     }
@@ -11334,6 +11354,7 @@ footer p {
         width: 100%;
     }
 }
+
 @media (min-width: 768px) and (max-width: 991px) {
     .navmenu>li:nth-child(n+11) {
         display: none;
@@ -11354,8 +11375,14 @@ footer p {
 
 
 @media (max-width: 600px) {
+    h1.title_video {
+        font-size: 22px !important;
+        line-height: 28px !important;
+        margin-bottom: 5px;
+    }
+
     /* ----------------- topstory */
-      .news--grid {
+    .news--grid {
         grid-template-columns: repeat(1, 1fr);
     }
 
@@ -11379,9 +11406,12 @@ footer p {
     .swiper-tags-button-next {
         right: 1px;
     }
-    .gradient-left, .gradient-right {
-    width: 10px;
+
+    .gradient-left,
+    .gradient-right {
+        width: 10px;
     }
+
     /* ----------------------------- */
     /* Election live vote count */
     /* ----------------------------- */
@@ -11437,19 +11467,24 @@ footer p {
         margin-top: -20px;
         scale: 1;
     }
+
     .live-total-seats {
         bottom: 56px;
     }
+
     .live-win-mark {
         top: 23px;
     }
+
     .live-win-t {
         border-bottom: 21px solid #ff0000;
     }
+
     .live-party-table tbody tr td:first-child {
         padding-top: 1px;
         padding-bottom: 1px;
     }
+
     /* ----------------------------- */
     /* Maha mukabla */
     /* ----------------------------- */
@@ -11497,7 +11532,7 @@ footer p {
     .mh-left {
         height: 273px;
         margin-top: 0;
-		background-image: linear-gradient(#fff, #fff), linear-gradient(180deg, #CCB296, #f0ecd342);
+        background-image: linear-gradient(#fff, #fff), linear-gradient(180deg, #CCB296, #f0ecd342);
     }
 
     .mh-right {
@@ -11621,8 +11656,9 @@ footer p {
 
     .news-tabs .newstab_title {
         padding-left: 10px;
-        border-radius: 3px;
-        border-left: 3px solid red;
+        border-left: 4px solid red;
+        border-radius: 4px;
+        line-height: 26px;
     }
 
     .news-tabs {
@@ -11894,7 +11930,8 @@ footer p {
     .banner-area {
         padding-inline: 15px;
     }
-/* NL1061: 13.10.2025 : added */
+
+    /* NL1061: 13.10.2025 : added */
     .spl-banner-link {
         img {
             height: 51px;
@@ -12064,10 +12101,12 @@ footer p {
     .swiper-tags-container {
         height: 35px;
     }
+
     .swiper-tags-button-prev,
     .swiper-tags-button-next {
         display: none !important;
     }
+
     .--ct_img {
         display: inline-block;
         overflow: hidden;
@@ -12090,10 +12129,12 @@ footer p {
         padding-bottom: 10px;
         margin-bottom: 12px;
     }
+
     .news_lft2 .thumb_card {
-    background: #f5f5f5;
-    padding: 8px;
+        background: #f5f5f5;
+        padding: 8px;
     }
+
     /* ============================================ */
     /* Breaking news */
     /* ============================================ */
@@ -12504,9 +12545,10 @@ footer p {
     .custom-poll-row {
         padding-top: 5px;
     }
-/* NL1061: 13.10.2025 : added */
+
+    /* NL1061: 13.10.2025 : added */
     .card_small {
-		padding-left: 15px;
+        padding-left: 15px;
         padding-right: 15px;
         margin-bottom: 8px;
     }
@@ -12625,7 +12667,8 @@ footer p {
         border-left: none;
         padding-left: 0;
     }
-/* NL1061: 13.10.2025 : added */
+
+    /* NL1061: 13.10.2025 : added */
     /* bottom nav */
     .btm-nav {
         position: fixed;
@@ -13015,6 +13058,7 @@ footer p {
         }
     }
 }
+
 /* NL1061: 13.10.2025 : added */
 @media (max-width: 575px) {
     .news_ticker_wrap .ticker_head .ticker_title {
@@ -13040,8 +13084,10 @@ footer p {
         height: 254px;
     }
 }
+
 @media (max-width: 375px) {
-/* NL1050: 13.10.2025 : added */
+
+    /* NL1050: 13.10.2025 : added */
     /* election */
     .mh-title3 {
         font-size: 1.81rem;
@@ -13063,6 +13109,7 @@ footer p {
     .mh-title4 {
         font-size: 1.85rem;
     }
+
     .leader-box {
         height: 265px;
     }
@@ -13074,7 +13121,8 @@ footer p {
     .mh-title3 {
         font-size: 1.81rem;
     }
-/* NL1061: 13.10.2025 : added */
+
+    /* NL1061: 13.10.2025 : added */
     .mh-left {
         height: 241px;
     }
@@ -13082,6 +13130,7 @@ footer p {
     .election-wrap {
         min-height: 335px;
     }
+
     .el-left-m {
         width: 55%;
     }
@@ -13113,12 +13162,15 @@ footer p {
         right: 1%;
         left: auto;
     }
+
     .result-box .count {
         font-size: 18px;
     }
+
     .result-section {
         gap: 3px;
     }
+
     .win-mark {
         top: 19px;
     }
