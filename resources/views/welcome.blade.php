@@ -258,35 +258,29 @@
    
 
 
-<div id="appDownloadModal">
-  <div class="app-download-modal">
-    <img class="modal-img" src="{{config('global.base_url_asset')}}asset/images/modal.webp" alt="app-image">
-    <button class="modal-close-button" onclick="closeModal()">×</button>
-    <h2>Download Our App</h2>
-    <p>Get the best experience by downloading our mobile app!</p>
-   <div class="app_btn_wrap justify-content-center">
-                            <a href="https://play.google.com/store/apps/details?id=com.kmcliv.nmfnews" class="playstore-button">
-                                <svg viewBox="0 0 512 512" class="_icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M99.617 8.057a50.191 50.191 0 00-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0027.31-8.07l266.965-149.372-74.849-74.847z">
-                                    </path>
-                                </svg>
-                                <span class="texts">
-                                    <span class="text-1">GET IT ON</span>
-                                    <span class="text-2">Google Play</span>
-                                </span>
-                            </a>
-                            <a href="https://apps.apple.com/us/app/nmf-news/id6745018964" class="playstore-button">
-                                <svg viewBox="0 0 512 512" class="_icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="margin-right: -7px;">
-                                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path>
-                                </svg>
-                                <span class="texts">
-                                    <span class="text-1">GET IT ON</span>
-                                    <span class="text-2">App Store</span>
-                                </span>
-                            </a>
-                        </div>
-  </div>
-</div>
+    <div id="appDownloadModal">
+        <div class="app-download-modal">
+            <img class="modal-img" src="{{ config('global.base_url_asset') }}asset/images/modal.webp" alt="app-image">
+            <button class="modal-close-button" onclick="closeModal()">×</button>
+            <h2>Download Our App</h2>
+            <p>Get the best experience by downloading our mobile app!</p>
+            <div class="app_btn_wrap justify-content-center">
+                <a href="https://www.newsnmf.com/nmfapps/" class="playstore-button">
+                    <svg viewBox="0 0 512 512" class="_icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                        style="margin-right: -7px;">
+                        <path
+                            d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z">
+                        </path>
+                    </svg>
+                    <span class="texts">
+                        <span class="text-2">
+                            Download the App
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="news-panel">
         <div class="cm-container">
             @if (!empty($sectionCategories[1]))

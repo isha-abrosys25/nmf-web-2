@@ -221,9 +221,12 @@ border-radius: 8px;
     }
     .custom_ct {
         h2 {
-            padding-left: 18px;
+            padding-left: 10px;
+            margin-bottom: 10px;
             font-size: 20px;
-        }
+            border-radius: 4px;
+            color: #333;
+        }   
     }
     .at_main {
         padding: 0px;

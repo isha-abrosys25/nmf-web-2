@@ -51,24 +51,21 @@
                                                 @endphp
                                                 <div class="at_main">
                                                     <!-- Big Swiper for FIRST blog only -->
-													<h1 class="rt_main">{{ $firstBlog->title }}</h1>
+                                                    <h1 class="rt_main title_video">{{ $firstBlog->title }}</h1>
                                                     <div>
                                                         <div class="">
                                                             @if ($firstBlog)
-                                                               
-                                                                <div class="swiper-slide custom_slide">
-                                                                    <video class="attachment-full size-full wp-post-image" 
-                                                                        src="{{ config('global.base_url_videos') . $firstBlog->video_path }}" 
-                                                                        controls playsinline>
-                                                                        Your browser does not support the video tag.
-                                                                    </video>
-                                                                </div>
+                                                                <video class="attachment-full size-full wp-post-image"
+                                                                    src="{{ config('global.base_url_videos') . $firstBlog->video_path }}"
+                                                                    controls playsinline>
+                                                                    Your browser does not support the video tag.
+                                                                </video>
                                                                 <div>
-                                                                 
+
                                                                 </div>
-																<p class="rt_sub2">
-                                                                        {!! $firstBlog->description !!}
-                                                                    </p>
+                                                                <p class="rt_sub2">
+                                                                    {!! $firstBlog->description !!}
+                                                                </p>
                                                             @endif
                                                         </div>
 
@@ -92,8 +89,8 @@
                                                                         <div class="play-btn"> <i
                                                                                 class="fa-solid fa-play"></i></div>
                                                                         <p class="v-duration2">
-                                                                                    {{ $video->duration ?? '00:00' }}
-                                                                                </p>
+                                                                            {{ $video->duration ?? '00:00' }}
+                                                                        </p>
                                                                     </div>
 
                                                                 </div>
@@ -112,8 +109,9 @@
 
                                                     <div class="sub">
                                                         <div class="news-tabs nwstb">
-                                               <a class="newstab_title"
-                                                href="{{ url('nmfvideos/' . $group['category']->site_url) }}">{{ $group['category']->name === 'विधानसभा चुनाव' ? 'बिहार चुनाव' : $group['category']->name }} </a>
+                                                            <a class="newstab_title"
+                                                                href="{{ url('nmfvideos/' . $group['category']->site_url) }}">{{ $group['category']->name === 'विधानसभा चुनाव' ? 'बिहार चुनाव' : $group['category']->name }}
+                                                            </a>
                                                             <a
                                                                 href="{{ url('nmfvideos/' . $group['category']->site_url) }}">अधिक<i
                                                                     class="fa-solid fa-arrow-right"></i></a>

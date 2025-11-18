@@ -1094,6 +1094,7 @@
 
         .just_in {
             padding: 1px 14px 0;
+            height: 287px;
             border-radius: 10px;
             background: #fff;
             border: 1px solid #c5c5c5;
