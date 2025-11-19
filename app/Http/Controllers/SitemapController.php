@@ -6,14 +6,24 @@ use App\Models\Category;
 use App\Models\State;
 use App\Models\Blog;
 use App\Models\WebStories;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use App\Models\Video;
 use App\Models\Clip;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB; 
 
 class SitemapController extends Controller
 {
+    // -------------------------------------------------------------------------
+    // STRICT QUALITY SETTINGS
+    // -------------------------------------------------------------------------
+    // Minimum characters in the article body to be considered "valuable"
+    private $minCharCount = 400; 
+    
+    // Minimum characters in title (avoids "Hi", "Test", "Update")
+    private $minTitleLength = 15; 
+
     public function index()
     {
         $urls = [
@@ -28,10 +38,9 @@ class SitemapController extends Controller
         $categories = Category::where('home_page_status', '1')->get();
         foreach ($categories as $category) {
             $urls[] = [
-               'loc' => url('/' . $category->site_url),
-               'priority' => '0.8',
+                'loc' => url('/' . $category->site_url),
+                'priority' => '0.8',
             ];
-           
         }
 
         // States
@@ -42,117 +51,143 @@ class SitemapController extends Controller
                 'priority' => '0.8',
             ];
         }
-      
 
         return response()->view('sitemap', compact('urls'))
-                        ->header('Content-Type', 'application/xml');
+            ->header('Content-Type', 'application/xml');
     }
 
     public function newsSitemap()
     {
-       $blogs = Blog::where('status', 1)
-    ->where('created_at', '>=', now()->subDays(100))
-    ->whereHas('category') // ensure only blogs with category
-    ->with('category')
-    ->orderBy('created_at', 'desc')
-    ->take(100)
-    ->get();
+        // GOOGLE NEWS: Last 48 hours is standard.
+        
+        $blogs = Blog::where('status', 1)
+            ->where('created_at', '>=', now()->subDays(100))
+            ->where('created_at', '<=', now()) 
+            
+            // *** FIX: Changed 'details' to 'description' ***
+            // If your column is named 'body' or 'content', change it here!
+            ->whereRaw('CHAR_LENGTH(description) >= ?', [$this->minCharCount])
+            
+            // STRICT FILTER 2: Title Length
+            ->whereRaw('CHAR_LENGTH(name) >= ?', [$this->minTitleLength])
+            
+            // STRICT FILTER 3: Exclude "Test" or "Demo" titles
+            ->where('name', 'NOT LIKE', '%test%')
+            ->where('name', 'NOT LIKE', '%demo%')
+
+            ->whereHas('category')
+            ->with('category')
+            ->orderBy('created_at', 'desc')
+            ->take(100)
+            ->get();
 
         return response()->view('news-sitemap', compact('blogs'))
-                         ->header('Content-Type', 'application/xml');
+            ->header('Content-Type', 'application/xml');
     }
+
     public function webstoriesSitemap()
     {
-       $urls = [];
+        $urls = [];
 
-    $webStories = WebStories::where('status', 1)
-     ->with('category')
-     ->orderBy('created_at', 'desc') 
-     ->get();
+        $webStories = WebStories::where('status', 1)
+            ->whereHas('category')
+            ->with('category')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-    foreach ($webStories as $story) {
-        if (!$story->category) continue;
+        foreach ($webStories as $story) {
+            if (!$story->category) continue;
 
-        $urls[] = [
-            'loc' => url('/web-stories/' . $story->category->site_url . '/' . $story->siteurl),
-            'lastmod' => $story->updated_at,
-            'priority' => '0.5',
-        ];
+            $urls[] = [
+                'loc' => url('/web-stories/' . $story->category->site_url . '/' . $story->siteurl),
+                'lastmod' => $story->updated_at,
+                'priority' => '0.5',
+            ];
+        }
+
+        return response()->view('webstories-sitemap', compact('urls'))
+            ->header('Content-Type', 'application/xml');
     }
 
-    return response()->view('webstories-sitemap', compact('urls'))
-                     ->header('Content-Type', 'application/xml');    
-     }
-  public function sitemapIndex()
+    public function sitemapIndex()
     {
         $sitemaps = [];
 
-        for ($i = 0; $i < 100; $i++) {
-            $date = now()->subDays($i)->format('Y-m-d');
+        // OPTIMIZATION: Replaced 100 queries with 1.
+        $dates = Blog::select(DB::raw('DATE(created_at) as date'))
+            ->where('status', 1)
+            ->where('created_at', '>=', now()->subDays(100))
+            
+            // *** FIX: Changed 'details' to 'description' ***
+            ->whereRaw('CHAR_LENGTH(description) >= ?', [$this->minCharCount]) 
+            
+            ->whereHas('category')
+            ->groupBy('date')
+            ->orderBy('date', 'desc')
+            ->pluck('date');
 
-            $hasArticles = Blog::whereDate('created_at', $date)
-                ->where('status', 1)
-                ->whereHas('category') // <-- ensures blog has a category
-                ->exists();
-
-            if ($hasArticles) {
-                $sitemaps[] = [
-                    'loc' => url("sitemap/generic-articles-$date.xml"),
-                ];
-            }
+        foreach ($dates as $date) {
+            $formattedDate = Carbon::parse($date)->format('Y-m-d');
+            $sitemaps[] = [
+                'loc' => url("sitemap/generic-articles-$formattedDate.xml"),
+            ];
         }
 
         return response()->view('articles-sitemap', compact('sitemaps'))
-                        ->header('Content-Type', 'application/xml');
+            ->header('Content-Type', 'application/xml');
     }
-
 
     public function dailySitemap($date)
     {
         try {
-            $parsedDate = \Carbon\Carbon::parse($date)->toDateString();
+            $parsedDate = Carbon::parse($date)->toDateString();
         } catch (\Exception $e) {
             abort(404, 'Invalid date format');
         }
 
-        // Fetch full blog records with categories
-        $blogs = \App\Models\Blog::whereDate('created_at', $parsedDate)
+        $blogs = Blog::whereDate('created_at', $parsedDate)
             ->where('status', 1)
+            
+            // *** FIX: Changed 'details' to 'description' ***
+            ->whereRaw('CHAR_LENGTH(description) >= ?', [$this->minCharCount])
+            
+            ->whereRaw('CHAR_LENGTH(name) >= ?', [$this->minTitleLength])
+            ->where('name', 'NOT LIKE', '%test%')
             ->whereHas('category')
             ->with('category')
             ->get();
 
         return response()->view('news-sitemap', compact('blogs'))
-                        ->header('Content-Type', 'application/xml');
+            ->header('Content-Type', 'application/xml');
     }
-public function videoSitemap()
+
+    public function videoSitemap()
     {
         $urls = [];
 
         $videos = Video::where('is_active', 1)
+            ->whereHas('category')
             ->with('category')
             ->orderBy('created_at', 'desc')
             ->take(100)
             ->get();
 
         foreach ($videos as $video) {
-
             if (!$video->category) continue;
 
-            // Convert "12:42" or "1:05:30" to total seconds
             $durationInSeconds = $this->parseDurationToSeconds($video->duration);
+            
+            $cleanDesc = strip_tags($video->description);
+            if(empty($cleanDesc)) $cleanDesc = $video->title;
 
             $urls[] = [
-                // --- THIS LINE IS NOW FIXED ---
                 'loc' => url('/videos/' . $video->category->site_url . '/' . $video->site_url),
                 'lastmod' => $video->updated_at,
-
-                // VIDEO FIELDS
                 'thumbnail' => url($video->thumbnail_path),
                 'title' => $video->title,
-                'description' => strip_tags($video->description),
+                'description' => $cleanDesc,
                 'content' => url($video->video_path),
-                'duration' => $durationInSeconds, // Use the new converted value
+                'duration' => $durationInSeconds,
                 'publication_date' => ($video->published_at ?? $video->created_at)->toAtomString(),
                 'category' => $video->category->name,
                 'uploader' => 'newsnmf.com',
@@ -164,68 +199,84 @@ public function videoSitemap()
             ->header('Content-Type', 'application/xml');
     }
 
-public function reelVideoSitemap()
+    public function reelVideoSitemap()
     {
         $urls = [];
 
         $clips = Clip::where('status', 1)
+            ->whereHas('category')
             ->with('category')
             ->orderBy('created_at', 'desc')
             ->take(100)
             ->get();
 
-        // --- THIS IS THE EXACT PATH TO REMOVE ---
-        $path_to_remove = "/var/www/html/newsnmf.com/public";
-
         foreach ($clips as $clip) {
-
             if (!$clip->category) continue;
 
-            // 1. Fixes the DURATION
-            $durationInSeconds = $this->parseDurationToSeconds($clip->duration); 
+            $durationInSeconds = $this->parseDurationToSeconds($clip->duration);
 
-            // 2. Fix the THUMBNAIL URL
-            // $clip->thumb_image is "http://nmf.test/var/www/.../image.jpg"
-            $correct_thumb_url = str_replace($path_to_remove, '', $clip->thumb_image);
-            // $correct_thumb_url is now "http://nmf.test/image.jpg"
-            
-            // 3. Fix the VIDEO URL
-            // A) Combine the path and filename
-            $broken_video_url = rtrim($clip->video_path, '/') . '/' . $clip->clip_file_name;
-            // $broken_video_url is "http://nmf.test/var/www/.../video.mp4"
-            
-            // B) Remove the server path
-            $correct_video_url = str_replace($path_to_remove, '', $broken_video_url);
-            // $correct_video_url is now "http://nmf.test/file/shortvideos/.../video.mp4"
+            // 1. Get the raw paths from DB
+            // Example DB Value: /var/www/html/newsnmf.com/public/file/shortvideos/clip.mp4
+            $rawVideoPath = rtrim($clip->video_path, '/') . '/' . $clip->clip_file_name;
+            $rawThumbPath = $clip->thumb_image;
+
+            // 2. CLEAN THE PATHS
+            // This splits the string at "/public/" and takes the part AFTER it.
+            // Input: /var/www/html/newsnmf.com/public/file/shortvideos...
+            // Output: file/shortvideos...
+            $cleanVideoPath = $this->stripServerPath($rawVideoPath);
+            $cleanThumbPath = $this->stripServerPath($rawThumbPath);
+
+            // 3. Generate Correct URLs
+            // url() adds http://domain.com + / + clean path
+            $finalVideoUrl = url($cleanVideoPath);
+            $finalThumbUrl = url($cleanThumbPath);
+
+            $cleanDesc = strip_tags($clip->description);
+            if(empty($cleanDesc)) $cleanDesc = $clip->title;
 
             $urls[] = [
-                'loc'         => url('/reels/' . $clip->category->site_url . '/' . $clip->site_url),
-                'lastmod'     => $clip->updated_at,
-                
-                // VIDEO FIELDS
-                'thumbnail'   => $correct_thumb_url, // Use the fixed URL
-                'title'       => $clip->title,
-                'description' => strip_tags($clip->description),
-                'content'     => $correct_video_url, // Use the fixed URL
-                'duration'    => $durationInSeconds,
+                'loc' => url('/reels/' . $clip->category->site_url . '/' . $clip->site_url),
+                'lastmod' => $clip->updated_at,
+                'thumbnail' => $finalThumbUrl, // FIXED
+                'title' => $clip->title,
+                'description' => $cleanDesc,
+                'content' => $finalVideoUrl, // FIXED
+                'duration' => $durationInSeconds,
                 'publication_date' => $clip->created_at->toAtomString(),
-                'category'    => $clip->category->name,
-                'uploader'    => "newsnmf.com"
+                'category' => $clip->category->name,
+                'uploader' => "newsnmf.com"
             ];
         }
 
-        // Make sure you are using the correct "video-sitemap" blade file
         return response()
             ->view('video-sitemap', compact('urls'))
             ->header('Content-Type', 'application/xml');
     }
+
     /**
-     * HELPER FUNCTION
-     * Parses a duration string (e.g., "MM:SS" or "HH:MM:SS") into total seconds.
-     *
-     * @param string|null $duration
-     * @return int|null
+     * Removes everything before and including "/public/" from a path.
      */
+    private function stripServerPath($fullPath)
+    {
+        if (empty($fullPath)) return '';
+
+        // Normalize slashes (just in case windows/linux mix)
+        $fullPath = str_replace('\\', '/', $fullPath);
+
+        // Check if path contains '/public/'
+        if (strpos($fullPath, '/public/') !== false) {
+            $parts = explode('/public/', $fullPath, 2);
+            return ltrim($parts[1], '/'); // Return the part AFTER public
+        }
+
+        // Fallback: Try standard public_path removal if '/public/' isn't found explicitly
+        $sysPath = str_replace('\\', '/', public_path());
+        $relativePath = str_replace($sysPath, '', $fullPath);
+        
+        return ltrim($relativePath, '/');
+    }
+
     private function parseDurationToSeconds($duration)
     {
         if (empty($duration) || !is_string($duration)) {
@@ -236,24 +287,17 @@ public function reelVideoSitemap()
         $seconds = 0;
 
         try {
-            if (count($parts) === 3) { // HH:MM:SS
+            if (count($parts) === 3) {
                 $seconds = ((int)$parts[0] * 3600) + ((int)$parts[1] * 60) + (int)$parts[2];
-            } elseif (count($parts) === 2) { // MM:SS
+            } elseif (count($parts) === 2) {
                 $seconds = ((int)$parts[0] * 60) + (int)$parts[1];
-            } elseif (count($parts) === 1 && is_numeric($parts[0])) { // Already in seconds (SS)
+            } elseif (count($parts) === 1 && is_numeric($parts[0])) {
                 $seconds = (int)$parts[0];
-            } else {
-                return null; // Invalid or unhandled format
             }
         } catch (\Exception $e) {
-            // In case $parts[n] is not a valid number, etc.
             return null;
         }
         
         return $seconds > 0 ? $seconds : null;
     }
-
-
-
-
- }
+}
