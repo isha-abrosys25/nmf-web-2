@@ -9,12 +9,13 @@ use App\Models\Video;
 use App\Models\Ads;
 use App\Models\Blog;
 use App\Models\State;
-
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File as FileFacade;
 use getID3;
+use Jenssegers\Agent\Agent;
 
 class VideoController extends Controller
 {
@@ -48,6 +49,15 @@ class VideoController extends Controller
 
     public function showVideo($cat_name, $name)
     {
+         $agent = new Agent();
+
+        // Mobile → Redirect to AMP
+        if ($agent->isMobile()) {
+            return redirect()->route('showVideoAmp', [
+                'cat_name' => $cat_name,
+                'name' => $name
+            ]);
+        }
         $user = Auth::user();
 
         $video = Video::with(['category', 'author'])->where('site_url', $name)->first();
@@ -97,6 +107,77 @@ class VideoController extends Controller
             'detailsAds',
             'sideWidgets'
         ));
+    }
+    public function showVideoAmp($cat_name, $name)
+    {
+        // Fetch the video
+        $video = Video::with(['category', 'author'])->where('site_url', $name)->first();
+
+        // Validate video + category
+        if (!$video || !$video->category || $video->category->site_url !== $cat_name) {
+            return abort(404);
+        }
+
+        // ---- Extract YouTube Video ID (AMP Safe) ----
+        $youtubeVideoId = null;
+
+        if (!empty($video->link)) {
+            $pattern = '/(?:youtube\.com\/embed\/|youtu\.be\/|v=)([\w\-]+)/';
+
+            if (preg_match($pattern, $video->link, $matches)) {
+                $youtubeVideoId = $matches[1];
+            }
+        }
+
+        // Load ads for details page
+        $detailsAds = Ads::where('page_type', 'details')->get()->keyBy('location');
+
+        // Latest videos (for sidebar)
+        $latests = Video::with('category')
+            ->where('is_active', 1)
+            ->latest()
+            ->limit(6)
+            ->get();
+
+        // SIDE WIDGETS (same logic as normal)
+        $widgetCategoryNames = ['ट्रेंडिंग न्यूज़', 'पॉडकास्ट', 'टेक्नोलॉजी', 'स्पेशल्स'];
+
+        $widgetCategories = Category::whereIn('name', $widgetCategoryNames)->get()->keyBy('name');
+
+        $sideWidgets = [];
+        foreach ($widgetCategoryNames as $name) {
+            if ($widgetCategories->has($name)) {
+                $cat = $widgetCategories[$name];
+
+                $blogs = Blog::with('category')
+                    ->where('status', 1)
+                    ->where('categories_ids', $cat->id)
+                    ->latest('updated_at')
+                    ->limit($name === 'पॉडकास्ट' ? 1 : 5)
+                    ->get();
+
+                if ($blogs->count()) {
+                    $sideWidgets[] = [
+                        'categoryName' => $name,
+                        'category' => $cat,
+                        'blogs' => $blogs,
+                    ];
+                }
+            }
+        }
+
+        // Device detection
+        $agent = new Agent();
+
+        // Return AMP view
+        return view('videoDetail-amp', [
+            'video' => $video,
+            'latests' => $latests,
+            'detailsAds' => $detailsAds,
+            'sideWidgets' => $sideWidgets,
+            'youtubeVideoId' => $youtubeVideoId,
+            'isMobile' => $agent->isMobile()
+        ]);
     }
 
 
@@ -212,7 +293,7 @@ class VideoController extends Controller
         try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
         //return redirect('/video')->with('success', 'Video uploaded successfully!');
@@ -370,7 +451,7 @@ class VideoController extends Controller
         try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
         //return redirect('/video')->with('success', 'Video updated successfully!');
@@ -405,7 +486,7 @@ class VideoController extends Controller
         try {
             app(\App\Services\ExportHome::class)->run();
         } catch (\Throwable $e) {
-            \Log::error('ExportHome failed', ['error' => $e->getMessage()]);
+            Log::error('ExportHome failed', ['error' => $e->getMessage()]);
         }
 
         //return redirect()->back()->with('success', 'Video deleted successfully.');

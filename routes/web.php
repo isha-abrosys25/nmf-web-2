@@ -190,6 +190,8 @@ Route::prefix('/video')->group(function () {
     Route::get('/edit/{id}', [VideoController::class, 'editVideo'])->name('editVideo');
     Route::post('/edit/{id}', [VideoController::class, 'updateVideo'])->name('updateVideo');
     Route::get('/{cat_name}/{name}', [VideoController::class, 'showVideo'])->name('showVideo');
+    Route::get('/{cat_name}/{name}/amp', [VideoController::class, 'showVideoAmp'])->name('showVideoAmp');
+
     //NL1001:18Sep:2025:Added
     Route::delete('/videos/{id}', [VideoController::class, 'destroy'])->name('videos.destroy');
 

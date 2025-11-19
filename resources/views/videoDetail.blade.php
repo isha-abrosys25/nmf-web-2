@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('head')
+    <link rel="amphtml" href="{{ url()->current() . '/amp' }}">
+@endsection
 {{-- Video.js CSS --}}
 <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 <link href="https://unpkg.com/videojs-theme-city@latest/dist/videojs-theme-city.css" rel="stylesheet" />
