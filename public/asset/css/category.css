@@ -235,6 +235,11 @@
     margin-bottom: 10px;
     font-size: 20px;
   }
+
+  a {
+    font-weight: 500; color: blue;
+    text-decoration: underline;
+  }
 }
 
 .at_sub {
@@ -258,6 +263,7 @@ a.trendingtopic_container {
   padding-inline: 10px;
   padding-block: 3px 0px;
   color: #333;
+  text-decoration: none;
   font-weight: 500;
   font-size: 15px;
   border-radius: 4px;
@@ -496,6 +502,8 @@ a.trendingtopic_container {
     left: 5px;
     font-size: 13px;
     line-height: 20px;
+    color: #ff0000;
+    text-decoration: none;
   }
 
 }
@@ -732,7 +740,8 @@ a.trendingtopic_container {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  color: #ffffff;
+  color: #ffffff !important;
+  text-decoration: none !important;
   padding: 0.7em 3.3em 0.7em 1.7em;
   font-size: 18px;
   border-radius: 0.5em;
@@ -1896,6 +1905,9 @@ a.trendingtopic_container {
       line-height: 30px;
       margin-bottom: 10px;
       font-size: 20px;
+    }
+     a {
+      font-weight: 500;
     }
   }
 
