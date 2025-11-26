@@ -366,12 +366,76 @@
 
     <section class="custom_block">
         @if (!empty($sectionCategories[5]))
-            @include('components.news-nine-style', [
-                'cat_id' => $sectionCategories[5]['catid'],
-                'cat_name' => $sectionCategories[5]['name'],
-                'cat_site_url' => $sectionCategories[5]['site_url'],
+        @include('components.news-nine-style', [
+            'cat_id' => $sectionCategories[5]['catid'],
+            'cat_name' => $sectionCategories[5]['name'],
+            'cat_site_url' => $sectionCategories[5]['site_url'],
             ])
         @endif
+        <div class="rasifal-section">
+            <div class="cm-container">
+                <div class="rashifal-container" role="region" aria-label="राशिफल दैनिक">
+  <div class="rashifal-box">
+    <div class="rotating-bg" aria-hidden="true"></div>
+    <div class="rashifal-wrapper">
+      <button class="nav-btn prev" aria-label="पिछला राशिफल"><i class="fas fa-chevron-left"></i></button>
+      <div class="rashifal-slider" tabindex="0" role="listbox" aria-live="polite" aria-label="राशि चिन्ह">
+        <div class="rashifal-item spacer" aria-hidden="true"></div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/mesh.png" alt="मेष" data-sign="aries" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="true">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/vrishabha.png" alt="वृषभ" data-sign="taurus" class="active" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/mithun.png" alt="मिथुन" data-sign="gemini" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/kark.png" alt="कर्क" data-sign="cancer" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/singh.png" alt="सिंह" data-sign="leo" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/kanya.png" alt="कन्या" data-sign="virgo" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/tulla.png" alt="तुला" data-sign="libra" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/vruschika.png" alt="वृश्चिक" data-sign="scorpio" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/dhanu.png" alt="धनु" data-sign="sagittarius" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/makar.png" alt="मकर" data-sign="capricorn" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/kumbh.png" alt="कुंभ" data-sign="aquarius" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item" role="option" aria-selected="false">
+          <img src="https://www.newsnmf.com/file/rashifal/2025/04/meen.png" alt="मीन" data-sign="pisces" loading="lazy" tabindex="0" />
+        </div>
+        <div class="rashifal-item spacer" aria-hidden="true"></div>
+      </div>
+      <button class="nav-btn next" aria-label="अगला राशिफल"><i class="fas fa-chevron-right"></i></button>
+    </div>
+ 
+    <h2 id="rashifal-title">आपके तारे - दैनिक: वृषभ</h2>
+    <p id="rashifal-text">
+      मन की चिंता दूर होगी। शिक्षा से जुड़े लोगों को लाभ होगा।  
+      परिवार से संबंधित काम बनेंगे।  
+      आवश्यक टिप: क्रोध से बचें।  
+      शुभ रंग: गुलाबी  
+      उपाय: किसी गरीब को भोजन दान करें।  
+    </p>
+    <a href="#" class="more-link" aria-label="और पढ़ें">आगे ></a>
+  </div>
+</div>
+
+            </div>
+        </div>
     </section>
 
     <div class="div_row mb-3">
@@ -631,6 +695,5 @@
         </div>
     </div>
     <!-- video js -->
-
-
+<script src="{{ asset('asset/js/rashifal.js') }}" defer></script>
 @endsection
