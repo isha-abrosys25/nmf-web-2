@@ -2371,176 +2371,189 @@ body.boxed .page-wrapper .cm-container {
 /* ======================================= */
 /* Rashifal*/
 /* ======================================= */
-.rashifal-container {
-  display: flex;
-  justify-content: center;
-  padding: 30px;
+.rasifal-section {
+    margin-bottom: 15px;
 }
- 
-.rashifal-box {
-position: relative;
+
+.rashifal-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.rashifal-container .adBgSidebar {
     width: 100%;
-    max-width: 600px;
+}
+
+.rashifal-box {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
     background: #000e39;
-    padding: 38px 55px;
+    padding: 35px;
     border-radius: 12px;
     color: white;
     text-align: center;
     overflow: hidden;
     z-index: 1;
     min-height: 345px;
+    margin-right: 15px;
 }
+
 .rotating-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 480px;
-  height: 480px;
-  background: url('/asset/images/dharm_gyan/rashifal-bg.png') no-repeat center center;
-  background-size: contain;
-  opacity: 0.1;
-  transform-origin: center center;
-  animation: rotate 60s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-  transform: translate(-50%, -50%) rotate(0deg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 480px;
+    height: 480px;
+    background: url('/asset/images/dharm_gyan/rashifal-bg.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.15;
+    transform-origin: center center;
+    animation: rotate 60s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
 }
- 
+
 @keyframes rotate {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
- 
+
 .rashifal-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  max-width: 650px;
-  z-index: 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 650px;
+    z-index: 2;
 }
- 
+
 .rashifal-slider {
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  scroll-behavior: smooth;
-  margin-top: -22px;
-  margin-bottom: 30px;
-  padding-bottom: 5px;
-  flex-shrink: 0;
-  max-width: 500px;
-  outline: none;
-  cursor: grab;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    margin-top: -22px;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    flex-shrink: 0;
+    max-width: 500px;
+    outline: none;
+    cursor: grab;
 }
- 
+
 .rashifal-slider:active {
-  cursor: grabbing;
+    cursor: grabbing;
 }
- 
+
 .rashifal-slider::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
- 
+
 .rashifal-item {
-  flex: 0 0 auto;
-  width: 82px;
-  margin: 0 6px;
-  text-align: center;
-  padding: 8px;
+    flex: 0 0 auto;
+    width: 82px;
+    margin: 0 6px;
+    text-align: center;
+    padding: 8px;
 }
- 
+
 .rashifal-item.spacer {
-  flex: 0 0 50%;
-  height: 0;
-  visibility: hidden;
+    flex: 0 0 50%;
+    height: 0;
+    visibility: hidden;
 }
- 
+
 .rashifal-item img {
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: 0.3s, box-shadow 0.3s;
-  border-radius: 8px;
-  outline-offset: 4px;
+    width: 58px;
+    height: 55px;
+    padding: 7px;
+    cursor: pointer;
+    transition: 0.3s, box-shadow 0.3s;
+    border-radius: 13px;
+    outline-offset: 4px;
 }
- 
+
 .rashifal-item img:hover,
 .rashifal-item img:focus {
-  opacity: 1;
-  box-shadow: 0 0 8px 2px #ffd417;
-  transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 5px 2px #ffd417;
+    transform: scale(1.1);
 }
- 
+
 .rashifal-item img.active {
-  opacity: 1;
-  transform: scale(1.12);
-  filter: drop-shadow(0 0 5px #ffcc00);
-   box-shadow: 0 0 1px 3px #ffcd06; 
+    opacity: 1;
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 5px #ffcc00);
+    box-shadow: 0 0 1px 3px #ffcd06;
 }
- 
+
 .nav-btn {
-  width: 40px;
-  height: 40px;
-  background: #ffd417;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  position: absolute;
-  top: 12px;
-  transform: translateY(-50%);
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #000;
-  opacity: 0.8;
-  transition: opacity 0.3s;
+    width: 40px;
+    height: 40px;
+    background: #ffcd06;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    transform: translateY(-50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #000;
+    opacity: 0.8;
+    transition: opacity 0.3s;
 }
- 
+
 .nav-btn.prev {
-  left: -45px;
+    left: -22px;
 }
- 
+
 .nav-btn.next {
-  right: -45px;
+    right: -22px;
 }
- 
+
 .rashifal-box:hover .nav-btn,
 .nav-btn:focus {
-  opacity: 1;
-  pointer-events: auto;
-  outline: none;
+    opacity: 1;
+    pointer-events: auto;
+    outline: none;
 }
- 
+
 .nav-btn:hover {
-  background: #ffcc00;
+    background: #ffcc00;
 }
- 
+
 h2 {
-  font-size: 22px;
-  font-weight: 400;
-  margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 15px;
 }
- 
+
 #rashifal-text {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 15px;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
- 
+
 .more-link {
-  color: #ffcc00;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
+    color: #ffcc00;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
 }
- 
+
 /* ------------------------------ */
 .adsbygoogle {
     display: block;
@@ -11549,6 +11562,52 @@ footer p {
 
 
 @media (max-width: 600px) {
+
+    /* ------------- Rashifal---------- */
+    .rashifal-slider {
+    margin-top: -22px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    }
+    .rashifal-container {
+        flex-direction: column;
+    }
+
+    .rashifal-item img {
+        width: 49px;
+        height: 47px;
+        padding: 5px;
+    }
+
+    .rashifal-item {
+        flex: 0 0 auto;
+        width: 68px;
+        margin: 0;
+    }
+
+    .rashifal-box {
+        border-radius: 0px;
+        padding: 33px 22px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .nav-btn.next {
+        right: -10px;
+    }
+
+    .nav-btn.prev {
+        left: -10px;
+    }
+    .rashifal-item.spacer {
+    flex: 0 0 50%;
+    }
+    .rotating-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    }
+    /* ------------- ---------- */
     h1.title_video {
         font-size: 22px !important;
         line-height: 28px !important;
