@@ -223,7 +223,7 @@
                                                 {{-- Description --}}
                                                 <div class="at_content">
                                                     {{-- {!! $video->description !!} --}}
-                                                    <h2 class="rt_sub2 mt-1">
+                                                    <h2 class="rt_sub mt-1">
                                                         {!! $video->description !!}
                                                     </h2>
 
